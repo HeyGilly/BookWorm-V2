@@ -1,23 +1,38 @@
 package com.bookworm.bookwormv2.models;
 
-public class bookshelf {
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "BOOKSHELF")
+public class Bookshelf {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "BOOK_ID")
     private long id;
+    @Column(name = "ISBN")
     private long isbn;
+    @Column(name = "BOOK_TITLE")
     private String title;
+    @Column(name = "AUTHOR")
     private String author;
+    @Column(name = "DATA_PUBLISHED")
     private String date_published;
+    @Column(name = "COVER_PAGE")
     private String cover_page;
+    @Column(name = "DESCRIPTION")
     private String description;
+    @Column(name = "GENRE")
     private String genre;
+    @Column(name = "PAGE_COUNT")
     private int page_count;
+    @Column(name = "RATING")
     private int rating;
 
     //-- Empty Constructor
-    public bookshelf() {}
+    public Bookshelf() {}
 
     //-- Whole Container
-    public bookshelf(long id, long isbn, String title, String author, String cover_page, String description, String genre, int page_count, String date_published, int rating) {
+    public Bookshelf(long id, long isbn, String title, String author, String cover_page, String description, String genre, int page_count, String date_published, int rating) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
