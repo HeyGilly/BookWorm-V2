@@ -16,6 +16,20 @@
     <script src="https://kit.fontawesome.com/5d0c1b436d.js" crossorigin="anonymous"></script>
 <style>
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Jost", sans-serif;
+    }
+
+    body{
+        background-color: #f3f5fa;
+        font-family: "Open Sans", sans-serif;
+    }
+
     /*===== Hero Container =====*/
     #hero{
         width: 100%;
@@ -28,7 +42,6 @@
 
     /*===== Heading 1 =====*/
    #hero h1 {
-        font-family: "Jost", sans-serif;
         font-size: 48px;
         font-weight: 700;
         line-height: 56px;
@@ -37,7 +50,6 @@
 
     /*===== Heading 2 =====*/
    #hero h2{
-        font-family: "Jost", sans-serif;
         color: rgba(255, 255, 255, 0.6);
         margin-bottom: 50px;
         font-size: 24px;
@@ -169,7 +181,53 @@
         margin-bottom: 0;
     }
 
+    /*=====  Books Available  =====*/
 
+    #books-available{
+        padding: 60px 0;
+    }
+    #books-available .section-title{
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    .section-title h2 {
+        font-size: 32px;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        position: relative;
+        color: #37517e;
+    }
+
+    .section-title p {
+            line-height: 24px;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+    .section-title h2::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 120px;
+        height: 1px;
+        background: #ddd;
+        bottom: 1px;
+        left: calc(50% - 60px);
+    }
+
+    .section-title h2::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 40px;
+        height: 3px;
+        background: #47b2e4;
+        bottom: 0;
+        left: calc(50% - 20px);
+    }
 
 
 </style>
@@ -233,6 +291,22 @@
 
 
     <!===== Books Available =====>
+    <div id="books-available" class="services section-bg">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Daily Books</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
         <div>
             <h3>All Books</h3>
             <section th:each="book:${bookshelf}" class="d-flex">
