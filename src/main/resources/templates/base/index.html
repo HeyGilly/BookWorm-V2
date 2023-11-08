@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <!--Head in Thymeleaf - Fragments-->
 <head>
     <meta charset="UTF-8">
@@ -14,225 +14,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/5d0c1b436d.js" crossorigin="anonymous"></script>
-<style>
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: "Jost", sans-serif;
-    }
-
-    body{
-        background-color: #f3f5fa;
-        font-family: "Open Sans", sans-serif;
-    }
-
-    /*===== Hero Container =====*/
-    #hero{
-        width: 100%;
-        height: 80vh;
-        background: #37517e;
-    }
-    #hero .container{
-        padding-top: 72px;
-    }
-
-    /*===== Heading 1 =====*/
-   #hero h1 {
-        font-size: 48px;
-        font-weight: 700;
-        line-height: 56px;
-        color: #fff;
-    }
-
-    /*===== Heading 2 =====*/
-   #hero h2{
-        color: rgba(255, 255, 255, 0.6);
-        margin-bottom: 50px;
-        font-size: 24px;
-    }
-
-    /*===== Get Started Button =====*/
-    .btn-get-started{
-        font-family: "Jost", sans-serif;
-        font-weight: 500;
-        font-size: 16px;
-        letter-spacing: 1px;
-        padding: 10px 28px;
-        border-radius: 50px;
-        margin: 10px 0 0 0;
-        color: #fff;
-        background: #47b2e4;
-        transition: 0.5s;
-        /*display: inline-block;*/
-        text-decoration: none;
-    }
-    .btn-get-started:hover {
-        background: #209dd8;
-    }
-
-   /*===== Login Button =====*/
-    .btn-log-in{
-        font-size: 16px;
-        display: flex;
-        align-items: center;
-        margin: 10px 0 0 25px;
-        color: #fff;
-        line-height: 1px;
-        text-decoration: none;
-        transition: 0.5s;
-    }
-    .btn-log-in:hover{
-        color:#47b2e4;
-    }
-   /*===== Hero - Image Logo =====*/
-    .hero-img img{
-        width: 75%;
-    }
-
-    /*=== Screen smaller then 991px ===*/
-    @media (max-width: 991px){
-        #hero {
-            height:100vh;
-            text-align: center;
-        }
-        .hero-img{
-            text-align: center;
-        }
-
-        .hero-img img{
-            width: 50%;
-        }
-    }
-
-    /*=== Screen smaller then 768px ===*/
-    @media (max-width: 768px){
-        #hero h1{
-            font-size: 28px;
-            line-height: 36px;
-        }
-        #hero h2{
-            font-size:18px;
-            line-height: 24px;
-            margin-bottom: 30px;
-        }
-        #hero .hero-img img{
-            width: 70%;
-        }
-    }
-
-    /*=== Screen smaller then 575px ===*/
-    @media (max-width: 575px){
-        #hero .hero-img img{
-            width: 80%;
-        }
-        #hero .btn-get-started{
-            font-size: 16px;
-            padding: 10px 24px;
-        }
-    }
-
-
-/*=====  Services  =====*/
-    #services{
-        margin-top: -120px;
-        padding: 60px;
-        overflow: hidden;
-        z-index: 100;
-        display: block;
-        position: relative;
-    }
-    .icon-container {
-        box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
-        padding: 50px 30px;
-        background: #fff;
-        border-radius: 50px 25px;
-        z-index: 100;
-        display: block;
-        position: relative;
-        transition: all ease-in-out 0.4s;
-    }
-
-    .icon-container:hover{
-        transform: translateY(-10px);
-    }
-
-    .services .icon-container .icon{
-        margin-bottom: 10px;
-    }
-
-    .icon .icon-logo {
-        color: #47b2e4;
-        font-size: 36px;
-    }
-
-    .icon-container h4{
-        font-weight: 400;
-        margin-bottom: 15px;
-        font-size: 24px;
-        color: #37517e;
-    }
-    .icon-container p{
-        line-height: 24px;
-        font-size: 14px;
-        margin-bottom: 0;
-    }
-
-    /*=====  Books Available  =====*/
-
-    #books-available{
-        padding: 60px 0;
-    }
-    #books-available .section-title{
-        text-align: center;
-        padding-bottom: 30px;
-    }
-
-    .section-title h2 {
-        font-size: 32px;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        position: relative;
-        color: #37517e;
-    }
-
-    .section-title p {
-            line-height: 24px;
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-
-    .section-title h2::before {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 120px;
-        height: 1px;
-        background: #ddd;
-        bottom: 1px;
-        left: calc(50% - 60px);
-    }
-
-    .section-title h2::after {
-        content: "";
-        position: absolute;
-        display: block;
-        width: 40px;
-        height: 3px;
-        background: #47b2e4;
-        bottom: 0;
-        left: calc(50% - 20px);
-    }
-
-
-</style>
+    <!-- Personal Stylesheet -->
+    <link rel="stylesheet" th:href="@{/css/myStylesheet.css}">
 </head>
 <body>
+
+
+    <!===== Navbar =====>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
+        <div class="container">
+            <a class="navbar-brand" href="#">Bookworm</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav d-lg-flex align-items-lg-center">
+                    <li class="py-3 py-lg-0 me-lg-3"><a href="" class="btn-log-in-nav nav-link">Log in</a></li>
+                    <li class="pb-3 pb-lg-0"><a href="" class="btn-get-started text-center">Get Started</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
 
 
     <!===== Hero Section =====>
@@ -256,67 +62,82 @@
 
 
     <!===== Services =====>
-        <div id="services" class="services section-bg">
-            <div class="container" >
-                <section class="row">
-                    <!===== Search =====>
-                    <article class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                        <section class="icon-container">
-                            <div class="icon"><i class="fa-solid fa-magnifying-glass icon-logo"></i></div>
-                            <h4>Search for Books</h4>
-                            <p>Explore our database to discover the book that will steal your heart.</p>
-                        </section>
-                    </article>
-                    <!===== Review =====>
-                    <article class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                        <section class="icon-container">
-                            <div class="icon"><i class="fa-solid fa-comment icon-logo"></i></div>
-                            <h4>Leave reviews</h4>
-                            <p>Share your thoughts and pen down your reviews to let the world know what you truly felt about that book!</p>
-                        </section>
-                    </article>
-                    <!===== Favorite =====>
-                    <article class="col-xl-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-                        <section class="icon-container">
-                            <div class="icon"><i class="fa-solid fa-heart-circle-plus icon-logo"></i></div>
-                            <h4>Favorite books</h4>
-                            <p>Never lose sight of your beloved books and discover your next great read!</p>
-                        </section>
-                    </article>
-
-
-                </section>
-            </div>
+    <div id="services" class="services section-bg">
+        <div class="container" >
+            <section class="row">
+                <!===== Search =====>
+                <article class="col-xl-4 col-md-4 d-flex align-items-stretch mt-4 mt-md-0">
+                    <section class="icon-container">
+                        <div class="icon"><i class="fa-solid fa-magnifying-glass icon-logo"></i></div>
+                        <h4>Search for Books</h4>
+                        <p>Explore our database to discover the Explore our database to discover the book that will steal your heart.</p>
+                    </section>
+                </article>
+                <!===== Review =====>
+                <article class="col-xl-4 col-md-4 d-flex align-items-stretch mt-4 mt-md-0">
+                    <section class="icon-container">
+                        <div class="icon"><i class="fa-solid fa-comment icon-logo"></i></div>
+                        <h4>Leave reviews</h4>
+                        <p>Share your thoughts and pen down your reviews to let the world know what you truly felt about that book!</p>
+                    </section>
+                </article>
+                <!===== Favorite =====>
+                <article class="col-xl-4 col-md-4 d-flex align-items-stretch mt-4 mt-md-0">
+                    <section class="icon-container">
+                        <div class="icon"><i class="fa-solid fa-heart-circle-plus icon-logo"></i></div>
+                        <h4>Favorite books</h4>
+                        <p>Never lose sight of your beloved books and discover your next great read!</p>
+                    </section>
+                </article>
+            </section>
         </div>
+    </div>
 
 
     <!===== Books Available =====>
-    <div id="books-available" class="services section-bg">
+    <div class="services section-bg pt-5">
         <div class="container">
-
+            <!==== Title ====>
             <div class="section-title">
                 <h2>Daily Books</h2>
                 <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
             </div>
-
+            <div class="position-relative">
+                <!===== Arrow Section =====>
+                <section class="left-arrow"><i class="fa-solid fa-angle-left"></i></section>
+                <section class="right-arrow"><i class="fa-solid fa-angle-right"></i></section>
+                <!===== Book Section =====>
+                <section class="d-flex overflow-scroll container position-relative" >
+                    <section class="mx-3 book-container" th:each="book:${bookshelf}">
+                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
+                        <p class="book-info-container">
+                            <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                            <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                        </p>
+                    </section>
+                </section>
+            </div>
 
         </div>
     </div>
 
 
 
-
-
-        <div>
-            <h3>All Books</h3>
-            <section th:each="book:${bookshelf}" class="d-flex">
-                <span th:text="${book.getTitle()}" class="border border-3 border-dark">Title of Book</span>
-            </section>
+    <footer id="footer" class="container-fluid mt-5">
+        <div class="container footer-bottom clearfix">
+            <div class="copyright">
+                &copy; Fake Copyright <strong><span>Bookworm V.2</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                Designed by <a href="https://www.linkedin.com/in/heygilly/">HeyGilly</a>
+            </div>
         </div>
+    </footer>
+
+
 
 
     <!--  Bootstrap 5.2  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
 </body>
 </html>
