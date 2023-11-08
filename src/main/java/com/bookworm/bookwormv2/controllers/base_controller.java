@@ -1,19 +1,27 @@
 package com.bookworm.bookwormv2.controllers;
 
-import ch.qos.logback.core.model.Model;
+import org.springframework.ui.Model;
+import com.bookworm.bookwormv2.repository.BookshelfRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
 public class base_controller {
 
+    private final BookshelfRepository bookshelfRepository;
+
+    public base_controller(BookshelfRepository bookshelfRepository) {
+        this.bookshelfRepository = bookshelfRepository;
+    }
+
 
     @GetMapping("/")
-    public String index(){
-        return "base/index";
-    }
+    public String home(Model model){
+        // The Reviews are going to be in descending order
+        model.addAttribute("bookshelf", bookshelfRepository.findAll());
+        return "base/index";}
+
 
     @GetMapping("/aboutBookworm")
     public String aboutPage(){
