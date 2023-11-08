@@ -13,11 +13,42 @@ body{
     font-family: "Open Sans", sans-serif;
 }
 
-/*===== Navbar =====*/
+/*======= Navbar =======*/
+.navbar-brand{
+    font-family: "Jost", sans-serif;
+}
 .navbar-nav{
-    margin-left: auto;
+
 }
 
+.btn-log-in-nav{
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    /*margin: 10px 0 0 25px;*/
+    color: #47b2e4;
+    line-height: 1px;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.btn-log-in-nav:hover{
+    color:#209dd8;
+    transform: scale(1.1);
+}
+
+/*===== Screen smaller then 991px =====*/
+@media (max-width: 991px){
+
+    /*===== nav =====*/
+    .btn-log-in-nav{
+        margin: 12px 0 24px 0;
+        transform: none;
+    }
+    .btn-log-in-nav:hover{
+        color: #17709a;
+        transform: none;
+    }
+}
 /*===== Hero Container =====*/
 #hero{
     width: 100%;
@@ -51,18 +82,16 @@ body{
     letter-spacing: 1px;
     padding: 10px 28px;
     border-radius: 50px;
-    margin: 10px 0 0 0;
     color: #fff;
     background: #47b2e4;
     transition: 0.5s;
-    /*display: inline-block;*/
     text-decoration: none;
 }
 .btn-get-started:hover {
     background: #209dd8;
 }
 
-/*===== Login Button =====*/
+/*===== Login Button - hero section =====*/
 .btn-log-in{
     font-size: 16px;
     display: flex;
@@ -75,20 +104,6 @@ body{
 }
 .btn-log-in:hover{
     color:#47b2e4;
-    transform: scale(1.1);
-}
-.btn-log-in-nav{
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    margin: 10px 0 0 25px;
-    color: #47b2e4;
-    line-height: 1px;
-    text-decoration: none;
-    transition: 0.5s;
-}
-.btn-log-in-nav:hover{
-    color:#209dd8;
     transform: scale(1.1);
 }
 /*===== Hero - Image Logo =====*/
@@ -109,13 +124,6 @@ body{
 
     .hero-img img{
         width: 50%;
-    }
-
-    /*=== nav ===*/
-
-    .btn-log-in-nav:hover{
-        color: #17709a;
-        transform: none;
     }
 }
 
@@ -147,7 +155,7 @@ body{
 }
 
 
-/*=====  Services  =====*/
+/*========  Services  ========*/
 #services{
     margin-top: -120px;
     padding: 60px;
@@ -201,7 +209,7 @@ body{
     }
 }
 
-/*=====  Books Section  =====*/
+/*========  Books Section  ========*/
 /*== Section of Title ==*/
 .section-title{
     text-align: center;
