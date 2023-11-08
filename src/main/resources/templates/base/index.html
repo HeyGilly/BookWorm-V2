@@ -23,13 +23,20 @@
     <!===== Navbar =====>
     <nav class="navbar navbar-expand-lg bg-body-tertiary py-3">
         <div class="container">
-            <a class="navbar-brand" href="#">Bookworm</a>
+            <!== Nav Title ==>
+            <span class="navbar-brand">Bookworm</span>
+            <!== Button ==>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav d-lg-flex align-items-lg-center">
-                    <li class="py-3 py-lg-0 me-lg-3"><a href="" class="btn-log-in-nav nav-link">Log in</a></li>
+            <!== Drop Down ==>
+            <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto d-lg-flex align-items-lg-center">
+                    <!== About Bookworm ==>
+                    <li class=""><a th:href="@{/aboutBookworm}" href="" class="nav-link">About Bookworm</a></li>
+                    <!== Log in button ==>
+                    <li class="mx-lg-3"><a href="" class="btn-log-in-nav nav-link">Log in</a></li>
+                    <!== Get Started Button ==>
                     <li class="pb-3 pb-lg-0"><a href="" class="btn-get-started text-center">Get Started</a></li>
                 </ul>
             </div>
