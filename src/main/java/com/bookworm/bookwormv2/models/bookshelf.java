@@ -6,23 +6,23 @@ public class bookshelf {
     private long isbn;
     private String title;
     private String author;
-    private String book_image;
+    private String date_published;
+    private String cover_page;
     private String description;
     private String genre;
     private int page_count;
-    private String date_published;
     private int rating;
 
     //-- Empty Constructor
     public bookshelf() {}
 
     //-- Whole Container
-    public bookshelf(long id, long isbn, String title, String author, String book_image, String description, String genre, int page_count, String date_published, int rating) {
+    public bookshelf(long id, long isbn, String title, String author, String cover_page, String description, String genre, int page_count, String date_published, int rating) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.book_image = book_image;
+        this.cover_page =cover_page;
         this.description = description;
         this.genre = genre;
         this.page_count = page_count;
@@ -43,8 +43,8 @@ public class bookshelf {
     public String getAuthor() {return author;}
     public void setAuthor(String author) {this.author = author;}
 
-    public String getBook_image() {return book_image;}
-    public void setBook_image(String book_image) {this.book_image = book_image;}
+    public String getCover_page() {return cover_page;}
+    public void setCover_page(String cover_page) {this.cover_page = cover_page;}
 
     public String getDescription() {return description;}
     public void setDescription(String description) {this.description = description;}
