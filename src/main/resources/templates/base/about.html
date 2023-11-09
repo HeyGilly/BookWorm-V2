@@ -1,20 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset='UTF-8'>
-  <meta name='author' content='HeyGilly'>
-  <meta name='subject' content="About Page for Bookworm V.2">
-  <meta name='keywords' content='Bookworm V.2, HeyGilly, Author,About Bookworm'>
-  <meta name='description' content="BookWorm V.2, powered by Spring Boot, offers users the ability to explore, review, and organize their beloved books. By employing JPA annotations for seamless object mapping and Bootstrap for a responsive front-end design. Additionally, I implemented book search functionality and a 'like' feature for personalized collections, uniting design and technology to cultivate a thriving community of book enthusiasts.">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Title of Web Page-->
-  <title>About Page</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<!=== Head in Thymeleaf - Fragments ===>
+<head th:replace="~{partials/head.html :: head('Welcome to journey')}" ></head>
 <body>
 
 
+<!===== Navbar =====>
+<nav th:replace="~{partials/navbar.html :: Navbar}"></nav>
+
+<!===== Hero Section =====>
+<main id="hero-about" class="container-fluid d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <section class="pt-4 pt-lg-0">
+        <h1>About Bookworm</h1>
+        <h2>Learn about the Bookworm application and the creator. </h2>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!===== About Bookworm Section =====>
+<div id="aboutBookworm">
+  <section class="container">
+
+    <div class="aboutBookwormSection">
+      <h2>About Bookworm</h2>
+    </div>
+    <div class="content">
+      <p>Nunc lectus diam, sagittis sit amet nibh eu, vestibulum varius velit. Suspendisse elementum ligula et metus accumsan dictum. Mauris libero sem, fringilla et mattis id, faucibus quis est. Nunc at malesuada neque. Donec sit amet ligula dictum, auctor dolor ut, accumsan velit. Pellentesque quis mauris a ex dapibus blandit. Curabitur a orci ultrices orci sodales congue eu sit amet diam. Phasellus quis diam gravida, condimentum tellus eget, gravida elit. Curabitur lorem massa, rutrum nec ultricies sed, scelerisque eget risus. Vivamus ornare, orci non interdum porttitor, mauris nisl pulvinar nisi, eu ornare nibh turpis id ligula. Vestibulum eget nulla arcu. Integer non felis risus. Pellentesque eget lacus sed ligula maximus luctus eget id nibh. Etiam vitae enim non ante commodo feugiat. Duis nisi eros, vehicula sed venenatis quis, auctor nec neque. </p>
+    </div>
+
+  </section>
+</div>
+
+<!==== Languages Used =====>
+<section id="languages" class="languages section-bg">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-2 col-4 d-flex align-items-center justify-content-center">
+        <img th:src="@{img/languages/bootstrap.png}" class="img-fluid" alt="Bootstrap">
+      </div>
+
+      <div class="col-lg-2 col-4 d-flex align-items-center justify-content-center">
+        <img th:src="@{img/languages/spring-boot.png}" class="img-fluid" alt="Spring Boot">
+      </div>
+
+      <div class="col-lg-2 col-4 d-flex align-items-center justify-content-center">
+        <img th:src="@{img/languages/javascript.png}" class="img-fluid" alt="JavaScript">
+      </div>
+
+      <div class="col-lg-2 col-4 d-flex align-items-center justify-content-center">
+        <img th:src="@{img/languages/thymleaf.png}" class="img-fluid" alt="Thymeleaf">
+      </div>
+
+      <div class="col-lg-2 col-4 d-flex align-items-center justify-content-center">
+        <img th:src="@{img/languages/mysql.png}" class="img-fluid" alt="MySQL">
+      </div>
+
+      <div class="col-lg-2 col-4 d-flex align-items-center justify-content-center">
+        <img th:src="@{img/languages/java.png}" class="img-fluid" alt="Java">
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 
+
+
+<!=== Footer ===>
+<footer th:replace="~{partials/footer.html :: Footer}"></footer>
 
 </body>
 </html>
