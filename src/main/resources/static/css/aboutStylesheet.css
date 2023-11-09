@@ -1,0 +1,152 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Jost", sans-serif;
+}
+
+body{
+    background-color: #f3f5fa;
+    font-family: "Open Sans", sans-serif;
+}
+
+
+/*====== Hero - about Page ======*/
+#hero-about{
+    width: 100%;
+    height: 40vh;
+    background: #37517e;
+}
+
+#hero-about h1{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+}
+#hero-about h2{
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 50px;
+    font-size: 24px;
+}
+
+/*=== Screen smaller then 991px ===*/
+@media (max-width: 991px){
+    /*=== Hero ===*/
+    #hero-about {
+        height:75vh;
+        text-align: center;
+    }
+}
+
+/*=== Screen smaller then 768px ===*/
+@media (max-width: 768px){
+    #hero-about h1{
+        font-size: 28px;
+        line-height: 36px;
+    }
+    #hero-about h2{
+        font-size:18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+/*=== Screen smaller then 575px ===*/
+@media (max-width: 575px){
+
+}
+
+
+/*====== About - about Page ======*/
+#aboutBookworm{
+    padding: 60px 0;
+}
+.aboutBookwormSection{
+    text-align: center;
+    padding-bottom: 30px;
+}
+.aboutBookwormSection h2{
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: #37517e;
+}
+.aboutBookwormSection h2::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: #ddd;
+    bottom: 1px;
+    left: calc(50% - 60px);
+}
+
+.aboutBookwormSection h2::after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #47b2e4;
+    bottom: 0;
+    left: calc(50% - 20px);
+}
+
+/*====== languages Used - about Page ======*/
+#languages{
+    padding: 12px 0;
+    text-align: center;
+}
+#languages img {
+    max-width: 45%;
+    display: inline-block;
+    padding: 15px 0;
+    filter: grayscale(100);
+    transition: all 0.4s ease-in-out;
+}
+#languages img:hover{
+    filter: none;
+    transform: scale(1.1);
+}
+@media (max-width: 768px) {
+    #languages img {
+        max-width: 40%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
