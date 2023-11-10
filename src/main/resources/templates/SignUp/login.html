@@ -44,16 +44,18 @@
                             <!==== User Password ====>
                             <section class="form-outline mb-2">
                                 <input type="password" id="userPassword" class="form-control" />
-                                <label class="form-label" for="userPassword">Password</label>
+                                <aside class="d-flex">
+                                    <label class="form-label" for="userPassword">Password</label>
+                                    <!==== Forgot Password ====>
+                                    <a class="small text-muted ms-auto" th:href="@{#}">Forgot password?</a>
+                                </aside>
                             </section>
                             <!==== Form Container - Submit Button ====>
                             <div class="pt-1 mb-2">
-                                <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                                <button class="btn btn-outline-success btn-lg btn-block" type="button">Login</button>
                             </div>
-                            <!==== Forgot Password ====>
-                            <a class="small text-muted" th:href="@{#}">Forgot password?</a>
                             <!==== Register Here ====>
-                            <p class="mb-5 pb-lg-2" style="color: #393f81">
+                            <p class=" text-center mt-5" style="color: #393f81">
                                 Don't have an account?
                                 <a th:href="@{/Sign-up}" style="color:#393f81;">
                                     Register here
