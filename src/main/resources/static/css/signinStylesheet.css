@@ -1,7 +1,22 @@
 
-
+/*===== Login Page ======*/
+/*=== Main Section ===*/
 #login-section{
     background: #37517e;
     height: 95vh;
+    width: 100%;
+}
+
+/*=== Whole Container ===*/
+#login-section .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/*=== Image ===*/
+#login-section .container .row header img{
+    height: 100%;
     width: 100%;
 }
