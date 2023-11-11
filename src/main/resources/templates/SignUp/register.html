@@ -9,8 +9,52 @@
 <nav th:replace="partials/navbar.html :: Navbar"></nav>
 
 
+<!--
+    First Name
+    Last Name
+    Username
+    Email
+    Password
+-->
 
-<h1>Sign up</h1>
+<main>
+    <div class=" border border-success border-3">
+        <section class="row border border-danger border-3 d-flex justify-content-center">
+            <!===== Form ====>
+            <form class="row g-3 col-xl-6 col-10 col-md-6 border border-4 border-dark">
+                <!==== First Name =====>
+                <div class="col-md-6">
+                    <label for="register-firstName" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="register-firstName">
+                </div>
+                <!==== Last Name =====>
+                <div class="col-md-6">
+                    <label for="register-lastName" class="form-label">last Name:</label>
+                    <input type="text" class="form-control" id="register-lastName">
+                </div>
+                <!==== Username =====>
+                <div class="col-12">
+                    <label for="register-username" class="form-label">Username:</label>
+                    <input type="text" class="form-control" id="register-username" placeholder="Username">
+                </div>
+                <!==== Email =====>
+                <div class="col-12">
+                    <label for="register-email" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="register-email" placeholder="email@email.com">
+                </div>
+                <!==== Password =====>
+                <div class="col-12">
+                    <label for="register-password" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="register-password" placeholder="password">
+                </div>
+                <!===== Submit Button ====>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+
+        </section>
+    </div>
+</main>
 
 
 
