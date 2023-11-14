@@ -9,50 +9,45 @@
 <nav th:replace="partials/navbar.html :: Navbar"></nav>
 
 
-<!--
-    First Name
-    Last Name
-    Username
-    Email
-    Password
--->
-
-<main>
-    <div class=" border border-success border-3">
-        <section class="row border border-danger border-3 d-flex justify-content-center">
-            <!===== Form ====>
-            <form class="row g-3 col-xl-6 col-10 col-md-6 border border-4 border-dark">
-                <!==== First Name =====>
-                <div class="col-md-6">
-                    <label for="register-firstName" class="form-label">First Name:</label>
-                    <input type="text" class="form-control" id="register-firstName">
-                </div>
-                <!==== Last Name =====>
-                <div class="col-md-6">
-                    <label for="register-lastName" class="form-label">last Name:</label>
-                    <input type="text" class="form-control" id="register-lastName">
-                </div>
-                <!==== Username =====>
-                <div class="col-12">
-                    <label for="register-username" class="form-label">Username:</label>
-                    <input type="text" class="form-control" id="register-username" placeholder="Username">
-                </div>
-                <!==== Email =====>
-                <div class="col-12">
-                    <label for="register-email" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="register-email" placeholder="email@email.com">
-                </div>
-                <!==== Password =====>
-                <div class="col-12">
-                    <label for="register-password" class="form-label">Password:</label>
-                    <input type="password" class="form-control" id="register-password" placeholder="password">
-                </div>
-                <!===== Submit Button ====>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
 
 
-        </section>
+<main id="login-section">
+    <div class="container">
+        <!===== Form ====>
+        <form id="register-form" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5">
+            <!=== Title ====>
+            <h3 class="text-center fw-bold fs-1">Sign up for free</h3>
+            <hr>
+            <!==== First Name =====>
+            <div class="col-md-6">
+                <label for="register-firstName" class="form-label">First Name:</label>
+                <input type="text" class="form-control" id="register-firstName">
+            </div>
+            <!==== Last Name =====>
+            <div class="col-md-6">
+                <label for="register-lastName" class="form-label">last Name:</label>
+                <input type="text" class="form-control" id="register-lastName">
+            </div>
+            <!==== Username =====>
+            <div class="col-12">
+                <label for="register-username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="register-username" placeholder="Username">
+            </div>
+            <!==== Email =====>
+            <div class="col-12">
+                <label for="register-email" class="form-label">Email:</label>
+                <input type="email" aria-describedby="emailHelp" class="form-control" id="register-email" placeholder="email@email.com">
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <!==== Password =====>
+            <div class="col-12">
+                <label for="register-password" class="form-label">Password:</label>
+                <input aria-describedby="passwordHelp" type="password" class="form-control" id="register-password" placeholder="password">
+                <div id="passwordHelp" class="form-text">Min length 5, Uppercase & Lowercase, 2 Numbers, 2 Special Characters</div>
+            </div>
+            <!===== Submit Button ====>
+            <button type="submit" id="register-form-submit-btn" class="btn btn-primary mt-4 mb-2">Submit</button>
+        </form>
     </div>
 </main>
 
