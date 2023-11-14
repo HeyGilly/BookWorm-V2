@@ -22,12 +22,13 @@
     width: 100%;
 }
 
+
 /*==== Register Form ====*/
 #login-section .container #register-form{
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-#login-section .container #register-form #register-form-submit-btn{
+#login-section .container #register-form #register-form-submit-btn, form div #login-form-submit-btn{
     font-weight: 500;
     font-size: 16px;
     letter-spacing: 1px;
@@ -39,6 +40,6 @@
     text-decoration: none;
     border: none;
 }
-#login-section .container #register-form #register-form-submit-btn:hover{
+#login-section .container #register-form #register-form-submit-btn:hover, form div #login-form-submit-btn:hover{
     background: #209dd8;
 }

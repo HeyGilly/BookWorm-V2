@@ -32,10 +32,8 @@
                             <!== icon and logo ===>
                             <section class="d-flex align-items-center mb-3 pb-1">
                                 <img th:src="@{img/bookworm.png}" th:height="*{120}" alt="logo" class="me-3"/>
-                                <h1 class="h1 fw-bold mb-0">Bookworm</h1>
+                                <h3 class=" fw-bold mb-0">Sign in to your account</h3>
                             </section>
-                            <!==== Form header ====>
-                            <h5 class="fw-normal mb-5 pb-3 letter-spacing-1">Sign in to your account</h5>
                             <!==== User Email ====>
                             <section class="form-outline mb-2">
                                 <input type="email" id="userEmail" class="form-control" />
@@ -52,7 +50,7 @@
                             </section>
                             <!==== Form Container - Submit Button ====>
                             <div class="pt-1 mb-2">
-                                <button class="btn btn-outline-success btn-lg btn-block" type="button">Login</button>
+                                <button type="submit" id="login-form-submit-btn" class="btn btn-primary mt-4 mb-2">Submit</button>
                             </div>
                             <!==== Register Here ====>
                             <p class=" text-center mt-5" style="color: #393f81">
