@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<!=== Head in Thymeleaf - Fragments ===>
+<head th:replace="partials/head.html :: head ('Single Book')" ></head>
 <body>
 
+<a th:href="@{/welcome-page}" class="btn-log-in-nav nav-link">Welcome</a>
+<a th:href="@{/single-book}" class="btn-log-in-nav nav-link">Single Book</a>
+<a th:href="@{/userProfile}" class="btn-log-in-nav nav-link">User Profile</a>
+
+
+<h1>Single Book</h1>
+
+
+
+
+<!=== Footer ===>
+<footer th:replace="partials/footer.html :: Footer"></footer>
 </body>
 </html>
