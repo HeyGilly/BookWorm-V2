@@ -84,9 +84,9 @@
 
         <h3>Search through genres</h3>
         <div class="genre-card-container">
-            <section th:each="book:${AllGenres}">
+            <section th:each="genre:${AllGenres}">
                 <aside class="genre-card">
-                    <h4 th:text="${book.getGenre()}">Thriller</h4>
+                    <h4 th:text="${genre}">Thriller</h4>
                 </aside>
             </section>
         </div>
