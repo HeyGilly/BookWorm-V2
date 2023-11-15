@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary py-3" th:fragment="Navbar">
     <div class="container">
         <!== Nav Title ==>
-        <span class="navbar-brand"><a th:href="@{/}">Bookworm</a></span>
+        <span class="navbar-brand"><a th:href="@{/welcome-page}" class="text-decoration-none">Bookworm</a></span>
         <!== Button ==>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,6 +36,92 @@
         </div>
     </div>
 </nav>
+
+<!===== Hero Section =====>
+<main id="hero-main-page" class="container-fluid d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <section class="pt-4 pt-lg-0">
+                <h1>Welcome bookworm!</h1>
+                <h2>Search through all out books and lets start sharing.</h2>
+            </section>
+        </div>
+    </div>
+</main>
+
+
+
+
+<!===== Thriller Books =====>
+<div class="services section-bg pt-5">
+    <div class="container">
+        <!==== Title ====>
+        <div class="section-title w-75 w-md-50 mx-auto">
+            <h2>Thrillers</h2>
+            <p>Delve into the chilling depths of supernatural suspense as malevolent spirits weave their dark tales, inviting you to navigate the haunting corridors of horror in these spine-tingling, fear-inducing literary masterpieces.</p>
+        </div>
+        <div class="position-relative">
+            <!===== Arrow Section =====>
+            <section class="left-arrow d-none d-lg-block"><i class="fa-solid fa-angle-left"></i></section>
+            <section class="right-arrow d-none d-lg-block"><i class="fa-solid fa-angle-right"></i></section>
+            <!===== Book Section =====>
+            <section class="d-flex overflow-scroll container position-relative" >
+                <section class="mx-3 book-container" th:each="book:${ThrillerBooks}">
+                    <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
+                    <p class="book-info-container">
+                        <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                        <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                    </p>
+                </section>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!==== Genre Section =====>
+<div id="main-page-genre">
+    <section class="container-fluid">
+
+        <h3>Search through genres</h3>
+        <div class="genre-card-container">
+            <section th:each="book:${AllGenres}">
+                <aside class="genre-card">
+                    <h4 th:text="${book.getGenre()}">Thriller</h4>
+                </aside>
+            </section>
+        </div>
+
+    </section>
+</div>
+
+
+
+
+<!===== Fiction Books =====>
+<div class="services section-bg pt-5">
+    <div class="container">
+        <!==== Title ====>
+        <div class="section-title w-75 w-md-50 mx-auto">
+            <h2>Fiction</h2>
+            <p>Embark on an enchanting journey through realms of imagination with timeless tales, captivating characters, and gripping plots in our collection of fiction books.</p>
+        </div>
+        <div class="position-relative">
+            <!===== Arrow Section =====>
+            <section class="left-arrow d-none d-lg-block"><i class="fa-solid fa-angle-left"></i></section>
+            <section class="right-arrow d-none d-lg-block"><i class="fa-solid fa-angle-right"></i></section>
+            <!===== Book Section =====>
+            <section class="d-flex overflow-scroll container position-relative" >
+                <section class="mx-3 book-container" th:each="book:${FictionBooks}">
+                    <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
+                    <p class="book-info-container">
+                        <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                        <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                    </p>
+                </section>
+            </section>
+        </div>
+    </div>
+</div>
 
 
 
