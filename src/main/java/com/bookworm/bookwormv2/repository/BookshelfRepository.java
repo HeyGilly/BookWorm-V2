@@ -12,7 +12,7 @@ public interface BookshelfRepository extends JpaRepository<Bookshelf, Long> {
 
     //== Find By genre
     List<Bookshelf> findAllByGenre(String name);
-    List<Bookshelf> findAllGenre();
+//    List<Bookshelf> findAllGenre();
 
 
 
