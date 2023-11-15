@@ -1,0 +1,97 @@
+/*=== Hero Background ===*/
+#hero-main-page{
+    width: 100%;
+    height: 40vh;
+    background: #37517e;
+}
+/*=== Main Header ===*/
+#hero-main-page h1{
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    color: #fff;
+}
+/*=== Sec Header ===*/
+#hero-main-page h2{
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 50px;
+    font-size: 24px;
+}
+
+/*=== Screen smaller then 991px ===*/
+@media (max-width: 991px){
+    /*=== Hero ===*/
+    #hero-main-page {
+        height:55vh;
+        text-align: center;
+    }
+}
+/*=== Screen smaller then 768px ===*/
+@media (max-width: 768px){
+    #hero-main-page h1{
+        font-size: 28px;
+        line-height: 36px;
+    }
+    #hero-main-page h2{
+        font-size:18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+
+/*=== Genre Section Background ===*/
+#main-page-genre{
+    width: 100%;
+    height: fit-content;
+    background: #37517e;
+    padding: 42px;
+}
+#main-page-genre .container-fluid h3{
+    font-size: 32px;
+    font-weight: 700;
+    color: #fff;
+    padding-bottom: 42px;
+    white-space: nowrap;
+}
+#main-page-genre .container-fluid .genre-card-container{
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+}
+#main-page-genre .container-fluid .genre-card-container .genre-card{
+    height: 18vh;
+    width: 17vw;
+    background: #47b2e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin: 24px;
+    transition: 0.8s;
+}
+#main-page-genre .container-fluid .genre-card-container .genre-card:hover{
+    background:#209dd8;
+    transform: scale(1.03);
+}
+/*=== Screen smaller then 991px ===*/
+@media (max-width: 991px){
+    #main-page-genre .container-fluid h3{
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+    }
+    #main-page-genre .container-fluid .genre-card-container .genre-card{
+        height: 18vh;
+        width: 140px;
+    }
+}
+/*=== Screen smaller then 768px ===*/
+@media (max-width: 768px){
+    #main-page-genre .container-fluid h3{
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+}
