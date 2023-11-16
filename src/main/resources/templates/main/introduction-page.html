@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary py-3" th:fragment="Navbar">
     <div class="container">
         <!== Nav Title ==>
-        <span class="navbar-brand"><a th:href="@{/welcome-page}" class="text-decoration-none">Bookworm</a></span>
+        <span class="navbar-brand"><a th:href="@{/}" class="text-decoration-none">Bookworm</a></span>
         <!== Button ==>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,9 +21,11 @@
             <!==== Nav Links ====>
             <ul class="navbar-nav ms-auto d-lg-flex align-items-lg-center">
                 <!===== Search Bar =====>
-                <li class=""><form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                </form></li>
+                <li class="">
+                    <form id="searchForm" role="search" th:action="@{/process-search}" method="post" class="d-flex" >
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" name="searchTerm">
+                    </form>
+                </li>
                 <!== Main Page ==>
                 <li class=""><a th:href="@{/welcome-page}" href="" class="nav-link">Main Page</a></li>
                 <!== Single Book ==>
@@ -36,6 +38,10 @@
         </div>
     </div>
 </nav>
+
+<!==== NavBar Search For Books ====>
+<div id="results"></div>
+
 
 <!===== Hero Section =====>
 <main id="hero-main-page" class="container-fluid d-flex align-items-center">
@@ -130,5 +136,7 @@
 
 <!=== Footer ===>
 <footer th:replace="partials/footer.html :: Footer"></footer>
+<!== Javascript Input Value ==>
+
 </body>
 </html>
