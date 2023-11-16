@@ -5,12 +5,10 @@ import com.bookworm.bookwormv2.repository.BookshelfRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class main_controller {
@@ -47,7 +45,8 @@ public class main_controller {
             //-- This condition see if the empty array doesn't contain the genre
             if (!uniqueGenres.contains(genre)) {
                 //-- the empty array does NOT contain the genre, we add it to the empty array.
-                uniqueGenres.add(genre);
+                //-- This will capitalize the first character
+                uniqueGenres.add(genre.substring(0, 1).toUpperCase() + genre.substring(1));
             }
         });
         // Pass the unique genres to the Thymeleaf template
@@ -56,6 +55,23 @@ public class main_controller {
 
         return "main/introduction-page";
     }
+
+    //-- Getting the action from the form with that URL
+    @PostMapping("/process-search")
+    public String processSearch(@ModelAttribute("searchTerm") String searchTerm) {
+        // Use the searchTerm in your logic
+        System.out.println("Received search term: " + searchTerm);
+
+        // Perform your search logic and return the appropriate view
+        return "redirect:/welcome-page"; // Redirect to a search results page
+    }
+
+
+
+
+
+
+
 
     @GetMapping("/single-book")
     public String singleBook(){
