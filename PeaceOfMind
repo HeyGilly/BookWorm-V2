@@ -4,3 +4,13 @@
 
 Sat, Nov 18, 4:19pm
     Super frustrated, Been working on Calling an API for 3 hours and I have not got it to work. I know i could be using Javascript that will be a lot easier but I want to use JAva which is a pain for me because I have not used it before. I am not sure why i am writing this not, honestly its just to get the github stupid counter, because if i didn't do this it would look like i didn't work and I would like to have something positive. I am going to be continuing to work on this but for now I am stepping away. I thought I was onto something but It did not work like that.
+
+
+Mon, Nov 27, 12:00pm
+    - I guess I am just going to leave these notes as just personal notes through my journey. I am not sure where this is going to lead to but here it goes.
+    - Today's goal:
+        - Fix the duplicate genres that are in the welcome page. (BOOM FIXED)
+        - I need to implement the api so i can start moving on, If i can not find out how to do it with java then i am just gonna use hava script. I am frustrated on that but my question is now it is typical to just use javascript. does anyone use Java to call a api?
+
+    - Notes:
+        - I think i  found the solution thanks to rapidApi (https://rapidapi.com/guides/make-api-call-java). Read it .
