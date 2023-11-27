@@ -73,13 +73,13 @@ public class main_controller {
         // Use the searchTerm in your logic
         System.out.println("Received search term: " + searchTerm);
 
-        //== Turns String into an array then concats them with a + for a proper search in the url
+        // == Turns String into an array then concats them with a + for a proper search in the URL
         String delimiter = " ";
         String[] splitString = searchTerm.split(delimiter);
         String conCatSearchTerm = String.join("+", splitString);
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://www.googleapis.com/books/v1/volumes?q=" + conCatSearchTerm))
+                .uri(URI.create("https://www.googleapis.com/books/v1/volumes?q=" + conCatSearchTerm + "&printType=books"))
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
 
@@ -90,28 +90,43 @@ public class main_controller {
             e.printStackTrace();
         }
 
-        // Parse the API response body as JSON
-        ObjectMapper objectMapper = new ObjectMapper();
+
         try {
+            ObjectMapper objectMapper = new ObjectMapper();
             JsonNode apiResponseJson = objectMapper.readTree(response.body());
-            // Log the parsed JSON object
-            System.out.println("Parsed JSON: " + apiResponseJson.toString());
-            // Add the parsed JSON object to the model
+
+            // Get the 'items' array from the JSON response
+            JsonNode itemsNode = apiResponseJson.get("items");
+
+            // Process each item in the 'items' array
+            itemsNode.forEach(itemNode -> {
+                // Get the 'volumeInfo' object from each item
+                JsonNode volumeInfoNode = itemNode.get("volumeInfo");
+
+                // Get the title from the 'volumeInfo' object
+                String title = volumeInfoNode.get("title").asText();
+
+                // Do something with the title, e.g., add it to a list
+                // ...
+
+                // Print the title to the console as an example
+                System.out.println("Title: " + title);
+            });
+
+            // Add the entire JSON response to the model if needed
             model.addAttribute("apiResponse", apiResponseJson);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+
         // Add the existing data to the model
         addExistingDataToModel(model);
 
-
-
-        // Add the API response to the model
-        model.addAttribute("apiResponse", response.body());
-
         return "main/introduction-page";
     }
+
 
 
 
