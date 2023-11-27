@@ -93,6 +93,9 @@ public class main_controller {
             // Add the JSON response to the model
             model.addAttribute("apiResponse", apiResponseJson);
 
+            // Add the search term to the model to be used in the template
+            model.addAttribute("searchTerm", searchTerm);
+
         } catch (IOException | InterruptedException e) {
             // Handle exceptions
             e.printStackTrace();
