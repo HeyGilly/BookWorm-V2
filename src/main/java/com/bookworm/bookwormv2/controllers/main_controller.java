@@ -70,62 +70,41 @@ public class main_controller {
 
     @PostMapping("/process-search")
     public String processSearch(@ModelAttribute("searchTerm") String searchTerm, Model model) {
-        // Use the searchTerm in your logic
+        // Log the received search term
         System.out.println("Received search term: " + searchTerm);
 
-        // == Turns String into an array then concats them with a + for a proper search in the URL
-        String delimiter = " ";
-        String[] splitString = searchTerm.split(delimiter);
-        String conCatSearchTerm = String.join("+", splitString);
+        // Prepare the search term for the API request
+        String conCatSearchTerm = String.join("+", searchTerm.split("\\s+"));
 
+        // Create the API request
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://www.googleapis.com/books/v1/volumes?q=" + conCatSearchTerm + "&printType=books"))
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
 
-        HttpResponse<String> response = null;
         try {
-            response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+            // Send the API request and get the response
+            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 
-
-        try {
+            // Parse the JSON response
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode apiResponseJson = objectMapper.readTree(response.body());
 
-            // Get the 'items' array from the JSON response
-            JsonNode itemsNode = apiResponseJson.get("items");
-
-            // Process each item in the 'items' array
-            itemsNode.forEach(itemNode -> {
-                // Get the 'volumeInfo' object from each item
-                JsonNode volumeInfoNode = itemNode.get("volumeInfo");
-
-                // Get the title from the 'volumeInfo' object
-                String title = volumeInfoNode.get("title").asText();
-
-                // Do something with the title, e.g., add it to a list
-                // ...
-
-                // Print the title to the console as an example
-                System.out.println("Title: " + title);
-            });
-
-            // Add the entire JSON response to the model if needed
+            // Add the JSON response to the model
             model.addAttribute("apiResponse", apiResponseJson);
 
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
+            // Handle exceptions
             e.printStackTrace();
         }
-
 
         // Add the existing data to the model
         addExistingDataToModel(model);
 
+        // Return the view name
         return "main/introduction-page";
     }
+
 
 
 
