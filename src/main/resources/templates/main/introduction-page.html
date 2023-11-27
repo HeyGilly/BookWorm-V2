@@ -40,7 +40,12 @@
 </nav>
 
 <!==== NavBar Search For Books ====>
-<div id="results"></div>
+<div id="results" th:if="${apiResponse != null}">
+    <p  th:text="${apiResponse.totalItems}"></p>
+</div>
+
+
+
 
 
 <!===== Hero Section =====>
