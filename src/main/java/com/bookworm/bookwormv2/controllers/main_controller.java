@@ -79,11 +79,13 @@ public class main_controller {
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         try {
+
             // Send the API request and get the response
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
             // Parse the JSON response
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode apiResponseJson = objectMapper.readTree(response.body());
+            Thread.sleep(1200);
             // Add the JSON response to the model
             model.addAttribute("apiResponse", apiResponseJson);
             // Add the search term to the model to be used in the template
