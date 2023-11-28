@@ -14,3 +14,10 @@ Mon, Nov 27, 12:00pm
 
     - Notes:
         - I think i  found the solution thanks to rapidApi (https://rapidapi.com/guides/make-api-call-java). Read it .
+
+
+
+Tues, Nov 28, 09:00am
+    - Took me most of the day to figure out how to not change the URL when i submit for a book  result.
+    - I did add a loader so when the book is searching I can have a custom spinner to show it is doing something and the user just dont think we froze.
+    - I will have to go back and look over the code again to make sure I fully understand but I think that is later on.
