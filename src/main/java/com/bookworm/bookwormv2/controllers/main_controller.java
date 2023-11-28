@@ -85,7 +85,7 @@ public class main_controller {
             // Parse the JSON response
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode apiResponseJson = objectMapper.readTree(response.body());
-            Thread.sleep(1200);
+            Thread.sleep(1500);
             // Add the JSON response to the model
             model.addAttribute("apiResponse", apiResponseJson);
             // Add the search term to the model to be used in the template
