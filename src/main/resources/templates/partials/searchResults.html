@@ -1,6 +1,5 @@
-<div id="results" th:fragment="searchResults" th:if="${apiResponse != null}" class="d-flex overflow-scroll container position-relative">
+<div id="results" th:fragment="results" th:if="${apiResponse != null}" class="d-flex overflow-scroll container position-relative">
     <!===== Book Section =====>
-    <!-- Book Section -->
     <section class="mx-3 book-container" th:each="apiCall : ${apiResponse.get('items')}">
         <img th:if="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail')}" th:src="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail').asText()}" th:alt="${apiCall.get('volumeInfo')?.get('title').asText()}" class="cover-page">
         <img th:unless="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail')}" th:src="@{img/noImage.jpeg}" th:alt="${apiCall.get('volumeInfo')?.get('title').asText()}" class="cover-page">
