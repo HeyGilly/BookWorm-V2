@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -68,10 +67,8 @@ public class main_controller {
         return "main/introduction-page";
     }
 
-    @PostMapping("/process-search")
+    @PostMapping("/welcome-page")
     public String processSearch(@ModelAttribute("searchTerm") String searchTerm, Model model) {
-        // Log the received search term
-        System.out.println("Received search term: " + searchTerm);
 
         // Prepare the search term for the API request
         String conCatSearchTerm = String.join("+", searchTerm.split("\\s+"));
@@ -81,29 +78,23 @@ public class main_controller {
                 .uri(URI.create("https://www.googleapis.com/books/v1/volumes?q=" + conCatSearchTerm + "&printType=books"))
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
-
         try {
             // Send the API request and get the response
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-
             // Parse the JSON response
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode apiResponseJson = objectMapper.readTree(response.body());
-
             // Add the JSON response to the model
             model.addAttribute("apiResponse", apiResponseJson);
-
             // Add the search term to the model to be used in the template
             model.addAttribute("searchTerm", searchTerm);
-
         } catch (IOException | InterruptedException e) {
             // Handle exceptions
             e.printStackTrace();
         }
 
-        // Add the existing data to the model
+        // The data for the rest of the page
         addExistingDataToModel(model);
-
         // Return the view name
         return "main/introduction-page";
     }
