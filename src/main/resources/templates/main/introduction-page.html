@@ -40,7 +40,7 @@
 </nav>
 
 <!==== NavBar Search For Books ====>
-<div id="results" th:if="${apiResponse != null}" class="d-flex overflow-scroll container position-relative" >
+<div id="results" th:if="${apiResponse != null}" class="d-flex overflow-scroll container position-relative">
     <!===== Book Section =====>
     <!-- Book Section -->
     <section class="mx-3 book-container" th:each="apiCall : ${apiResponse.get('items')}">
@@ -51,9 +51,7 @@
             <small th:text="${apiCall.get('volumeInfo')?.get('authors')?.get(0)?.asText('Unknown Author')}" class="author">Author</small>
         </p>
     </section>
-
 </div>
-
 
 
 
@@ -149,7 +147,6 @@
 
 
 
-<script src="/js/myModule.js"></script>
 <!=== Footer ===>
 <footer th:replace="partials/footer.html :: Footer"></footer>
 </body>
