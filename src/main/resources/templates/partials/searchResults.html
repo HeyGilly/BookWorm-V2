@@ -1,11 +1,16 @@
-<div id="results" th:fragment="results" th:if="${apiResponse != null}" class="d-flex overflow-scroll container position-relative">
+<div id="results" th:fragment="results" th:if="${apiResponse != null}" class="d-flex overflow-scroll container-fluid container-lg position-relative py-5">
     <!===== Book Section =====>
-    <section class="mx-3 book-container" th:each="apiCall : ${apiResponse.get('items')}">
-        <img th:if="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail')}" th:src="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail').asText()}" th:alt="${apiCall.get('volumeInfo')?.get('title').asText()}" class="cover-page">
-        <img th:unless="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail')}" th:src="@{img/noImage.jpeg}" th:alt="${apiCall.get('volumeInfo')?.get('title').asText()}" class="cover-page">
-        <p class="book-info-container">
-            <span th:text="${apiCall.get('volumeInfo')?.get('title').asText()}" class="book-title">Title of Book</span> <br />
-            <small th:text="${apiCall.get('volumeInfo')?.get('authors')?.get(0)?.asText('Unknown Author')}" class="author">Author</small>
+    <section id="search-book-results" class="mx-3" th:each="apiCall : ${apiResponse.get('items')}">
+        <img th:if="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail')}" th:src="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail').asText()}" th:alt="${apiCall.get('volumeInfo')?.get('title').asText()}" class="search-book-img">
+        <img th:unless="${apiCall.get('volumeInfo')?.get('imageLinks')?.get('smallThumbnail')}" th:src="@{img/noImage.jpeg}" th:alt="${apiCall.get('volumeInfo')?.get('title').asText()}" class="search-book-img">
+        <p class="search-book-info-container">
+            <span th:text="${apiCall.get('volumeInfo')?.get('title').asText()}" class="search-book-title">Title of Book</span> <br />
+            <small th:text="${apiCall.get('volumeInfo')?.get('authors')?.get(0)?.asText('Unknown Author')}" class="search-book-author">Author</small>
         </p>
     </section>
 </div>
+
+
+
+
+

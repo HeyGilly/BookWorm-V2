@@ -1,0 +1,30 @@
+#search-book-results{
+    background: #fff;
+    border-radius: 25px;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.search-book-img{
+    border-radius: 25px 25px 0 0;
+    height: 260px;
+    width: auto;
+    max-width: 175px;
+    padding: 0;
+    margin: 0;
+}
+.search-book-info-container{
+    line-height: normal;
+    padding: 10px 10px 0 10px;
+}
+.search-book-title{
+    font-weight: 600;
+    font-size: 12px;
+    padding-bottom: 3px;
+
+}
+.search-book-author{
+    font-size: 10px;
+}
