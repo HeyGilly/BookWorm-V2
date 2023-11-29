@@ -112,7 +112,10 @@ public class main_controller {
 
 
     @GetMapping("/single-book")
-    public String singleBook(){
+    public String singleBook(Model model){
+//        model.addAttribute("single-book-info", bookshelfRepo.findBookByIsbn(9781607747314));
+        model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(9781607747314L));
+
         return "main/SingleBookPreview";
     }
 
