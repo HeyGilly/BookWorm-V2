@@ -1,2 +1,41 @@
+
+
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary py-3" th:fragment="LoggedIn-Navbar">
+    <div class="container d-flex flex-nowrap">
+        <!== Nav Title ==>
+        <span class="navbar-brand"><a th:href="@{/}" class="text-decoration-none">Bookworm</a></span>
+        <div class="d-flex flex-nowrap">
+            <!===== Search Bar =====>
+            <section class="d-block d-lg-none ms-auto">
+                <form id="searchForm" role="search" th:action="@{/welcome-page}" method="post" class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" name="searchTerm" th:value="${searchTerm}">
+                </form>
+            </section>
+            <!== Button ==>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <!== Drop Down ==>
+        <div class="collapse navbar-collapse mt-3 mt-lg-0" id="navbarNavDropdown">
+            <!==== Nav Links ====>
+            <ul class="navbar-nav ms-auto d-lg-flex align-items-lg-center">
+                <!===== Search Bar Large and Up =====>
+                <li class="d-none d-lg-block">
+                    <form id="searchForm" role="search" th:action="@{/welcome-page}" method="post" class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" name="searchTerm" th:value="${searchTerm}">
+                    </form>
+                </li>
+                <!== Main Page ==>
+                <li class=""><a th:href="@{/welcome-page}" href="" class="nav-link">Main Page</a></li>
+                <!== Single Book ==>
+                <li class="mx-lg-3"><a th:href="@{/single-book}" class="nav-link">Single Book</a></li>
+                <!== User Profile ==>
+                <li class="pb-3 pb-lg-0"><a th:href="@{/userProfile}" class="nav-link">Profile</a></li>
+                <!=== Log Out ===>
+                <li class="pb-3 pb-lg-0"><a th:href="@{/logout}" class="nav-link">Log out</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
