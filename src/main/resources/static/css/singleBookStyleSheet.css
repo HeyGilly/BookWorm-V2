@@ -1,0 +1,31 @@
+
+#single-book-cover{
+    height: 520px;
+    width: auto;
+}
+ #single-book-title{
+    font-size: 42px;
+    font-weight: 600;
+    line-height: normal;
+     padding-top: 24px;
+}
+ .single-book-author{
+     font-size: 22px;
+ }
+ .single-book-genre{
+     background: #47b2e4;
+     border-radius: 50px;
+     width: fit-content;
+     padding: 5px 10px;
+     color:#fff;
+     font-weight: 500;
+     font-size: 12px;
+     text-transform: capitalize;
+     letter-spacing: 1px;
+ }
+
+ /*===== Star Ratings ====*/
+.single-book-rating{
+    height: 20px;
+    width: auto;
+}

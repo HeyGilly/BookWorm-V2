@@ -4,13 +4,31 @@
 <head th:replace="partials/head.html :: head ('Single Book')" ></head>
 <body>
 
-<a th:href="@{/welcome-page}" class="btn-log-in-nav nav-link">Welcome</a>
-<a th:href="@{/single-book}" class="btn-log-in-nav nav-link">Single Book</a>
-<a th:href="@{/userProfile}" class="btn-log-in-nav nav-link">User Profile</a>
+<!===== Navbar =====>
+<nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
 
-<h1>Single Book</h1>
-
+<div class="container d-flex row mx-auto py-5 border border-5 border-danger">
+    <!=== Book image Section ===>
+    <section class="col d-flex justify-content-center">
+        <img th:src="${singleBookInfo.getCover_page()}" th:alt="${singleBookInfo.getTitle()}" id="single-book-cover">
+    </section>
+    <!=== Book Information Section ===>
+    <section class="col-7">
+        <p th:text="${singleBookInfo.getTitle()}" id="single-book-title">title of Book</p>
+        <p th:text="${singleBookInfo.getAuthor()}" class="single-book-author">Author</p>
+        <aside th:switch="${singleBookInfo.getRating()}">
+            <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${singleBookInfo.getRating()}" class="single-book-rating">
+            <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${singleBookInfo.getRating()}" class="single-book-rating">
+            <img th:case="'2'" th:src="@{/img/ratings/twoStar.png}" th:alt="${singleBookInfo.getRating()}" class="single-book-rating">
+            <img th:case="'3'" th:src="@{/img/ratings/threeStar.png}" th:alt="${singleBookInfo.getRating()}" class="single-book-rating">
+            <img th:case="'4'" th:src="@{/img/ratings/fourStar.png}" th:alt="${singleBookInfo.getRating()}" class="single-book-rating">
+            <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${singleBookInfo.getRating()}" class="single-book-rating">
+        </aside>
+        <p th:text="${singleBookInfo.getDescription()}">description</p>
+        <p th:text="${singleBookInfo.getGenre()}" class="single-book-genre">Genre</p>
+    </section>
+</div>
 
 
 
