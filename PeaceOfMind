@@ -21,3 +21,8 @@ Tues, Nov 28, 09:00am
     - Took me most of the day to figure out how to not change the URL when i submit for a book  result.
     - I did add a loader so when the book is searching I can have a custom spinner to show it is doing something and the user just dont think we froze.
     - I will have to go back and look over the code again to make sure I fully understand but I think that is later on.
+
+Wed, Nov 29, 11:00am
+    - Working on the style of the search bar results
+    - Adding a button to allow users to save the books requested to our database and to view on single book page.
+    - Need to create single book layout
