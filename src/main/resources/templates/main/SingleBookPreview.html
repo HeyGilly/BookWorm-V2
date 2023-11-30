@@ -35,6 +35,33 @@
 </main>
 
 <!=== Similar Books ===>
+<!===== Books Available =====>
+<div class="services section-bg pt-5">
+    <div class="container">
+        <!==== Title ====>
+        <div class="section-title">
+            <h2>Same Genre Books</h2>
+        </div>
+        <div class="position-relative">
+            <!===== Arrow Section =====>
+            <section class="left-arrow"><i class="fa-solid fa-angle-left"></i></section>
+            <section class="right-arrow"><i class="fa-solid fa-angle-right"></i></section>
+            <!===== Book Section =====>
+            <section class="d-flex overflow-scroll container position-relative" >
+                <section class="mx-3 single-book-genre-container" th:each="book:${bookGenre}">
+                    <section th:if="${book.getTitle() != singleBookInfo.getTitle()}">
+                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page">
+                        <p class="single-book-genre-info-container">
+                            <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                            <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                        </p>
+                    </section>
+                </section>
+            </section>
+        </div>
+
+    </div>
+</div>
 
 
 

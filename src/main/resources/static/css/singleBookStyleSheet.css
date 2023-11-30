@@ -45,10 +45,10 @@
 }
 
 
-/*=== Screen smaller then 991px ===*/
+/*====== Screen smaller then 991px ======*/
 @media (max-width: 991px){
 
-    /*BOOK COVER PAGE*/
+    /*BOOK Image Cover*/
     #single-book-cover{
         width: 40vw;
         height: auto;
@@ -58,11 +58,8 @@
         width: 40vw;
         margin: 0 auto;
     }
-
-
-
-    .single-book-information-container{
-        background-color: rgba(255, 0, 0, 0.29);
+    .single-book-genre{
+        font-size: 12px;
     }
 }
 
@@ -75,3 +72,54 @@
 @media (max-width: 575px){
 
 }
+
+
+
+
+
+/*====== Book Container ======*/
+.single-book-genre-container{
+    border-radius: 25px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    /*padding: 25px 15px;*/
+    margin: 60px;
+    background: #fff;
+}
+/*===== Cover Pages =====*/
+.single-book-genre-container section .cover-page{
+    height: 320px;
+    width: auto;
+    border-radius: 25px 25px 0 0;
+    padding:0;
+    margin: 0;
+}
+/*== Book info Container ==*/
+.single-book-genre-info-container{
+    padding: 12px 0 0 24px   ;
+}
+/*== Title of Book ==*/
+.single-book-genre-info-container .book-title{
+    font-weight: 600;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
