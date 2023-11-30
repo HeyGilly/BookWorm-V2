@@ -30,6 +30,8 @@ public class User {
     private String password;
     @Column(name="BIO")
     private String bio;
+    @Column(name="PROFILE_PICTURE")
+    private String profile_picture;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Reviews> reviewsList;
@@ -39,9 +41,7 @@ public class User {
     }
 
     //-- Whole Constructor
-
-
-    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, List<Reviews> reviewsList) {
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, String profile_picture, List<Reviews> reviewsList) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -49,6 +49,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.bio = bio;
+        this.profile_picture = profile_picture;
         this.reviewsList = reviewsList;
     }
 
@@ -76,4 +77,8 @@ public class User {
 
     public List<Reviews> getReviewsList() {return reviewsList;}
     public void setReviewsList(List<Reviews> reviewsList) {this.reviewsList = reviewsList;}
+
+    public String getProfile_picture() {return profile_picture;}
+
+    public void setProfile_picture(String profile_picture) {this.profile_picture = profile_picture;}
 }
