@@ -26,3 +26,9 @@ Wed, Nov 29, 11:00am
     - Working on the style of the search bar results
     - Adding a button to allow users to save the books requested to our database and to view on single book page.
     - Need to create single book layout
+
+Thurs, Nov 30, 10:27am
+    - Today im working on trying to get reviews over the books
+    - will need a databases for reviews
+    - connect review to all books and users with one to many and many to ones
+    - Made the single book page mobile and all reviews will be shown
