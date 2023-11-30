@@ -8,7 +8,7 @@
 <nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
 
-<main class="container-fluid container-lg mx-auto d-flex row py-5 border border-5 border-danger p-0 m-0">
+<main class="container-fluid container-lg mx-auto d-flex row py-5 p-0 m-0">
     <!=== Book image Section ===>
     <section class="col-12 col-md-5 col-lg-4 mx-auto d-flex flex-column">
         <img th:src="${singleBookInfo.getCover_page()}" th:alt="${singleBookInfo.getTitle()}" id="single-book-cover">
@@ -35,14 +35,13 @@
 </main>
 
 <!=== Similar Books ===>
-<!===== Books Available =====>
 <div class="services section-bg pt-5">
     <div class="container">
         <!==== Title ====>
-        <div class="section-title">
+        <div class="section-title p-0 m-0">
             <h2>Same Genre Books</h2>
         </div>
-        <div class="position-relative">
+        <div class="position-relative p-0 m-0">
             <!===== Arrow Section =====>
             <section class="left-arrow"><i class="fa-solid fa-angle-left"></i></section>
             <section class="right-arrow"><i class="fa-solid fa-angle-right"></i></section>
