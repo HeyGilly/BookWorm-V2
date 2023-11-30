@@ -5,13 +5,13 @@ CREATE DATABASE IF NOT EXISTS bookworm_db;
 USE bookworm_db;
 
 
-INSERT INTO USER(first_name, last_name, username, email, password, bio)
+INSERT INTO USER(first_name, last_name, username, email, password, bio, PROFILE_PICTURE)
     VALUES
-        ('bobby', 'smith', 'bobbysmith', 'bobbysmith@email.com', 'bobby', 'This is a test bio for bobby'),
-        ('lucy', 'smith', 'lucysmith', 'lucysmith@email.com', 'lucy', 'This is a test bio for lucy'),
-        ('chris', 'smith', 'chrissmith', 'chrissmith@email.com', 'chris', 'This is a test bio for chris'),
-        ('peter', 'griffen', 'petergriffen', 'peterg@email.com', 'peter', 'This is a test bio for peter'),
-        ('lance', 'smith', 'lancesmith', 'lancesmith@email.com', 'lance', 'This is a test bio for lance');
+        ('bobby', 'smith', 'bobbysmith', 'bobbysmith@email.com', 'bobby', 'This is a test bio for bobby','https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=3220&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+        ('lucy', 'smith', 'lucysmith', 'lucysmith@email.com', 'lucy', 'This is a test bio for lucy', 'https://plus.unsplash.com/premium_photo-1683140621573-233422bfc7f1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D'),
+        ('chris', 'smith', 'chrissmith', 'chrissmith@email.com', 'chris', 'This is a test bio for chris', null),
+        ('peter', 'griffen', 'petergriffen', 'peterg@email.com', 'peter', 'This is a test bio for peter', 'https://images.unsplash.com/photo-1601233749202-95d04d5b3c00?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D'),
+        ('lance', 'smith', 'lancesmith', 'lancesmith@email.com', 'lance', 'This is a test bio for lance', 'https://images.unsplash.com/photo-1517598024396-46c53fb391a1?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 
 
 
