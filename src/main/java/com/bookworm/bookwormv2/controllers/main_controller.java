@@ -2,6 +2,7 @@ package com.bookworm.bookwormv2.controllers;
 
 import com.bookworm.bookwormv2.models.Bookshelf;
 import com.bookworm.bookwormv2.repository.BookshelfRepository;
+import com.bookworm.bookwormv2.repository.ReviewRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,10 +22,13 @@ import java.util.List;
 public class main_controller {
     //-- Book Repository to gather all books
     private final BookshelfRepository bookshelfRepo;
+    //-- Review Repo to gather information
+    private final ReviewRepository reviewRepository;
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository) {
         this.bookshelfRepo = bookshelfRepo;
+        this.reviewRepository = reviewRepository;
     }
     //-- getter
     public BookshelfRepository getBookshelfRepo() {
@@ -118,6 +122,9 @@ public class main_controller {
         model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(9781607747314L));
         String genre = bookshelfRepo.findByIsbn(9781607747314L).getGenre();
         model.addAttribute("bookGenre", bookshelfRepo.findAllByGenre(genre));
+
+        long book_id = bookshelfRepo.findByIsbn(9781607747314L).getId();
+        model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_Id(book_id));
 
         return "main/SingleBookPreview";
     }

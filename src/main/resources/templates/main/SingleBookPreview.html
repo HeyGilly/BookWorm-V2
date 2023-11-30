@@ -8,14 +8,16 @@
 <nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
 
-<main class="container-fluid container-lg mx-auto d-flex row py-5 p-0 m-0">
+<main class="container-fluid container-xl  mx-auto d-flex row py-5 p-0 m-0">
     <!=== Book image Section ===>
-    <section class="col-12 col-md-5 col-lg-4 mx-auto d-flex flex-column">
-        <img th:src="${singleBookInfo.getCover_page()}" th:alt="${singleBookInfo.getTitle()}" id="single-book-cover">
-        <a th:href="${singleBookInfo.getGoogle_play()}" class="btn btn-success mt-3">Purchase Ebook</a>
+    <section class="col-12 col-md-5 col-lg-4 mx-auto">
+        <section class="single-book-cover-googlePlay d-flex flex-column">
+            <img th:src="${singleBookInfo.getCover_page()}" th:alt="${singleBookInfo.getTitle()}" id="single-book-cover">
+            <a th:href="${singleBookInfo.getGoogle_play()}" class="btn btn-success mt-3">Purchase Ebook</a>
+        </section>
     </section>
     <!=== Book Information Section ===>
-    <section class="col col-md-7 col-lg-8 px-3 px-md-5   mx-auto single-book-information-container">
+    <section class="col col-md-7 col-lg-8 px-3 px-md-5   mx-auto single-book-information-container container-fluid overflow-scroll">
         <p th:text="${singleBookInfo.getTitle()}" id="single-book-title">title of Book</p>
         <p th:text="${singleBookInfo.getAuthor()}" class="single-book-author">Author</p>
         <section th:switch="${singleBookInfo.getRating()}" class="py-3">
@@ -31,36 +33,74 @@
         <p class="single-book-page-count pt-4 pb-2"><span th:text="${singleBookInfo.getPage_count()}"></span> pages</p>
         <p class="single-book-page-date pb-2">First published <span th:text="${singleBookInfo.getDate_published()}"></span></p>
         <p class="single-book-page-ISBN">ISBN: <span th:text="${singleBookInfo.getIsbn()}"></span>ISBN</p>
+
+
+        <!=== Similar Books ===>
+        <div class="services section-bg pt-5">
+            <div class="container">
+                <!==== Title ====>
+                <div class="section-title p-0 m-0">
+                    <h2>Same Genre Books</h2>
+                </div>
+                <div class="position-relative p-0 m-0">
+                    <!===== Arrow Section =====>
+                    <section class="left-arrow d-none d-xl-block"><i class="fa-solid fa-angle-left"></i></section>
+                    <section class="right-arrow d-none d-xl-block"><i class="fa-solid fa-angle-right"></i></section>
+                    <!===== Book Section =====>
+                    <section class="d-flex overflow-scroll container position-relative p-0 m-0" >
+                        <section class="mx-3 single-book-genre-container p-0 m-0 mb-5" th:each="book:${bookGenre}">
+                            <section th:if="${book.getTitle() != singleBookInfo.getTitle()}">
+                                <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page">
+                                <p class="single-book-genre-info-container">
+                                    <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                                    <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                                </p>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!=== Similar Books ===>
+        <div class="services section-bg py-5">
+            <div class="container-fluid">
+                <!==== Title ====>
+                <div class="section-title p-0 m-0">
+                    <h2>Reviews</h2>
+                </div>
+                <div class="review-container row " th:each="review:${bookReview}">
+                 <!===== Book Review Username and Profile IMG =====>
+                    <section class="col-12 col-lg-3">
+                        <h5 th:text="${review.user.username}">Username</h5>
+                        <img class="review-user-profile-img" th:src="${review.user.profile_picture}" th:if="${review.user.profile_picture != ''}" th:alt="${review.user.username}" />
+                        <img class="review-user-profile-img" th:src="@{img/noProfileImage.png}" th:if="${review.user.profile_picture == ''}" alt="No Image Provided" />
+                    </section>
+                    <!===== Book Review Title Rating & Body =====>
+                    <section class="col">
+                        <h5 th:text="${review.title}">Review Title</h5>
+                        <span th:switch="${review.rating}" class="">
+                            <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'2'" th:src="@{/img/ratings/twoStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'3'" th:src="@{/img/ratings/threeStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                        </span>
+                        <p th:text="${review.body}">Review Body</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+
     </section>
 </main>
 
-<!=== Similar Books ===>
-<div class="services section-bg pt-5">
-    <div class="container">
-        <!==== Title ====>
-        <div class="section-title p-0 m-0">
-            <h2>Same Genre Books</h2>
-        </div>
-        <div class="position-relative p-0 m-0">
-            <!===== Arrow Section =====>
-            <section class="left-arrow"><i class="fa-solid fa-angle-left"></i></section>
-            <section class="right-arrow"><i class="fa-solid fa-angle-right"></i></section>
-            <!===== Book Section =====>
-            <section class="d-flex overflow-scroll container position-relative" >
-                <section class="mx-3 single-book-genre-container" th:each="book:${bookGenre}">
-                    <section th:if="${book.getTitle() != singleBookInfo.getTitle()}">
-                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page">
-                        <p class="single-book-genre-info-container">
-                            <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                            <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                        </p>
-                    </section>
-                </section>
-            </section>
-        </div>
 
-    </div>
-</div>
 
 
 

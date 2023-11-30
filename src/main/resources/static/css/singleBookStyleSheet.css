@@ -1,5 +1,7 @@
-
-#single-book-cover{
+main section .single-book-cover-googlePlay {
+    position: fixed;
+}
+    #single-book-cover{
     height: 520px;
     width: auto;
     border-radius: 20px;
@@ -65,7 +67,9 @@
 
 /*=== Screen smaller then 768px ===*/
 @media (max-width: 768px){
-
+    main section .single-book-cover-googlePlay {
+     position: relative;
+    }
 }
 
 /*=== Screen smaller then 575px ===*/
@@ -104,17 +108,79 @@
 }
 
 
+/*== User Review Container ==*/
+.review-container{
+    background-color: rgba(32, 157, 216, 0.15);
+    display: flex;
+    padding: 10px;
+    border-radius: 15px;
+    /*width: 40vw;*/
+    /*min-width: 620px;*/
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.review-container section:first-child{
+    padding-top: 12px;
+    text-transform: capitalize;
+    text-align: center;
+}
+/*== User Review Profile Image ==*/
+.review-user-profile-img{
+    height: 120px;
+    width: 120px;
+    border-radius: 80px;
+}
+.review-container section:nth-child(2){
+    padding: 12px 12px 0 12px;
+    margin: 0 auto;
+}
+.review-container section:nth-child(2) h5{
+    font-weight: 700;
+}
+.review-container section:nth-child(2) span .review-book-rating{
+    height: 25px;
+    width: auto;
+}
+.review-container section:nth-child(2) p{
+   margin-top: 12px;
+    letter-spacing: normal;
+    font-weight: 300;
+}
 
 
 
 
 
+/*====== Screen smaller then 991px ======*/
+@media (max-width: 991px){
+    .review-container section:first-child{
+        text-align: left;
+    }
+    /*== User Review Profile Image ==*/
+    .review-user-profile-img{
+        height: 100px;
+        width: 100px;
+        border-radius: 80px;
+    }
 
+}
 
+/*=== Screen smaller then 768px ===*/
+@media (max-width: 768px){
+    .review-container section:first-child{
+        text-align: center;
+    }
+    /*== User Review Profile Image ==*/
+    .review-user-profile-img{
+        height: 120px;
+        width: 120px;
+    }
+}
 
+/*=== Screen smaller then 575px ===*/
+@media (max-width: 575px){
 
-
-
+}
 
 
 
