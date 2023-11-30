@@ -2,6 +2,8 @@ package com.bookworm.bookwormv2.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "BOOKSHELF")
 public class Bookshelf {
@@ -30,22 +32,27 @@ public class Bookshelf {
     @Column(name = "GOOGLE_PLAY")
     private String google_play;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookshelf")
+    private List<Reviews> reviews;
+
+
     //-- Empty Constructor
     public Bookshelf() {}
 
     //-- Whole Container
-    public Bookshelf(long id, long isbn, String title, String author, String cover_page, String description, String genre, int page_count, String date_published, int rating, String google_play) {
+    public Bookshelf(long id, long isbn, String title, String author, String date_published, String cover_page, String description, String genre, int page_count, int rating, String google_play, List<Reviews> reviews) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
         this.author = author;
-        this.cover_page =cover_page;
+        this.date_published = date_published;
+        this.cover_page = cover_page;
         this.description = description;
         this.genre = genre;
         this.page_count = page_count;
-        this.date_published = date_published;
         this.rating = rating;
         this.google_play = google_play;
+        this.reviews = reviews;
     }
 
     //-- Getters and Setters
@@ -81,4 +88,7 @@ public class Bookshelf {
 
     public String getGoogle_play() {return google_play;}
     public void setGoogle_play(String google_play) {this.google_play = google_play;}
+
+    public List<Reviews> getReviews() {return reviews;}
+    public void setReviews(List<Reviews> reviews) {this.reviews = reviews;}
 }

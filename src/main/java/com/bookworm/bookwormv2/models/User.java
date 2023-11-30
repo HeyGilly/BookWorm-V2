@@ -4,6 +4,7 @@ package com.bookworm.bookwormv2.models;
 import jakarta.persistence.*;
 
 import java.math.BigInteger;
+import java.util.List;
 
 //-- Entity refers to a Java class that represents an object or record in your database.
 //-- Serves as a bridge between your Java application and the database.
@@ -30,12 +31,17 @@ public class User {
     @Column(name="BIO")
     private String bio;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Reviews> reviewsList;
+
     //--Empty Constructor
     public User() {
     }
 
     //-- Whole Constructor
-    public User(long id, String first_name, String last_name, String username, String email, String password, String bio) {
+
+
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, List<Reviews> reviewsList) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -43,6 +49,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.bio = bio;
+        this.reviewsList = reviewsList;
     }
 
     //-- Getters and Setters
@@ -67,5 +74,6 @@ public class User {
     public String getBio() {return bio;}
     public void setBio(String bio) {this.bio = bio;}
 
-
+    public List<Reviews> getReviewsList() {return reviewsList;}
+    public void setReviewsList(List<Reviews> reviewsList) {this.reviewsList = reviewsList;}
 }
