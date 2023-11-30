@@ -2,6 +2,10 @@
 #single-book-cover{
     height: 520px;
     width: auto;
+    border-radius: 20px;
+}
+.single-book-information-container{
+    line-height: normal;
 }
  #single-book-title{
     font-size: 42px;
@@ -11,6 +15,11 @@
 }
  .single-book-author{
      font-size: 22px;
+     line-height: 0;
+     padding: 05px 0;
+ }
+ .single-book-description{
+     line-height:  24px;
  }
  .single-book-genre{
      background: #47b2e4;
@@ -19,13 +28,50 @@
      padding: 5px 10px;
      color:#fff;
      font-weight: 500;
-     font-size: 12px;
+     font-size: 16px;
      text-transform: capitalize;
      letter-spacing: 1px;
  }
 
  /*===== Star Ratings ====*/
 .single-book-rating{
-    height: 20px;
+    height: 35px;
     width: auto;
+}
+
+.single-book-page-count,.single-book-page-date,.single-book-page-ISBN{
+    font-size: 14px;
+    line-height: 0;
+}
+
+
+/*=== Screen smaller then 991px ===*/
+@media (max-width: 991px){
+
+    /*BOOK COVER PAGE*/
+    #single-book-cover{
+        width: 40vw;
+        height: auto;
+        margin: 0 auto;
+    }
+    main section a{
+        width: 40vw;
+        margin: 0 auto;
+    }
+
+
+
+    .single-book-information-container{
+        background-color: rgba(255, 0, 0, 0.29);
+    }
+}
+
+/*=== Screen smaller then 768px ===*/
+@media (max-width: 768px){
+
+}
+
+/*=== Screen smaller then 575px ===*/
+@media (max-width: 575px){
+
 }
