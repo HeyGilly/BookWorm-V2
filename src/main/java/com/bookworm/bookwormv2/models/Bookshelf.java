@@ -27,12 +27,14 @@ public class Bookshelf {
     private int page_count;
     @Column(name = "RATING")
     private int rating;
+    @Column(name = "GOOGLE_PLAY")
+    private String google_play;
 
     //-- Empty Constructor
     public Bookshelf() {}
 
     //-- Whole Container
-    public Bookshelf(long id, long isbn, String title, String author, String cover_page, String description, String genre, int page_count, String date_published, int rating) {
+    public Bookshelf(long id, long isbn, String title, String author, String cover_page, String description, String genre, int page_count, String date_published, int rating, String google_play) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
@@ -43,6 +45,7 @@ public class Bookshelf {
         this.page_count = page_count;
         this.date_published = date_published;
         this.rating = rating;
+        this.google_play = google_play;
     }
 
     //-- Getters and Setters
@@ -75,4 +78,7 @@ public class Bookshelf {
 
     public int getRating() {return rating;}
     public void setRating(int rating) {this.rating = rating;}
+
+    public String getGoogle_play() {return google_play;}
+    public void setGoogle_play(String google_play) {this.google_play = google_play;}
 }
