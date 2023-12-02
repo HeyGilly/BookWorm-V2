@@ -4,19 +4,71 @@
 <head th:replace="partials/head.html :: head ('uesr Profile')" ></head>
 <body>
 
-<a th:href="@{/welcome-page}" class="btn-log-in-nav nav-link">Welcome</a>
-<a th:href="@{/single-book}" class="btn-log-in-nav nav-link">Single Book</a>
-<a th:href="@{/userProfile}" class="btn-log-in-nav nav-link">User Profile</a>
+<!===== Navbar =====>
+<nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
+
+<main class="">
+    <div class="row">
+        <!=====    Left Side, user Information    =====>
+        <section class="col-12 col-md-5 col-lg-3 row user-info-container">
+            <aside class="col-5 col-md-12">
+                <img class="user-profile-picture" th:src="@{img/noProfileImage.png}" th:if="${user.profile_picture == ''}" alt="No Image Provided" />
+                <img class="user-profile-picture" th:src="${user.getProfile_picture()}" th:if="${user.profile_picture != ''}" th:alt="${user.getUsername()}">
+            </aside>
+            <aside class="col-5 col-md-12 user-information">
+                <h2 class="user-username"> Hello <span th:text="${user.getUsername()}">username</span></h2>
+                <p class="user-bio" th:text="${user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1)}"></p>
+            </aside>
+        </section>
+        <!=====    Right Side, Reviews    =====>
+        <section class="col-12 col-md-8 col-lg-9 user-profile-right-side">
+
+            <div class="section-title">
+                <h2>Reviews</h2>
+            </div>
+            <div class="d-flex flex-wrap row ">
+                <div class="user-profile-reviews row col-11 col-lg-8 col-xl-5" th:each="review:${usersReview}">
+                    <section class="col-3 d-flex justify-content-start">
+                        <img class="user-profile-book-cover" th:src="@{img/noImage.png}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
+                        <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
+                        <p>
+                            <span th:text="${review.getBookshelf().getTitle()}">Book Title</span><br/>
+                            <small class="user-review-author">By <span th:text="${review.getBookshelf().getAuthor()}"></span></small>
+                        </p>
+                    </section>
+                    <!===== Book Review Title Rating & Body =====>
+                    <section class="col-9">
+                        <!===  Edit Button ====>
+                        <aside>
+                            <img th:src="@{/img/edit-button.png}" alt="Edit Button">
+                            <img th:src="@{/img/delete.png}" alt="Delete Button">
+                        </aside>
+                        <!===  Review Title ====>
+                        <p th:text="${review.title}">Review Title</p>
+                        <!===  Review Rating ====>
+                        <span th:switch="${review.rating}" class="">
+                            <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                            <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                            <img th:case="'2'" th:src="@{/img/ratings/twoStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                            <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                            <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                            <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                    </span>
+                        <!===  Review Body ====>
+                        <p th:text="${review.body}">Review Body</p>
+                    </section>
+                </div>
+            </div>
 
 
 
-<h1>Profile</h1>
-
-
+        </section>
+    </div>
+</main>
 
 
 
 <!=== Footer ===>
-<footer th:replace="partials/footer.html :: Footer"></footer>
+<footer class="user-profile-footer" th:replace="partials/footer.html :: Footer"></footer>
 </body>
 </html>
