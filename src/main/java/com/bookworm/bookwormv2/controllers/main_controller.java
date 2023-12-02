@@ -3,6 +3,7 @@ package com.bookworm.bookwormv2.controllers;
 import com.bookworm.bookwormv2.models.Bookshelf;
 import com.bookworm.bookwormv2.repository.BookshelfRepository;
 import com.bookworm.bookwormv2.repository.ReviewRepository;
+import com.bookworm.bookwormv2.repository.UserRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +25,14 @@ public class main_controller {
     private final BookshelfRepository bookshelfRepo;
     //-- Review Repo to gather information
     private final ReviewRepository reviewRepository;
+    //-- User Repo to gather information of user;
+    private final UserRepository userRepository;
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
+        this.userRepository = userRepository;
     }
     //-- getter
     public BookshelfRepository getBookshelfRepo() {
@@ -129,8 +133,15 @@ public class main_controller {
         return "main/SingleBookPreview";
     }
 
+
+
     @GetMapping("/userProfile")
-    public String userProfile(){
+    public String userProfile(Model model){
+
+        model.addAttribute("user",userRepository.findUserById(2));
+
+        model.addAttribute("usersReview",reviewRepository.findReviewByUserId(2));
+
         return "main/userProfile";
     }
 
