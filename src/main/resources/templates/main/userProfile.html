@@ -14,10 +14,15 @@
 
         <!===== Left Side, User Profile Image and Details =====>
         <div id="left-side-user-info-container" class="col-12 col-sm-4 col-md-3">
+            <!===  Settings Button ====>
+            <aside class="setting-container">
+                <img th:src="@{/img/settings.png}" alt="Setting Button">
+            </aside>
             <!=== Profile IMG ===>
-            <section>
+            <section class="user-profile-picture-container">
                 <img class="user-profile-picture" th:src="@{img/noProfileImage.png}" th:if="${user.profile_picture == ''}" alt="No Image Provided" />
                 <img class="user-profile-picture" th:src="${user.getProfile_picture()}" th:if="${user.profile_picture != ''}" th:alt="${user.getUsername()}">
+                <button class="button-17 mt-3">Add Friend</button>
             </section>
             <!=== User Details ===>
             <section class="user-details-container">
@@ -27,7 +32,6 @@
                     <span th:each="favoriteGenre : ${favoriteGenres}" th:text="${favoriteGenre.genre.name}"></span>
                 </aside>
                 <p class="user-bio" th:text="${user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1)}"></p>
-
             </section>
         </div>
 
