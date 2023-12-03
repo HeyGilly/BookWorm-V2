@@ -238,9 +238,14 @@
 }
 /*=== Edit Delete Button ===*/
 #right-side-user-reviews-container .user-reviews-container section:nth-child(2) .edit-review-button{
-    width: 20px;
+    width: 30px;
     height: auto;
     display: inline-block;
+    transition: all 0.8s ease-in-out;
+}
+/*=== Edit Delete Button:HOVER ===*/
+#right-side-user-reviews-container .user-reviews-container section:nth-child(2) .edit-review-button:hover{
+    transform: rotate(14deg) scale(1.4);
 }
 
 /*=== Book Cover ===*/
