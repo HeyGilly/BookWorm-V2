@@ -7,44 +7,53 @@
 <!===== Navbar =====>
 <nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
-<main class="">
+
+
+<main class="container-fluid">
     <div class="row">
-        <!=====    Left Side, user Information    =====>
-        <section class="col-12 col-md-5 col-lg-3 row user-info-container">
-            <aside class="col-5 col-md-12">
+
+        <!===== Left Side, User Profile Image and Details =====>
+        <div id="left-side-user-info-container" class="col-12 col-sm-4 col-md-3">
+            <!=== Profile IMG ===>
+            <section>
                 <img class="user-profile-picture" th:src="@{img/noProfileImage.png}" th:if="${user.profile_picture == ''}" alt="No Image Provided" />
                 <img class="user-profile-picture" th:src="${user.getProfile_picture()}" th:if="${user.profile_picture != ''}" th:alt="${user.getUsername()}">
-            </aside>
-            <aside class="col-5 col-md-12 user-information">
+            </section>
+            <!=== User Details ===>
+            <section class="user-details-container">
                 <h2 class="user-username"> Hello <span th:text="${user.getUsername()}">username</span></h2>
                 <p class="user-bio" th:text="${user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1)}"></p>
-            </aside>
-        </section>
-        <!=====    Right Side, Reviews    =====>
-        <section class="col-12 col-md-8 col-lg-9 user-profile-right-side">
+            </section>
+        </div>
 
+        <!===== Right Side, User Reviews =====>
+        <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-9">
+            <!=== Review Title ===>
             <div class="section-title">
                 <h2>Reviews</h2>
             </div>
-            <div class="d-flex flex-wrap row ">
-                <div class="user-profile-reviews row col-11 col-lg-8 col-xl-5" th:each="review:${usersReview}">
-                    <section class="col-3 d-flex justify-content-start">
+            <!=== Review Container ===>
+            <div class="row">
+                <!=== Each Review ===>
+                <div class="user-reviews-container col-11 col-md-9 col-lg-5 row" th:each="review:${usersReview}">
+                    <!=== Review Book Info Container ===>
+                    <section class="col-3">
                         <img class="user-profile-book-cover" th:src="@{img/noImage.png}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
                         <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
                         <p>
-                            <span th:text="${review.getBookshelf().getTitle()}">Book Title</span><br/>
+                            <span class="user-review-book-title" th:text="${review.getBookshelf().getTitle()}">Book Title</span><br/>
                             <small class="user-review-author">By <span th:text="${review.getBookshelf().getAuthor()}"></span></small>
                         </p>
                     </section>
-                    <!===== Book Review Title Rating & Body =====>
+                    <!=== Review Container ===>
                     <section class="col-9">
-                        <!===  Edit Button ====>
+                        <!===  Edit Delete Button ====>
                         <aside>
                             <img th:src="@{/img/edit-button.png}" alt="Edit Button">
                             <img th:src="@{/img/delete.png}" alt="Delete Button">
                         </aside>
                         <!===  Review Title ====>
-                        <p th:text="${review.title}">Review Title</p>
+                        <p  class="user-review-title" th:text="${review.title}">Review Title</p>
                         <!===  Review Rating ====>
                         <span th:switch="${review.rating}" class="">
                             <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
@@ -53,22 +62,32 @@
                             <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
                             <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
                             <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                    </span>
+                        </span>
                         <!===  Review Body ====>
                         <p th:text="${review.body}">Review Body</p>
                     </section>
                 </div>
             </div>
-
-
-
-        </section>
+        </div>
     </div>
 </main>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!=== Footer ===>
-<footer class="user-profile-footer" th:replace="partials/footer.html :: Footer"></footer>
+<footer th:replace="partials/footer.html :: Footer"></footer>
 </body>
 </html>
