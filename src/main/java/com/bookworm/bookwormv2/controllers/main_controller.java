@@ -1,6 +1,7 @@
 package com.bookworm.bookwormv2.controllers;
 
 import com.bookworm.bookwormv2.models.Bookshelf;
+import com.bookworm.bookwormv2.models.FavoriteGenre;
 import com.bookworm.bookwormv2.repository.BookshelfRepository;
 import com.bookworm.bookwormv2.repository.ReviewRepository;
 import com.bookworm.bookwormv2.repository.UserRepository;
@@ -137,11 +138,13 @@ public class main_controller {
 
     @GetMapping("/userProfile")
     public String userProfile(Model model){
-
+        //-- Genre
+        List<FavoriteGenre> favoriteGenres = userRepository.findUserById(2).getFavoriteGenres();
+        model.addAttribute("favoriteGenres", favoriteGenres);
+        //-- find user
         model.addAttribute("user",userRepository.findUserById(2));
-
+        //-- find reviews of user
         model.addAttribute("usersReview",reviewRepository.findReviewByUserId(2));
-
         return "main/userProfile";
     }
 

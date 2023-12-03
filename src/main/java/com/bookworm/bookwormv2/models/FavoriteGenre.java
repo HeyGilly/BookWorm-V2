@@ -12,12 +12,14 @@ public class FavoriteGenre {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "FAVORITE_USER_ID", referencedColumnName = "USER_ID")
+    @JoinColumn(name = "USER_ID")
     private User userFavorite;
+
 
     @ManyToOne
     @JoinColumn(name = "GENRE_ID")
     private Genre genre;
+
 
     public FavoriteGenre() {
     }

@@ -23,6 +23,9 @@
             <section class="user-details-container">
                 <h2 class="user-username"> Hello <span th:text="${user.getUsername()}">username</span></h2>
                 <p class="user-bio" th:text="${user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1)}"></p>
+                <aside th:each="favoriteGenre : ${favoriteGenres}">
+                    <span th:text="${favoriteGenre.genre.name}"></span>
+                </aside>
             </section>
         </div>
 
