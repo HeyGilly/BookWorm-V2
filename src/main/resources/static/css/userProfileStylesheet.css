@@ -24,7 +24,6 @@
 /*=== User's Username ===*/
 #left-side-user-info-container .user-details-container .user-username{
     font-weight: 600;
-    /*font-size: 24px;*/
     font-size: 32px;
     text-transform: capitalize;
 }
