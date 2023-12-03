@@ -1,6 +1,6 @@
 /*======= Left Side Container =======*/
 #left-side-user-info-container{
-    background: #209dd8;
+    background: #37517e;
     height: 100vh;
     color: #fff;
     position: relative;
@@ -96,6 +96,11 @@
     margin: 0 10px;
 }
 
+
+#left-side-user-info-container .user-details-container .fav-genre-title{
+    font-size: 16px;
+}
+
 /*=== User's Favorite Genre ===*/
 #left-side-user-info-container .user-details-container .user-fav-genre-container{
     padding-bottom: 12px;
@@ -103,12 +108,13 @@
 }
 /*=== User's Favorite Genre ===*/
 #left-side-user-info-container .user-details-container .user-fav-genre-container span{
-    font-size: 12px;
+    font-size: 14px;
     background-color: white;
-    padding: 2px 5px;
-    margin: 0 2px;
+    padding: 5px 8px;
+    margin: 4px;
     border-radius: 12px;
     color: #1e1e1e;
+
 }
 
 
@@ -143,7 +149,12 @@
         right: 15px;
     }
 
-
+    /*=== User's Favorite Genre ===*/
+    #left-side-user-info-container .user-details-container .user-fav-genre-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 /*=== Screen smaller then 768px ===*/
@@ -221,16 +232,15 @@
     position: relative;
 }
 
-/*=== Edit Delete Button ===*/
+/*=== Review Container ===*/
 #right-side-user-reviews-container .user-reviews-container section:nth-child(2) aside{
-    position: absolute;
-    top: 5px;
-    right: 5px;
+
 }
 /*=== Edit Delete Button ===*/
-#right-side-user-reviews-container .user-reviews-container section:nth-child(2) aside img{
+#right-side-user-reviews-container .user-reviews-container section:nth-child(2) .edit-review-button{
     width: 20px;
     height: auto;
+    display: inline-block;
 }
 
 /*=== Book Cover ===*/
