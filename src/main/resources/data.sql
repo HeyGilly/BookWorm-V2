@@ -120,6 +120,111 @@ VALUES
 
 
 
+-- Inserting genres
+INSERT INTO GENRE (NAME) VALUES ('Science Fiction');
+INSERT INTO GENRE (NAME) VALUES ('Mystery');
+INSERT INTO GENRE (NAME) VALUES ('Romance');
+INSERT INTO GENRE (NAME) VALUES ('Fantasy');
+INSERT INTO GENRE (NAME) VALUES ('Thriller');
+INSERT INTO GENRE (NAME) VALUES ('Action');
+INSERT INTO GENRE (NAME) VALUES ('Drama');
+INSERT INTO GENRE (NAME) VALUES ('Comedy');
+INSERT INTO GENRE (NAME) VALUES ('Horror');
+INSERT INTO GENRE (NAME) VALUES ('Historical Fiction');
+INSERT INTO GENRE (NAME) VALUES ('Adventure');
+INSERT INTO GENRE (NAME) VALUES ('Crime');
+INSERT INTO GENRE (NAME) VALUES ('Suspense');
+INSERT INTO GENRE (NAME) VALUES ('Western');
+INSERT INTO GENRE (NAME) VALUES ('Espionage');
+INSERT INTO GENRE (NAME) VALUES ('Supernatural');
+INSERT INTO GENRE (NAME) VALUES ('War');
+INSERT INTO GENRE (NAME) VALUES ('Non-fiction');
+INSERT INTO GENRE (NAME) VALUES ('Biography');
+INSERT INTO GENRE (NAME) VALUES ('Autobiography');
+INSERT INTO GENRE (NAME) VALUES ('Memoir');
+INSERT INTO GENRE (NAME) VALUES ('Fantasy Adventure');
+INSERT INTO GENRE (NAME) VALUES ('Sci-Fi Fantasy');
+INSERT INTO GENRE (NAME) VALUES ('Cyberpunk');
+INSERT INTO GENRE (NAME) VALUES ('Dystopian');
+INSERT INTO GENRE (NAME) VALUES ('Post-Apocalyptic');
+INSERT INTO GENRE (NAME) VALUES ('Steampunk');
+INSERT INTO GENRE (NAME) VALUES ('Urban Fantasy');
+INSERT INTO GENRE (NAME) VALUES ('Magical Realism');
+INSERT INTO GENRE (NAME) VALUES ('Historical Romance');
+INSERT INTO GENRE (NAME) VALUES ('Paranormal Romance');
+INSERT INTO GENRE (NAME) VALUES ('Chick Lit');
+INSERT INTO GENRE (NAME) VALUES ('Satire');
+INSERT INTO GENRE (NAME) VALUES ('Tragedy');
+INSERT INTO GENRE (NAME) VALUES ('Comedy-Drama');
+INSERT INTO GENRE (NAME) VALUES ('Dark Comedy');
+INSERT INTO GENRE (NAME) VALUES ('Slice of Life');
+INSERT INTO GENRE (NAME) VALUES ('Coming of Age');
+INSERT INTO GENRE (NAME) VALUES ('Epic');
+INSERT INTO GENRE (NAME) VALUES ('Mythology');
+INSERT INTO GENRE (NAME) VALUES ('Religious');
+INSERT INTO GENRE (NAME) VALUES ('Inspirational');
+INSERT INTO GENRE (NAME) VALUES ('Self-help');
+INSERT INTO GENRE (NAME) VALUES ('Philosophy');
+INSERT INTO GENRE (NAME) VALUES ('Psychology');
+INSERT INTO GENRE (NAME) VALUES ('Sociology');
+INSERT INTO GENRE (NAME) VALUES ('Economics');
+INSERT INTO GENRE (NAME) VALUES ('Political');
+INSERT INTO GENRE (NAME) VALUES ('Science');
+INSERT INTO GENRE (NAME) VALUES ('Technology');
+INSERT INTO GENRE (NAME) VALUES ('Mathematics');
+INSERT INTO GENRE (NAME) VALUES ('History');
+INSERT INTO GENRE (NAME) VALUES ('Art');
+INSERT INTO GENRE (NAME) VALUES ('Music');
+INSERT INTO GENRE (NAME) VALUES ('Film');
+INSERT INTO GENRE (NAME) VALUES ('Theater');
+INSERT INTO GENRE (NAME) VALUES ('Poetry');
+INSERT INTO GENRE (NAME) VALUES ('Short Story');
+INSERT INTO GENRE (NAME) VALUES ('Novella');
+INSERT INTO GENRE (NAME) VALUES ('Graphic Novel');
+INSERT INTO GENRE (NAME) VALUES ('Manga');
+INSERT INTO GENRE (NAME) VALUES ('Comic Book');
+INSERT INTO GENRE (NAME) VALUES ('Children''s');
+INSERT INTO GENRE (NAME) VALUES ('Middle-Grade');
+INSERT INTO GENRE (NAME) VALUES ('Young Adult');
+INSERT INTO GENRE (NAME) VALUES ('New Adult');
+INSERT INTO GENRE (NAME) VALUES ('Adult Fiction');
+INSERT INTO GENRE (NAME) VALUES ('Adult Non-fiction');
+
+
+-- Associating users with genres
+-- Bobby likes Science Fiction, Mystery, Romance, Action, Historical Fiction
+INSERT INTO FAVORITE_GENRE (USER_ID, GENRE_ID) VALUES
+    (1, 1), -- Science Fiction
+    (1, 2), -- Mystery
+    (1, 3), -- Romance
+    (1, 6), -- Action
+    (1, 9); -- Historical Fiction
+
+-- Lucy likes Romance, Fantasy, Drama, Comedy
+INSERT INTO FAVORITE_GENRE (USER_ID, GENRE_ID) VALUES
+    (2, 3),  -- Romance
+    (2, 4),  -- Fantasy
+    (2, 7),  -- Drama
+    (2, 8);  -- Comedy
+
+-- Chris likes Mystery, Comedy
+INSERT INTO FAVORITE_GENRE (USER_ID, GENRE_ID) VALUES
+    (3, 2),  -- Mystery
+    (3, 8);  -- Comedy
+
+-- Peter likes Fantasy, Thriller, Action, Horror
+INSERT INTO FAVORITE_GENRE (USER_ID, GENRE_ID) VALUES
+    (4, 4),  -- Fantasy
+    (4, 5),  -- Thriller
+    (4, 6),  -- Action
+    (4, 10); -- Horror
+
+-- Lance likes Science Fiction, Fantasy, Drama, Historical Fiction
+INSERT INTO FAVORITE_GENRE (USER_ID, GENRE_ID) VALUES
+    (5, 1),  -- Science Fiction
+    (5, 4),  -- Fantasy
+    (5, 7),  -- Drama
+    (5, 9);  -- Historical Fiction
 
 
 

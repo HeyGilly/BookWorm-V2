@@ -36,12 +36,17 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Reviews> reviewsList;
 
+    @OneToMany(mappedBy = "userFavorite", cascade = CascadeType.ALL)
+    private List<FavoriteGenre> favoriteGenres;
+
     //--Empty Constructor
     public User() {
     }
 
     //-- Whole Constructor
-    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, String profile_picture, List<Reviews> reviewsList) {
+
+
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, String profile_picture, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -51,6 +56,7 @@ public class User {
         this.bio = bio;
         this.profile_picture = profile_picture;
         this.reviewsList = reviewsList;
+        this.favoriteGenres = favoriteGenres;
     }
 
     //-- Getters and Setters
@@ -79,6 +85,13 @@ public class User {
     public void setReviewsList(List<Reviews> reviewsList) {this.reviewsList = reviewsList;}
 
     public String getProfile_picture() {return profile_picture;}
-
     public void setProfile_picture(String profile_picture) {this.profile_picture = profile_picture;}
+
+    public List<FavoriteGenre> getFavoriteGenres() {
+        return favoriteGenres;
+    }
+
+    public void setFavoriteGenres(List<FavoriteGenre> favoriteGenres) {
+        this.favoriteGenres = favoriteGenres;
+    }
 }
