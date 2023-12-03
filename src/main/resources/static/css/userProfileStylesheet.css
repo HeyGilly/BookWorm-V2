@@ -32,6 +32,26 @@
     margin: 0 10px;
 }
 
+/*=== User's Favorite Genre ===*/
+#left-side-user-info-container .user-details-container .user-fav-genre-container{
+    padding-bottom: 12px;
+    margin: 0;
+}
+/*=== User's Favorite Genre ===*/
+#left-side-user-info-container .user-details-container .user-fav-genre-container span{
+    font-size: 12px;
+    background-color: white;
+    padding: 2px 5px;
+    margin: 0 2px;
+    border-radius: 12px;
+    color: #1e1e1e;
+}
+
+
+
+
+
+
 /*====== Screen smaller then 991px ======*/
 @media (max-width: 991px){
     /*=== Profile Picture ===*/
