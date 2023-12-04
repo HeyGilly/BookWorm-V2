@@ -124,11 +124,11 @@ public class main_controller {
     public String singleBook(Model model){
 
 
-        model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(9781607747314L));
-        String genre = bookshelfRepo.findByIsbn(9781607747314L).getGenre();
+        model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(9781982131807L));
+        String genre = bookshelfRepo.findByIsbn(9781982131807L).getGenre();
         model.addAttribute("bookGenre", bookshelfRepo.findAllByGenre(genre));
 
-        long book_id = bookshelfRepo.findByIsbn(9781607747314L).getId();
+        long book_id = bookshelfRepo.findByIsbn(9781982131807L).getId();
         model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_Id(book_id));
 
         return "main/SingleBookPreview";
