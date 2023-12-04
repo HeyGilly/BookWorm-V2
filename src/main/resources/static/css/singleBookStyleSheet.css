@@ -126,32 +126,6 @@
     letter-spacing: 1px;
 }
 
-
-/*====== Screen smaller then 991px ======*/
-@media (max-width: 991px){
-    .main-single-book-container{
-        grid-template-columns: 30% 70%;
-    }
-    /* ===== Left Side Container =====*/
-    #left-side-book-container {
-    }
-    /*=== Book Cover Image ===*/
-    .single-book-cover{
-        height: 320px;
-    }
-    /*=== Book Cover Image - NO IMG===*/
-    .single-book-cover-noIMG{
-        height: 320px;
-        width: 220px;
-    }
-    /* ===== Right Side Container =====*/
-    #right-side-book-info-container{
-        padding: 120px 0 60px 0;
-    }
-}
-
-
-
 /*====== Same Books Container ======*/
 .single-book-genre-container{
     border-radius: 25px;
@@ -223,6 +197,29 @@
     font-weight: 300;
 }
 
+
+/*====== Screen smaller then 991px ======*/
+@media (max-width: 991px){
+    .main-single-book-container{
+        grid-template-columns: 30% 70%;
+    }
+    /* ===== Left Side Container =====*/
+    #left-side-book-container {
+    }
+    /*=== Book Cover Image ===*/
+    .single-book-cover{
+        height: 320px;
+    }
+    /*=== Book Cover Image - NO IMG===*/
+    .single-book-cover-noIMG{
+        height: 320px;
+        width: 220px;
+    }
+    /* ===== Right Side Container =====*/
+    #right-side-book-info-container{
+        padding: 120px 0 60px 0;
+    }
+}
 
 /*=== Screen smaller then 768px ===*/
 @media (max-width: 767px){
