@@ -14,36 +14,41 @@
 <main id="login-section">
     <div class="container">
         <!===== Form ====>
-        <form id="register-form" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5">
+        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" method="post" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5" enctype="multipart/form-data" autocomplete="off">
             <!=== Title ====>
             <h3 class="text-center fw-bold fs-1 p-0 m-0">Sign up for free</h3>
             <hr>
             <!==== First Name =====>
             <div class="col-md-6">
                 <label for="register-firstName" class="form-label">First Name:</label>
-                <input type="text" class="form-control" id="register-firstName">
+                <input th:field="*{first_name}" type="text" class="form-control" id="register-firstName">
             </div>
             <!==== Last Name =====>
             <div class="col-md-6">
                 <label for="register-lastName" class="form-label">last Name:</label>
-                <input type="text" class="form-control" id="register-lastName">
+                <input th:field="*{last_name}" type="text" class="form-control" id="register-lastName">
             </div>
             <!==== Username =====>
             <div class="col-12">
                 <label for="register-username" class="form-label">Username:</label>
-                <input type="text" class="form-control" id="register-username" placeholder="Username">
+                <input th:field="*{username}" type="text" class="form-control" id="register-username" placeholder="Username">
             </div>
             <!==== Email =====>
             <div class="col-12">
                 <label for="register-email" class="form-label">Email:</label>
-                <input type="email" aria-describedby="emailHelp" class="form-control" id="register-email" placeholder="email@email.com">
+                <input type="email" th:field="*{email}" aria-describedby="emailHelp" class="form-control" id="register-email" placeholder="email@email.com">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <!==== Password =====>
             <div class="col-12">
                 <label for="register-password" class="form-label">Password:</label>
-                <input aria-describedby="passwordHelp" type="password" class="form-control" id="register-password" placeholder="password">
+                <input aria-describedby="passwordHelp" th:field="*{password}" type="password" class="form-control" id="register-password" placeholder="password">
                 <div id="passwordHelp" class="form-text">Min length 5, Uppercase & Lowercase, 2 Numbers, 2 Special Characters</div>
+            </div>
+            <!==== File IMG Upload ====>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Profile Image</label>
+                <input class="form-control" th:field="*{profile_picture}" type="file" id="formFile">
             </div>
             <!===== Submit Button ====>
             <button type="submit" id="register-form-submit-btn" class="btn btn-primary mt-4 mb-2">Submit</button>
