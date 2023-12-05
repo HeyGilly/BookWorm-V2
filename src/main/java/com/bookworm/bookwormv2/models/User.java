@@ -30,8 +30,9 @@ public class User {
     private String password;
     @Column(name="BIO")
     private String bio;
-    @Column(name="PROFILE_PICTURE")
-    private String profile_picture;
+    @Column(name="PROFILE_PICTURE_PATH")
+    private String profilePicturePath;  // Store the file path or metadata here
+
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Reviews> reviewsList;
@@ -46,7 +47,7 @@ public class User {
     //-- Whole Constructor
 
 
-    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, String profile_picture, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres) {
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -54,7 +55,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.bio = bio;
-        this.profile_picture = profile_picture;
+        this.profilePicturePath = profilePicturePath;
         this.reviewsList = reviewsList;
         this.favoriteGenres = favoriteGenres;
     }
@@ -84,8 +85,13 @@ public class User {
     public List<Reviews> getReviewsList() {return reviewsList;}
     public void setReviewsList(List<Reviews> reviewsList) {this.reviewsList = reviewsList;}
 
-    public String getProfile_picture() {return profile_picture;}
-    public void setProfile_picture(String profile_picture) {this.profile_picture = profile_picture;}
+    public String getProfilePicturePath() {
+        return profilePicturePath;
+    }
+
+    public void setProfilePicturePath(String profilePicturePath) {
+        this.profilePicturePath = profilePicturePath;
+    }
 
     public List<FavoriteGenre> getFavoriteGenres() {
         return favoriteGenres;

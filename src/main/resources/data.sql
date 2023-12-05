@@ -5,9 +5,9 @@ CREATE DATABASE IF NOT EXISTS bookworm_db;
 USE bookworm_db;
 
 
-INSERT INTO USER(first_name, last_name, username, email, password, bio, PROFILE_PICTURE)
+INSERT INTO USER(first_name, last_name, username, email, password, bio, PROFILE_PICTURE_PATH)
     VALUES
-        ('bobby', 'smith', 'bobbysmith', 'bobbysmith@email.com', 'bobby', 'Bobby Smith, 28 🎸 | Music lover, aspiring guitarist, and storytelling enthusiast. Strumming through life''s rhythm with a passion for tunes and tales. 🎶✨ #MusicExplorer','https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=3220&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+        ('bobby', 'smith', 'bobbysmith', 'bobbysmith@email.com', 'bobby', 'Bobby Smith, 28 🎸 | Music lover, aspiring guitarist, and storytelling enthusiast. Strumming through life''s rhythm with a passion for tunes and tales.','https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=3220&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
         ('lucy', 'smith', 'lucysmith', 'lucysmith@email.com', 'lucy', 'Lucy Smith, 22 📚 | Bookworm and review maven. Navigating the literary world one page at a time. Join me on my reading journey! 📖✨ #BookReviewer', 'https://plus.unsplash.com/premium_photo-1683140621573-233422bfc7f1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D'),
         ('chris', 'smith', 'chrissmith', 'chrissmith@email.com', 'chris', 'This is a test bio for chris', null),
         ('peter', 'griffen', 'petergriffen', 'peterg@email.com', 'peter', 'This is a test bio for peter', 'https://images.unsplash.com/photo-1601233749202-95d04d5b3c00?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2ZpbGUlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D'),

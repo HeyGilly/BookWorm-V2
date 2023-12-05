@@ -20,8 +20,8 @@
             </aside>
             <!=== Profile IMG ===>
             <section class="user-profile-picture-container">
-                <img class="user-profile-picture" th:src="@{img/noProfileImage.png}" th:if="${user.profile_picture == ''}" alt="No Image Provided" />
-                <img class="user-profile-picture" th:src="${user.getProfile_picture()}" th:if="${user.profile_picture != ''}" th:alt="${user.getUsername()}">
+                <img class="user-profile-picture" th:src="@{img/noProfileImage.png}" th:if="${user.profilePicturePath == ''}" alt="No Image Provided" />
+                <img class="user-profile-picture" th:src="${profilePathway}" th:if="${user.profilePicturePath != ''}" th:alt="${user.getUsername()}">
                 <button class="button-17 mt-3">Add Friend</button>
             </section>
             <!=== User Details ===>
