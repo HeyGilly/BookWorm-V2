@@ -14,8 +14,7 @@
 <main id="login-section">
     <div class="container">
         <!===== Form ====>
-        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" method="post" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5"  autocomplete="off">
-            <!=== Title ====>
+        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" enctype="multipart/form-data" method="post" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5"  autocomplete="off">            <!=== Title ====>
             <h3 class="text-center fw-bold fs-1 p-0 m-0">Sign up for free</h3>
             <hr>
             <!==== First Name =====>
@@ -58,10 +57,10 @@
             <!==== File IMG Upload ====>
             <div class="mb-3">
                 <label for="formFile" class="form-label">Profile Image</label>
-                <input class="form-control" th:field="*{profile_picture}" type="file" id="formFile">
+                <input class="form-control" th:field="*{profilePicturePath}" type="file" id="formFile">
             </div>
             <!===== Submit Button ====>
-            <button type="submit" id="register-form-submit-btn" class="btn btn-primary mt-4 mb-2 disabled">Submit</button>
+            <button type="submit" value="Submit" id="register-form-submit-btn" class="btn btn-primary mt-4 mb-2 disabled">Submit</button>
         </form>
     </div>
 </main>
