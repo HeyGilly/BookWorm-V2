@@ -14,7 +14,7 @@
 <main id="login-section">
     <div class="container">
         <!===== Form ====>
-        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" method="post" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5" enctype="multipart/form-data" autocomplete="off">
+        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" method="post" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5"  autocomplete="off">
             <!=== Title ====>
             <h3 class="text-center fw-bold fs-1 p-0 m-0">Sign up for free</h3>
             <hr>
@@ -43,7 +43,17 @@
             <div class="col-12">
                 <label for="register-password" class="form-label">Password:</label>
                 <input aria-describedby="passwordHelp" th:field="*{password}" type="password" class="form-control" id="register-password" placeholder="password">
-                <div id="passwordHelp" class="form-text">Min length 5, Uppercase & Lowercase, 2 Numbers, 2 Special Characters</div>
+                <div id="passwordHelp" class="form-text">
+                    <span id="min-length-password">5 Min length</span>,
+                    <span id="upper-lower-password">Uppercase & Lowercase</span>,
+                    <span id="min-numbers-password">2 Numbers</span>,
+                    <span id="min-special-password">2 Special Characters</span>
+                </div>
+            </div>
+            <!==== Password - Verify =====>
+            <div class="col-12">
+                <label for="register-password-verify" class="form-label" id="verify-password-title">Verify Password:</label>
+                <input type="password" class="form-control" disabled id="register-password-verify" placeholder="password">
             </div>
             <!==== File IMG Upload ====>
             <div class="mb-3">
@@ -51,7 +61,7 @@
                 <input class="form-control" th:field="*{profile_picture}" type="file" id="formFile">
             </div>
             <!===== Submit Button ====>
-            <button type="submit" id="register-form-submit-btn" class="btn btn-primary mt-4 mb-2">Submit</button>
+            <button type="submit" id="register-form-submit-btn" class="btn btn-primary mt-4 mb-2 disabled">Submit</button>
         </form>
     </div>
 </main>
@@ -63,5 +73,7 @@
 
 <!=== Footer ===>
 <footer th:replace="partials/footer.html :: Footer"></footer>
+
+<script th:src="@{js/passwordProtector.js}" ></script>
 </body>
 </html>
