@@ -9,66 +9,62 @@
 <nav th:replace="partials/navbar.html :: Navbar"></nav>
 
 
+<main id="register-form-section">
+    <div>
 
-
-<main id="login-section">
-    <div class="container">
-        <!===== Form ====>
-        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" enctype="multipart/form-data" method="post" class="row g-3 bg-light p-3 col-12 col-md-8 col-lg-6 rounded rounded-5"  autocomplete="off">            <!=== Title ====>
-            <h3 class="text-center fw-bold fs-1 p-0 m-0">Sign up for free</h3>
+        <!-- Register Form -->
+        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" enctype="multipart/form-data" method="post"  autocomplete="off">
+            <h3 class="text-center fw-bold fs-1">Create a new account</h3>
             <hr>
-            <!==== First Name =====>
-            <div class="col-md-6">
-                <label for="register-firstName" class="form-label">First Name:</label>
-                <input th:field="*{first_name}" type="text" class="form-control" id="register-firstName">
+            <!-- First And Last Name Container-->
+            <div class="row g-1 mb-3">
+                <div class="col-md-6">
+                    <label for="first_name" class="form-label">First Name:</label>
+                    <input th:field="*{first_name}" type="text" class="form-control" id="first_name" placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label for="last_name" class="form-label">Last Name:</label>
+                    <input th:field="*{last_name}" type="text" class="form-control" id="last_name" placeholder="">
+                </div>
             </div>
-            <!==== Last Name =====>
-            <div class="col-md-6">
-                <label for="register-lastName" class="form-label">last Name:</label>
-                <input th:field="*{last_name}" type="text" class="form-control" id="register-lastName">
+            <!-- username Container-->
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="">
             </div>
-            <!==== Username =====>
-            <div class="col-12">
-                <label for="register-username" class="form-label">Username:</label>
-                <input th:field="*{username}" type="text" class="form-control" id="register-username" placeholder="Username">
-            </div>
-            <!==== Email =====>
-            <div class="col-12">
-                <label for="register-email" class="form-label">Email:</label>
-                <input type="email" th:field="*{email}" aria-describedby="emailHelp" class="form-control" id="register-email" placeholder="email@email.com">
+            <!-- Email Container -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address:</label>
+                <input th:field="*{email}"  type="email" class="form-control" id="email" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
-            <!==== Password =====>
-            <div class="col-12">
-                <label for="register-password" class="form-label">Password:</label>
-                <input aria-describedby="passwordHelp" th:field="*{password}" type="password" class="form-control" id="register-password" placeholder="password">
+            <!-- Password Container -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input th:field="*{password}" type="password" class="form-control" id="password" aria-describedby="passwordHelp" maxlength="20" minlength="8">
                 <div id="passwordHelp" class="form-text">
-                    <span id="min-length-password">5 Min length</span>,
-                    <span id="upper-lower-password">Uppercase & Lowercase</span>,
+                    Your password must be
+                    <span id="length-password">8-20 characters long</span>,
+                    <span id="upper-lower-password">2 Uppercase & 2 Lowercase</span>,
                     <span id="min-numbers-password">2 Numbers</span>,
                     <span id="min-special-password">2 Special Characters</span>
                 </div>
             </div>
-            <!==== Password - Verify =====>
-            <div class="col-12">
-                <label for="register-password-verify" class="form-label" id="verify-password-title">Verify Password:</label>
-                <input type="password" class="form-control" disabled id="register-password-verify" placeholder="password">
+            <!-- Verify Password Container -->
+            <div class="mb-3">
+                <label for="password-verify" class="form-label" id="verify-password-title">Verify Password:</label>
+                <input type="password" class="form-control" disabled id="password-verify" placeholder="password">
             </div>
-            <!==== File IMG Upload ====>
+            <!-- Profile Image Upload -->
             <div class="mb-3">
                 <label for="formFile" class="form-label">Profile Image</label>
                 <input class="form-control" th:field="*{profilePicturePath}" type="file" id="formFile">
             </div>
-            <!===== Submit Button ====>
-            <button type="submit" value="Submit" id="register-form-submit-btn" class="btn btn-primary mt-4 mb-2 disabled">Submit</button>
+            <!-- Submit Button -->
+            <button type="submit" value="Submit" id="register-form-submit-btn" class="btn disabled">Submit</button>
         </form>
     </div>
 </main>
-
-
-
-
-
 
 <!=== Footer ===>
 <footer th:replace="partials/footer.html :: Footer"></footer>

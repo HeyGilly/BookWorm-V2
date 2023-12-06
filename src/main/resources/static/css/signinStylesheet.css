@@ -1,5 +1,5 @@
 
-/*===== Login Page ======*/
+/*========== Login Page ===========*/
 /*=== Main Section ===*/
 #login-section{
     background: #37517e;
@@ -8,7 +8,7 @@
 }
 
 /*=== Whole Container ===*/
-#login-section .container{
+#login-section .whole-container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,31 +17,61 @@
 }
 
 /*=== Image ===*/
-#login-section .container .row header img{
+#login-section .whole-container .row header #login-img{
     height: 100%;
     width: 100%;
 }
 
 
-/*==== Register Form ====*/
-#login-section .container #register-form{
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+/*========== Register Page ===========*/
+/*=== Main Container of Form ===*/
+#register-form-section{
+    background: rgba(154, 182, 222, 0.27);
+    padding: 50px 0;
+
 }
 
-/*==== Register Submit button & Login Submit Button ====*/
-#login-section .container #register-form #register-form-submit-btn, form div #login-form-submit-btn{
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: 1px;
-    padding: 10px 28px;
-    border-radius: 50px;
-    color: #fff;
-    background: #47b2e4;
-    transition: 0.5s;
-    text-decoration: none;
-    border: none;
+/*=== Form ===*/
+#register-form{
+    background-color: #fff;
+    width: 90%;
+    margin: 0 auto;
+    max-width: 580px;
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
 }
-/*==== Register Submit button HOVER & Login Submit Button HOVER====*/
-#login-section .container #register-form #register-form-submit-btn:hover, form div #login-form-submit-btn:hover{
-    background: #209dd8;
+
+/*=== Submit Button ===*/
+#register-form-submit-btn{
+    background-color: #4880d3;
+    border: 1px solid #4880d3;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #1e1e1e;
+    cursor: pointer;
+    width: 220px;
+    height: 50px;
+    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    outline: none;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+    margin: 24px 0 0 0;
+}
+/*=== Submit Button Hover===*/
+#register-form-submit-btn:hover {
+    background-color: rgb(63, 78, 107);
+    border: 1px solid rgb(63, 78, 107);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
 }
