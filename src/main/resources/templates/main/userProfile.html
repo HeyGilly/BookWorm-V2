@@ -27,7 +27,7 @@
             <!=== User Details ===>
             <section class="user-details-container">
                 <h2 class="user-username"> Hello <span th:text="${user.getUsername()}">username</span></h2>
-                <p class="user-bio" th:text="${user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1)}"></p>
+                <p class="user-bio" th:unless="${user.getBio() == ''}" th:text="${user.getBio() != null ? user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1) : 'No Bio'}"></p>
                 <hr class="w-75 mx-auto">
                 <small class="fav-genre-title">Favorite Genre:</small>
                 <aside class="user-fav-genre-container">
@@ -45,7 +45,7 @@
             <!=== Review Container ===>
             <div class="row">
                 <!=== Each Review ===>
-                <div class="user-reviews-container col-11 col-md-9 col-lg-5 row" th:each="review:${usersReview}">
+                <div class="user-reviews-container col-11 col-md-9 col-lg-5 row" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}" th:each="review:${usersReview}">
                     <!=== Review Book Info Container ===>
                     <section class="col-3 col-lg-4">
                         <img class="user-profile-book-cover" th:src="@{img/noImage.png}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
@@ -73,6 +73,9 @@
                         <!===  Review Body ====>
                         <p th:text="${review.body}">Review Body</p>
                     </section>
+                </div>
+                <div class="no-reviews-message" th:unless="${usersReview != null and not #lists.isEmpty(usersReview)}">
+                    No recent reviews
                 </div>
             </div>
         </div>
