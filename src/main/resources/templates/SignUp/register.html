@@ -58,7 +58,7 @@
             <!-- Profile Image Upload -->
             <div class="mb-3">
                 <label for="formFile" class="form-label">Profile Image</label>
-                <input class="form-control" th:field="*{profilePicturePath}" type="file" id="formFile">
+                <input class="form-control" type="file" id="formFile" th:field="*{profilePictureFile}" name="profilePictureFile">
             </div>
             <!-- Submit Button -->
             <button type="submit" value="Submit" id="register-form-submit-btn" class="btn disabled">Submit</button>
