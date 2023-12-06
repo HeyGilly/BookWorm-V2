@@ -3,7 +3,6 @@ package com.bookworm.bookwormv2.controllers;
 import com.bookworm.bookwormv2.models.User;
 import com.bookworm.bookwormv2.repository.UserRepository;
 import com.bookworm.bookwormv2.service.FileService;
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +35,7 @@ public class sign_up_controller {
 
 
     @PostMapping("/sign-up")
-    public String greetingSubmit(@ModelAttribute("user") @Valid User user, @RequestParam("profilePicturePath") MultipartFile file) {
+    public String greetingSubmit(@ModelAttribute("user")  User user, @RequestParam("profilePicturePath") MultipartFile file) {
         try {
             // Check if img is uploaded
             if (!file.isEmpty()) {
