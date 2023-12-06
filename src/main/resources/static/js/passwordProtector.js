@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //=== Password & Verify Password
-const password = document.getElementById("register-password");
-const passwordVerify = document.getElementById("register-password-verify");
+const password = document.getElementById("password");
+const passwordVerify = document.getElementById("password-verify");
 
 //== Submit Button
 const submitButton = document.getElementById("register-form-submit-btn");
@@ -34,7 +34,7 @@ password.addEventListener('input', function () {
     const pattern2numbers = /^(?=.*\d.*\d)/;
 
     //== Requirements for password text
-    const minLengthPassword = document.getElementById("min-length-password");
+    const minLengthPassword = document.getElementById("length-password");
     const upperLowerPassword = document.getElementById("upper-lower-password");
     const minNumPassword = document.getElementById("min-numbers-password");
     const minSpecialPassword = document.getElementById("min-special-password");
@@ -42,7 +42,7 @@ password.addEventListener('input', function () {
     let openVerify = true;
 
     //== Check to see if password value is equal to or greater than 5
-    if (passwordValue.length >= 5) {
+    if (passwordValue.length >= 8 && passwordValue.length <= 20) {
         minLengthPassword.classList.add("text-success");
         minLengthPassword.classList.remove("text-danger");
     } else {
