@@ -91,13 +91,12 @@
 #left-side-user-info-container .user-details-container .user-bio{
     margin: 0 10px;
 }
-
-
+/*=== Favorite Genre Title ===*/
 #left-side-user-info-container .user-details-container .fav-genre-title{
     font-size: 16px;
 }
 
-/*=== User's Favorite Genre ===*/
+/*=== User's Favorite Genre Container ===*/
 #left-side-user-info-container .user-details-container .user-fav-genre-container{
     padding-bottom: 12px;
     margin: 0;
@@ -278,6 +277,12 @@
     width: auto;
     padding: 0 0 0 0;
     margin: 0 0 12px 0;
+}
+
+/*== No Review Title ==*/
+.no-reviews-message{
+    text-align: center;
+    font-weight: 400;
 }
 
 
