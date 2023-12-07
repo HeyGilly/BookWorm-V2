@@ -71,14 +71,14 @@ public class main_controller {
 
 
 
-    @GetMapping("/welcome-page")
+    @GetMapping("/welcome")
     public String home(Model model){
         // Add the existing data to the model
         addExistingDataToModel(model);
         return "main/introduction-page";
     }
 
-    @PostMapping("/welcome-page")
+    @PostMapping("/welcome")
     public String processSearch(@ModelAttribute("searchTerm") String searchTerm, Model model) {
 
         // Prepare the search term for the API request
