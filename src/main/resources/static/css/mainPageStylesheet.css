@@ -87,6 +87,7 @@
     margin: 24px;
     transition: 0.8s;
 }
+
 #main-page-genre .container-fluid .genre-card-container .genre-card:hover{
     background:#209dd8;
     transform: scale(1.03);

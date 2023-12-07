@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -19,6 +20,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class main_controller {
@@ -120,15 +122,15 @@ public class main_controller {
 
 
 
-    @GetMapping("/single-book")
-    public String singleBook(Model model){
+    @GetMapping("/singleBook/{id}")
+    public String singleBook(Model model, @PathVariable("id") long bookId){
+        long BookByISBN = bookshelfRepo.findById(bookId).get().getIsbn();
 
-
-        model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(9781982131807L));
-        String genre = bookshelfRepo.findByIsbn(9781982131807L).getGenre();
+        model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(BookByISBN));
+        String genre = bookshelfRepo.findByIsbn(BookByISBN).getGenre();
         model.addAttribute("bookGenre", bookshelfRepo.findAllByGenre(genre));
 
-        long book_id = bookshelfRepo.findByIsbn(9781982131807L).getId();
+        long book_id = bookshelfRepo.findByIsbn(BookByISBN).getId();
         model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_Id(book_id));
 
         return "main/SingleBookPreview";

@@ -285,6 +285,10 @@ body{
     margin: 60px;
     background: #fff;
 }
+.book-container a{
+    text-decoration: none;
+    color: #1e1e1e;
+}
 /*===== Cover Pages =====*/
 .cover-page{
     height: 320px;
@@ -295,11 +299,12 @@ body{
 }
 /*== Book info Container ==*/
 .book-info-container{
-    padding: 12px 0 0 24px   ;
+    padding: 12px 0 0 24px;
 }
 /*== Title of Book ==*/
 .book-info-container .book-title{
     font-weight: 600;
+
 }
 
 

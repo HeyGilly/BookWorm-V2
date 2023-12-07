@@ -50,11 +50,13 @@
             <!===== Book Section =====>
             <section class="d-flex overflow-scroll container-fluid container-lg position-relative" >
                 <section class="mx-3 book-container" th:each="book:${ThrillerBooks}">
-                    <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
-                    <p class="book-info-container">
-                        <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                        <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                    </p>
+                    <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
+                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
+                        <p class="book-info-container">
+                            <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                            <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                        </p>
+                    </a>
                 </section>
             </section>
         </div>
@@ -95,11 +97,14 @@
             <!===== Book Section =====>
             <section class="d-flex overflow-scroll container-fluid container-lg position-relative" >
                 <section class="mx-3 book-container" th:each="book:${FictionBooks}">
-                    <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
-                    <p class="book-info-container">
-                        <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                        <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                    </p>
+                    <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
+
+                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
+                        <p class="book-info-container">
+                            <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                            <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                        </p>
+                    </a>
                 </section>
             </section>
         </div>
