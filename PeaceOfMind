@@ -42,8 +42,8 @@ Saturday, Dec 2, 10:30am
 Thursday, Dec 7 13:13
     COMPLETED:
         [X] Nav, Change Direction on both to correct URL pathway
+        [X] Changed Logged out navigation and button to match the following buttons
     TODO:
-        [ ] Changed Logged out navigation and button to match the following buttons
         [ ] On Homepage, Change pathway of "Get Started" button to the correct URL pathway.
         [ ] On Homepage, Change the design the buttons to match the following.
         [ ] On Homepage, make those books clickable even thought they are only gonna be able to go to the login page, until logged in.

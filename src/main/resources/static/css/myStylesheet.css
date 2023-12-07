@@ -1,3 +1,4 @@
+@import "navbarStylesheet.css";
 @import "aboutStylesheet.css";
 @import "signinStylesheet.css";
 @import "mainPageStylesheet.css";
@@ -21,39 +22,8 @@ body{
     font-family: "Open Sans", sans-serif;
 }
 
-/*======= Navbar =======*/
-.navbar-brand{
-    font-family: "Jost", sans-serif;
-}
 
-.btn-log-in-nav{
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    /*margin: 10px 0 0 25px;*/
-    color: #47b2e4;
-    line-height: 1px;
-    text-decoration: none;
-    transition: 0.5s;
-}
-.btn-log-in-nav:hover{
-    color:#209dd8;
-    transform: scale(1.1);
-}
 
-/*===== Screen smaller then 991px =====*/
-@media (max-width: 991px){
-
-    /*===== nav =====*/
-    .btn-log-in-nav{
-        margin: 12px 0 24px 0;
-        transform: none;
-    }
-    .btn-log-in-nav:hover{
-        color: #17709a;
-        transform: none;
-    }
-}
 /*===== Hero Container =====*/
 #hero{
     width: 100%;
