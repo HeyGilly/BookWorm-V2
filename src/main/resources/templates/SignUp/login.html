@@ -28,7 +28,7 @@
                     <!==== Right Side of Card ====>
                     <div class="card-body p-4 p-lg-5">
                         <!==== Form ====>
-                        <form class="text-black">
+                        <form class="text-black" autocomplete="off">
                             <!== icon and logo ===>
                             <section class="d-flex align-items-center mb-3 pb-1">
                                 <img th:src="@{img/bookworm.png}" th:height="*{120}" alt="logo" class="me-3"/>
@@ -36,12 +36,12 @@
                             </section>
                             <!==== User Email ====>
                             <section class="form-outline mb-2">
-                                <input type="email" id="userEmail" class="form-control" />
-                                <label class="form-label" for="userEmail">Email Address</label>
+                                <input type="text" id="username" class="form-control" required/>
+                                <label class="form-label" for="username">Username:</label>
                             </section>
                             <!==== User Password ====>
                             <section class="form-outline mb-2">
-                                <input type="password" id="userPassword" class="form-control" />
+                                <input type="password" id="userPassword" class="form-control" required/>
                                 <aside class="d-flex">
                                     <label class="form-label" for="userPassword">Password</label>
                                     <!==== Forgot Password ====>
@@ -55,7 +55,7 @@
                             <!==== Register Here ====>
                             <p class=" text-center mt-5" style="color: #393f81">
                                 Don't have an account?
-                                <a th:href="@{/Sign-up}" style="color:#393f81;">
+                                <a th:href="@{/sign-up}" style="color:#393f81;">
                                     Register here
                                 </a>
                             </p>
