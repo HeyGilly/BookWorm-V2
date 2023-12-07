@@ -139,15 +139,15 @@ public class main_controller {
     @GetMapping("/userProfile")
     public String userProfile(Model model){
         //-- Genre
-        List<FavoriteGenre> favoriteGenres = userRepository.findUserById(16).getFavoriteGenres();
+        List<FavoriteGenre> favoriteGenres = userRepository.findUserById(17).getFavoriteGenres();
         model.addAttribute("favoriteGenres", favoriteGenres);
         // User image
-        String pathway = String.valueOf(userRepository.findUserById(16).getProfilePicturePath());
+        String pathway = String.valueOf(userRepository.findUserById(17).getProfilePicturePath());
         model.addAttribute("profilePathway", pathway);
         //-- find user
-        model.addAttribute("user",userRepository.findUserById(16));
+        model.addAttribute("user",userRepository.findUserById(17));
         //-- find reviews of user
-        model.addAttribute("usersReview",reviewRepository.findReviewByUserId(16));
+        model.addAttribute("usersReview",reviewRepository.findReviewByUserId(17));
         return "main/userProfile";
     }
 

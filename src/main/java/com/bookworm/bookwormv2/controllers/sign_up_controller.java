@@ -38,13 +38,17 @@ public class sign_up_controller {
     public String greetingSubmit(@ModelAttribute("user") User user, @RequestParam("profilePictureFile") MultipartFile profilePictureFile) {
 
         try {
-            // Handle the file and save its path to profilePicturePath
-            // For example, you can save it to a directory and store the path in the database
-            // Save the file and get the file path to the directory
-            String filePath = fileServiceRepository.saveFile(profilePictureFile);
 
-            // Set the file path in the user object
-            user.setProfilePicturePath("img/profilePicture/" +filePath);
+            if (!profilePictureFile.isEmpty()){
+                // Handle the file and save its path to profilePicturePath
+                // For example, you can save it to a directory and store the path in the database
+                // Save the file and get the file path to the directory
+                String filePath = fileServiceRepository.saveFile(profilePictureFile);
+
+                // Set the file path in the user object
+                user.setProfilePicturePath("img/profilePicture/" +filePath);
+            }
+
             // Creates a new User in the Database
             userRepository.save(user);
             return "redirect:/login";
