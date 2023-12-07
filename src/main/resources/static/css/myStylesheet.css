@@ -22,8 +22,6 @@ body{
     font-family: "Open Sans", sans-serif;
 }
 
-
-
 /*===== Hero Container =====*/
 #hero{
     width: 100%;
@@ -49,37 +47,64 @@ body{
     font-size: 24px;
 }
 
-/*===== Get Started Button =====*/
-.btn-get-started{
-    font-family: "Jost", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    letter-spacing: 1px;
-    padding: 10px 28px;
-    border-radius: 50px;
+/*===== Hero - Get Started Button =====*/
+#hero .container .row section:first-child aside .btn-get-started{
+    background-color: #13aa52;
+    border: 1px solid #13aa52;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
     color: #fff;
-    background: #47b2e4;
-    transition: 0.5s;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    outline: none;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
     text-decoration: none;
 }
-.btn-get-started:hover {
-    background: #209dd8;
+/*===== Hero - Get Started Button Hover=====*/
+#hero .container .row section:first-child aside .btn-get-started:hover{
+    background-color: #0e8641;
+    border: 1px solid #0e8641;
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
 }
 
-/*===== Login Button - hero section =====*/
-.btn-log-in{
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    margin: 10px 0 0 25px;
+
+/*===== Hero - Get Started Button =====*/
+#hero .container .row section:first-child aside .btn-log-in{
+    background-color: #5b8ed5;
+    border: 1px solid #5b8ed5;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
     color: #fff;
-    line-height: 1px;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    outline: none;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
     text-decoration: none;
-    transition: 0.5s;
+    margin-left: 10px;
 }
-.btn-log-in:hover{
-    color:#47b2e4;
-    transform: scale(1.1);
+/*===== Hero - Get Started Button Hover=====*/
+#hero .container .row section:first-child aside .btn-log-in:hover{
+    background-color: rgba(100, 149, 237, 0.49);
+    border: 1px solid rgba(100, 149, 237, 0.49);
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
 }
 /*===== Hero - Image Logo =====*/
 .hero-img img{
@@ -100,6 +125,7 @@ body{
     .hero-img img{
         width: 50%;
     }
+
 }
 
 /*=== Screen smaller then 768px ===*/
