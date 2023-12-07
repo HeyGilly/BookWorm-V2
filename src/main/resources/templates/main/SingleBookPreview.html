@@ -90,9 +90,11 @@
                 <div class="review-container" th:each="review:${bookReview}">
                     <!===== Book Review Username and Profile IMG =====>
                     <section class="">
-                        <img class="review-user-profile-img" th:src="${review.user.getProfilePicturePath()}" th:if="${review.user.getProfilePicturePath() != ''}" th:alt="${review.user.username}" />
-                        <img class="review-user-profile-img" th:src="@{/img/noProfileImage.png}" th:if="${review.user.profilePicturePath == ''}" alt="No Image Provided" />
-                        <h5 th:text="${review.user.username}">Username</h5>
+                        <a th:href="@{/in/{userId}(userId = ${review.user.id})}" >
+                            <img class="review-user-profile-img" th:src="${review.user.getProfilePicturePath()}" th:if="${review.user.getProfilePicturePath() != ''}" th:alt="${review.user.username}" />
+                            <img class="review-user-profile-img" th:src="@{/img/noProfileImage.png}" th:if="${review.user.profilePicturePath == ''}" alt="No Image Provided" />
+                            <h5 th:text="${review.user.username}">Username</h5>
+                        </a>
                     </section>
                     <!===== Book Review Title Rating & Body =====>
                     <section class="">

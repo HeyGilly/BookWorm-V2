@@ -138,18 +138,18 @@ public class main_controller {
 
 
 
-    @GetMapping("/userProfile")
-    public String userProfile(Model model){
+    @GetMapping("/in/{userId}")
+    public String userProfile(Model model,@PathVariable("userId") long userId){
         //-- Genre
-        List<FavoriteGenre> favoriteGenres = userRepository.findUserById(17).getFavoriteGenres();
+        List<FavoriteGenre> favoriteGenres = userRepository.findUserById(userId).getFavoriteGenres();
         model.addAttribute("favoriteGenres", favoriteGenres);
         // User image
-        String pathway = String.valueOf(userRepository.findUserById(17).getProfilePicturePath());
+        String pathway = String.valueOf(userRepository.findUserById(userId).getProfilePicturePath());
         model.addAttribute("profilePathway", pathway);
         //-- find user
-        model.addAttribute("user",userRepository.findUserById(17));
+        model.addAttribute("user",userRepository.findUserById(userId));
         //-- find reviews of user
-        model.addAttribute("usersReview",reviewRepository.findReviewByUserId(17));
+        model.addAttribute("usersReview",reviewRepository.findReviewByUserId(userId));
         return "main/userProfile";
     }
 
