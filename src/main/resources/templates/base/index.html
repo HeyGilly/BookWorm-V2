@@ -66,29 +66,30 @@
     <div class="services section-bg pt-5">
         <div class="container">
             <!==== Title ====>
-            <div class="section-title">
-                <h2>Daily Books</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <div class="section-title w-75 w-md-50 mx-auto">
+                <h2>Books Available</h2>
+                <p>At eight in the morning. She will not be up, so that we shall have a clear field. Besides, we must be prompt, for this marriage may mean a complete change in her life and habits. I must wire to the King without delay.</p>
             </div>
             <div class="position-relative">
                 <!===== Arrow Section =====>
-                <section class="left-arrow"><i class="fa-solid fa-angle-left"></i></section>
-                <section class="right-arrow"><i class="fa-solid fa-angle-right"></i></section>
+                <section class="left-arrow d-none d-lg-block"><i class="fa-solid fa-angle-left"></i></section>
+                <section class="right-arrow d-none d-lg-block"><i class="fa-solid fa-angle-right"></i></section>
                 <!===== Book Section =====>
-                <section class="d-flex overflow-scroll container position-relative" >
+                <section class="d-flex overflow-scroll container-fluid container-lg position-relative" >
                     <section class="mx-3 book-container" th:each="book:${bookshelf}">
-                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
-                        <p class="book-info-container">
-                            <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                            <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                        </p>
+                        <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
+                            <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" th:if="${book.getCover_page() != ''}" class="cover-page ">
+                            <img th:src="@{/img/noImage.jpeg}" th:alt="${book.getTitle()}" th:if="${book.getCover_page() == ''}" class="cover-page ">
+                            <p class="book-info-container">
+                                <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                                <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                            </p>
+                        </a>
                     </section>
                 </section>
             </div>
-
         </div>
     </div>
-
 
     <!=== Footer ===>
     <footer th:replace="partials/footer.html :: Footer"></footer>
