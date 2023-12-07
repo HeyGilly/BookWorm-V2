@@ -134,6 +134,10 @@
     background: #fff;
     transition: all ease-in-out 0.8s;
 }
+.single-book-genre-container a{
+  text-decoration: none;
+    color: #1e1e1e;
+}
 /*====== Same Books Container HOVER ======*/
 .single-book-genre-container:hover{
     transform: scale(0.9);

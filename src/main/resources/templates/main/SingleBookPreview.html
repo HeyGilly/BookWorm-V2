@@ -12,11 +12,21 @@
     <!=== Left Side Book Information===>
     <div id="left-side-book-container" class="">
         <!=== Book Image===>
-        <img class="single-book-cover" th:src="${singleBookInfo.getCover_page()}" th:if="${singleBookInfo.getCover_page() != ''}" th:alt="${singleBookInfo.getTitle()}">
-        <img class="single-book-cover-noIMG" th:src="@{img/noImage.jpeg}" th:if="${singleBookInfo.getCover_page() == ''}" th:alt="${singleBookInfo.getTitle()}">
+        <img class="single-book-cover"
+             th:src="${singleBookInfo.getCover_page()}"
+             th:alt="${singleBookInfo.getTitle()}"
+             th:if="${singleBookInfo.getCover_page() != ''}"
+             onerror="this.style.display='none';"
+        />
+        <img class="single-book-cover-noIMG"
+             th:src="${singleBookInfo.getCover_page() != '' ? singleBookInfo.getCover_page() : @{/img/noImage.jpeg}}"
+             th:alt="${singleBookInfo.getTitle()}"
+             th:if="${singleBookInfo.getCover_page() == ''}"
+        />
+
         <!=== Liked Book Button===>
         <a href="#" class="liked-book-btn">
-            <img th:src="@{img/heart.png}" alt="Liked Books" class="liked-book-image">
+            <img th:src="@{/img/heart.png}" alt="Liked Books" class="liked-book-image">
             <span>Favorite Book</span>
         </a>
         <!=== Purchase Button===>
@@ -54,13 +64,15 @@
                     <!===== Book Section =====>
                     <section class="d-flex overflow-scroll container position-relative p-0 m-0" >
                         <section class="mx-3 single-book-genre-container p-0 m-0 mb-5" th:each="book:${bookGenre}">
-                            <section th:if="${book.getTitle() != singleBookInfo.getTitle()}">
-                                <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page">
-                                <p class="single-book-genre-info-container">
-                                    <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                                    <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                                </p>
-                            </section>
+                            <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
+                                <section th:if="${book.getTitle() != singleBookInfo.getTitle()}">
+                                    <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page">
+                                    <p class="single-book-genre-info-container">
+                                        <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                                        <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                                    </p>
+                                </section>
+                            </a>
                         </section>
                     </section>
                 </div>
@@ -79,7 +91,7 @@
                     <!===== Book Review Username and Profile IMG =====>
                     <section class="">
                         <img class="review-user-profile-img" th:src="${review.user.getProfilePicturePath()}" th:if="${review.user.getProfilePicturePath() != ''}" th:alt="${review.user.username}" />
-                        <img class="review-user-profile-img" th:src="@{img/noProfileImage.png}" th:if="${review.user.profilePicturePath == ''}" alt="No Image Provided" />
+                        <img class="review-user-profile-img" th:src="@{/img/noProfileImage.png}" th:if="${review.user.profilePicturePath == ''}" alt="No Image Provided" />
                         <h5 th:text="${review.user.username}">Username</h5>
                     </section>
                     <!===== Book Review Title Rating & Body =====>

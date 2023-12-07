@@ -98,7 +98,6 @@
             <section class="d-flex overflow-scroll container-fluid container-lg position-relative" >
                 <section class="mx-3 book-container" th:each="book:${FictionBooks}">
                     <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
-
                         <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page ">
                         <p class="book-info-container">
                             <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
