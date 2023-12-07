@@ -12,6 +12,13 @@
 <main id="register-form-section">
     <div>
 
+        <!-- Error Message Container  -->
+        <div class="alert warning">
+            <span class="close-btn">&times;</span>
+            <strong>Warning!</strong>
+            <span th:each="error: ${errorMessages}"><br><small th:text="${error}">Indicates a warning that might need attention.</small></span>
+        </div>
+
         <!-- Register Form -->
         <form id="register-form" th:action="@{/sign-up}" th:object="${user}" enctype="multipart/form-data" method="post"  autocomplete="off">
             <h3 class="text-center fw-bold fs-1">Create a new account</h3>
@@ -20,23 +27,22 @@
             <div class="row g-1 mb-3">
                 <div class="col-md-6">
                     <label for="first_name" class="form-label">First Name:</label>
-                    <input th:field="*{first_name}" type="text" class="form-control" id="first_name" placeholder="">
+                    <input th:field="*{first_name}" type="text" class="form-control" id="first_name" aria-describedby="firstNameHelp">
                 </div>
                 <div class="col-md-6">
                     <label for="last_name" class="form-label">Last Name:</label>
-                    <input th:field="*{last_name}" type="text" class="form-control" id="last_name" placeholder="">
+                    <input th:field="*{last_name}" type="text" class="form-control" id="last_name" aria-describedby="lastNameHelp">
                 </div>
             </div>
             <!-- username Container-->
             <div class="mb-3">
                 <label for="username" class="form-label">Username:</label>
-                <input th:field="*{username}" type="text" class="form-control" id="username" placeholder="">
+                <input th:field="*{username}" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
             </div>
             <!-- Email Container -->
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address:</label>
                 <input th:field="*{email}"  type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <!-- Password Container -->
             <div class="mb-3">
@@ -70,5 +76,17 @@
 <footer th:replace="partials/footer.html :: Footer"></footer>
 
 <script th:src="@{js/passwordProtector.js}" ></script>
+<script>
+    var close = document.getElementsByClassName("close-btn");
+    var i;
+
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+        }
+    }
+</script>
 </body>
 </html>

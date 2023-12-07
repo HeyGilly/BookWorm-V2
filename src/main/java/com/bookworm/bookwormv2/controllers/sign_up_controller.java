@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class sign_up_controller {
@@ -35,7 +37,33 @@ public class sign_up_controller {
 
 
     @PostMapping("/sign-up")
-    public String greetingSubmit(@ModelAttribute("user") User user, @RequestParam("profilePictureFile") MultipartFile profilePictureFile) {
+    public String greetingSubmit(Model model, @ModelAttribute("user") User user, @RequestParam("profilePictureFile") MultipartFile profilePictureFile) {
+
+
+        List<String> errorMessages = new ArrayList<>();
+
+        if (3 > user.getFirst_name().length() || user.getFirst_name().length() > 25 || user.getFirst_name().isEmpty()) {
+            errorMessages.add("First name must be between 3-25 characters");
+        }
+
+        if (3 > user.getLast_name().length() || user.getLast_name().length() > 25 || user.getLast_name().isEmpty()) {
+            errorMessages.add("Last name must be between 3-25 characters");
+        }
+
+        if (5 > user.getUsername().length() || user.getUsername().length() > 15 || user.getUsername().isEmpty()) {
+            errorMessages.add("Username must be between 5-15 characters");
+        }
+
+        if (!user.getEmail().contains("@") || (!user.getEmail().endsWith(".com") && !user.getEmail().endsWith(".edu") && !user.getEmail().endsWith(".org"))) {
+            errorMessages.add("Email must be a valid email address");
+        }
+
+        if (!errorMessages.isEmpty()) {
+            // There are validation errors, so add error messages to the model and return
+                model.addAttribute("errorMessages", errorMessages);
+            return "SignUp/register";
+        }
+
 
         try {
 
