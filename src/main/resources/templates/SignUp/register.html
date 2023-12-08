@@ -13,7 +13,7 @@
     <div>
 
         <!-- Error Message Container  -->
-        <div class="alert warning">
+        <div class="alert warning" th:if="${not #lists.isEmpty(errorMessages)}">
             <span class="close-btn">&times;</span>
             <strong>Warning!</strong>
             <span th:each="error: ${errorMessages}"><br><small th:text="${error}">Indicates a warning that might need attention.</small></span>

@@ -49,8 +49,8 @@ Thursday, Dec 7 13:13
         [X] On Login page, Change the form to username instead of email.
         [X] On Login page, Change the direction to need a new account url path.
     WORKING:
+        [X] On registration page, The warning sign is popping up and I need it to only show up if there is an error.
     TODO:
-        [ ] ON registration page, The warning sign is popping up and I need it to only show up if there is an error.
         [ ] On Login page, Figure out how I am going to do the forgot password
         * [ ] On Login page, Create the functionality to work when a user successfully logs in.
         [ ] On Single Book Page, Fix the rating stars.
