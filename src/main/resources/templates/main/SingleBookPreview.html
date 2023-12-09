@@ -65,8 +65,8 @@
                     <section class="same-genre-single-book-container" th:each="book:${bookGenre}" th:if="${book.getTitle() != singleBookInfo.getTitle()}">
                         <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
                             <section>
-                                <img th:src="@{/img/noImage.jpeg}" th:if="${singleBookInfo.getCover_page() != ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
-                                <img th:src="${book.getCover_page()}" th:if="${singleBookInfo.getCover_page() == ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
+                                <img th:src="${book.getCover_page()}" th:if="${singleBookInfo.getCover_page() != ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
+                                <img th:src="@{/img/noImage.jpeg}" th:if="${singleBookInfo.getCover_page() == ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
                                 <aside>
                                     <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
                                     <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>

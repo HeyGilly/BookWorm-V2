@@ -49,7 +49,7 @@
                     <!=== Review Book Info Container ===>
                     <section class="col-3 col-lg-4">
                         <a th:href="@{/singleBook/{id}(id = ${review.getBookshelf().getId()})}" >
-                            <img class="user-profile-book-cover" th:src="@{img/noImage.png}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
+                            <img class="user-profile-book-cover" th:src="@{/img/noImage.jpeg}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
                             <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
                         </a>
                             <!--                        <p>-->
@@ -67,7 +67,7 @@
                         <span th:switch="${review.rating}" class="">
                             <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
                             <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                            <img th:case="'2'" th:src="@{img/ratings/twoStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                            <img th:case="'2'" th:src="@{/img/ratings/twoStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
                             <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
                             <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
                             <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
