@@ -50,12 +50,12 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On Login page, Change the direction to need a new account url path.
         [X] On registration page, The warning sign is popping up and I need it to only show up if there is an error.
         [X] On Database, Correct the Reviews to the correct user.
-    WORKING:
         [X] On profile page, make all book clickable to correct URL
+    WORKING:
+        [ ] On Single Book Page, Fix the rating stars.
     TODO:
         [ ] On Login page, Figure out how I am going to do the forgot password
         * [ ] On Login page, Create the functionality to work when a user successfully logs in.
-        [ ] On Single Book Page, Fix the rating stars.
         * [ ] Create a database that will collect the users favorite books.
         [ ] On profile page, showcase all favorite books.
         [ ] On profile page, Make Setting button functional to show edit form.
