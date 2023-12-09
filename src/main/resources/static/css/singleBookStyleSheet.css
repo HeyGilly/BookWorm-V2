@@ -31,13 +31,13 @@
     box-sizing: border-box;
     color: #fff;
     cursor: pointer;
-    width: 220px;
-    height: 50px;
+    width: 80%;
+    height: fit-content;
     font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
     font-weight: 400;
     outline: none;
-    padding: 10px 25px;
+    padding: 10px 0;
     text-align: center;
     transform: translateY(0);
     transition: transform 150ms, box-shadow 150ms;
@@ -126,37 +126,45 @@
     letter-spacing: 1px;
 }
 
-/*====== Same Books Container ======*/
-.single-book-genre-container{
+/*====== Same Genre Books Container ======*/
+#whole-same-genre-book-container{
+    margin: 25px 0;
+}
+/*==== Book container ====*/
+#whole-same-genre-book-container .same-genre-book-container{
+    overflow: scroll;
+    scroll-behavior: smooth;
+    display: flex;
+    margin: 0 25px;
+}
+#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container{
+    display: inline;
     border-radius: 25px;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-    margin: 60px;
+    margin: 12px;
     background: #fff;
-    transition: all ease-in-out 0.8s;
 }
-.single-book-genre-container a{
-  text-decoration: none;
+/*=== Book Anchor ===*/
+#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container a{
+    text-decoration: none;
     color: #1e1e1e;
 }
-/*====== Same Books Container HOVER ======*/
-.single-book-genre-container:hover{
-    transform: scale(0.9);
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-/*===== Cover Pages =====*/
-.single-book-genre-container section .cover-page{
-    height: 320px;
-    width: auto;
-    border-radius: 25px 25px 0 0;
-    padding:0;
+/*=== Single Genre - Book Cover ===*/
+#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container .same-genre-single-book-cover{
+    height: auto;
+    width: 140px;
+    border-radius: 20px 20px 0 0;
     margin: 0;
 }
-/*== Book info Container ==*/
-.single-book-genre-info-container{
-    padding: 12px 0 0 24px   ;
+/*=== Single Genre - Book Title Container ===*/
+#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container section aside{
+    line-height: normal;
+    font-size: 12px;
+    width: 140px;
+    padding: 10px 13px;
 }
-/*== Title of Book ==*/
-.single-book-genre-info-container .book-title{
+/*=== Single Genre - Book Title ===*/
+#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container section .book-title{
     font-weight: 600;
 }
 

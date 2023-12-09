@@ -53,29 +53,28 @@
             <p class="single-book-page-ISBN">ISBN: <span th:text="${singleBookInfo.getIsbn()}"></span>ISBN</p>
         </div>
 
-        <!=== Books in the Same Genre ===>
-        <div class="services section-bg pt-5">
-            <div class="container">
-                <!==== Title ====>
+        <!--- Same Genre Books Container ---->
+        <div id="whole-same-genre-book-container">
+            <div>
+                <!-- Same Genre Book Title -->
                 <div class="section-title p-0 m-0">
                     <h2>Same Genre Books</h2>
                 </div>
-                <div class="position-relative p-0 m-0">
-                    <!===== Book Section =====>
-                    <section class="d-flex overflow-scroll container position-relative p-0 m-0" >
-                        <section class="mx-3 single-book-genre-container p-0 m-0 mb-5" th:each="book:${bookGenre}">
-                            <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
-                                <section th:if="${book.getTitle() != singleBookInfo.getTitle()}">
-                                    <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="cover-page">
-                                    <p class="single-book-genre-info-container">
-                                        <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                                        <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                                    </p>
-                                </section>
-                            </a>
-                        </section>
+                <!-- Book Container -->
+                    <!-- Book, title, author container -->
+                <div class="same-genre-book-container">
+                    <section class="same-genre-single-book-container" th:each="book:${bookGenre}" th:if="${book.getTitle() != singleBookInfo.getTitle()}">
+                        <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
+                            <section>
+                                <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
+                                <aside>
+                                    <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
+                                    <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
+                                </aside>
+                            </section>
+                        </a>
                     </section>
-                </div>
+                 </div>
             </div>
         </div>
 
