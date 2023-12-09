@@ -16,10 +16,9 @@
              th:src="${singleBookInfo.getCover_page()}"
              th:alt="${singleBookInfo.getTitle()}"
              th:if="${singleBookInfo.getCover_page() != ''}"
-             onerror="this.style.display='none';"
         />
         <img class="single-book-cover-noIMG"
-             th:src="${singleBookInfo.getCover_page() != '' ? singleBookInfo.getCover_page() : @{/img/noImage.jpeg}}"
+             th:src="@{/img/noImage.jpeg}"
              th:alt="${singleBookInfo.getTitle()}"
              th:if="${singleBookInfo.getCover_page() == ''}"
         />
@@ -66,7 +65,8 @@
                     <section class="same-genre-single-book-container" th:each="book:${bookGenre}" th:if="${book.getTitle() != singleBookInfo.getTitle()}">
                         <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
                             <section>
-                                <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
+                                <img th:src="@{/img/noImage.jpeg}" th:if="${singleBookInfo.getCover_page() != ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
+                                <img th:src="${book.getCover_page()}" th:if="${singleBookInfo.getCover_page() == ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
                                 <aside>
                                     <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
                                     <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
@@ -99,12 +99,12 @@
                     <section class="">
                         <h5 th:text="${review.title}">Review Title</h5>
                         <span th:switch="${review.rating}" class="">
-                            <img th:case="'0'" th:src="@{img/ratings/noStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
-                            <img th:case="'1'" th:src="@{img/ratings/oneStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
-                            <img th:case="'2'" th:src="@{img/ratings/twoStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
-                            <img th:case="'3'" th:src="@{img/ratings/threeStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
-                            <img th:case="'4'" th:src="@{img/ratings/fourStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
-                            <img th:case="'5'" th:src="@{img/ratings/fiveStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'2'" th:src="@{/img/ratings/twoStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
+                            <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
                         </span>
                         <p th:text="${review.body}">Review Body</p>
                     </section>
