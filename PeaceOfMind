@@ -48,13 +48,13 @@ Thursday, Dec 7 13:13
         [X] On Homepage, make those books clickable even thought they are only gonna be able to go to the login page, until logged in.
         [X] On Login page, Change the form to username instead of email.
         [X] On Login page, Change the direction to need a new account url path.
-    WORKING:
         [X] On registration page, The warning sign is popping up and I need it to only show up if there is an error.
+        [X] On Database, Correct the Reviews to the correct user.
+    WORKING:
     TODO:
         [ ] On Login page, Figure out how I am going to do the forgot password
         * [ ] On Login page, Create the functionality to work when a user successfully logs in.
         [ ] On Single Book Page, Fix the rating stars.
-        [ ] On Database, Correct the Reviews to the correct user.
         * [ ] Create a database that will collect the users favorite books.
         [ ] On profile page, showcase all favorite books.
         [ ] On profile page, make all book clickable to correct URL
