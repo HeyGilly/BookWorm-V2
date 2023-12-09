@@ -13,18 +13,18 @@
 }
 /*== Setting Button ==*/
 #left-side-user-info-container .setting-container img{
-    width: 50px;
+    width: 60px;
     height: auto;
     background-color:#fff;
-    border-radius: 8px;
+    border-radius: 5px;
     transition: all .8s ease-in-out;
 }
-/*=== Setting Button Hover===*/
-#left-side-user-info-container .setting-container img:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.25);
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
+/*!*=== Setting Button Hover===*!*/
+/*#left-side-user-info-container .setting-container img:hover {*/
+/*    transform: scale(1.1);*/
+/*    background-color: rgba(255, 255, 255, 0.25);*/
+/*    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;*/
+/*}*/
 
 /*=== Profile Picture Container ===*/
 #left-side-user-info-container .user-profile-picture-container {
@@ -54,13 +54,13 @@
     box-sizing: border-box;
     color: #1e1e1e;
     cursor: pointer;
-    width: 220px;
+    width: 80%;
     height: 50px;
     font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 16px;
     font-weight: 600;
     outline: none;
-    padding: 10px 25px;
+    padding: 10px 0;
     text-align: center;
     transform: translateY(0);
     transition: transform 150ms, box-shadow 150ms;
@@ -157,6 +157,11 @@
         background-color:#fff;
         border-radius: 8px;
     }
+    /*=== Profile Picture ===*/
+    #left-side-user-info-container .user-profile-picture{
+        width: 80%;
+        height: auto;
+    }
 }
 
 /*=== Screen smaller then 575px ===*/
@@ -164,7 +169,7 @@
     /*=== Left Side Container ===*/
     #left-side-user-info-container{
         height: auto;
-        display: flex;
+        /*display: flex;*/
         padding: 24px;
     }
     /*=== Profile Picture Container ===*/
@@ -175,8 +180,8 @@
     }
     /*=== Profile Picture ===*/
     #left-side-user-info-container .user-profile-picture{
-        width: 140px;
-        height: 200px;
+        width: 80%;
+        height: auto;
     }
     /*=== Username & Bio Container ===*/
     #left-side-user-info-container .user-details-container{
