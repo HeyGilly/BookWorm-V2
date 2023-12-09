@@ -39,7 +39,7 @@ Saturday, Dec 2, 10:30am
     *- Need to decide if I want a search book page or if I want a search bar on the navigation on every page.
 
 
-Thursday, Dec 7 13:13
+Thursday, Dec 7 - Friday Dec 8
     COMPLETED:
         [X] Nav, Change Direction on both to correct URL pathway
         [X] Changed Logged out navigation and button to match the following buttons
@@ -51,13 +51,13 @@ Thursday, Dec 7 13:13
         [X] On registration page, The warning sign is popping up and I need it to only show up if there is an error.
         [X] On Database, Correct the Reviews to the correct user.
     WORKING:
+        [X] On profile page, make all book clickable to correct URL
     TODO:
         [ ] On Login page, Figure out how I am going to do the forgot password
         * [ ] On Login page, Create the functionality to work when a user successfully logs in.
         [ ] On Single Book Page, Fix the rating stars.
         * [ ] Create a database that will collect the users favorite books.
         [ ] On profile page, showcase all favorite books.
-        [ ] On profile page, make all book clickable to correct URL
         [ ] On profile page, Make Setting button functional to show edit form.
         [ ] On profile page, Make edit review function to show edit review form.
         * [ ] on profile page, Make it visible only a user can see add friend button, not on their own profile.

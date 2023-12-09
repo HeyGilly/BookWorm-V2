@@ -48,9 +48,11 @@
                 <div class="user-reviews-container col-11 col-md-9 col-lg-5 row" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}" th:each="review:${usersReview}">
                     <!=== Review Book Info Container ===>
                     <section class="col-3 col-lg-4">
-                        <img class="user-profile-book-cover" th:src="@{img/noImage.png}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
-                        <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
-<!--                        <p>-->
+                        <a th:href="@{/singleBook/{id}(id = ${review.getBookshelf().getId()})}" >
+                            <img class="user-profile-book-cover" th:src="@{img/noImage.png}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
+                            <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
+                        </a>
+                            <!--                        <p>-->
 <!--                            <span class="user-review-book-title" th:text="${review.getBookshelf().getTitle()}">Book Title</span><br/>-->
 <!--                            <small class="user-review-author">By <span th:text="${review.getBookshelf().getAuthor()}"></span></small>-->
 <!--                        </p>-->
