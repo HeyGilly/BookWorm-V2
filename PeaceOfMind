@@ -53,13 +53,13 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On profile page, make all book clickable to correct URL
         [X] On Single Book Page, Fix the rating stars.
         [X] On SingleBook page, work on username text decoration & fix the stars review & if there is a book with no image have a no image png show
+        [X] On profile page, Make Setting button functional to show edit form.
     WORKING:
     TODO:
         [ ] On Login page, Figure out how I am going to do the forgot password
         * [ ] On Login page, Create the functionality to work when a user successfully logs in.
         * [ ] Create a database that will collect the users favorite books.
         [ ] On profile page, showcase all favorite books.
-        [ ] On profile page, Make Setting button functional to show edit form.
         [ ] On profile page, Make edit review function to show edit review form.
         * [ ] on profile page, Make it visible only a user can see add friend button, not on their own profile.
         [ ] on profile page, if user are already friend, button should be changed.
