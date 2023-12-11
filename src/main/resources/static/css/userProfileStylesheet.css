@@ -109,9 +109,22 @@
     margin: 4px;
     border-radius: 12px;
     color: #1e1e1e;
-
 }
 
+/*===== Settings Form Container =====*/
+#setting-form-container{
+    margin-top: 42px;
+ }
+/*=== Settings Form Container ===*/
+#setting-form-container form {
+    width: 80%;
+    margin:0 auto;
+}
+/*=== Settings Form Title ===*/
+#setting-form-container form h3 {
+    text-align: center;
+    text-decoration: underline;
+}
 
 /*====== Screen smaller then 991px ======*/
 @media (max-width: 991px){

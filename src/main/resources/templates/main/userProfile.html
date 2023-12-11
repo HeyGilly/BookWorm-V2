@@ -11,29 +11,114 @@
 
 <main class="container-fluid">
     <div class="row">
-
         <!===== Left Side, User Profile Image and Details =====>
         <div id="left-side-user-info-container" class="col-12 col-sm-4 col-md-4">
-            <!===  Settings Button ====>
-            <aside class="setting-container">
-                <img th:src="@{/img/settings.png}" alt="Setting Button">
-            </aside>
-            <!=== Profile IMG ===>
-            <section class="user-profile-picture-container">
-                <img class="user-profile-picture" th:src="@{img/noProfileImage.png}" th:if="${user.profilePicturePath == ''}" alt="No Image Provided" />
-                <img class="user-profile-picture" th:src="${profilePathway}" th:if="${user.profilePicturePath != ''}" th:alt="${user.getUsername()}">
-                <button class="button-17 mt-3">Add Friend</button>
-            </section>
-            <!=== User Details ===>
-            <section class="user-details-container">
-                <h2 class="user-username"> Hello <span th:text="${user.getUsername()}">username</span></h2>
-                <p class="user-bio" th:unless="${user.getBio() == ''}" th:text="${user.getBio() != null ? user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1) : 'No Bio'}"></p>
-                <hr class="w-75 mx-auto">
-                <small class="fav-genre-title">Favorite Genre:</small>
-                <aside class="user-fav-genre-container">
-                    <span th:each="favoriteGenre : ${favoriteGenres}" th:text="${favoriteGenre.genre.name}"></span>
+            <div id="user-profile-info">
+                <!===  Settings Button ====>
+                <aside id="setting-button-container" class="setting-container">
+                    <img th:src="@{/img/settings.png}" alt="Setting Button">
                 </aside>
-            </section>
+                <!=== Profile IMG ===>
+                <section class="user-profile-picture-container">
+                    <img class="user-profile-picture" th:src="@{img/noProfileImage.png}" th:if="${user.profilePicturePath == ''}" alt="No Image Provided" />
+                    <img class="user-profile-picture" th:src="${profilePathway}" th:if="${user.profilePicturePath != ''}" th:alt="${user.getUsername()}">
+                    <button class="button-17 mt-3">Add Friend</button>
+                </section>
+                <!=== User Details ===>
+                <section class="user-details-container">
+                    <h2 class="user-username"> Hello <span th:text="${user.getUsername()}">username</span></h2>
+                    <p class="user-bio" th:unless="${user.getBio() == ''}" th:text="${user.getBio() != null ? user.getBio().substring(0, 1).toUpperCase() + user.getBio().substring(1) : 'No Bio'}"></p>
+                    <hr class="w-75 mx-auto">
+                    <small class="fav-genre-title">Favorite Genre:</small>
+                    <aside class="user-fav-genre-container">
+                        <span th:each="favoriteGenre : ${favoriteGenres}" th:text="${favoriteGenre.genre.name}"></span>
+                    </aside>
+                </section>
+            </div>
+            <!=== Settings Form ===>
+            <div id="setting-form-container">
+                <form th:action="@{/in/{id} (id=${user.getId()})}"
+                        th:object="${user}"
+                        method="post"
+                      enctype="multipart/form-data">
+                    <h3>Settings</h3>
+                    <!-- Profile Picture -->
+                    <div class="mb-3">
+                        <label for="setting-profile-picture" class="form-label">Profile Picture:</label>
+                        <input class="form-control" type="file" id="setting-profile-picture" th:field="*{profilePictureFile}">
+                    </div>
+                    <!-- First Name -->
+                    <div class="mb-3">
+                        <label for="setting-first-name" class="form-label">First Name:</label>
+                        <input type="text"
+                               title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 30 characters"
+                               class="form-control"
+                               th:field="*{first_name}"
+                               th:value="${first_name}"
+                               id="setting-first-name"
+                               pattern="[a-zA-Z]{3,30}">
+                    </div>
+                    <!-- Last Name -->
+                    <div class="mb-3">
+                        <label for="setting-last-name" class="form-label">Last Name:</label>
+                        <input type="text"
+                               class="form-control"
+                               id="setting-last-name"
+                               th:field="*{last_name}"
+                               th:value="${last_name}"
+                               minlength="3"
+                               maxlength="30"
+                               title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 30 characters"
+                               pattern="[a-zA-Z]{3,30}">
+                    </div>
+                    <!-- Username -->
+                    <div class="mb-3">
+                        <label for="setting-username" class="form-label">Username:</label>
+                        <input type="text"
+                               class="form-control"
+                               id="setting-username"
+                               th:value="${username}"
+                               th:field="*{username}">
+                    </div>
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="settingsEmail" class="form-label">Email address</label>
+                        <input type="email"
+                               class="form-control"
+                               id="settingsEmail"
+                               minlength="6"
+                               maxlength="254"
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                               th:value="${email}"
+                               th:field="*{email}"
+                               title="Please provide a valid email">
+                    </div>
+                    <!-- password -->
+                    <div class="mb-3">
+                        <label for="settingsPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="settingsPassword" aria-describedby="passwordHelp" th:field="*{password}">
+                        <div id="passwordHelp">Your password must be 8-20 characters long, 2 Uppercase & 2 Lowercase, 2 Numbers, 2 Special Characters</div>
+                    </div>
+                    <!-- Bio -->
+                    <div class="mb-3">
+                        <label for="setting-bio" class="form-label">Bio:</label>
+<!--                        <textarea th:value="${user.getBio()}" class="form-control" id="setting-bio" rows="3"></textarea>-->
+                        <textarea
+                                  class="form-control"
+                                  id="setting-bio"
+                                  rows="3"
+                                  style="resize: none;"
+                                  th:field="*{bio}"
+                                  th:value="${bio}">
+                        </textarea>
+                    </div>
+                    <!-- Cancel Button -->
+                    <button type="button" id="setting-cancel-button" class="btn btn-secondary">Cancel</button>
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <input type="hidden" th:field="*{id}" th:value="${user.id}">
+                </form>
+            </div>
         </div>
 
         <!===== Right Side, User Reviews =====>
@@ -52,10 +137,6 @@
                             <img class="user-profile-book-cover" th:src="@{/img/noImage.jpeg}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
                             <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
                         </a>
-                            <!--                        <p>-->
-<!--                            <span class="user-review-book-title" th:text="${review.getBookshelf().getTitle()}">Book Title</span><br/>-->
-<!--                            <small class="user-review-author">By <span th:text="${review.getBookshelf().getAuthor()}"></span></small>-->
-<!--                        </p>-->
                     </section>
                     <!=== Review Container ===>
                     <section class="col-9 col-lg-8">
@@ -101,5 +182,6 @@
 
 <!=== Footer ===>
 <footer th:replace="partials/footer.html :: Footer"></footer>
+<script th:src="@{/js/userProfile.js}"></script>
 </body>
 </html>

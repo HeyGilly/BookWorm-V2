@@ -2,17 +2,18 @@ package com.bookworm.bookwormv2.controllers;
 
 import com.bookworm.bookwormv2.models.Bookshelf;
 import com.bookworm.bookwormv2.models.FavoriteGenre;
+import com.bookworm.bookwormv2.models.User;
 import com.bookworm.bookwormv2.repository.BookshelfRepository;
 import com.bookworm.bookwormv2.repository.ReviewRepository;
 import com.bookworm.bookwormv2.repository.UserRepository;
+import com.bookworm.bookwormv2.service.FileService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -20,7 +21,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class main_controller {
@@ -30,12 +30,16 @@ public class main_controller {
     private final ReviewRepository reviewRepository;
     //-- User Repo to gather information of user;
     private final UserRepository userRepository;
+    //--
+    public final FileService fileServiceRepository;
+
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
+        this.fileServiceRepository = fileServiceRepository;
     }
     //-- getter
     public BookshelfRepository getBookshelfRepo() {
@@ -112,16 +116,6 @@ public class main_controller {
         return "main/introduction-page";
     }
 
-
-
-
-
-
-
-
-
-
-
     @GetMapping("/singleBook/{id}")
     public String singleBook(Model model, @PathVariable("id") long bookId){
         long BookByISBN = bookshelfRepo.findById(bookId).get().getIsbn();
@@ -139,7 +133,7 @@ public class main_controller {
 
 
     @GetMapping("/in/{userId}")
-    public String userProfile(Model model,@PathVariable("userId") long userId){
+    public String userProfile(Model model,@PathVariable("userId") long userId) {
         //-- Genre
         List<FavoriteGenre> favoriteGenres = userRepository.findUserById(userId).getFavoriteGenres();
         model.addAttribute("favoriteGenres", favoriteGenres);
@@ -147,11 +141,50 @@ public class main_controller {
         String pathway = String.valueOf(userRepository.findUserById(userId).getProfilePicturePath());
         model.addAttribute("profilePathway", pathway);
         //-- find user
-        model.addAttribute("user",userRepository.findUserById(userId));
+        model.addAttribute("user", userRepository.findUserById(userId));
         //-- find reviews of user
-        model.addAttribute("usersReview",reviewRepository.findReviewByUserId(userId));
+        model.addAttribute("usersReview", reviewRepository.findReviewByUserId(userId));
         return "main/userProfile";
     }
+
+    @PostMapping("/in/{userId}")
+    public String updateProfile(@ModelAttribute User userModel, @RequestParam("profilePictureFile") MultipartFile profilePictureFile){
+        User user = userRepository.findUserById(userModel.getId());
+        try {
+            if (!profilePictureFile.isEmpty()) {
+                // Handle the file and save its path to profilePicturePath
+                // For example, you can save it to a directory and store the path in the database
+                // Save the file and get the file path to the directory
+                String filePath = fileServiceRepository.saveFile(profilePictureFile);
+                // Set the file path in the user object
+                user.setProfilePicturePath("img/profilePicture/" + filePath);
+            }
+            if (!userModel.getPassword().isEmpty()){
+                user.setPassword(userModel.getPassword());
+            }
+            user.setFirst_name(userModel.getFirst_name());
+            user.setLast_name(userModel.getLast_name());
+            user.setEmail(userModel.getEmail());
+            user.setUsername(userModel.getUsername());
+            user.setBio(userModel.getBio());
+            userRepository.save(user);
+
+            return "redirect:/in/"+user.getId();
+        } catch (IOException e) {
+            // Handle file saving exception
+            e.printStackTrace();
+            return "redirect:/welcome"; // return an error page or redirect as needed
+        }
+
+    }
+
+
+
+
+
+
+
+
 
 
 
