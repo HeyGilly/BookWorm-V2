@@ -9,9 +9,14 @@
         <!-- Anchors -->
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
-                <a th:href="@{/search}" class="nav-link">Search for Book</a>
-                <a th:href="@{/logout}" class="nav-link">logout</a>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search for book title" aria-label="Search" id="book-search-input">
+                    <img th:src="@{/img/search-result-cancel.png}" alt="Cancel Search" id="search-result-cancel-button">
+                </form>
+                <a th:href="@{/logout}" class="nav-link" id="logout-button">logout</a>
             </div>
         </div>
     </div>
+    <div id="book-search-results" class="container-lg container-fluid"></div>
 </nav>
+
