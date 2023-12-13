@@ -101,4 +101,20 @@
 
 }
 
-/*========== Logged Out ==========*/
+/*========== Logged In ==========*/
+.navbar{
+    display: flex;
+    flex-direction: column;
+}
+/*== Form Search Input Form ==*/
+nav .container #navbarNavAltMarkup .navbar-nav form {
+    position: relative;
+}
+/*== Cancel Button to reset search input form ==*/
+nav .container #navbarNavAltMarkup .navbar-nav form #search-result-cancel-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 24px;
+    cursor: pointer;
+}
