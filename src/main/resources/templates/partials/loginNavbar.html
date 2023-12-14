@@ -10,9 +10,9 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ms-auto">
                 <!-- Search by title form -->
-                <form class="d-flex">
+                <form class="nav-bar-search-input-form">
                     <!-- Input -->
-                    <input class="form-control me-2" type="search" placeholder="Press Enter" aria-label="Search" id="book-search-input">
+                    <input class="form-control me-2" type="search" placeholder="Search for book title" aria-label="Search" id="book-search-input">
                     <!-- Cancel Button -->
                     <img th:src="@{/img/search-result-cancel.png}" alt="Cancel Search" id="search-result-cancel-button">
                 </form>
@@ -22,6 +22,5 @@
         </div>
     </div>
     <!-- The Search Book Results Container -->
-    <div id="book-search-results" class="container-lg container-fluid"></div>
+    <div id="book-search-results" class="container-fluid"></div>
 </nav>
-
