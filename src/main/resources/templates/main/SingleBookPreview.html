@@ -63,7 +63,7 @@
                     <!-- Book, title, author container -->
                 <div class="same-genre-book-container">
                     <section class="same-genre-single-book-container" th:each="book:${bookGenre}" th:if="${book.getTitle() != singleBookInfo.getTitle()}">
-                        <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
+                        <a th:href="@{/single/{id}(id = ${book.id})}" >
                             <section>
                                 <img th:src="${book.getCover_page()}" th:if="${singleBookInfo.getCover_page() != ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
                                 <img th:src="@{/img/noImage.jpeg}" th:if="${singleBookInfo.getCover_page() == ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
@@ -120,5 +120,7 @@
 
 <!=== Footer ===>
 <footer th:replace="partials/footer.html :: Footer"></footer>
+<script th:src="@{/js/searchForBookNavbar.js}"></script>
+
 </body>
 </html>

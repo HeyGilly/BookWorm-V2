@@ -133,7 +133,7 @@
                 <div class="user-reviews-container col-11 col-md-9 col-lg-5 row" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}" th:each="review:${usersReview}">
                     <!=== Review Book Info Container ===>
                     <section class="col-3 col-lg-4">
-                        <a th:href="@{/singleBook/{id}(id = ${review.getBookshelf().getId()})}" >
+                        <a th:href="@{/single/{id}(id = ${review.getBookshelf().getId()})}" >
                             <img class="user-profile-book-cover" th:src="@{/img/noImage.jpeg}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
                             <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
                         </a>
