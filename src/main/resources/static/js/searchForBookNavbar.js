@@ -40,12 +40,15 @@
 
     //-- Everytime called it fetches the api with book title input
     const  gatherBooks = async (bookTitle) =>{
-        console.log("Gathering Information! for:"+bookTitle);
+        console.log("Gathering Information! for: "+bookTitle);
         let googleAPIURL = `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&printType=books`
+        console.log("Google APU URL: "+googleAPIURL);
         let gatheringData = await fetch(googleAPIURL);
+        console.log("FETCHED");
         let turningDataIntoJSON = await gatheringData.json();
         return turningDataIntoJSON;
     }
+
 
 
     const showSearchBook = async () => {
@@ -116,7 +119,5 @@
             }));
         }
     }
-
-
 
 })();
