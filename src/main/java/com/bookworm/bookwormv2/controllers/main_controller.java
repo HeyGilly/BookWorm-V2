@@ -10,15 +10,8 @@ import com.bookworm.bookwormv2.service.FileService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,13 +52,15 @@ public class main_controller {
         List<String> uniqueGenres = new ArrayList<>();
         //-- Loops through the books and add unique genres to the array
         allBooks.forEach(book -> {
-            //-- Stores all books genre inside the genre variable
-            String genre = book.getGenre().substring(0, 1).toUpperCase() + book.getGenre().substring(1);
-            //-- This condition see if the empty array doesn't contain the genre
-            if (!uniqueGenres.contains(genre)) {
-                //-- the empty array does NOT contain the genre, we add it to the empty array.
-                //-- This will capitalize the first character
-                uniqueGenres.add(genre.substring(0, 1).toUpperCase() + genre.substring(1));
+            if( book.getGenre() != null) {
+                //-- Stores all books genre inside the genre variable
+                String genre = book.getGenre().substring(0, 1).toUpperCase() + book.getGenre().substring(1);
+                //-- This condition see if the empty array doesn't contain the genre
+                if (!uniqueGenres.contains(genre)) {
+                    //-- the empty array does NOT contain the genre, we add it to the empty array.
+                    //-- This will capitalize the first character
+                    uniqueGenres.add(genre.substring(0, 1).toUpperCase() + genre.substring(1));
+                }
             }
         });
         // Pass the unique genres to the Thymeleaf template
