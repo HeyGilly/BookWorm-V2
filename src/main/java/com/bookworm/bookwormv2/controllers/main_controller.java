@@ -82,44 +82,12 @@ public class main_controller {
         return "main/introduction-page";
     }
 
-    @PostMapping("/welcome")
-    public String processSearch(@ModelAttribute("searchTerm") String searchTerm, Model model) {
 
-        // Prepare the search term for the API request
-        String conCatSearchTerm = String.join("+", searchTerm.split("\\s+"));
-
-        // Create the API request
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://www.googleapis.com/books/v1/volumes?q=" + conCatSearchTerm + "&printType=books"))
-                .method("GET", HttpRequest.BodyPublishers.noBody())
-                .build();
-        try {
-
-            // Send the API request and get the response
-            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-            // Parse the JSON response
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode apiResponseJson = objectMapper.readTree(response.body());
-            Thread.sleep(1500);
-            // Add the JSON response to the model
-            model.addAttribute("apiResponse", apiResponseJson);
-            // Add the search term to the model to be used in the template
-            model.addAttribute("searchTerm", searchTerm);
-        } catch (IOException | InterruptedException e) {
-            // Handle exceptions
-            e.printStackTrace();
-        }
-
-        // The data for the rest of the page
-        addExistingDataToModel(model);
-        // Return the view name
-        return "main/introduction-page";
-    }
-
-    @GetMapping("/singleBook/{id}")
+    @GetMapping("/single/{id}")
     public String singleBook(Model model, @PathVariable("id") long bookId){
         long BookByISBN = bookshelfRepo.findById(bookId).get().getIsbn();
 
+        model.addAttribute("ISBNbook", BookByISBN);
         model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(BookByISBN));
         String genre = bookshelfRepo.findByIsbn(BookByISBN).getGenre();
         model.addAttribute("bookGenre", bookshelfRepo.findAllByGenre(genre));
