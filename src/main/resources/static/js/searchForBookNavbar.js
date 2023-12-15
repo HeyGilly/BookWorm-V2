@@ -2,11 +2,11 @@
 (async () => {
 
     //-- Search for Book Input
-    const searchBookInput = document.getElementById("book-search-input");
+    let searchBookInput = document.getElementById("book-search-input");
     //-- Search for Book Cancel Button
-    const searchBookCancelButton = document.getElementById("search-result-cancel-button");
+    let searchBookCancelButton = document.getElementById("search-result-cancel-button");
     //-- Search Book Results
-    const searchBookResultsContainer = document.getElementById("book-search-results");
+    let searchBookResultsContainer = document.getElementById("book-search-results");
 
     //-- Everytime the page reloads the search input value is always going to refresh
     document.addEventListener("DOMContentLoaded", () =>{
@@ -42,8 +42,8 @@
     const  gatherBooks = async (bookTitle) =>{
         console.log("Gathering Information! for:"+bookTitle);
         let googleAPIURL = `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&printType=books`
-        const gatheringData = await fetch(googleAPIURL);
-        const turningDataIntoJSON = await gatheringData.json();
+        let gatheringData = await fetch(googleAPIURL);
+        let turningDataIntoJSON = await gatheringData.json();
         return turningDataIntoJSON;
     }
 
@@ -91,7 +91,7 @@
                 const bookCover =  volumeInfo.imageLinks.thumbnail;
 
                 return `<div class="nav-bar-search-form-container">
-                            <form method="POST" action="/api/book">
+                            <form method="POST" action="/api/book"   th:action="@{/api/book}">
                                <input type="hidden" name="title" value="${volumeInfo.title}" />
                                <input type="hidden" name="isbn" value="${volumeInfo.industryIdentifiers[0].identifier}" />
                                <input type="hidden" name="author" value="${bookAuthors}" />
