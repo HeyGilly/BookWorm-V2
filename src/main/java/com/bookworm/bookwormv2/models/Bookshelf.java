@@ -28,7 +28,7 @@ public class Bookshelf {
     @Column(name = "PAGE_COUNT")
     private int page_count;
     @Column(name = "RATING")
-    private int rating;
+    private double rating;
     @Column(name = "GOOGLE_PLAY")
     private String google_play;
 
@@ -40,7 +40,7 @@ public class Bookshelf {
     public Bookshelf() {}
 
     //-- Whole Container
-    public Bookshelf(long id, long isbn, String title, String author, String date_published, String cover_page, String description, String genre, int page_count, int rating, String google_play, List<Reviews> reviews) {
+    public Bookshelf(long id, long isbn, String title, String author, String date_published, String cover_page, String description, String genre, int page_count, double rating, String google_play, List<Reviews> reviews) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
@@ -83,8 +83,8 @@ public class Bookshelf {
     public String getDate_published() {return date_published;}
     public void setDate_published(String date_published) {this.date_published = date_published;}
 
-    public int getRating() {return rating;}
-    public void setRating(int rating) {this.rating = rating;}
+    public double getRating() {return rating;}
+    public void setRating(double rating) {this.rating = rating;}
 
     public String getGoogle_play() {return google_play;}
     public void setGoogle_play(String google_play) {this.google_play = google_play;}
