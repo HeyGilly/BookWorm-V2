@@ -2,6 +2,7 @@ package com.bookworm.bookwormv2.controllers;
 
 import com.bookworm.bookwormv2.models.Bookshelf;
 import com.bookworm.bookwormv2.models.FavoriteGenre;
+import com.bookworm.bookwormv2.models.Reviews;
 import com.bookworm.bookwormv2.models.User;
 import com.bookworm.bookwormv2.repository.BookshelfRepository;
 import com.bookworm.bookwormv2.repository.ReviewRepository;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class main_controller {
@@ -80,6 +82,10 @@ public class main_controller {
 
     @GetMapping("/single/{id}")
     public String singleBook(Model model, @PathVariable("id") long bookId){
+
+        //-- find user
+        model.addAttribute("user", userRepository.findUserById(13));
+
         long BookByISBN = bookshelfRepo.findById(bookId).get().getIsbn();
 
         model.addAttribute("ISBNbook", BookByISBN);
@@ -90,8 +96,35 @@ public class main_controller {
         long book_id = bookshelfRepo.findByIsbn(BookByISBN).getId();
         model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_Id(book_id));
 
+        //-- For when reviews are written
+        model.addAttribute("Reviews", new Reviews());
+
         return "main/SingleBookPreview";
     }
+    @PostMapping("/single/{id}")
+    public String submitReview(@PathVariable("id") Long id, @ModelAttribute("Reviews") Reviews reviews) {
+        // process the reviews object
+        System.out.println(id);
+        System.out.println("Book ID: "+reviews.getId());
+        System.out.println("Reviews Body: "+reviews.getBody());
+        System.out.println("Reviews Title: "+reviews.getTitle());
+        System.out.println("Reviews ID: "+reviews.getId());
+        System.out.println(" Bookshelf: "+reviews.getBookshelf());
+        System.out.println("Rating: "+reviews.getRating());
+        System.out.println("User: "+reviews.getUser());
+
+        Bookshelf bookshelf = bookshelfRepo.findById(id).orElseThrow(/* some exception */);
+
+        reviews.setUser(userRepository.findUserById(11));
+
+        reviews.setBookshelf(bookshelf);
+//        reviews.setUser(reviews.getUser());
+        System.out.println("After Setting: "+reviews.getBookshelf());
+        reviewRepository.save(reviews);
+
+        return "redirect:/single/"+id;
+    }
+
 
 
 

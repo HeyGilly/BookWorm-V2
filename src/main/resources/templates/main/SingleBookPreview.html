@@ -28,6 +28,10 @@
             <img th:src="@{/img/heart.png}" alt="Liked Books" class="liked-book-image">
             <span>Favorite Book</span>
         </a>
+        <!=== Write a Review Button ==>
+        <a href="" class="write-review-button" id="write-review-button">
+            <span>Write Review</span>
+        </a>
         <!=== Purchase Button===>
         <a th:href="${singleBookInfo.getGoogle_play()}" class="purchase-book-btn">Purchase Ebook</a>
     </div>
@@ -85,6 +89,49 @@
             <div class="section-title p-0 m-0">
                 <h2>Reviews</h2>
             </div>
+            <!=== Write A Review Form ==>
+            <div id="writeAReviewContainer">
+                <h3>Write a review</h3>
+                <form th:action="@{/single/{id} (id=${singleBookInfo.getId()})}"
+                      th:object="${Reviews}"
+                      method="post">
+                    <input th:value="${singleBookInfo.getId()}" type="hidden" th:field="*{bookshelf}">
+                    <input th:value="${11}" type="hidden" th:field="*{user}">
+                    <div class="mb-3">
+                        <label for="writeReviewTitle" class="form-label">Subject:</label>
+                        <input type="text"
+                               class="form-control"
+                               id="writeReviewTitle"
+                               th:field="*{title}"
+                               th:value="${title}"
+                               maxlength="75"
+                               minlength="5"
+                                title="Min 5, Max 75 Characters">
+                    </div>
+                    <div class="mb-3">
+                        <label for="reviewRate" class="form-label">Rating: <span id="rateValue"></span></label>
+                        <input type="range"
+                               class="form-range"
+                               th:field="*{rating}"
+                               th:value="${rating}"
+                               min="1" max="5"
+                               step="1"
+                               id="reviewRate">
+                    </div>
+                    <div class="mb-3">
+                        <label for="leaveAReview" class="form-label">What did you think?</label>
+                        <textarea class="form-control"
+                                  id="leaveAReview"
+                                  rows="5"
+                                  style="resize: none;"
+                                  th:field="*{body}"
+                                  th:value="${body}"
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-secondary">Cancel</button>
+                </form>
+            </div>
             <div class="container-fluid whole-review-container">
                 <div class="review-container" th:each="review:${bookReview}">
                     <!===== Book Review Username and Profile IMG =====>
@@ -122,5 +169,31 @@
 <footer th:replace="partials/footer.html :: Footer"></footer>
 <!--<script th:src="@{/js/searchForBookNavbar.js}"></script>-->
 <script th:src="@{/js/searchForBookNavbar.js}"></script>
+
+<script>
+    let reviewContainer = document.getElementById("writeAReviewContainer");
+    let writeReviewButton = document.getElementById("write-review-button");
+
+    document.addEventListener("DOMContentLoaded", ()=>{
+        reviewContainer.style.display="none";
+    })
+
+    writeReviewButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        reviewContainer.style.display="block";
+    })
+
+    //-- Showcase of the value for the rating.
+    const rangeInput = document.getElementById('reviewRate');
+    const valueDisplay = document.getElementById('rateValue');
+    // Set initial value
+    valueDisplay.textContent = rangeInput.value;
+    // Update value on input change
+    rangeInput.addEventListener('input', function() {
+        valueDisplay.textContent = this.value;
+    });
+
+</script>
+
 </body>
 </html>
