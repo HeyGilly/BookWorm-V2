@@ -94,7 +94,8 @@
                 <h3>Write a review</h3>
                 <form th:action="@{/single/{id} (id=${singleBookInfo.getId()})}"
                       th:object="${Reviews}"
-                      method="post">
+                      method="post"
+                      id="writing-review-form">
                     <input th:value="${singleBookInfo.getId()}" type="hidden" th:field="*{bookshelf}">
                     <input th:value="${11}" type="hidden" th:field="*{user}">
                     <div class="mb-3">
@@ -129,7 +130,7 @@
                         ></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="button" class="btn btn-secondary">Cancel</button>
+                    <button type="button" class="btn btn-secondary" id="write-review-cancel-button" >Cancel</button>
                 </form>
             </div>
             <div class="container-fluid whole-review-container">
@@ -173,9 +174,18 @@
 <script>
     let reviewContainer = document.getElementById("writeAReviewContainer");
     let writeReviewButton = document.getElementById("write-review-button");
+    let writeReviewCancelButton = document.getElementById("write-review-cancel-button");
+    let reviewForm = document.getElementById("writing-review-form");
 
     document.addEventListener("DOMContentLoaded", ()=>{
         reviewContainer.style.display="none";
+        reviewForm.reset();
+    })
+
+    writeReviewCancelButton.addEventListener("click",(e) =>{
+        e.preventDefault();
+        reviewContainer.style.display="none";
+        reviewForm.reset();
     })
 
     writeReviewButton.addEventListener("click", (e) => {
