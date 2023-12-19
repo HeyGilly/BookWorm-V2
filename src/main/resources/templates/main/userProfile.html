@@ -139,7 +139,7 @@
                         </a>
                     </section>
                     <!=== Review Container ===>
-                    <section class="col-9 col-lg-8">
+                    <section class="col-9 col-lg-8 review-user-wrote-container">
                         <!===  Review Title ====>
                         <span  class="user-review-title" th:text="${review.title}">Review Title</span>
                         <img th:src="@{/img/edit-button.png}" class="edit-review-button" alt="Edit Button">
@@ -156,6 +156,37 @@
                         <!===  Review Body ====>
                         <p th:text="${review.body}">Review Body</p>
                     </section>
+                    <aside class="edit-review-form col-9 col-lg-8">
+                        <form>
+                            <h5>Update Review</h5>
+<!--                            <div class="">-->
+<!--                                <label for="reviewRate" class="form-label"><span class="rateValue"></span></label>-->
+<!--                                <input type="range" th:value="${review.getRating()}" class="form-range reviewRate" min="1" max="5" id="reviewRate">-->
+<!--                                &lt;!&ndash; th:field="*{rating}"&ndash;&gt;-->
+<!--                            </div>-->
+                            <div class="m-0 p-0">
+                                <label for="reviewRate" class="form-label p-0 m-0 w-100">Rating: <span class="rateValue"></span></label>
+                                <input type="range"
+                                       th:value="${review.getRating()}"
+                                       class="form-range p-0 m-0 reviewRate"
+                                       min="1" max="5"
+                                       step="1"
+                                       id="reviewRate">
+                            </div>
+                            <div class="">
+                                <label for="editReviewTitle"></label>
+                                <input type="text" class="form-control editReviewTitle"  th:value="${review.getTitle()}" id="editReviewTitle">
+                                <!-- th:field="*{title}" -->
+                            </div>
+                            <div class="mb-3">
+                                <label for="editReviewBody"></label>
+                                <textarea class="form-control" id="editReviewBody" rows="3">[[${review.getBody()}]]</textarea>
+                                <!--th:field="*{body}" -->
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-secondary edit-review-cancel-button">Cancel</button>
+                        </form>
+                    </aside>
                 </div>
                 <div class="no-reviews-message" th:unless="${usersReview != null and not #lists.isEmpty(usersReview)}">
                     No recent reviews
@@ -172,5 +203,62 @@
 <footer th:replace="partials/footer.html :: Footer"></footer>
 <script th:src="@{/js/userProfile.js}"></script>
 <script th:src="@{/js/searchForBookNavbar.js}"></script>
+
+<script>
+
+    // //-- Showcase of the value for the rating.
+    // const rangeInput = document.getElementById('reviewRate');
+    // const valueDisplay = document.getElementById('rateValue');
+    // // Set initial value
+    // valueDisplay.textContent = rangeInput.value;
+    // // Update value on input change
+    // rangeInput.addEventListener('input', function() {
+    //     valueDisplay.textContent = this.value;
+    // });
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        document.querySelectorAll(".rateValue").forEach((button, index) => {
+            let rangeInput = document.querySelectorAll('.reviewRate')[index]
+            let valueDisplay = document.querySelectorAll('.rateValue')[index]
+
+            valueDisplay.textContent = rangeInput.value;
+
+            rangeInput.addEventListener('input', function() {
+                valueDisplay.textContent = this.value;
+            });
+
+        });
+
+            document.querySelectorAll(".edit-review-button").forEach((button, index) => {
+            // Assuming each button corresponds to the respective containers by index
+            let reviewContainer = document.querySelectorAll(".review-user-wrote-container")[index];
+            let editForm = document.querySelectorAll(".edit-review-form")[index];
+
+            // Initially hide the edit forms
+            editForm.style.display = "none";
+
+            button.addEventListener("click", () => {
+                // Toggle visibility
+                reviewContainer.style.display = reviewContainer.style.display === "none" ? "block" : "none";
+                editForm.style.display = editForm.style.display === "none" ? "block" : "none";
+            });
+        });
+        document.querySelectorAll(".edit-review-cancel-button").forEach((button, index) => {
+            // Assuming each button corresponds to the respective containers by index
+            let reviewContainer = document.querySelectorAll(".review-user-wrote-container")[index];
+            let editForm = document.querySelectorAll(".edit-review-form")[index];
+
+            button.addEventListener("click", () => {
+                // Toggle visibility
+                editForm.style.display = editForm.style.display === "none" ? "block" : "none";
+                reviewContainer.style.display = reviewContainer.style.display  === "none" ? "block" : "none";
+            });
+        });
+
+    });
+
+</script>
+
 </body>
 </html>
