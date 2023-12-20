@@ -157,7 +157,7 @@
                         <p th:text="${review.body}">Review Body</p>
                     </section>
                     <aside class="edit-review-form col-9 col-lg-8">
-                        <form>
+                        <form class="whole-edit-review-form">
                             <h5>Update Review</h5>
 <!--                            <div class="">-->
 <!--                                <label for="reviewRate" class="form-label"><span class="rateValue"></span></label>-->
@@ -248,11 +248,13 @@
             // Assuming each button corresponds to the respective containers by index
             let reviewContainer = document.querySelectorAll(".review-user-wrote-container")[index];
             let editForm = document.querySelectorAll(".edit-review-form")[index];
+            let editReviewForm = document.querySelectorAll(".whole-edit-review-form")[index];
 
             button.addEventListener("click", () => {
                 // Toggle visibility
                 editForm.style.display = editForm.style.display === "none" ? "block" : "none";
                 reviewContainer.style.display = reviewContainer.style.display  === "none" ? "block" : "none";
+                editReviewForm.reset();
             });
         });
 
