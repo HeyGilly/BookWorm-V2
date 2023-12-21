@@ -46,6 +46,9 @@ public class User {
     @OneToMany(mappedBy = "userFavorite", cascade = CascadeType.ALL)
     private List<FavoriteGenre> favoriteGenres;
 
+    @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
+    private List<FavoriteBook> favoriteBookList;
+
     //--Empty Constructor
     public User() {
     }

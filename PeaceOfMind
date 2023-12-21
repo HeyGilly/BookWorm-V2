@@ -58,7 +58,7 @@ Thursday, Dec 7 - Friday Dec 8
         [X] then Use Javascript to add the data search into our database.
         [X] On profile page, Make edit review function to show edit review form.
     WORKING:
-        * [] Create a database that will collect the users favorite books.
+        * [X] Create a database that will collect the users favorite books.
         [ ] On profile page, showcase all favorite books.
         [ ] On single book page, once button clicked it gets added to the database.
     TODO:

@@ -35,12 +35,15 @@ public class Bookshelf {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookshelf")
     private List<Reviews> reviews;
 
+    @OneToMany(mappedBy = "bookId", cascade = CascadeType.ALL)
+    private List<FavoriteBook> favoriteBooks;
+
 
     //-- Empty Constructor
     public Bookshelf() {}
 
     //-- Whole Container
-    public Bookshelf(long id, long isbn, String title, String author, String date_published, String cover_page, String description, String genre, int page_count, double rating, String google_play, List<Reviews> reviews) {
+    public Bookshelf(long id, long isbn, String title, String author, String date_published, String cover_page, String description, String genre, int page_count, double rating, String google_play, List<Reviews> reviews, List<FavoriteBook> favoriteBooks) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
@@ -53,6 +56,7 @@ public class Bookshelf {
         this.rating = rating;
         this.google_play = google_play;
         this.reviews = reviews;
+        this.favoriteBooks = favoriteBooks;
     }
 
     //-- Getters and Setters
@@ -91,4 +95,12 @@ public class Bookshelf {
 
     public List<Reviews> getReviews() {return reviews;}
     public void setReviews(List<Reviews> reviews) {this.reviews = reviews;}
+
+    public List<FavoriteBook> getFavoriteBooks() {
+        return favoriteBooks;
+    }
+
+    public void setFavoriteBooks(List<FavoriteBook> favoriteBooks) {
+        this.favoriteBooks = favoriteBooks;
+    }
 }
