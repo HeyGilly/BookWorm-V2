@@ -140,6 +140,8 @@ public class main_controller {
         model.addAttribute("user", userRepository.findUserById(userId));
         //-- find reviews of user
         model.addAttribute("usersReview", reviewRepository.findReviewByUserId(userId));
+
+        model.addAttribute("editReviewByNew", new Reviews());
         return "main/userProfile";
     }
 

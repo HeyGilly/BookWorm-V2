@@ -157,31 +157,25 @@
                         <p th:text="${review.body}">Review Body</p>
                     </section>
                     <aside class="edit-review-form col-9 col-lg-8">
-                        <form class="whole-edit-review-form">
+                        <form class="whole-edit-review-form" th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}">
                             <h5>Update Review</h5>
-<!--                            <div class="">-->
-<!--                                <label for="reviewRate" class="form-label"><span class="rateValue"></span></label>-->
-<!--                                <input type="range" th:value="${review.getRating()}" class="form-range reviewRate" min="1" max="5" id="reviewRate">-->
-<!--                                &lt;!&ndash; th:field="*{rating}"&ndash;&gt;-->
-<!--                            </div>-->
                             <div class="m-0 p-0">
-                                <label for="reviewRate" class="form-label p-0 m-0 w-100">Rating: <span class="rateValue"></span></label>
-                                <input type="range"
-                                       th:value="${review.getRating()}"
-                                       class="form-range p-0 m-0 reviewRate"
-                                       min="1" max="5"
-                                       step="1"
-                                       id="reviewRate">
+                                <select class="form-select" aria-label="Default select example" th:field="*{rating}">
+                                    <option th:value="${review.getRating()}">Rating:</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    <option value="4">Four</option>
+                                    <option value="5">Five</option>
+                                </select>
                             </div>
                             <div class="">
                                 <label for="editReviewTitle"></label>
-                                <input type="text" class="form-control editReviewTitle"  th:value="${review.getTitle()}" id="editReviewTitle">
-                                <!-- th:field="*{title}" -->
+                                <input type="text" class="form-control editReviewTitle" th:value="${review.getTitle()}" th:placeholder="${review.getTitle()}" th:field="*{title}" id="editReviewTitle">
                             </div>
                             <div class="mb-3">
                                 <label for="editReviewBody"></label>
-                                <textarea class="form-control" id="editReviewBody" rows="3">[[${review.getBody()}]]</textarea>
-                                <!--th:field="*{body}" -->
+                                <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="3"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" class="btn btn-secondary edit-review-cancel-button">Cancel</button>
