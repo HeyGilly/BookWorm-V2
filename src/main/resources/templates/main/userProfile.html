@@ -157,9 +157,10 @@
                         <p th:text="${review.body}">Review Body</p>
                     </section>
                     <aside class="edit-review-form col-9 col-lg-8">
+                        <!-- Edit Review Form -->
                         <form class="whole-edit-review-form" th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}">
-                            <h5>Update Review</h5>
-                            <div class="m-0 p-0">
+                            <!-- Rating -->
+                            <div class="mb-3">
                                 <select class="form-select" aria-label="Default select example" th:field="*{rating}">
                                     <option th:value="${review.getRating()}">Rating:</option>
                                     <option value="1">One</option>
@@ -169,14 +170,17 @@
                                     <option value="5">Five</option>
                                 </select>
                             </div>
+                            <!-- Title -->
                             <div class="">
                                 <label for="editReviewTitle"></label>
                                 <input type="text" class="form-control editReviewTitle" th:value="${review.getTitle()}" th:placeholder="${review.getTitle()}" th:field="*{title}" id="editReviewTitle">
                             </div>
+                            <!-- Body -->
                             <div class="mb-3">
                                 <label for="editReviewBody"></label>
-                                <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="3"></textarea>
+                                <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="8" style="resize:none;"></textarea>
                             </div>
+                            <!-- Submit and Cancel Button -->
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" class="btn btn-secondary edit-review-cancel-button">Cancel</button>
                         </form>
