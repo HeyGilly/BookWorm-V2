@@ -19,61 +19,36 @@ public class edit_review_controller {
     }
 
     @PostMapping("/review/{id}")
-    public String edit_Review(@PathVariable("id") Long id, @ModelAttribute("editReviewByNew")Reviews reviews, BindingResult result){
+    public String edit_Review(@PathVariable("id") Long id, @ModelAttribute("editReviewByNew")Reviews reviews){
 
-        if (result.hasErrors()) {
-            return "redirect:/welcome";
-        }
-        System.out.println("url id: "+id);
+        //-- Grabs the data of the review you wanted to edit. The Original Data
         Reviews singleReview = reviewRepository.findReviewById(id);
-        System.out.println("__________________");
-        System.out.println("user id: "+singleReview.getUser().getId());
-        System.out.println("Username: "+singleReview.getUser().getUsername());
-        System.out.println("__________ORIGINAL________");
-        System.out.println("original Title: "+singleReview.getTitle());
-        System.out.println("original Body: "+singleReview.getBody());
-        System.out.println("original Rating: "+singleReview.getRating());
 
-        System.out.println("_________INPUT_________");
-        System.out.println("Input Title: " + reviews.getTitle());
-        System.out.println("Input Body: " + reviews.getBody());
-        System.out.println("Input Rating: " + reviews.getRating());
-        System.out.println("__________________");
-        System.out.println("reviews: "+singleReview);
-
+        //-- Checks whether the input and original title are the same and ifs it's not empty
         if (!Objects.equals(singleReview.getTitle(), reviews.getTitle()) && !reviews.getTitle().isEmpty()){
-            System.out.println("The Inputs title does not match");
+            //-- Saves the input that changed.
             singleReview.setTitle(reviews.getTitle());
-            System.out.println("Setting the title");
         }else{
+            //-- Keeping the title the same.
             singleReview.setTitle(singleReview.getTitle());
-            System.out.println("Keeping the title");
         }
 
+        //-- Checks If the input value is not empty
         if (!reviews.getBody().isEmpty()){
-            System.out.println("There was an input in the body review");
+            //-- Saves the value that changed.
             singleReview.setBody(reviews.getBody());
-            System.out.println("Setting the body");
         }else{
+            //-- Saves the original body
             singleReview.setBody(singleReview.getBody());
-            System.out.println("Keeping the same body");
         }
 
+        //-- What ever we get from the value from the rating, we shall save.
         singleReview.setRating(reviews.getRating());
 
+        //-- Save all the info in the database.
         reviewRepository.save(singleReview);
 
 
-
-
-
-
-        //-- Updating the review with new values from the form
-         /*       singleReview.setTitle(reviews.getTitle());
-        singleReview.setBody(reviews.getBody());
-        */
-
-
-        return "redirect:/in/11";
+        return "redirect:/in/"+ singleReview.getUser().getId();
     }
 }

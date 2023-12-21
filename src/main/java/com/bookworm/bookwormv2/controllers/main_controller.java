@@ -141,7 +141,9 @@ public class main_controller {
         //-- find reviews of user
         model.addAttribute("usersReview", reviewRepository.findReviewByUserId(userId));
 
+        //-- For the form to edit the review
         model.addAttribute("editReviewByNew", new Reviews());
+
         return "main/userProfile";
     }
 
