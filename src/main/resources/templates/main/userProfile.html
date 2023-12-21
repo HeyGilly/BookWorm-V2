@@ -123,6 +123,28 @@
 
         <!===== Right Side, User Reviews =====>
         <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-8">
+
+            <!=== Favorite Book Title ===>
+            <div class="section-title">
+                <h2>Favorite Books</h2>
+            </div>
+
+            <!===== Book Section =====>
+            <section class="d-flex overflow-scroll container-fluid container-lg position-relative" >
+                <section class="mx-3 book-container" th:if="${favoriteBooks != null and not #lists.isEmpty(favoriteBooks)}" th:each="favBook:${favoriteBooks}">
+                    <a th:href="@{/single/{id}(id = ${favBook.getBookId().getId()})}" >
+                        <img th:src="${favBook.getBookId().getCover_page()}" th:alt="${favBook.getBookId().getTitle()}" class="cover-page ">
+                        <p class="book-info-container">
+                            <span th:text="${favBook.getBookId().getTitle()}" class="book-title">Title of Book</span> <br />
+                            <small>By </small><small th:text="${favBook.getBookId().getAuthor()}" class="\">Title of Book</small>
+                        </p>
+                    </a>
+                </section>
+            </section>
+
+
+
+
             <!=== Review Title ===>
             <div class="section-title">
                 <h2>Reviews</h2>

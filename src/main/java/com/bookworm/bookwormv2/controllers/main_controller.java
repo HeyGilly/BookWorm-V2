@@ -1,10 +1,8 @@
 package com.bookworm.bookwormv2.controllers;
 
-import com.bookworm.bookwormv2.models.Bookshelf;
-import com.bookworm.bookwormv2.models.FavoriteGenre;
-import com.bookworm.bookwormv2.models.Reviews;
-import com.bookworm.bookwormv2.models.User;
+import com.bookworm.bookwormv2.models.*;
 import com.bookworm.bookwormv2.repository.BookshelfRepository;
+import com.bookworm.bookwormv2.repository.FavoriteBookRepository;
 import com.bookworm.bookwormv2.repository.ReviewRepository;
 import com.bookworm.bookwormv2.repository.UserRepository;
 import com.bookworm.bookwormv2.service.FileService;
@@ -28,13 +26,16 @@ public class main_controller {
     //--
     public final FileService fileServiceRepository;
 
+    //-- Favorite Book Data
+    public final FavoriteBookRepository favoriteBookRepository;
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, FavoriteBookRepository favoriteBookRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
         this.fileServiceRepository = fileServiceRepository;
+        this.favoriteBookRepository = favoriteBookRepository;
     }
     //-- getter
     public BookshelfRepository getBookshelfRepo() {
@@ -130,6 +131,17 @@ public class main_controller {
 
     @GetMapping("/in/{userId}")
     public String userProfile(Model model,@PathVariable("userId") long userId) {
+
+        User currentUser = userRepository.findUserById(userId);
+
+        System.out.println("CurrentUser: "+currentUser);
+        System.out.println("CurrentUser: "+currentUser.getUsername());
+        System.out.println("CurrentUser: "+currentUser.getId());
+
+        //-- Favorite Books
+        List<FavoriteBook> favoriteBooks = favoriteBookRepository.findAllByUserId(currentUser);
+        model.addAttribute("favoriteBooks", favoriteBooks);
+
         //-- Genre
         List<FavoriteGenre> favoriteGenres = userRepository.findUserById(userId).getFavoriteGenres();
         model.addAttribute("favoriteGenres", favoriteGenres);
