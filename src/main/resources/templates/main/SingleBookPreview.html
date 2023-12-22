@@ -24,10 +24,10 @@
         />
 
         <!=== Liked Book Button Form===>
-        <form class="liked-book-btn" th:if="${faved == 'NotFaved'}" th:action="@{/favoriteBook/{userId}/{bookId}(userId=${user.id},bookId=${singleBookInfo.id})}" th:object="${favBookObject}" method="post">
+        <form th:if="${faved == 'NotFaved'}" th:action="@{/favoriteBook/{userId}/{bookId}(userId=${user.id},bookId=${singleBookInfo.id})}" th:object="${favBookObject}" method="post">
             <input type="hidden" th:field="*{userId}" th:value="${user.id}">
             <input type="hidden" th:field="*{bookId}" th:value="${singleBookInfo.id}">
-            <button type="submit">
+            <button type="submit" class="liked-book-btn">
                 <img th:src="@{/img/heart.png}" alt="Favorite Book" class="liked-book-image">
                 <span>Favorite Book</span>
             </button>

@@ -63,6 +63,7 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On Single Book Page, If in the favorite already then a new button appears.
     WORKING:
      [X] On single book page, UnFavorite Button needs to be designed.
+     [X] On single book page, Favorite Button needs to be designed.
      [ ] On user Profile, If no favorite Book then display you have no favorites.
      [ ] On user Profile, work with reviews and figure out why they are pushed to the start.
     TODO:
