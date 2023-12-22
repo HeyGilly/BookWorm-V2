@@ -57,11 +57,11 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Create a search on the navbar
         [X] then Use Javascript to add the data search into our database.
         [X] On profile page, Make edit review function to show edit review form.
-    WORKING:
         [X] Create a database that will collect the users favorite books.
         [X] On profile page, showcase all favorite books.
         [X] On single book page, once button clicked it gets added to the database.
-        [ ] On Single Book Page, If in the favorite already then a new button appears.
+        [X] On Single Book Page, If in the favorite already then a new button appears.
+    WORKING:
     TODO:
         [ ] On Login page, Figure out how I am going to do the forgot password
         * [ ] On Login page, Create the functionality to work when a user successfully logs in.
