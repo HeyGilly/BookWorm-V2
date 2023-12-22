@@ -130,7 +130,7 @@
             </div>
 
             <!===== Book Section =====>
-            <section class="d-flex overflow-scroll container-fluid container-lg position-relative" >
+            <section class="d-flex justify-items-center overflow-scroll container-fluid container-lg position-relative" >
                 <section class="mx-3 book-container" th:if="${favoriteBooks != null and not #lists.isEmpty(favoriteBooks)}" th:each="favBook:${favoriteBooks}">
                     <a th:href="@{/single/{id}(id = ${favBook.getBookId().getId()})}" >
                         <img th:src="${favBook.getBookId().getCover_page()}" th:alt="${favBook.getBookId().getTitle()}" class="cover-page ">
@@ -139,6 +139,9 @@
                             <small>By </small><small th:text="${favBook.getBookId().getAuthor()}" class="\">Title of Book</small>
                         </p>
                     </a>
+                </section>
+                <section th:if="${#lists.isEmpty(favoriteBooks)}" class="mx-auto mb-5">
+                    <h5>No Favorite Book currently saved.</h5>
                 </section>
             </section>
 
