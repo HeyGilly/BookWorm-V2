@@ -12,4 +12,5 @@ import java.util.List;
 public interface FavoriteBookRepository extends JpaRepository<FavoriteBook, Long> {
 
     List<FavoriteBook> findAllByUserId(User userId);
+    FavoriteBook findByUserIdAndBookId(User userId, Bookshelf bookId);
 }

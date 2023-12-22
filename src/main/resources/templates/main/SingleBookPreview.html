@@ -24,14 +24,22 @@
         />
 
         <!=== Liked Book Button Form===>
-        <form class="liked-book-btn" th:action="@{/favoriteBook/{userId}/{bookId}(userId=${user.id},bookId=${singleBookInfo.id})}" th:object="${favBookObject}" method="post">
-            <input type="hidden" th:field="*{userId}" th:value="${user.getId()}">
-            <input type="hidden" th:field="*{bookId}" th:value="${singleBookInfo.getId()}">
+        <form class="liked-book-btn" th:if="${faved == 'NotFaved'}" th:action="@{/favoriteBook/{userId}/{bookId}(userId=${user.id},bookId=${singleBookInfo.id})}" th:object="${favBookObject}" method="post">
+            <input type="hidden" th:field="*{userId}" th:value="${user.id}">
+            <input type="hidden" th:field="*{bookId}" th:value="${singleBookInfo.id}">
             <button type="submit">
-                <img th:src="@{/img/heart.png}" alt="Liked Books" class="liked-book-image">
+                <img th:src="@{/img/heart.png}" alt="Favorite Book" class="liked-book-image">
                 <span>Favorite Book</span>
             </button>
         </form>
+        <form class="liked-book-btn" th:if="${faved == 'AlreadyFaved'}" th:action="@{/unFavoriteBook/{userId}/{bookId}(userId=${user.id},bookId=${singleBookInfo.id})}" th:object="${favBookObject}" method="post">
+            <input type="hidden" th:field="*{userId}" th:value="${user.id}">
+            <input type="hidden" th:field="*{bookId}" th:value="${singleBookInfo.id}">
+            <button type="submit">
+                <span>unFavorite Book</span>
+            </button>
+        </form>
+
         <!=== Write a Review Button ==>
         <a href="" class="write-review-button" id="write-review-button">
             <span>Write Review</span>

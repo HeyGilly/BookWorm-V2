@@ -85,7 +85,8 @@ public class main_controller {
     public String singleBook(Model model, @PathVariable("id") long bookId){
 
         //-- find user
-        model.addAttribute("user", userRepository.findUserById(11));
+        User currentUser =  userRepository.findUserById(11);
+        model.addAttribute("user", currentUser);
 
         long BookByISBN = bookshelfRepo.findById(bookId).get().getIsbn();
 
@@ -103,8 +104,24 @@ public class main_controller {
         //-- When a user favorite a book
         model.addAttribute("favBookObject", new FavoriteBook());
 
+        List<FavoriteBook> favBooksList = favoriteBookRepository.findAllByUserId(currentUser);
+        Bookshelf bookshelf = bookshelfRepo.findBookById(bookId);
+
+        String isFavorite = "NotFaved";
+        for (FavoriteBook favBook : favBooksList) {
+            if (favBook.getBookId().getId() == bookshelf.getId()) {
+                isFavorite = "AlreadyFaved";
+                System.out.println("We have a book id that's in our favorites");
+                break;
+            }
+        }
+
+        model.addAttribute("faved", isFavorite);
+
         return "main/SingleBookPreview";
     }
+
+
     @PostMapping("/single/{id}")
     public String submitReview(@PathVariable("id") Long id, @ModelAttribute("Reviews") Reviews reviews) {
         // process the reviews object

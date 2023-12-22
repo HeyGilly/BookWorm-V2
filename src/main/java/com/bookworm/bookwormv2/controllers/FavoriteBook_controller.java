@@ -40,7 +40,20 @@ public class FavoriteBook_controller {
         favoriteBook.setBookId(currentFavBook);
 
         favoriteBookRepository.save(favoriteBook);
-        return "redirect:/single/"+currentUser.getId();
+        return "redirect:/single/"+currentFavBook.getId();
+    }
+
+    @PostMapping("/unFavoriteBook/{userId}/{bookId}")
+    public String unFavoriteBook(@ModelAttribute("favBookObject") FavoriteBook favoriteBook, @PathVariable("userId") Long userId, @PathVariable("bookId") Long bookId) {
+
+        User currentUser = userRepository.findUserById(userId);
+        Bookshelf currentFavBook = bookshelfRepository.findBookById(bookId);
+
+        FavoriteBook favBook = favoriteBookRepository.findByUserIdAndBookId(currentUser, currentFavBook);
+
+        favoriteBookRepository.delete(favBook);
+
+        return "redirect:/single/"+currentFavBook.getId();
     }
 
 
