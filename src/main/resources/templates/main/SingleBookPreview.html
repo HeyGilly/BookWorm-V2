@@ -23,11 +23,15 @@
              th:if="${singleBookInfo.getCover_page() == ''}"
         />
 
-        <!=== Liked Book Button===>
-        <a href="#" class="liked-book-btn">
-            <img th:src="@{/img/heart.png}" alt="Liked Books" class="liked-book-image">
-            <span>Favorite Book</span>
-        </a>
+        <!=== Liked Book Button Form===>
+        <form class="liked-book-btn" th:action="@{/favoriteBook/{userId}/{bookId}(userId=${user.id},bookId=${singleBookInfo.id})}" th:object="${favBookObject}" method="post">
+            <input type="hidden" th:field="*{userId}" th:value="${user.getId()}">
+            <input type="hidden" th:field="*{bookId}" th:value="${singleBookInfo.getId()}">
+            <button type="submit">
+                <img th:src="@{/img/heart.png}" alt="Liked Books" class="liked-book-image">
+                <span>Favorite Book</span>
+            </button>
+        </form>
         <!=== Write a Review Button ==>
         <a href="" class="write-review-button" id="write-review-button">
             <span>Write Review</span>

@@ -17,4 +17,8 @@ public interface BookshelfRepository extends JpaRepository<Bookshelf, Long> {
     Bookshelf findByIsbn(long isbn);
 
     Bookshelf findBookByIsbn(Long isbn);
+
+    Bookshelf findBookById(long id);
+
+
 }

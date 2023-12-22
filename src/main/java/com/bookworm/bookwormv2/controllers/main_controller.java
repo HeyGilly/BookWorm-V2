@@ -100,6 +100,9 @@ public class main_controller {
         //-- For when reviews are written
         model.addAttribute("Reviews", new Reviews());
 
+        //-- When a user favorite a book
+        model.addAttribute("favBookObject", new FavoriteBook());
+
         return "main/SingleBookPreview";
     }
     @PostMapping("/single/{id}")
