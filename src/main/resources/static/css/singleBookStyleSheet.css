@@ -23,7 +23,7 @@
     border-radius: 20px;
 }
 /*=== Purchase Book Button & Favorite Book Button ===*/
-#left-side-book-container .purchase-book-btn, #left-side-book-container .liked-book-btn,#left-side-book-container .write-review-button{
+#left-side-book-container .purchase-book-btn, #left-side-book-container .liked-book-btn,#left-side-book-container .purchase-book-btn, #left-side-book-container form .unliked-book-btn,#left-side-book-container .write-review-button{
     background-color: #13aa52;
     border: 1px solid #13aa52;
     border-radius: 4px;
@@ -47,7 +47,7 @@
     text-decoration: none;
 }
 /*=== Purchase Book Button: HOVER & Favorite Book Button Hover ===*/
-#left-side-book-container .purchase-book-btn:hover, #left-side-book-container .liked-book-btn:hover, #left-side-book-container .write-review-button:hover{
+#left-side-book-container .purchase-book-btn:hover, #left-side-book-container .liked-book-btn:hover,#left-side-book-container .purchase-book-btn:hover, #left-side-book-container form .unliked-book-btn:hover, #left-side-book-container .write-review-button:hover{
     background-color: #0e8641;
     border: 1px solid #0e8641;
     transform: translateY(-2px);
@@ -66,6 +66,27 @@
     border: 1px solid rgba(100, 149, 237, 0.49);
     color: #fff;
 }
+/*=== unFavorite Book Form ===*/
+#left-side-book-container form {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+/*=== unFavorite Book Button ===*/
+#left-side-book-container form .unliked-book-btn{
+    background-color: #dca2a2;
+    border: 1px solid #dca2a2;
+    color: #1e1e1e;
+    margin-top: 24px;
+    width: 100%;
+}
+/*=== unFavorite Book Button Hover ===*/
+#left-side-book-container form .unliked-book-btn:hover{
+    background-color: rgba(213, 112, 112, 0.49);
+    border: 1px solid rgba(213, 112, 112, 0.49);
+    color: #fff;
+}
+
 /*=== Write Review Book Button ===*/
 #left-side-book-container .write-review-button{
     background-color: #dcbca2;
