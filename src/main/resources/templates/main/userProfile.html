@@ -124,99 +124,101 @@
         <!===== Right Side, User Reviews =====>
         <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-8">
 
-            <!=== Favorite Book Title ===>
-            <div class="section-title">
-                <h2>Favorite Books</h2>
-            </div>
-
-            <!===== Book Section =====>
-            <section class="d-flex justify-items-center overflow-scroll container-fluid container-lg position-relative" >
-                <section class="mx-3 book-container" th:if="${favoriteBooks != null and not #lists.isEmpty(favoriteBooks)}" th:each="favBook:${favoriteBooks}">
-                    <a th:href="@{/single/{id}(id = ${favBook.getBookId().getId()})}" >
-                        <img th:src="${favBook.getBookId().getCover_page()}" th:alt="${favBook.getBookId().getTitle()}" class="cover-page ">
-                        <p class="book-info-container">
-                            <span th:text="${favBook.getBookId().getTitle()}" class="book-title">Title of Book</span> <br />
-                            <small>By </small><small th:text="${favBook.getBookId().getAuthor()}" class="\">Title of Book</small>
-                        </p>
-                    </a>
-                </section>
-                <section th:if="${#lists.isEmpty(favoriteBooks)}" class="mx-auto mb-5">
-                    <h5>No Favorite Book currently saved.</h5>
-                </section>
-            </section>
-
-
-
-
-            <!=== Review Title ===>
-            <div class="section-title">
-                <h2>Reviews</h2>
-            </div>
-            <!=== Review Container ===>
-            <div class="row">
-                <!=== Each Review ===>
-                <div class="user-reviews-container col-11 col-md-9 col-lg-5 row" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}" th:each="review:${usersReview}">
-                    <!=== Review Book Info Container ===>
-                    <section class="col-3 col-lg-4">
-                        <a th:href="@{/single/{id}(id = ${review.getBookshelf().getId()})}" >
-                            <img class="user-profile-book-cover" th:src="@{/img/noImage.jpeg}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
-                            <img class="user-profile-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
+            <!-- Favorite Book Container -->
+            <div>
+                <!-- Container Title - (Favorite Book) -->
+                <div class="section-title">
+                    <h2>Favorite Books</h2>
+                </div>
+                <!-- This is going to be the container for the scroll -->
+                <div id="WholeFavoriteBookContainer">
+                    <section class="favorite-book-container" th:each="favBook:${favoriteBooks}">
+                        <a th:href="@{/single/{id}(id = ${favBook.getBookId().getId()})}">
+                            <img th:src="${favBook.getBookId().getCover_page()}" th:alt="${favBook.getBookId().getTitle()}" class="favorite-book-cover">
+                            <p>
+                                <span class="book-title" th:text="${favBook.getBookId().getTitle()}">Title of Book</span><br/>
+                                <small>By </small>
+                                <small th:text="${favBook.getBookId().getAuthor()}">Author</small>
+                            </p>
                         </a>
                     </section>
-                    <!=== Review Container ===>
-                    <section class="col-9 col-lg-8 review-user-wrote-container">
-                        <!===  Review Title ====>
-                        <span  class="user-review-title" th:text="${review.title}">Review Title</span>
-                        <img th:src="@{/img/edit-button.png}" class="edit-review-button" alt="Edit Button">
-                       <br/>
-                        <!===  Review Rating ====>
-                        <span th:switch="${review.rating}" class="">
-                            <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                            <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                            <img th:case="'2'" th:src="@{/img/ratings/twoStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                            <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                            <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                            <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                        </span>
-                        <!===  Review Body ====>
-                        <p th:text="${review.body}">Review Body</p>
+                    <section th:if="${#lists.isEmpty(favoriteBooks)}" class="mx-auto mb-5">
+                        <h5>No Favorite Book currently saved.</h5>
                     </section>
-                    <aside class="edit-review-form col-9 col-lg-8">
-                        <!-- Edit Review Form -->
-                        <form class="whole-edit-review-form" th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}">
-                            <!-- Rating -->
-                            <div class="mb-3">
-                                <select class="form-select" aria-label="Default select example" th:field="*{rating}">
-                                    <option th:value="${review.getRating()}">Rating:</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                    <option value="4">Four</option>
-                                    <option value="5">Five</option>
-                                </select>
-                            </div>
-                            <!-- Title -->
-                            <div class="">
-                                <label for="editReviewTitle"></label>
-                                <input type="text" class="form-control editReviewTitle" th:value="${review.getTitle()}" th:placeholder="${review.getTitle()}" th:field="*{title}" id="editReviewTitle">
-                            </div>
-                            <!-- Body -->
-                            <div class="mb-3">
-                                <label for="editReviewBody"></label>
-                                <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="8" style="resize:none;"></textarea>
-                            </div>
-                            <!-- Submit and Cancel Button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="button" class="btn btn-secondary edit-review-cancel-button">Cancel</button>
-                        </form>
-                    </aside>
-                </div>
-                <div class="no-reviews-message" th:unless="${usersReview != null and not #lists.isEmpty(usersReview)}">
-                    No recent reviews
                 </div>
             </div>
+            <!-- Recent Reviews -->
+            <div id="WholeUserReviewsContainer">
+                <!-- Recent Review Title -->
+                <div class="section-title">
+                    <h2>Reviews</h2>
+                </div>
+                <div id="UserReviewContainer">
+                    <div class="user-review-container" th:each="review:${usersReview}" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}"
+                        <!-- Book Cover -->
+                        <section>
+                            <a th:href="@{/single/{id}(id = ${review.getBookshelf().getId()})}" >
+                                <img class="user-review-book-cover" th:src="@{/img/noImage.jpeg}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
+                                <img class="user-review-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
+                            </a>
+                        </section>
+                        <!-- User Review -->
+                        <section class="review-user-wrote-container">
+                            <!-- Review Title -->
+                            <span  class="review-user-title" th:text="${review.title}">Review Title</span>
+                            <!-- Review Edit Button -->
+                            <img th:src="@{/img/edit-button-01.png}" class="user-review-edit-button" alt="Edit Button"><br/>
+                            <!-- Review Rating -->
+                            <span th:switch="${review.rating}" class="">
+                                <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                                <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                                <img th:case="'2'" th:src="@{/img/ratings/twoStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                                <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                                <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                                <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
+                            </span>
+                            <!-- Review Body -->
+                            <p th:text="${review.body}">Review Body</p>
+                        </section>
+                    <!-- Edit Form -->
+                        <aside class="edit-review-form-container">
+                            <form th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}" class="edit-review-form">
+                                <!-- Rating -->
+                                <div class="">
+                                    <label>
+                                        <select class="form-select"  th:field="*{rating}">
+                                            <option th:value="${review.getRating()}">Rating:</option>
+                                            <option value="1">One Stars</option>
+                                            <option value="2">Two Stars</option>
+                                            <option value="3">Three Stars</option>
+                                            <option value="4">Four Stars</option>
+                                            <option value="5">Five Stars</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <!-- Title -->
+                                <div class="">
+                                    <label for="editReviewTitle"></label>
+                                    <input type="text" class="form-control editReviewTitle" th:value="${review.getTitle()}" th:placeholder="${review.getTitle()}" th:field="*{title}" id="editReviewTitle">
+                                </div>
+                                <!-- Body -->
+                                <div class="">
+                                    <label for="editReviewBody"></label>
+                                    <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="5" style="resize:none;"></textarea>
+                                </div>
+                                <!-- Submit and Cancel Button -->
+                                <button type="submit" class="btn btn-primary submitButton">Submit</button>
+                                <button type="button" class="btn btn-secondary edit-review-cancel-button">Cancel</button>
+                            </form>
+                        </aside>
+                    </div>
+                    <div th:unless="${usersReview != null and not #lists.isEmpty(usersReview)}">
+                        No Recent Reviews
+                    </div>
+            </div></div>
+
+
         </div>
-    </div>
 </main>
 
 
@@ -240,38 +242,29 @@
     // });
 
     document.addEventListener("DOMContentLoaded", () => {
+        let editForm = document.querySelectorAll(".edit-review-form-container");
+            editForm.forEach((element) =>{
+                element.style.display = "none";
+            })
 
-        document.querySelectorAll(".rateValue").forEach((button, index) => {
-            let rangeInput = document.querySelectorAll('.reviewRate')[index]
-            let valueDisplay = document.querySelectorAll('.rateValue')[index]
-
-            valueDisplay.textContent = rangeInput.value;
-
-            rangeInput.addEventListener('input', function() {
-                valueDisplay.textContent = this.value;
-            });
-
-        });
-
-            document.querySelectorAll(".edit-review-button").forEach((button, index) => {
+            document.querySelectorAll(".user-review-edit-button").forEach((button, index) => {
             // Assuming each button corresponds to the respective containers by index
             let reviewContainer = document.querySelectorAll(".review-user-wrote-container")[index];
-            let editForm = document.querySelectorAll(".edit-review-form")[index];
+            let editForm = document.querySelectorAll(".edit-review-form-container")[index];
 
-            // Initially hide the edit forms
-            editForm.style.display = "none";
 
             button.addEventListener("click", () => {
+                console.log("edit Button Pushed")
                 // Toggle visibility
                 reviewContainer.style.display = reviewContainer.style.display === "none" ? "block" : "none";
                 editForm.style.display = editForm.style.display === "none" ? "block" : "none";
             });
         });
-        document.querySelectorAll(".edit-review-cancel-button").forEach((button, index) => {
+       document.querySelectorAll(".edit-review-cancel-button").forEach((button, index) => {
             // Assuming each button corresponds to the respective containers by index
             let reviewContainer = document.querySelectorAll(".review-user-wrote-container")[index];
-            let editForm = document.querySelectorAll(".edit-review-form")[index];
-            let editReviewForm = document.querySelectorAll(".whole-edit-review-form")[index];
+            let editForm = document.querySelectorAll(".edit-review-form-container")[index];
+            let editReviewForm = document.querySelectorAll(".edit-review-form")[index];
 
             button.addEventListener("click", () => {
                 // Toggle visibility

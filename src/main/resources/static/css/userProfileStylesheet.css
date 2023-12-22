@@ -19,12 +19,6 @@
     border-radius: 5px;
     transition: all .8s ease-in-out;
 }
-/*!*=== Setting Button Hover===*!*/
-/*#left-side-user-info-container .setting-container img:hover {*/
-/*    transform: scale(1.1);*/
-/*    background-color: rgba(255, 255, 255, 0.25);*/
-/*    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;*/
-/*}*/
 
 /*=== Profile Picture Container ===*/
 #left-side-user-info-container .user-profile-picture-container {
@@ -210,7 +204,7 @@
 
 
 
-/*========= Right Side Container =========*/
+/*=========== Right Side Container ===========*/
 #right-side-user-reviews-container{
     background: rgba(154, 182, 222, 0.27);
     padding-top: 42px;
@@ -218,105 +212,135 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
-#right-side-user-reviews-container div:nth-child(2){
+#WholeFavoriteBookContainer{
     display: flex;
-    justify-content: space-evenly;
+    overflow: scroll;
+    scroll-behavior: smooth;
 }
-
-/*=== User Review Container ===*/
-#right-side-user-reviews-container .user-reviews-container{
-    background-color: rgba(32, 157, 216, 0.15);
-    margin: 24px 0;
-    border-radius: 15px;
-    padding: 10px;
+/*-- Each book in the loop of fav book container --*/
+#WholeFavoriteBookContainer .favorite-book-container {
+    background: #fff;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-radius: 25px;
+    margin: 12px 12px 42px 12px;
+    transition: transform 0.8s, box-shadow 1s;
 }
-
-/*=== Book Cover, Book Title, Author Container ===*/
-#right-side-user-reviews-container .user-reviews-container section:first-child{
+/*-- Each book in the loop : HOVER --*/
+#WholeFavoriteBookContainer .favorite-book-container:hover {
+    transform: scale(0.98);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+/*-- Favorite Books - Book Title and Author Anchors --*/
+#WholeFavoriteBookContainer .favorite-book-container a{
+    text-decoration: none;
+    color: #1e1e1e;
+}
+/*-- Favorite Books - Book Cover--*/
+#WholeFavoriteBookContainer .favorite-book-container a .favorite-book-cover{
+    height: auto;
+    width: 200px;
+    border-radius: 20px 20px 0 0;
+    margin: 0;
+}
+/*-- Favorite Books - Paragraph--*/
+#WholeFavoriteBookContainer .favorite-book-container a p{
     line-height: normal;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 13px;
 }
-
-/*=== Review Container ===*/
-#right-side-user-reviews-container .user-reviews-container section:nth-child(2){
-    position: relative;
-}
-
-/*=== Review Container ===*/
-#right-side-user-reviews-container .user-reviews-container section:nth-child(2) aside{
-
-}
-/*=== Edit Delete Button ===*/
-#right-side-user-reviews-container .user-reviews-container section:nth-child(2) .edit-review-button{
-    width: 30px;
-    height: auto;
-    display: inline-block;
-    transition: all 0.8s ease-in-out;
-}
-/*=== Edit Delete Button:HOVER ===*/
-#right-side-user-reviews-container .user-reviews-container section:nth-child(2) .edit-review-button:hover{
-    transform: rotate(14deg) scale(1.4);
-}
-
-/*=== Book Cover ===*/
-#right-side-user-reviews-container .user-reviews-container .user-profile-book-cover{
-    height: auto;
-    width: 80px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    transition: all .8s ease-in-out;
-}
-
-/*=== Book Cover Hover===*/
-#right-side-user-reviews-container .user-reviews-container .user-profile-book-cover:hover {
-    transform: scale(1.1);
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-}
-
-
-/*=== Book Title ===*/
-#right-side-user-reviews-container .user-reviews-container .user-review-book-title{
+/*-- Favorite Books - Book Title-*/
+#WholeFavoriteBookContainer .favorite-book-container a p .book-title {
     font-weight: 600;
-    padding: 0;
-    margin: 0;
-    font-size: 14px
 }
 
-/*== Review Title ==*/
-.user-review-title{
-    padding: 0;
-    margin: 0;
+/*-- Whole User Reviews container --*/
+#WholeUserReviewsContainer{
+    margin:24px 0;
+}
+/*-- User Review of the whole container --*/
+#WholeUserReviewsContainer #UserReviewContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+/*-- User Review Container --*/
+#WholeUserReviewsContainer #UserReviewContainer .user-review-container{
+    background-color: #fff;
+    display: flex;
+    border-radius: 12px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    transition: transform 0.8s, box-shadow 1s;
+}
+#WholeUserReviewsContainer #UserReviewContainer .user-review-container:hover{
+    transform: scale(0.98);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+/*-- review Book Cover --*/
+.user-review-book-cover{
+    width: 160px;
+    height: 100%;
+    border-radius: 10px 0 0  10px;
+}
+
+/*-- User Review 2nd Section container --*/
+#WholeUserReviewsContainer #UserReviewContainer .user-review-container section:nth-child(2){
+   padding: 12px 24px;
+}
+
+/*-- Review User Title --*/
+#UserReviewContainer .user-review-container section:nth-child(2) .review-user-title{
     font-weight: 600;
     font-size: 18px;
 }
 
-/*== Book Rating ==*/
-.user-review-book-rating{
+/*-- Review Edit Button --*/
+#UserReviewContainer .user-review-container section:nth-child(2) .user-review-edit-button{
+    height: 30px;
+    width: auto;
+}
+
+/*-- Review Book Rating --*/
+#UserReviewContainer .user-review-container section:nth-child(2) span .user-review-book-rating{
     height: 20px;
     width: auto;
-    padding: 0 0 0 0;
-    margin: 0 0 12px 0;
+    margin-bottom: 12px;
 }
 
-/*== No Review Title ==*/
-.no-reviews-message{
-    text-align: center;
-    font-weight: 400;
+#UserReviewContainer .user-review-container aside{
+    width: 100%;
+    padding: 12px;
+}
+
+ .submitButton{
+    margin-top: 12px;
 }
 
 
-/*====== Screen smaller then 991px ======*/
-@media (max-width: 991px){
-    /*=== Section Title - Review ===*/
-    #right-side-user-reviews-container .section-title{
-       padding: 0;
-        margin: 0;
-    }
+.edit-review-cancel-button{
+   margin-top: 12px;
 }
 
-/*=== Screen smaller then 768px ===*/
-@media (max-width: 768px){
-}
+
+/*!*====== Screen smaller then 991px ======*!*/
+/*@media (max-width: 991px){*/
+
+/*}*/
+
+/*!*=== Screen smaller then 768px ===*!*/
+/*@media (max-width: 768px){*/
+
+/*}*/
 
 /*=== Screen smaller then 575px ===*/
 @media (max-width: 575px){
+
+    /*-- User Review of the whole container --*/
+    #WholeUserReviewsContainer #UserReviewContainer{
+        display: grid;
+        grid-template-columns: 100%;
+        gap: 20px;
+    }
+
 }

@@ -65,7 +65,7 @@ Thursday, Dec 7 - Friday Dec 8
      [X] On single book page, UnFavorite Button needs to be designed.
      [X] On single book page, Favorite Button needs to be designed.
      [X] On user Profile, If no favorite Book then display you have no favorites.
-     [ ] On user Profile, work with reviews and figure out why they are pushed to the start.
+     [X] On user Profile, work with reviews and figure out why they are pushed to the start.
 
     TODO:
         [ ] On Login page, Figure out how I am going to do the forgot password
