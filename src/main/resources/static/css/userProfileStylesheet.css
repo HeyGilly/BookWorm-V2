@@ -1,46 +1,33 @@
-/*======= Left Side Container =======*/
-#left-side-user-info-container{
+
+/*============== Left Side Container ==============*/
+main .row #left-side-user-info-container{
     background: #37517e;
-    height: 100vh;
-    color: #fff;
-    position: relative;
-}
-/*== Setting Container ==*/
-#left-side-user-info-container .setting-container{
-    position: absolute;
-    top: 15px;
-    right: 15px;
-}
-/*== Setting Button ==*/
-#left-side-user-info-container .setting-container img{
-    width: 60px;
     height: auto;
-    background-color:#fff;
-    border-radius: 5px;
-    transition: all .8s ease-in-out;
+    color: #fff;
 }
 
-/*=== Profile Picture Container ===*/
-#left-side-user-info-container .user-profile-picture-container {
+/*!*===Section of Profile Picture ===*!*/
+#left-side-user-info-container #user-profile-info .user-profile-container{
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 63px 0 24px 0;
+    padding: 42px 0 24px 0;
 }
-/*=== Profile Picture ===*/
-#left-side-user-info-container  .user-profile-picture{
-    width: 240px;
+/*!*=== Profile Picture ===*!*/
+#left-side-user-info-container #user-profile-info section .user-profile-picture{
+    max-width: 240px;
     height: 340px;
+    width: 100%;
     object-fit: cover;
-    border-radius: 25px;
+    border-radius: 18px;
 }
-/*=== Username & Bio Container ===*/
-#left-side-user-info-container .user-details-container{
+
+/*!*===Section of Profile Information ===*!*/
+#left-side-user-info-container #user-profile-info .user-information-container{
     text-align: center;
 }
-/*=== Add Friend Button ===*/
-#left-side-user-info-container .user-profile-picture-container .button-17 {
+
+/*=== Add Friend, Unfriend Button ===*/
+#left-side-user-info-container #user-profile-info .user-information-container .friend-button, #left-side-user-info-container #user-profile-info .user-information-container .unfriend-button, #left-side-user-info-container #user-profile-info .user-information-container .setting-button {
     background-color: #A2BADCFF;
     border: 1px solid #A2BADCFF;
     border-radius: 4px;
@@ -64,147 +51,177 @@
     text-decoration: none;
     margin: 24px 0 0 0;
 }
-/*== Add friend Button Hover ===*/
-#left-side-user-info-container .user-profile-picture-container .button-17:hover {
+/*== Add friend & Unfriend Button Hover ===*/
+#left-side-user-info-container #user-profile-info .user-information-container .friend-button:hover, #left-side-user-info-container #user-profile-info .user-information-container .unfriend-button:hover, #left-side-user-info-container #user-profile-info .user-information-container .setting-button:hover {
     background-color: rgba(100, 149, 237, 0.49);
     border: 1px solid rgba(100, 149, 237, 0.49);
     color: #fff;
     transform: translateY(-2px);
     box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
 }
+/*== Unfriend Button ===*/
+#left-side-user-info-container #user-profile-info .user-information-container .unfriend-button{
+    background-color: rgba(100, 149, 237, 0.49);
+    border: 1px solid rgba(100, 149, 237, 0.49);
+}
+/*== Unfriend Button Hover ===*/
+#left-side-user-info-container #user-profile-info .user-information-container .unfriend-button:hover {
+    background-color: #A2BADCFF;
+    border: 1px solid #A2BADCFF;
+}
+/*== Setting Button ===*/
+#left-side-user-info-container #user-profile-info .user-information-container .setting-button{
+    background-color: rgb(169, 169, 169);
+    border: 1px solid rgb(169, 169, 169);
+}
+/*== Setting Button Hover ===*/
+#left-side-user-info-container #user-profile-info .user-information-container .setting-button:hover{
+    background-color: rgb(33, 33, 33);
+    border: 1px solid rgb(33, 33, 33);
+}
 
-
-
-/*=== User's Username ===*/
-#left-side-user-info-container .user-details-container .user-username{
-    font-weight: 600;
-    font-size: 32px;
-    text-transform: capitalize;
+/*== User Greeting===*/
+#left-side-user-info-container #user-profile-info .user-information-container h2 {
+  padding-top: 24px;
 }
 /*=== User's Bio ===*/
-#left-side-user-info-container .user-details-container .user-bio{
-    margin: 0 10px;
-}
-/*=== Favorite Genre Title ===*/
-#left-side-user-info-container .user-details-container .fav-genre-title{
+#left-side-user-info-container #user-profile-info .user-information-container .user-bio{
     font-size: 16px;
+    margin: 0 0 24px 0;
 }
-
-/*=== User's Favorite Genre Container ===*/
-#left-side-user-info-container .user-details-container .user-fav-genre-container{
-    padding-bottom: 12px;
-    margin: 0;
+/*=== User's Fav Genre Container===*/
+#left-side-user-info-container #user-profile-info .user-information-container aside{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
-/*=== User's Favorite Genre ===*/
-#left-side-user-info-container .user-details-container .user-fav-genre-container span{
-    font-size: 14px;
+/*=== User's Fav Genre ===*/
+#left-side-user-info-container #user-profile-info .user-information-container aside p{
+    border: none;
     background-color: white;
-    padding: 5px 8px;
-    margin: 4px;
-    border-radius: 12px;
+    width: fit-content;
     color: #1e1e1e;
+    padding: 5px 8px;
+    margin-left: 12px;
+    border-radius: 3px;
+}
+/*=== User's Fav Genre Title===*/
+#left-side-user-info-container #user-profile-info .user-information-container .fav-genre-profile{
+    line-height: normal;
+    font-size: 21px;
+    font-weight: 400;
+    margin-top: 12px;
+    padding:0;
 }
 
-/*===== Settings Form Container =====*/
-#setting-form-container{
-    margin-top: 42px;
- }
-/*=== Settings Form Container ===*/
-#setting-form-container form {
-    width: 80%;
-    margin:0 auto;
-}
-/*=== Settings Form Title ===*/
-#setting-form-container form h3 {
+/*!*===== Settings Form Header =====*!*/
+#setting-form-container form h3{
     text-align: center;
-    text-decoration: underline;
+    margin-top: 42px;
 }
+/*-- Submit and Cancel Button inside edit profile --*/
+#setting-form-container form #submitEditProfileButton,#setting-form-container form #cancelEditProfileButton{
+    background-color: #13aa52;
+    border: 1px solid #13aa52;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    outline: none;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+}
+/*-- Submit and Cancel Button inside edit profile HOVER --*/
+#setting-form-container form #submitEditProfileButton:hover,#setting-form-container form #cancelEditProfileButton:hover{
+    background-color: #0e8641;
+    border: 1px solid #0e8641;
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+/*--Cancel Button inside edit profile --*/
+#setting-form-container form #cancelEditProfileButton{
+    background-color: #b9babb;
+    border: 1px solid #b9babb;
+}
+/*--Cancel Button inside edit profile Hover--*/
+#setting-form-container form #cancelEditProfileButton:hover{
+    background-color: #2f2f2f;
+    border: 1px solid #2f2f2f;
+}
+
+
 
 /*====== Screen smaller then 991px ======*/
-@media (max-width: 991px){
-    /*== Setting Button ==*/
-    #left-side-user-info-container .setting-container img{
-        width: 35px;
-        height: auto;
-        border-radius: 8px;
-    }
-    /*=== Profile Picture ===*/
-    #left-side-user-info-container .user-profile-picture{
-        width: 220px;
-        height: 280px;
-        object-fit: cover;
-        border-radius: 25px;
-    }
-    /*=== User's Username ===*/
-    #left-side-user-info-container .user-details-container .user-username{
-        font-size: 24px;
-    }
-
-    /*== Setting Container ==*/
-    #left-side-user-info-container .setting-container{
-        position: absolute;
-        top: 15px;
-        right: 15px;
-    }
-
-    /*=== User's Favorite Genre ===*/
-    #left-side-user-info-container .user-details-container .user-fav-genre-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
+@media (max-width: 991px){  }
 /*=== Screen smaller then 768px ===*/
 @media (max-width: 768px){
-    /*== Setting Button ==*/
-    #left-side-user-info-container .setting-container img{
-        width: 40px;
-        height: auto;
-        background-color:#fff;
-        border-radius: 8px;
-    }
-    /*=== Profile Picture ===*/
-    #left-side-user-info-container .user-profile-picture{
-        width: 80%;
-        height: auto;
-    }
-}
 
-/*=== Screen smaller then 575px ===*/
-@media (max-width: 575px){
-    /*=== Left Side Container ===*/
-    #left-side-user-info-container{
-        height: auto;
-        /*display: flex;*/
-        padding: 24px;
-    }
-    /*=== Profile Picture Container ===*/
-    #left-side-user-info-container .user-profile-picture-container {
+    /*!*===Section of Profile Picture ===*!*/
+    #left-side-user-info-container #user-profile-info .user-profile-container{
+        border: 3px solid black;
         display: flex;
-        justify-content: center;
-        padding: 0;
+        justify-content: stretch;
     }
-    /*=== Profile Picture ===*/
-    #left-side-user-info-container .user-profile-picture{
-        width: 80%;
-        height: auto;
-    }
-    /*=== Username & Bio Container ===*/
-    #left-side-user-info-container .user-details-container{
-        text-align: left;
-        padding-top: 24px;
-        padding-left: 24px;
+
+    /*!*=== Profile Picture ===*!*/
+    #left-side-user-info-container #user-profile-info .user-profile-container .user-profile-picture{
+        height: 340px;
+        width: 100%;
     }
     /*=== User's Bio ===*/
-    #left-side-user-info-container .user-details-container .user-bio{
-        margin: 0;
+    #left-side-user-info-container #user-profile-info .user-information-container .user-bio{
+        font-size: 14px;
+        margin: 0 10px 42px 10px;
+    }
+
+    /*!*=== User's Fav Genre ===*!*/
+    #left-side-user-info-container #user-profile-info .user-information-container aside p{
+        font-size: 14px;
+    }
+    #setting-form-container form #submitEditProfileButton,#setting-form-container form #cancelEditProfileButton{
+        padding: 5px 12px;
+    }
+}
+/*=== Screen smaller then 575px ===*/
+@media (max-width: 575px){
+    /*!*=== Left Side Container ===*!*/
+    #left-side-user-info-container{
+        height: auto;
+        padding: 0;
+    }
+    /*!*===Section of Profile Picture ===*!*/
+    #left-side-user-info-container #user-profile-info .user-profile-container{
+        justify-content: center;
+    }
+    /*!*===Section of Profile Information ===*!*/
+    #left-side-user-info-container #user-profile-info .user-information-container{
+        /*text-align: center;*/
+        padding-bottom: 42px;
+    }
+/*    setting form setting-form-container*/
+    #setting-form-container form{
+        margin: 25px 15px;
+    }
+    #passwordHelp{
+        font-size: 14px;
+        margin-top: 5px;
     }
 }
 
 
 
-/*=========== Right Side Container ===========*/
+/*================ Right Side Container ================*/
 #right-side-user-reviews-container{
     background: rgba(154, 182, 222, 0.27);
     padding-top: 42px;

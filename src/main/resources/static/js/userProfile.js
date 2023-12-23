@@ -1,36 +1,3 @@
-const settingContainerButton = document.getElementById("setting-button-container")
-const userProfileInfo = document.getElementById("user-profile-info");
-const settingFormContainer = document.getElementById("setting-form-container");
-const settingCancelButton = document.getElementById("setting-cancel-button");
-
-
-settingFormContainer.style.display = "none";
-
-
-settingContainerButton.addEventListener("click", function(){
-    userProfileInfo.style.display = "none";
-    settingFormContainer.style.display = "block";
-})
-
-
-settingCancelButton.addEventListener("click", function (){
-    userProfileInfo.style.display = "block";
-    settingFormContainer.style.display = "none";
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //== Cancels the enter key being pressed.
 document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('keydown', function (event) {
@@ -40,3 +7,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+// Whole Container of all settings.
+const settingFormContainer = document.getElementById("setting-form-container");
+// Whole userinfo container
+const userInformationContainer = document.getElementById("user-information-container");
+// Section Container for profile picture
+const userProfilePicture = document.getElementById("user-profile-container");
+// The Edit Button
+const settingButton = document.getElementById("setting-button")
+// The Cancel Button
+const cancelButton = document.getElementById("cancelEditProfileButton")
+
+
+//--  Start of page, hide setting form, show profile pictures
+
+document.addEventListener("DOMContentLoaded", ()=>{
+    settingFormContainer.style.display = "none"
+    userProfilePicture.style.display = "flex"
+})
+//--  When Setting Button Clicked, profile and info hide, settings form appears
+settingButton.addEventListener("click", ()=>{
+    settingFormContainer.style.display = "block"
+    userInformationContainer.style.display = "none"
+    userProfilePicture.style.display = "none"
+})
+//--  When Cancel Button Clicked, profile and info Show, settings form hides
+cancelButton.addEventListener("click", ()=>{
+    settingFormContainer.style.display = "none"
+    userInformationContainer.style.display = "block"
+    userProfilePicture.style.display = "flex"
+})
+
+
+

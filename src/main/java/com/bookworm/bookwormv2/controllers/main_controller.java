@@ -151,30 +151,22 @@ public class main_controller {
 
     @GetMapping("/in/{userId}")
     public String userProfile(Model model,@PathVariable("userId") long userId) {
-
+        //-- User of Page
         User currentUser = userRepository.findUserById(userId);
-
-        System.out.println("CurrentUser: "+currentUser);
-        System.out.println("CurrentUser: "+currentUser.getUsername());
-        System.out.println("CurrentUser: "+currentUser.getId());
-
+        //-- find user
+        model.addAttribute("user", currentUser);
         //-- Favorite Books
         List<FavoriteBook> favoriteBooks = favoriteBookRepository.findAllByUserId(currentUser);
         model.addAttribute("favoriteBooks", favoriteBooks);
-
-        //-- Genre
-        List<FavoriteGenre> favoriteGenres = userRepository.findUserById(userId).getFavoriteGenres();
-        model.addAttribute("favoriteGenres", favoriteGenres);
-        // User image
-        String pathway = String.valueOf(userRepository.findUserById(userId).getProfilePicturePath());
-        model.addAttribute("profilePathway", pathway);
-        //-- find user
-        model.addAttribute("user", userRepository.findUserById(userId));
         //-- find reviews of user
-        model.addAttribute("usersReview", reviewRepository.findReviewByUserId(userId));
-
+        model.addAttribute("usersReview", reviewRepository.findReviewByUserId(currentUser.getId()));
         //-- For the form to edit the review
         model.addAttribute("editReviewByNew", new Reviews());
+
+
+        model.addAttribute("hideForNow", "hide");
+        model.addAttribute("showForNow", "show");
+
 
         return "main/userProfile";
     }
