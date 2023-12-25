@@ -328,6 +328,7 @@ main .row #left-side-user-info-container{
 #UserReviewContainer .user-review-container aside{
     width: 100%;
     padding: 12px;
+    position: relative;
 }
 
  .submitButton{
@@ -337,6 +338,11 @@ main .row #left-side-user-info-container{
 
 .edit-review-cancel-button{
    margin-top: 12px;
+}
+.edit-review-delete-button{
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 
@@ -358,6 +364,12 @@ main .row #left-side-user-info-container{
         display: grid;
         grid-template-columns: 100%;
         gap: 20px;
+    }
+
+    .edit-review-delete-button{
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
 }
