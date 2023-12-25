@@ -66,18 +66,19 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On user Profile, If no favorite Book then display you have no favorites.
         [X] On user Profile, work with reviews and figure out why they are pushed to the start.
         [X] User Profile Page, Work on the left side of the profile.
-    WORKING:
-        [ ] Restyle Single Book Profile Same Genre Books
-        [ ] On userprofile, In the Edit Form, we need to create an input for the favorite Genres
-            - Think am I going to limit amount of favorite genres.
 
+    WORKING:
+        [X] On profile page, Created a function delete button that will work.
+        [ ] On profile page, Need to style the delete button.
 
     TODO:
+        [ ] On login page, Style submit button
+        [ ] On profile page, add a favorite genre input to the edit user form.
+        [ ] On Single Book page, Restyle the Same Genre Books
+        [ ] On login page, Functionality to change password.
+        [ ] On Welcome page, restyle the books
+
+    Ideas:
+        [ ] Think about the ratings
         [ ] Make a page about all the books in the database and then separate by genre
-        [ ] Think about the ratings.
-        [ ] On Login page, Figure out how I am going to do the forgot password
-        * [ ] On Login page, Create the functionality to work when a user successfully logs in.
-        * [ ] on profile page, Make it visible only a user can see add friend button, not on their own profile.
         [ ] on profile page, if user are already friend, button should be changed.
-        [ ] Create a search for book page that will include search by genre, title, through our database, then through the api
-        [ ] If we don't have book in our database, they will be able to click on book and then pull info about the book from api and save it to our database.

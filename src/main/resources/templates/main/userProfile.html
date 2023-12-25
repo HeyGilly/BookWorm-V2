@@ -201,6 +201,11 @@
                         </section>
                     <!-- Edit Form -->
                         <aside class="edit-review-form-container">
+                            <!-- Separate form for deletion -->
+                            <form th:action="@{/review/delete/{id}(id = ${review.getId()})}" method="POST">
+                                <button type="submit" class="btn btn-danger edit-review-delete-button">X</button>
+                            </form>
+                            <!-- Edit Review -->
                             <form th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}" class="edit-review-form">
                                 <!-- Rating -->
                                 <div class="">
