@@ -66,13 +66,13 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On user Profile, If no favorite Book then display you have no favorites.
         [X] On user Profile, work with reviews and figure out why they are pushed to the start.
         [X] User Profile Page, Work on the left side of the profile.
+        [X] On profile page, Created a function delete button that will work.
+        [X] On profile page, Need to style the delete button.
+        [X] On login page, Style submit button
 
     WORKING:
-        [X] On profile page, Created a function delete button that will work.
-        [ ] On profile page, Need to style the delete button.
 
     TODO:
-        [ ] On login page, Style submit button
         [ ] On profile page, add a favorite genre input to the edit user form.
         [ ] On Single Book page, Restyle the Same Genre Books
         [ ] On login page, Functionality to change password.
