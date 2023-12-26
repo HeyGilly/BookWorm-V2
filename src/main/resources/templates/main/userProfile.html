@@ -132,6 +132,17 @@
                                     th:value="${bio}">
                             </textarea>
                         </div>
+                        <!-- Favorite Genre -->
+                        <div class="mb-3">
+                            <label for="setting-favorite-genre" class="form-label">Favorite genre:</label>
+                            <select class="form-select" aria-label="Default select example" id="setting-favorite-genre" name="favoriteGenres">
+                                <option th:value="${0}" selected>Open this select menu</option>
+                                <th:block th:each="genre : ${ListOfGenre}">
+                                    <option th:value="${genre.id}" th:text="${genre.name}">Genre Name</option>
+                                </th:block>
+                            </select>
+                        </div>
+
                         <!-- Submit and Cancel Buttons -->
                         <button type="submit" id="submitEditProfileButton">Submit</button>
                         <button type="reset" id="cancelEditProfileButton">Cancel</button>

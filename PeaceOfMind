@@ -70,6 +70,17 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On profile page, Need to style the delete button.
         [X] On login page, Style submit button
 
+    WORKING:
+        [X] On Profile Page, On the edit form, show the list of genres to choose from
+        [x] On Profile Page, take the input from the values to add to the data base.
+        [ ] On BackEnd, How am I going to save this value to the user for Favorite Genre
+    TODO:
+        [ ] On profile page, add a favorite genre input to the edit user form.
+        [ ] On Single Book page, Restyle the Same Genre Books
+        [ ] On login page, Functionality to change password.
+        [ ] On Welcome page, restyle the books
 
-        ~~~~ MERRY CHRISTMAS ~~~~~
-
+    Ideas:
+        [ ] Think about the ratings
+        [ ] Make a page about all the books in the database and then separate by genre
+        [ ] on profile page, if user are already friend, button should be changed.

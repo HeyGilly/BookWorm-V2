@@ -1,10 +1,7 @@
 package com.bookworm.bookwormv2.controllers;
 
 import com.bookworm.bookwormv2.models.*;
-import com.bookworm.bookwormv2.repository.BookshelfRepository;
-import com.bookworm.bookwormv2.repository.FavoriteBookRepository;
-import com.bookworm.bookwormv2.repository.ReviewRepository;
-import com.bookworm.bookwormv2.repository.UserRepository;
+import com.bookworm.bookwormv2.repository.*;
 import com.bookworm.bookwormv2.service.FileService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,18 +22,22 @@ public class main_controller {
     private final UserRepository userRepository;
     //--
     public final FileService fileServiceRepository;
+    //--All Genre
+    private final GenreRepository genreRepository;
 
     //-- Favorite Book Data
     public final FavoriteBookRepository favoriteBookRepository;
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, FavoriteBookRepository favoriteBookRepository) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteBookRepository favoriteBookRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
         this.fileServiceRepository = fileServiceRepository;
+        this.genreRepository = genreRepository;
         this.favoriteBookRepository = favoriteBookRepository;
     }
+
     //-- getter
     public BookshelfRepository getBookshelfRepo() {
         return bookshelfRepo;
@@ -167,13 +168,24 @@ public class main_controller {
         model.addAttribute("hideForNow", "hide");
         model.addAttribute("showForNow", "show");
 
+        model.addAttribute("ListOfGenre", genreRepository.findAll());
+
 
         return "main/userProfile";
     }
 
+
     @PostMapping("/in/{userId}")
-    public String updateProfile(@ModelAttribute User userModel, @RequestParam("profilePictureFile") MultipartFile profilePictureFile){
+    public String updateProfile(@RequestParam("favoriteGenres") List<FavoriteGenre> favoriteGenres,@ModelAttribute User userModel, @RequestParam("profilePictureFile") MultipartFile profilePictureFile){
         User user = userRepository.findUserById(userModel.getId());
+
+        if (!favoriteGenres.isEmpty()){
+//            user.setFavoriteGenres(favoriteGenres.get(i).getId());
+            System.out.println("Favorite Genre Not Empty");
+            System.out.println("Favorite Genre ID: "+ favoriteGenres.get(0).getGenre().getId());
+            System.out.println("Favorite Genre: "+ favoriteGenres.get(0).getGenre().getName());
+        }
+
         try {
             if (!profilePictureFile.isEmpty()) {
                 // Handle the file and save its path to profilePicturePath
@@ -201,15 +213,4 @@ public class main_controller {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
 }
