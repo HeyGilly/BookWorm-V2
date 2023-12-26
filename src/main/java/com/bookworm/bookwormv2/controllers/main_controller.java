@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class main_controller {
@@ -27,13 +26,13 @@ public class main_controller {
     //--All Genre
     private final GenreRepository genreRepository;
     //-- Favorite Genre
-    private final favoriteGenreRepository favoriteGenreRepository;
+    private final FavoriteGenreRepository favoriteGenreRepository;
 
     //-- Favorite Book Data
     public final FavoriteBookRepository favoriteBookRepository;
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, com.bookworm.bookwormv2.repository.favoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;

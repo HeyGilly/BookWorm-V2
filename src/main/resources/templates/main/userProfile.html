@@ -50,8 +50,11 @@
                     </p>
                     <!-- Favorite Genre -->
                     <p class="fav-genre-profile">Favorite Genre:</p>
-                    <aside>
-                        <p th:each="favGenre : ${user.getFavoriteGenres()}" th:text="${favGenre.genre.name}"></p>
+                    <aside id="userFavoriteGenreContainer">
+                        <form class="favoriteGenreDeleteForm" th:each="favGenre : ${user.getFavoriteGenres()}" th:action="@{/favoriteGenre/delete/{id}(id = ${favGenre.getId()})}" method="POST">
+                            <button type="submit" class="btn btn-danger delete-fav-genre-button">X</button>
+                            <p th:text="${favGenre.genre.name}"></p>
+                        </form>
                     </aside>
                     <!-- If user tries to get more than 5 genres then this message will appear -->
                     <small th:text="${hitMaxFavGenre}">Default Warning Message</small>

@@ -97,8 +97,23 @@ main .row #left-side-user-info-container{
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-/*=== User's Fav Genre ===*/
-#left-side-user-info-container #user-profile-info .user-information-container aside p{
+
+
+#userFavoriteGenreContainer{
+}
+
+.favoriteGenreDeleteForm{
+    position: relative;
+}
+.favoriteGenreDeleteForm .delete-fav-genre-button{
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    /*transform: scale(.75);*/
+    font-size: 12px;
+    padding: 0 5px;
+}
+.favoriteGenreDeleteForm p{
     border: none;
     background-color: white;
     width: fit-content;
@@ -107,6 +122,17 @@ main .row #left-side-user-info-container{
     margin-left: 12px;
     border-radius: 3px;
 }
+
+/*=== User's Fav Genre ===*/
+/*#left-side-user-info-container #user-profile-info .user-information-container aside p{*/
+/*    border: none;*/
+/*    background-color: white;*/
+/*    width: fit-content;*/
+/*    color: #1e1e1e;*/
+/*    padding: 5px 8px;*/
+/*    margin-left: 12px;*/
+/*    border-radius: 3px;*/
+/*}*/
 /*=== User's Fav Genre Title===*/
 #left-side-user-info-container #user-profile-info .user-information-container .fav-genre-profile{
     line-height: normal;
