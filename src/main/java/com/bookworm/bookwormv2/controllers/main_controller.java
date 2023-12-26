@@ -24,17 +24,20 @@ public class main_controller {
     public final FileService fileServiceRepository;
     //--All Genre
     private final GenreRepository genreRepository;
+    //-- Favorite Genre
+    private final favoriteGenreRepository favoriteGenreRepository;
 
     //-- Favorite Book Data
     public final FavoriteBookRepository favoriteBookRepository;
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteBookRepository favoriteBookRepository) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, com.bookworm.bookwormv2.repository.favoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
         this.fileServiceRepository = fileServiceRepository;
         this.genreRepository = genreRepository;
+        this.favoriteGenreRepository = favoriteGenreRepository;
         this.favoriteBookRepository = favoriteBookRepository;
     }
 
@@ -176,15 +179,31 @@ public class main_controller {
 
 
     @PostMapping("/in/{userId}")
-    public String updateProfile(@RequestParam("favoriteGenres") List<FavoriteGenre> favoriteGenres,@ModelAttribute User userModel, @RequestParam("profilePictureFile") MultipartFile profilePictureFile){
+    public String updateProfile(@RequestParam("favoriteGenres") String favoriteGenres,@ModelAttribute User userModel, @RequestParam("profilePictureFile") MultipartFile profilePictureFile){
         User user = userRepository.findUserById(userModel.getId());
 
-        if (!favoriteGenres.isEmpty()){
-//            user.setFavoriteGenres(favoriteGenres.get(i).getId());
-            System.out.println("Favorite Genre Not Empty");
-            System.out.println("Favorite Genre ID: "+ favoriteGenres.get(0).getGenre().getId());
-            System.out.println("Favorite Genre: "+ favoriteGenres.get(0).getGenre().getName());
+        //-- Checks for an input value is empty.
+        if (!favoriteGenres.isEmpty()) {
+            long genreId = Long.parseLong(favoriteGenres);
+            Genre genre = genreRepository.findById(genreId).orElse(null);
+            //-- Checks if there is a genre or null
+            if (genre != null) {
+                // Check the number of favorite genres already associated with the user
+                int favoriteGenreCount = favoriteGenreRepository.countByUserFavorite(user);
+                //--Checks if you already have 5 genres in the database
+                if (favoriteGenreCount < 5) {
+                    // If less than 5 favorite genres, add the new one
+                    FavoriteGenre favoriteGenre = new FavoriteGenre();
+                    favoriteGenre.setUserFavorite(user);
+                    favoriteGenre.setGenre(genre);
+                    favoriteGenreRepository.save(favoriteGenre);
+                } else {
+                    // User already has 5 favorite genres
+                    System.out.println("You already have 5 genres in your favorite. ");
+                }
+            }
         }
+
 
         try {
             if (!profilePictureFile.isEmpty()) {

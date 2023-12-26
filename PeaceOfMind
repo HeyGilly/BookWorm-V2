@@ -73,7 +73,11 @@ Thursday, Dec 7 - Friday Dec 8
     WORKING:
         [X] On Profile Page, On the edit form, show the list of genres to choose from
         [x] On Profile Page, take the input from the values to add to the data base.
-        [ ] On BackEnd, How am I going to save this value to the user for Favorite Genre
+        [X] SOMETHING HAPPEN, I can not get value anymore and i dont member what I did to change it.
+        [X] On BackEnd, How am I going to save this value to the user for Favorite Genre
+        [ ] On User page, Create a message that states you already have 5 genres in the database.
+        [ ] On User page, Create a delete button to delete genre from the database.
+
     TODO:
         [ ] On profile page, add a favorite genre input to the edit user form.
         [ ] On Single Book page, Restyle the Same Genre Books
