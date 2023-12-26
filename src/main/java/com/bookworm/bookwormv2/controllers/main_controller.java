@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -179,7 +181,7 @@ public class main_controller {
 
 
     @PostMapping("/in/{userId}")
-    public String updateProfile(@RequestParam("favoriteGenres") String favoriteGenres,@ModelAttribute User userModel, @RequestParam("profilePictureFile") MultipartFile profilePictureFile){
+    public String updateProfile(@RequestParam("favoriteGenres") String favoriteGenres,@ModelAttribute User userModel, @RequestParam("profilePictureFile") MultipartFile profilePictureFile, Model model, RedirectAttributes redirectAttributes){
         User user = userRepository.findUserById(userModel.getId());
 
         //-- Checks for an input value is empty.
@@ -200,7 +202,8 @@ public class main_controller {
                 } else {
                     // User already has 5 favorite genres
                     System.out.println("You already have 5 genres in your favorite. ");
-                }
+                    //-- Shows a message if the user tries to get more than 5 genres
+                    redirectAttributes.addFlashAttribute("hitMaxFavGenre", "You can only have a max of 5.");                }
             }
         }
 

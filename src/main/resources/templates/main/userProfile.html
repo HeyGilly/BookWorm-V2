@@ -53,6 +53,8 @@
                     <aside>
                         <p th:each="favGenre : ${user.getFavoriteGenres()}" th:text="${favGenre.genre.name}"></p>
                     </aside>
+                    <!-- If user tries to get more than 5 genres then this message will appear -->
+                    <small th:text="${hitMaxFavGenre}">Default Warning Message</small>
                 </section>
                 <section class="user-setting-container" id="setting-form-container">
                     <form th:action="@{/in/{id} (id=${user.getId()})}"
