@@ -75,7 +75,7 @@ Thursday, Dec 7 - Friday Dec 8
         [x] On Profile Page, take the input from the values to add to the data base.
         [X] SOMETHING HAPPEN, I can not get value anymore and i dont member what I did to change it.
         [X] On BackEnd, How am I going to save this value to the user for Favorite Genre
-        [ ] On User page, Create a message that states you already have 5 genres in the database.
+        [X] On User page, Create a message that states you already have 5 genres in the database.
         [ ] On User page, Create a delete button to delete genre from the database.
 
     TODO:
