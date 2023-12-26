@@ -49,15 +49,20 @@
                         Fake Bio
                     </p>
                     <!-- Favorite Genre -->
-                    <p class="fav-genre-profile">Favorite Genre:</p>
-                    <aside id="userFavoriteGenreContainer">
-                        <form class="favoriteGenreDeleteForm" th:each="favGenre : ${user.getFavoriteGenres()}" th:action="@{/favoriteGenre/delete/{id}(id = ${favGenre.getId()})}" method="POST">
-                            <button type="submit" class="btn btn-danger delete-fav-genre-button">X</button>
-                            <p th:text="${favGenre.genre.name}"></p>
-                        </form>
-                    </aside>
-                    <!-- If user tries to get more than 5 genres then this message will appear -->
-                    <small th:text="${hitMaxFavGenre}">Default Warning Message</small>
+                    <div th:if="${user.getFavoriteGenres().size() > 0}">
+                        <p class="fav-genre-profile">Favorite Genre:</p>
+                        <aside id="userFavoriteGenreContainer">
+                            <form class="favoriteGenreDeleteForm" th:each="favGenre : ${user.getFavoriteGenres()}" th:action="@{/favoriteGenre/delete/{id}(id = ${favGenre.getId()})}" method="POST">
+                                <button type="submit" class="btn btn-danger delete-fav-genre-button">X</button>
+                                <p th:text="${favGenre.genre.name}"></p>
+                            </form>
+                        </aside>
+                        <!-- If user tries to get more than 5 genres then this message will appear -->
+                        <small th:text="${hitMaxFavGenre}">Default Warning Message</small>
+                    </div>
+                    <div th:if="${user.getFavoriteGenres().size() == 0}">
+                        <h5>No favorite genre</h5>
+                    </div>
                 </section>
                 <section class="user-setting-container" id="setting-form-container">
                     <form th:action="@{/in/{id} (id=${user.getId()})}"

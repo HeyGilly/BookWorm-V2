@@ -69,8 +69,6 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On profile page, Created a function delete button that will work.
         [X] On profile page, Need to style the delete button.
         [X] On login page, Style submit button
-
-    WORKING:
         [X] On Profile Page, On the edit form, show the list of genres to choose from
         [x] On Profile Page, take the input from the values to add to the data base.
         [X] SOMETHING HAPPEN, I can not get value anymore and i dont member what I did to change it.
@@ -78,13 +76,20 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On User page, Create a message that states you already have 5 genres in the database.
         [X] On User page, Create a delete button to delete genre from the database.
 
+    WORKING:
+        [X] On user page, if no genre, add a message
+
     TODO:
-        [ ] On profile page, add a favorite genre input to the edit user form.
+        [ ] On user page, Right side fix the height.
+        [ ] On User page, Verification on deletion of Reviews.
         [ ] On Single Book page, Restyle the Same Genre Books
+        [ ] Navigation, Do i want it to be fixed or just stuck on top.
+        [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.
+        [ ] Navigation, When searching for title, searching database first, then searches the api.
+        [ ] Navigation, what to do with duplication of books.
         [ ] On login page, Functionality to change password.
         [ ] On Welcome page, restyle the books
 
     Ideas:
-        [ ] Think about the ratings
         [ ] Make a page about all the books in the database and then separate by genre
         [ ] on profile page, if user are already friend, button should be changed.
