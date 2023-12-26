@@ -194,7 +194,7 @@
                     <h2>Reviews</h2>
                 </div>
                 <div id="UserReviewContainer">
-                    <div class="user-review-container" th:each="review:${usersReview}" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}"
+                    <div class="user-review-container" th:each="review:${usersReview}" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}">
                         <!-- Book Cover -->
                         <section>
                             <a th:href="@{/single/{id}(id = ${review.getBookshelf().getId()})}" >
@@ -260,10 +260,10 @@
                     <div th:unless="${usersReview != null and not #lists.isEmpty(usersReview)}">
                         No Recent Reviews
                     </div>
-            </div></div>
-
-
-        </div>
+                </div>
+            </div>
+          </div>
+    </div>
 </main>
 
 
