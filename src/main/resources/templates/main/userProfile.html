@@ -222,13 +222,15 @@
                     <!-- Edit Form -->
                         <aside class="edit-review-form-container">
                             <!-- Delete Review -->
-                            <button class="btn btn-danger edit-review-delete-button">X</button>
+                            <button class="btn btn-danger edit-review-delete-button">
+                                <img th:src="@{/img/trash.png}" alt="trash-icon">
+                            </button>
                             <!-- Delete Verification Modal -->
                             <div id="modalDeleteReview" class="modal-container">
                                 <h3>Are you sure you would like to delete this review?</h3>
                                 <!-- Delete Review Verify -->
                                 <form th:action="@{/review/delete/{id}(id = ${review.getId()})}" method="POST">
-                                    <button type="submit" >Delete</button>
+                                    <button type="submit" class="main-review-delete-button" >Delete</button>
                                     <button type="reset" class="cancel-delete-button">Cancel</button>
                                 </form>
                             </div>

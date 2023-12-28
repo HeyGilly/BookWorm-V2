@@ -78,7 +78,7 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On user page, if no genre, add a message
 
     WORKING:
-        [ ] On User page, Verification on deletion of Reviews.
+        [X] On User page, Verification on deletion of Reviews.
 
     TODO:
         [ ] On user page, Right side fix the height.
