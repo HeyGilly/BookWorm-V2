@@ -75,13 +75,13 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On BackEnd, How am I going to save this value to the user for Favorite Genre
         [X] On User page, Create a message that states you already have 5 genres in the database.
         [X] On User page, Create a delete button to delete genre from the database.
+        [X] On user page, if no genre, add a message
 
     WORKING:
-        [X] On user page, if no genre, add a message
+        [ ] On User page, Verification on deletion of Reviews.
 
     TODO:
         [ ] On user page, Right side fix the height.
-        [ ] On User page, Verification on deletion of Reviews.
         [ ] On Single Book page, Restyle the Same Genre Books
         [ ] Navigation, Do i want it to be fixed or just stuck on top.
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.

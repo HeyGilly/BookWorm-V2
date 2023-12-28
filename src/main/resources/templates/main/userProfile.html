@@ -8,7 +8,6 @@
 <nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
 
-
 <main class="container-fluid">
     <div class="row">
         <!===== Left Side, User Profile Image and Details =====>
@@ -222,10 +221,19 @@
                         </section>
                     <!-- Edit Form -->
                         <aside class="edit-review-form-container">
-                            <!-- Separate form for deletion -->
-                            <form th:action="@{/review/delete/{id}(id = ${review.getId()})}" method="POST">
-                                <button type="submit" class="btn btn-danger edit-review-delete-button">X</button>
-                            </form>
+                            <!-- Delete Review -->
+                            <button class="btn btn-danger edit-review-delete-button">X</button>
+                            <!-- Delete Verification Modal -->
+                            <div id="modalDeleteReview" class="modal-container">
+                                <h3>Are you sure you would like to delete this review?</h3>
+                                <!-- Delete Review Verify -->
+                                <form th:action="@{/review/delete/{id}(id = ${review.getId()})}" method="POST">
+                                    <button type="submit" >Delete</button>
+                                    <button type="reset" class="cancel-delete-button">Cancel</button>
+                                </form>
+                            </div>
+
+`
                             <!-- Edit Review -->
                             <form th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}" class="edit-review-form">
                                 <!-- Rating -->
@@ -249,7 +257,7 @@
                                 <!-- Body -->
                                 <div class="">
                                     <label for="editReviewBody"></label>
-                                    <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="5" style="resize:none;"></textarea>
+                                    <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="4" style="resize:none;"></textarea>
                                 </div>
                                 <!-- Submit and Cancel Button -->
                                 <button type="submit" class="btn btn-primary submitButton">Submit</button>

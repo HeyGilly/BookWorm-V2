@@ -32,6 +32,31 @@ document.addEventListener("DOMContentLoaded", () => {
             editReviewForm.reset();
         });
     });
+    //-- Creating modal
+    document.querySelectorAll(".edit-review-delete-button").forEach((button, index) => {
+        let verifyDeleteModal = document.querySelectorAll(".modal-container")[index];
+        let editReviewForm = document.querySelectorAll(".edit-review-form")[index];
+        let cancelDeleteButton = document.querySelectorAll(".cancel-delete-button")[index];
+        let editReviewDeleteButton = document.querySelectorAll(".edit-review-delete-button")[index];
+
+        verifyDeleteModal.style.display = "none";
+        editReviewForm.style.display = "block";
+
+        button.addEventListener("click",  () => {
+            console.log("This could be deleted!!")
+            verifyDeleteModal.style.display = "block";
+            editReviewForm.style.display = "none";
+            editReviewDeleteButton.style.display = "none";
+        })
+
+        cancelDeleteButton.addEventListener("click", ()=>{
+            console.log("working")
+            verifyDeleteModal.style.display = "none";
+            editReviewForm.style.display = "block";
+            editReviewDeleteButton.style.display = "block"
+        })
+
+    });
 
 });
 
