@@ -69,30 +69,33 @@
         </div>
 
         <!--- Same Genre Books Container ---->
-        <div id="whole-same-genre-book-container">
+        <div>
             <div>
                 <!-- Same Genre Book Title -->
-                <div class="section-title p-0 m-0">
+                <div class="section-title pt-5">
                     <h2>Same Genre Books</h2>
                 </div>
-                <!-- Book Container -->
-                    <!-- Book, title, author container -->
-                <div class="same-genre-book-container">
-                    <section class="same-genre-single-book-container" th:each="book:${bookGenre}" th:if="${book.getTitle() != singleBookInfo.getTitle()}">
-                        <a th:href="@{/single/{id}(id = ${book.id})}" >
-                            <section>
-                                <img th:src="${book.getCover_page()}" th:if="${singleBookInfo.getCover_page() != ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
-                                <img th:src="@{/img/noImage.jpeg}" th:if="${singleBookInfo.getCover_page() == ''}" th:alt="${book.getTitle()}" class="same-genre-single-book-cover">
-                                <aside>
-                                    <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                                    <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                                </aside>
-                            </section>
+
+                <!-- This is going to be the container for the scroll -->
+                <div id="WholeSameGenreBookContainer">
+                    <section class="favorite-book-container" th:each="favBook:${bookGenre}">
+                        <a th:href="@{/single/{id}(id = ${favBook.getId()})}">
+                            <img th:src="${favBook.getCover_page()}" th:alt="${favBook.getTitle()}" class="same-genre-book-cover">
+                            <p>
+                                <span class="book-title" th:text="${favBook.getTitle()}">Title of Book</span><br/>
+                                <small>By </small>
+                                <small th:text="${favBook.getAuthor()}">Author</small>
+                            </p>
                         </a>
                     </section>
-                 </div>
+                    <section th:if="${#lists.isEmpty(bookGenre)}" class="mx-auto mb-5">
+                        <h5>No Favorite Book currently saved.</h5>
+                    </section>
+                </div>
+
             </div>
         </div>
+
 
 
         <!=== Book Reviews ===>

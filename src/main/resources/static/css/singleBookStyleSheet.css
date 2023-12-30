@@ -114,8 +114,7 @@
     background: rgba(154, 182, 222, 0.27);
     overflow: scroll;
     scroll-behavior: smooth;
-    height: 90vh;
-
+    height: 100vh;
 }
 /* ===== Single Book Info Container =====*/
 #single-book-info-container{
@@ -161,49 +160,52 @@
     letter-spacing: 1px;
 }
 
-/*====== Same Genre Books Container ======*/
-#whole-same-genre-book-container{
-    margin: 25px 0;
-}
-/*==== Book container ====*/
-#whole-same-genre-book-container .same-genre-book-container{
+/*!*====== Same Genre Books Container ======*!*/
+#WholeSameGenreBookContainer{
+    display: flex;
     overflow: scroll;
     scroll-behavior: smooth;
-    display: flex;
-    margin: 0 25px;
 }
-#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container{
-    display: inline;
-    border-radius: 25px;
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-    margin: 12px;
+/*=== Each Book Container ===*/
+#WholeSameGenreBookContainer .favorite-book-container{
     background: #fff;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-radius: 25px;
+    margin: 12px 12px 42px 12px;
+    transition: transform 0.8s, box-shadow 1s;
 }
-/*=== Book Anchor ===*/
-#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container a{
+/*=== Each Book Container HOVER ===*/
+#WholeSameGenreBookContainer .favorite-book-container:hover {
+    transform: scale(0.98);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+/*=== Each Book Anchor ===*/
+#WholeSameGenreBookContainer .favorite-book-container a{
     text-decoration: none;
     color: #1e1e1e;
 }
-/*=== Single Genre - Book Cover ===*/
-#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container .same-genre-single-book-cover{
+/*=== Same Genre - Book Covers ===*/
+#WholeSameGenreBookContainer .favorite-book-container a .same-genre-book-cover{
     height: auto;
-    width: 140px;
+    width: 200px;
     border-radius: 20px 20px 0 0;
     margin: 0;
 }
-/*=== Single Genre - Book Title Container ===*/
-#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container section aside{
+/*=== Same Genre - Paragraph ===*/
+#WholeSameGenreBookContainer .favorite-book-container a p{
     line-height: normal;
-    font-size: 12px;
-    width: 140px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
     padding: 10px 13px;
 }
-/*=== Single Genre - Book Title ===*/
-#whole-same-genre-book-container .same-genre-book-container .same-genre-single-book-container section .book-title{
+/*=== Same Genre - Title ===*/
+#WholeSameGenreBookContainer .favorite-book-container a p .book-title {
     font-weight: 600;
 }
 
-/*====== User Reviews ======*/
+
+/*============= User Reviews ============*/
 
 .services #writeAReviewContainer{
     width: 80%;
@@ -230,12 +232,6 @@
 .services #writeAReviewContainer form  input[type=range]::-moz-range-track {
     background-color: #007bff;
 }
-
-
-
-
-
-
 
 
 /*== User Review Container ==*/

@@ -76,13 +76,14 @@ Thursday, Dec 7 - Friday Dec 8
         [X] On User page, Create a message that states you already have 5 genres in the database.
         [X] On User page, Create a delete button to delete genre from the database.
         [X] On user page, if no genre, add a message
+        [X] On User page, Verification on deletion of Reviews.
+        [X*] On user page, Right side fix the height.
+
+        [X] On Single Book page, Restyle the Same Genre Books
 
     WORKING:
-        [X] On User page, Verification on deletion of Reviews.
 
     TODO:
-        [ ] On user page, Right side fix the height.
-        [ ] On Single Book page, Restyle the Same Genre Books
         [ ] Navigation, Do i want it to be fixed or just stuck on top.
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.
         [ ] Navigation, When searching for title, searching database first, then searches the api.
@@ -91,5 +92,8 @@ Thursday, Dec 7 - Friday Dec 8
         [ ] On Welcome page, restyle the books
 
     Ideas:
+        [ ] Restyle User Profile input form.
+        [ ] On User Profile, for password send email to change it.
         [ ] Make a page about all the books in the database and then separate by genre
         [ ] on profile page, if user are already friend, button should be changed.
+        [ ] Future, Turn the preview of books a fragment.
