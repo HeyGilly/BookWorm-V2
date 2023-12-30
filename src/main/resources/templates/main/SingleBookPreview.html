@@ -89,7 +89,7 @@
                         </a>
                     </section>
                     <section th:if="${#lists.isEmpty(bookGenre)}" class="mx-auto mb-5">
-                        <h5>No Favorite Book currently saved.</h5>
+                        <h5 class="text-center">No Favorite Book currently saved.</h5>
                     </section>
                 </div>
 
@@ -172,6 +172,9 @@
                         <p th:text="${review.body}">Review Body</p>
                     </section>
                 </div>
+                <section th:unless="${bookReview != null and not #lists.isEmpty(bookReview)}" class="mx-auto mb-5">
+                    <h5 class="text-center">No Recent Reviews</h5>
+                </section>
             </div>
         </div>
 
