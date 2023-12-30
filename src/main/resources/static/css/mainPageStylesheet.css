@@ -56,7 +56,49 @@
     }
 }
 
-/*=== Genre Section Background ===*/
+/*======== Fiction Thriller Books Container ========*/
+#WholeThrillerBooksContainer,#WholeFictionBooksContainer{
+    display: flex;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+#WholeThrillerBooksContainer .thriller-book-container, #WholeFictionBooksContainer .fiction-book-container{
+    background: #fff;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-radius: 25px;
+    margin: 12px 12px 42px 12px;
+    transition: transform 0.8s, box-shadow 1s;
+}
+#WholeThrillerBooksContainer .thriller-book-container:hover, #WholeFictionBooksContainer .fiction-book-container:hover{
+    transform: scale(0.98);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+#WholeThrillerBooksContainer .thriller-book-container a,  #WholeFictionBooksContainer .fiction-book-container a {
+    text-decoration: none;
+    color: #1e1e1e;
+}
+/*=== Fiction Thriller - Book Covers ===*/
+#WholeThrillerBooksContainer .thriller-book-container a .thriller-book-cover,  #WholeFictionBooksContainer .fiction-book-container a .fiction-book-cover{
+    height: auto;
+    width: 200px;
+    border-radius: 20px 20px 0 0;
+    margin: 0;
+}
+/*=== Fiction Thriller - Paragraph ===*/
+#WholeThrillerBooksContainer .thriller-book-container a p, #WholeFictionBooksContainer .fiction-book-container a p{
+    line-height: normal;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 13px;
+}
+#WholeThrillerBooksContainer .thriller-book-container a p .book-title,  #WholeFictionBooksContainer .fiction-book-container a p .book-title{
+    font-weight: 600;
+}
+
+
+/*======== Genre Section Background ========*/
 #main-page-genre{
     width: 100%;
     height: fit-content;
