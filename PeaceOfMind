@@ -83,6 +83,7 @@ Thursday, Dec 7 - Friday Dec 8
 
     WORKING:
        [ ] On User Profile & login page, Create email service for change password.
+        - Currently working on the email service, taking a different route.
 
     TODO:
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.
