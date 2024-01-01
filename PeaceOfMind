@@ -84,6 +84,8 @@ Thursday, Dec 7 - Friday Dec 8
     WORKING:
        [ ] On User Profile & login page, Create email service for change password.
         - Currently working on the email service, taking a different route.
+            [X] Login - First Create a page "/forgot_password" to gather email
+            [X] Added a code number to database.
 
     TODO:
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.
