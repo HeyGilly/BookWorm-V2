@@ -34,7 +34,6 @@
 #register-form-section{
     background: rgba(154, 182, 222, 0.27);
     padding: 50px 0;
-
 }
 
 /*=== Form ===*/
@@ -124,3 +123,30 @@
 .close-btn:hover {
     color: black;
 }
+
+/*====== Forgot Password =====*/
+html, body{height: 100%}
+
+#forgotPasswordMain{
+    background: rgba(154, 182, 222, 0.27);
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#forgotPasswordForm{
+    max-width: 580px;
+    width: 90%;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 24px;
+    box-shadow: rgba(07, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+
+
+
+
+
