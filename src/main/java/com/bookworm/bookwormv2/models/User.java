@@ -49,12 +49,15 @@ public class User {
     @OneToMany(mappedBy = "userId", cascade = CascadeType.ALL)
     private List<FavoriteBook> favoriteBookList;
 
+    @Column(name = "RESET_TOKEN")
+    private String resetToken;
+
     //--Empty Constructor
     public User() {
     }
 
     //-- Whole Constructor
-    public User(Long id, String first_name, String last_name, String username, String email, String password, String bio, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres) {
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, MultipartFile profilePictureFile, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres, List<FavoriteBook> favoriteBookList, String resetToken) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -62,9 +65,12 @@ public class User {
         this.email = email;
         this.password = password;
         this.bio = bio;
+        this.profilePictureFile = profilePictureFile;
         this.profilePicturePath = profilePicturePath;
         this.reviewsList = reviewsList;
         this.favoriteGenres = favoriteGenres;
+        this.favoriteBookList = favoriteBookList;
+        this.resetToken = resetToken;
     }
 
     public Long getId() {
@@ -136,5 +142,13 @@ public class User {
     }
     public void setFavoriteGenres(List<FavoriteGenre> favoriteGenres) {
         this.favoriteGenres = favoriteGenres;
+    }
+
+    public String getResetToken() {
+        return resetToken;
+    }
+
+    public void setResetToken(String resetToken) {
+        this.resetToken = resetToken;
     }
 }
