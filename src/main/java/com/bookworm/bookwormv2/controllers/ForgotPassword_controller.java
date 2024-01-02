@@ -58,7 +58,7 @@ public class ForgotPassword_controller {
                 String content = "To change password, click on link. Thank you! " + resetPasswordLink;
 
                 //send email to user
-                emailService.sendSimpleEmail("ne-reply@bookworm.com",userWhomForgotPassword.getEmail(), "Password Reset", content);
+                emailService.sendSimpleEmail("noreply@bookworm.com",userWhomForgotPassword.getEmail(), "Password Reset", content);
 
             } else {
                 //No user found with the provided email.
@@ -103,7 +103,7 @@ public class ForgotPassword_controller {
             //-- Save Token
             userRepository.save(currentUser);
             //-- Email sent out to notify successful
-            emailService.sendSimpleEmail("no-reply@bookworm.com" ,currentUser.getEmail(), "Password Completed", "You have successfully changed your password.");
+            emailService.sendSimpleEmail("noreply@bookworm.com" ,currentUser.getEmail(), "Password Completed", "You have successfully changed your password.");
             return "redirect:/";
         }else{
             //-- Send Message Out - error
