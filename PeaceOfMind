@@ -100,7 +100,14 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Single Book Page, Adjust height for books book cover.
 
     WORKING:
-
+        [ ] Create a add a friend function.
+            [X] Create a database scheme
+            [X] Create Entity for best friends
+            [X] Create a controller for when you click the add friend
+            [ ] Create a notification icon on the navbar
+            [ ] Create a page that will show all notifications.
+            [ ] Notification will have two options click to be friends or not.
+            [ ] once approved, status and date changes
 
     TODO:
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.
@@ -115,4 +122,3 @@ Thursday, Dec 7 - Friday Dec 8
        [ ] Possible establish email
         [ ] Make a page about all the books in the database and then separate by genre
         [ ] on profile page, if user are already friend, button should be changed.
-        [ ] Future, Turn the preview of books a fragment.
