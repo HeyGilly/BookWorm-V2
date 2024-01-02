@@ -80,13 +80,21 @@ Thursday, Dec 7 - Friday Dec 8
         [X*] On user page, Right side fix the height.
         [X] On Single Book page, Restyle the Same Genre Books
        [X] On welcome page, restyled the thriller and fiction books.
-
-    WORKING:
-       [ ] On User Profile & login page, Create email service for change password.
+    [X] On User Profile & login page, Create email service for change password.
         - Currently working on the email service, taking a different route.
             [X] Login - First Create a page "/forgot_password" to gather email
             [X] Added a code number to database.
-            [X] Send email to User
+            [X] Send email link to User
+            [X] update password with email verification
+            [X] Styled
+
+        [X] Setting Page, When they click on the change password then send them to /forgot-password
+
+
+    WORKING:
+
+       [ ] Figure out the email situation
+       [ ] Possible establish email
 
     TODO:
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.

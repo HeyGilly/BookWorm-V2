@@ -123,12 +123,6 @@
                                    th:field="*{email}"
                                    title="Please provide a valid email">
                         </div>
-                        <!-- password -->
-                        <div class="mb-3">
-                            <label for="settingsPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="settingsPassword" aria-describedby="passwordHelp" th:field="*{password}">
-                            <div id="passwordHelp">Your password must be 8-20 characters long, 2 Uppercase & 2 Lowercase, 2 Numbers, 2 Special Characters</div>
-                        </div>
                         <!-- Bio-->
                         <div class="mb-3">
                             <label for="setting-bio" class="form-label">Bio:</label>
@@ -150,6 +144,13 @@
                                     <option th:value="${genre.id}" th:text="${genre.name}">Genre Name</option>
                                 </th:block>
                             </select>
+                        </div>
+                        <div class="mb-3">
+                            <small>If you would like to
+                                <a th:href="@{/forgot_password}" target="_blank" th:alt="forgot_password" class="btn text-warning p-0 m-0">
+                                    change your password
+                                </a>
+                            </small>
                         </div>
 
                         <!-- Submit and Cancel Buttons -->
