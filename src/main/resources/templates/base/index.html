@@ -63,29 +63,28 @@
 
 
     <!===== Books Available =====>
-    <div class="services section-bg pt-5">
-        <div class="container">
-            <!==== Title ====>
-            <div class="section-title w-75 w-md-50 mx-auto">
+    <div>
+        <div class="container-lg container-fluid">
+            <!-- Same Genre Book Title -->
+            <div class="section-title pt-5">
                 <h2>Books Available</h2>
                 <p>At eight in the morning. She will not be up, so that we shall have a clear field. Besides, we must be prompt, for this marriage may mean a complete change in her life and habits. I must wire to the King without delay.</p>
             </div>
-            <div class="position-relative">
-                <!===== Arrow Section =====>
-                <section class="left-arrow d-none d-lg-block"><i class="fa-solid fa-angle-left"></i></section>
-                <section class="right-arrow d-none d-lg-block"><i class="fa-solid fa-angle-right"></i></section>
-                <!===== Book Section =====>
-                <section class="d-flex overflow-scroll container-fluid container-lg position-relative" >
-                    <section class="mx-3 book-container" th:each="book:${bookshelf}">
-                        <a th:href="@{/singleBook/{id}(id = ${book.id})}" >
-                            <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" th:if="${book.getCover_page() != ''}" class="cover-page ">
-                            <img th:src="@{/img/noImage.jpeg}" th:alt="${book.getTitle()}" th:if="${book.getCover_page() == ''}" class="cover-page ">
-                            <p class="book-info-container">
-                                <span th:text="${book.getTitle()}" class="book-title">Title of Book</span> <br />
-                                <small>By </small><small th:text="${book.getAuthor()}" class="\">Title of Book</small>
-                            </p>
-                        </a>
-                    </section>
+
+            <!-- This is going to be the container for the scroll -->
+            <div id="WholeSameGenreBookContainer">
+                <section class="favorite-book-container" th:each="favBook:${bookshelf}">
+                    <a th:href="@{/single/{id}(id = ${favBook.getId()})}">
+                        <img th:src="${favBook.getCover_page()}" th:alt="${favBook.getTitle()}" class="same-genre-book-cover">
+                        <p>
+                            <span class="book-title" th:text="${favBook.getTitle()}">Title of Book</span><br/>
+                            <small>By </small>
+                            <small th:text="${favBook.getAuthor()}">Author</small>
+                        </p>
+                    </a>
+                </section>
+                <section th:if="${#lists.isEmpty(bookshelf)}" class="mx-auto mb-5">
+                    <h5 class="text-center">No Favorite Book currently saved.</h5>
                 </section>
             </div>
         </div>
