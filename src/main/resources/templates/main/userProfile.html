@@ -137,7 +137,7 @@
                         </div>
                         <!-- Favorite Genre -->
                         <div class="mb-3">
-                            <label for="setting-favorite-genre" class="form-label">Favorite genre:</label>
+                            <label for="setting-favorite-genre" class="form-label">Favorite genre: (Choose up to 5, One at a time)</label>
                             <select class="form-select" aria-label="Default select example" id="setting-favorite-genre" name="favoriteGenres">
                                 <option th:value="${0}" selected>Open this select menu</option>
                                 <th:block th:each="genre : ${ListOfGenre}">
