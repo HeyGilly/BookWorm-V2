@@ -2,7 +2,7 @@
 /*========== Login Page ===========*/
 /*=== Main Section ===*/
 #login-section{
-    background: #37517e;
+    background: rgba(154, 182, 222, 0.27);
     height: 95vh;
     width: 100%;
 }
@@ -82,17 +82,17 @@
     box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
 }
 
-/*!*=== Submit Button ===*!*/
-#login-form-submit-btn {
-    background-color: #3c9428;
-    border: 1px solid #3c9428;
-    color: #fff;
-}
-#login-form-submit-btn:hover {
-    background-color: rgba(60, 148, 40, 0.45);
-    border: 1px solid rgba(60, 148, 40, 0.45);
-    color:#1e1e1e;
-}
+/*!*!*=== Submit Button ===*!*!*/
+/*#login-form-submit-btn {*/
+/*    background-color: #3c9428;*/
+/*    border: 1px solid #3c9428;*/
+/*    color: #fff;*/
+/*}*/
+/*#login-form-submit-btn:hover {*/
+/*    background-color: rgba(60, 148, 40, 0.45);*/
+/*    border: 1px solid rgba(60, 148, 40, 0.45);*/
+/*    color:#1e1e1e;*/
+/*}*/
 
 /*=== Error Message Container ===*/
 .alert.warning {
