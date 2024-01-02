@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.UUID;
 
@@ -52,7 +53,7 @@ public class ForgotPassword_controller {
 
                 String siteURL = request.getRequestURL().toString().replace(request.getServletPath(), "");
 
-                String resetPasswordLink = siteURL + "/reset_password?token=" + userWhomForgotPassword.getResetToken();
+                String resetPasswordLink = siteURL + "/reset?token=" + userWhomForgotPassword.getResetToken();
 
                 String content = "To change password, click on link. Thank you! " + resetPasswordLink;
 
@@ -69,6 +70,46 @@ public class ForgotPassword_controller {
 
         }
         return "SignUp/forgotPassword";
+    }
+
+
+    //=== Process reset password form
+    @GetMapping("/reset")
+    public String displayResetPasswordPage(@RequestParam("token") String token, Model model){
+        User currentUser = userRepository.findUserByResetToken(token);
+
+        if (currentUser != null){
+            model.addAttribute("token", token);
+        }else{
+            model.addAttribute("error", "This is an invalid password reset link.");
+        }
+
+        return "SignUp/resetPassword";
+    }
+
+    //
+    @PostMapping("/reset")
+    public String setNewPassword(HttpServletRequest request, Model model) throws AddressException {
+        String newPassword = request.getParameter("newPasswordInput");
+        String token = request.getParameter("token");
+
+        User currentUser = userRepository.findUserByResetToken(token);
+
+        if (currentUser != null){
+            //-- Update Password
+            currentUser.setPassword(newPassword);
+            //-- Reset Token
+            currentUser.setResetToken(null);
+            //-- Save Token
+            userRepository.save(currentUser);
+            //-- Email sent out to notify successful
+            emailService.sendSimpleEmail("no-reply@bookworm.com" ,currentUser.getEmail(), "Password Completed", "You have successfully changed your password.");
+            return "redirect:/";
+        }else{
+            //-- Send Message Out - error
+            model.addAttribute("error", "Something went wrong!?");
+        }
+        return "SignUp/resetPassword";
     }
 
 
