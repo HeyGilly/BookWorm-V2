@@ -91,9 +91,11 @@ Thursday, Dec 7 - Friday Dec 8
        [X] On Profile page, favorite Genre, tell suer they can choose a genre up to 5.
        [X] Index Page, Anchor of books dont work
        [X] Index Page, Fix the Books to match the rest of the books.
-
        [X] On About Bookworm, Under the logos add some margin on bottom.
        [X] Login page, Match the background color.
+
+       [+] On Single Book Page, when there is no review, make sure to hide the no reviews when writing a review.
+        [X] Decided to keep the message and just give it margin bottom to give it some space.
 
     WORKING:
 
@@ -101,7 +103,6 @@ Thursday, Dec 7 - Friday Dec 8
        [ ] Possible establish email
 
     TODO:
-       [ ] On Single Book Page, when there is no review, make sure to hide the no reviews when writing a review.
        [ ] Single book page, Same genre book, dont show the one on the page
 
 
