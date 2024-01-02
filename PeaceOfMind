@@ -95,17 +95,14 @@ Thursday, Dec 7 - Friday Dec 8
        [X] Login page, Match the background color.
        [+] On Single Book Page, when there is no review, make sure to hide the no reviews when writing a review.
         [X] Decided to keep the message and just give it margin bottom to give it some space.
-
        [X] Single book page, Same genre book, dont show the one on the page
+
+        [X] Single Book Page, Adjust height for books book cover.
 
     WORKING:
 
-       [ ] Figure out the email situation
-       [ ] Possible establish email
 
     TODO:
-
-
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.
         [ ] Navigation, When searching for title, searching database first, then searches the api.
         [ ] Navigation, what to do with duplication of books.
@@ -114,6 +111,8 @@ Thursday, Dec 7 - Friday Dec 8
 
 
     Ideas:
+       [ ] Figure out the email situation
+       [ ] Possible establish email
         [ ] Make a page about all the books in the database and then separate by genre
         [ ] on profile page, if user are already friend, button should be changed.
         [ ] Future, Turn the preview of books a fragment.

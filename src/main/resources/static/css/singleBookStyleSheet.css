@@ -187,6 +187,7 @@
 /*=== Same Genre - Book Covers ===*/
 #WholeSameGenreBookContainer .favorite-book-container a .same-genre-book-cover{
     height: auto;
+    min-height: 300px;
     width: 200px;
     border-radius: 20px 20px 0 0;
     margin: 0;
