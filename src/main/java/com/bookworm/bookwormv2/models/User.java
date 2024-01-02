@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Set;
 
 //-- Entity refers to a Java class that represents an object or record in your database.
 //-- Serves as a bridge between your Java application and the database.
@@ -52,12 +53,15 @@ public class User {
     @Column(name = "RESET_TOKEN")
     private String resetToken;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<BestFriends> friendships;
+
     //--Empty Constructor
     public User() {
     }
 
     //-- Whole Constructor
-    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, MultipartFile profilePictureFile, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres, List<FavoriteBook> favoriteBookList, String resetToken) {
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, MultipartFile profilePictureFile, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres, List<FavoriteBook> favoriteBookList, String resetToken, Set<BestFriends> friendships) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -71,6 +75,7 @@ public class User {
         this.favoriteGenres = favoriteGenres;
         this.favoriteBookList = favoriteBookList;
         this.resetToken = resetToken;
+        this.friendships = friendships;
     }
 
     public Long getId() {
@@ -150,5 +155,13 @@ public class User {
 
     public void setResetToken(String resetToken) {
         this.resetToken = resetToken;
+    }
+
+    public Set<BestFriends> getFriendships() {
+        return friendships;
+    }
+
+    public void setFriendships(Set<BestFriends> friendships) {
+        this.friendships = friendships;
     }
 }

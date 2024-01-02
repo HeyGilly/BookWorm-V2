@@ -20,7 +20,7 @@
                     <img
                         class="user-profile-picture"
                         th:src="@{/img/noProfileImage.png}"
-                        th:if="${user.profilePicturePath == ''}"
+                        th:if="${user.profilePicturePath == null}"
                         alt="No Image Provided">
                     <!-- Profile Picture -->
                     <img
@@ -31,11 +31,15 @@
                 </section>
                 <section class="user-information-container" id="user-information-container">
                     <!-- Add a Friend Button -->
-                    <button class="friend-button" th:if="${hideForNow != 'hide'}">Add Friend</button>
+                    <form th:action="@{/addFriend/3/in/{id} (id=${user.getId()})}" method="post">
+                        <button class="friend-button" th:if="${hideForNow != 'show'}">Add Friend</button>
+                    </form>
                     <!-- Unfriend Button -->
-                    <button class="unfriend-button" th:if="${hideForNow != 'hide'}">Unfriend</button>
+                    <form>
+                        <button class="unfriend-button" th:if="${hideForNow != 'show'}">Unfriend</button>
+                    </form>
                     <!-- Setting Button -->
-                    <button class="setting-button" id="setting-button" th:if="${hideForNow != 'show'}">Setting</button>
+                    <button class="setting-button" id="setting-button" th:if="${hideForNow != 'hide'}">Setting</button>
                     <!-- User Greeting -->
                     <h2>
                         Hello <span th:text="${user.getUsername()}">USERNAME</span>,
