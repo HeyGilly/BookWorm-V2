@@ -107,7 +107,7 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Create a notification icon on the navbar
             [X] If logged in and have friend request then icon changes
             [X] Icon Hover Effect
-            [] *Using an interceptor for the notification to reload on each page.
+            [X] *Using an interceptor for the notification to reload on each page.
             [ ] Create a page that will show all notifications.
             [ ] Notification will have two options click to be friends or not.
             [ ] once approved, status and date changes
