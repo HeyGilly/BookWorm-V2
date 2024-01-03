@@ -31,7 +31,7 @@
                 </section>
                 <section class="user-information-container" id="user-information-container">
                     <!-- Add a Friend Button -->
-                    <form th:action="@{/addFriend/3/in/{id} (id=${user.getId()})}" method="post">
+                    <form th:action="@{/addFriend/{id}/in/11 (id=${user.getId()})}" method="post">
                         <button class="friend-button" th:if="${hideForNow != 'show'}">Add Friend</button>
                     </form>
                     <!-- Unfriend Button -->
