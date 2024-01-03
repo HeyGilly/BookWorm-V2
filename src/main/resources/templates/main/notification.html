@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<!=== Head in Thymeleaf - Fragments ===>
+<head th:replace="partials/head.html :: head ('Notifications')" ></head>
+<body>
+
+<!===== Navbar =====>
+<nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
+
+
+<main class="container-fluid">
+    <div class="row">
+        <!------- Left Side - User Information ------->
+        <div id="left-side-user-info-container" class="col-12 col-sm-4 col-md-4">
+            <!-- Not sure what this div is for? -->
+            <div id="user-profile-info">
+                <!-- image section -->
+                <section class="user-profile-container" id="user-profile-container">
+                    <!-- Image if there is no pathway -->
+                    <img
+                            class="user-profile-picture"
+                            th:src="@{/img/noProfileImage.png}"
+                            th:if="${user.profilePicturePath == null}"
+                            alt="No Image Provided">
+                    <!-- Profile Picture -->
+                    <img
+                            class="user-profile-picture"
+                            th:src="${user.getProfilePicturePath()}"
+                            th:if="${user.profilePicturePath != ''}"
+                            th:alt="${user.getUsername()}">
+                </section>
+                <section class="user-information-container" id="user-information-container">
+
+                    <!-- User Greeting -->
+                    <h2>
+                        Hello <span th:text="${user.getUsername()}">USERNAME</span>,
+                    </h2>
+                    <!-- User Bio -->
+                    <p
+                            class="user-bio"
+                            th:unless="${user.getBio() == ''}"
+                            th:text="${user.getBio() != null ? user.getBio() : 'No Bio yet'}">
+                        Fake Bio
+                    </p>
+                    <!-- Favorite Genre -->
+                    <div th:if="${user.getFavoriteGenres().size() > 0}">
+                        <p class="fav-genre-profile">Favorite Genre:</p>
+                        <aside id="userFavoriteGenreContainer">
+                            <section class="favoriteGenreDeleteForm" th:each="favGenre : ${user.getFavoriteGenres()}" >
+                                <p th:text="${favGenre.genre.name}"></p>
+                            </section>
+                        </aside>
+                    </div>
+
+                </section>
+            </div>
+        </div>
+
+        <!===== Right Side, User Reviews =====>
+        <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-8">
+
+            <!-- Favorite Book Container -->
+            <div>
+                <!-- Container Title - (Favorite Book) -->
+                <div class="section-title">
+                    <h2>Latest News</h2>
+                </div>
+                <!-- This is going to be the container for the scroll -->
+
+            </div>
+
+
+        </div>
+    </div>
+</main>
+
+
+
+
+
+
+<!=== Footer ===>
+<footer th:replace="partials/footer.html :: Footer"></footer>
+<script th:src="@{/js/searchForBookNavbar.js}"></script>
+</body>
+</html>
