@@ -108,8 +108,10 @@ Thursday, Dec 7 - Friday Dec 8
             [X] If logged in and have friend request then icon changes
             [X] Icon Hover Effect
             [X] *Using an interceptor for the notification to reload on each page.
-            [ ] Create a page that will show all notifications.
-            [ ] Notification will have two options click to be friends or not.
+            [X] Create a page that will show all notifications.
+            [X] Notification will have two options click to be friends or not.
+            [X] When Button are clicked, a sout will be shown
+            [ ] Grab id, and find friendship_id then change status
             [ ] once approved, status and date changes
 
     TODO:
