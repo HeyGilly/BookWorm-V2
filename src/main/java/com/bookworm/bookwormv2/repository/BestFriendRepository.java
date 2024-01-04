@@ -9,5 +9,6 @@ import java.util.List;
 public interface BestFriendRepository extends JpaRepository<BestFriends,Long> {
     boolean existsByUserAndStatus(User user, String status);
 
+    List<BestFriends> findAllByUser(User user);
 
 }

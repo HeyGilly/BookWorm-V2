@@ -66,8 +66,13 @@
                     <h2>Latest News</h2>
                 </div>
                 <!-- This is going to be the container for the scroll -->
-
-            </div>
+                <div>
+                    <div th:each="newFriend:${allFriends}">
+                        <h4 th:text="${newFriend.getFriend_id().getUsername()}"></h4>
+                        <h4 th:text="${newFriend.getUser().getUsername()}"></h4>
+                        <h4 th:text="${newFriend.getStatus()}"></h4>
+                    </div>
+                </div>
 
 
         </div>
