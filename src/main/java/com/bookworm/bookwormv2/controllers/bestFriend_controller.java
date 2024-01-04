@@ -31,7 +31,7 @@ public class bestFriend_controller {
 
         BestFriends buddies = new BestFriends();
         buddies.setUser(loggedOnMember);
-        buddies.setFriend_id(pageOwner.getId());
+        buddies.setFriend_id(pageOwner);
         buddies.setStatus("pending");
 
         bestFriendRepository.save(buddies);
