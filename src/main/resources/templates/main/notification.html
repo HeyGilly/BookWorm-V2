@@ -56,21 +56,31 @@
             </div>
         </div>
 
-        <!===== Right Side, User Reviews =====>
+        <!===== Right Side =====>
         <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-8">
 
-            <!-- Favorite Book Container -->
+            <!-- Latest News-->
             <div>
-                <!-- Container Title - (Favorite Book) -->
+                <!-- Title -->
                 <div class="section-title">
                     <h2>Latest News</h2>
                 </div>
-                <!-- This is going to be the container for the scroll -->
-                <div>
-                    <div th:each="newFriend:${allFriends}">
+                <!--  -->
+                <div class="border border-3 border-success">
+                    <!-- Each Notification -->
+                    <div class="bg-light border border-4 border-danger" th:each="newFriend:${allFriends}">
+                        <!-- The User that tried adding you -->
                         <h4 th:text="${newFriend.getFriend_id().getUsername()}"></h4>
-                        <h4 th:text="${newFriend.getUser().getUsername()}"></h4>
-                        <h4 th:text="${newFriend.getStatus()}"></h4>
+                        <!-- The Status -->
+                        <p th:text="${newFriend.getStatus()}"></p>
+                        <!-- Form When Yes to be friend -->
+                        <form th:action="@{/notification/newFriend/{id} (id=${newFriend.getFriendship_id()})}" method="post">
+                            <button type="submit">Add a friend</button>
+                        </form>
+                        <!-- Form When No to be friend -->
+                        <form th:action="@{/notification/unfriend/{id} (id=${newFriend.getFriendship_id()})}" method="post">
+                            <button type="submit">Unfollow</button>
+                        </form>
                     </div>
                 </div>
 
