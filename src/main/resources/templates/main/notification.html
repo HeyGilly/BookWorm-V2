@@ -74,12 +74,12 @@
                         <!-- The Status -->
                         <p th:text="${newFriend.getStatus()}"></p>
                         <!-- Form When Yes to be friend -->
-                        <form th:action="@{/notification/newFriend/{id} (id=${newFriend.getFriendship_id()})}" method="post">
-                            <button type="submit">Add a friend</button>
+                        <form th:action="@{/notification/newFriend/{id} (id=${newFriend.getFriendship_id()})}" class="addNewFriendForm" method="post">
+                            <button type="submit" class="addNewFriendButton">Add a friend</button>
                         </form>
                         <!-- Form When No to be friend -->
-                        <form th:action="@{/notification/unfriend/{id} (id=${newFriend.getFriendship_id()})}" method="post">
-                            <button type="submit">Unfollow</button>
+                        <form th:action="@{/notification/unfriend/{id} (id=${newFriend.getFriendship_id()})}" class="unfriendForm" method="post">
+                            <button type="submit" class="unfriendButton">Unfollow</button>
                         </form>
                     </div>
                 </div>
