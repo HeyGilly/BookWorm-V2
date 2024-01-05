@@ -11,7 +11,7 @@ public class BestFriends {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "FRIENDSHIP_ID")
-    private long friendship_id;
+    private long friendshipId;
     @ManyToOne
     @JoinColumn(name = "USER_ID")
     private User user;
@@ -30,8 +30,8 @@ public class BestFriends {
     public BestFriends() {
     }
 
-    public BestFriends(long friendship_id, User user, User friend_id, String status, Date createdAt, Date updatedAt) {
-        this.friendship_id = friendship_id;
+    public BestFriends(long friendshipId, User user, User friend_id, String status, Date createdAt, Date updatedAt) {
+        this.friendshipId = friendshipId;
         this.user = user;
         this.friend_id = friend_id;
         this.status = status;
@@ -39,12 +39,12 @@ public class BestFriends {
         this.updatedAt = updatedAt;
     }
 
-    public long getFriendship_id() {
-        return friendship_id;
+    public long getFriendshipId() {
+        return friendshipId;
     }
 
-    public void setFriendship_id(long friendship_id) {
-        this.friendship_id = friendship_id;
+    public void setFriendshipId(long friendshipId) {
+        this.friendshipId = friendshipId;
     }
 
     public User getUser() {
@@ -86,4 +86,6 @@ public class BestFriends {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+
 }

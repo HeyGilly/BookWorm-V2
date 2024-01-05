@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -41,7 +42,18 @@ public class notification_controller {
 
     @PostMapping("/notification/newFriend/{id}")
     public String addingNewFriends(HttpServletRequest request, Model model, @PathVariable("id") Long id){
-        System.out.println("adding a new friend");
+        BestFriends currentFriendship = BestFriendRepository.findByFriendshipId(id);
+
+        if (currentFriendship != null) {
+            currentFriendship.setStatus("accepted");
+            currentFriendship.setUpdatedAt(new Date());
+            BestFriendRepository.save(currentFriendship);
+            System.out.println("Friendship found and processed.");
+        } else {
+            System.out.println("No friendship found with id: " + id);
+            model.addAttribute("errorMessage", "No friendship found for the given ID");
+        }
+
         // Get the referer URL from the request
         String referer = request.getHeader("Referer");
         // Redirect to the referer URL
@@ -50,11 +62,20 @@ public class notification_controller {
 
     @PostMapping("/notification/unfriend/{id}")
     public String unfriend(HttpServletRequest request, Model model, @PathVariable("id") Long id){
-        System.out.println("unfriend");
+        System.out.println("unfriending with id: " + id);
+
+        BestFriends currentFriendship = BestFriendRepository.findByFriendshipId(id);
+
+        if (currentFriendship != null) {
+            BestFriendRepository.delete(currentFriendship);
+            System.out.println("Friendship found and Denied.");
+        } else {
+            System.out.println("No friendship found with id: " + id);
+            model.addAttribute("errorMessage", "Something happen, we got you cover. ");
+        }
 
         // Get the referer URL from the request
         String referer = request.getHeader("Referer");
-
         // Redirect to the referer URL
         return "redirect:" + referer;
     }
