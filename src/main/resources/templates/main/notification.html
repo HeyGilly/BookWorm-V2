@@ -63,28 +63,29 @@
             <div>
                 <!-- Title -->
                 <div class="section-title">
-                    <h2>Latest News</h2>
+                    <h2>Pending Friends</h2>
                 </div>
                 <!--  -->
-                <div class="border border-3 border-success">
+                <div class="mainNotificationSection">
                     <!-- Each Notification -->
-                    <div class="bg-light border border-4 border-danger" th:each="newFriend:${allFriends}" th:if="${newFriend.getStatus() == 'pending'}">
+                    <div class="body-notification bg-light" th:each="newFriend:${allFriends}" th:if="${newFriend.getStatus() == 'pending'}">
+                        <!-- Profile Image -->
+                        <img th:src="${newFriend.getFriend_id().getProfilePicturePath()}" th:alt="${newFriend.getFriend_id().getUsername()}" class="friend-profile-picture">
                         <!-- The User that tried adding you -->
                         <h4 th:text="${newFriend.getFriend_id().getUsername()}"></h4>
-                        <!-- The Status -->
-                        <p th:text="${newFriend.getStatus()}"></p>
-                        <!-- Form When Yes to be friend -->
-                        <form th:action="@{/notification/newFriend/{id} (id=${newFriend.getFriendshipId()})}" class="addNewFriendForm" method="post">
-                            <button type="submit" class="addNewFriendButton">Add a friend</button>
-                        </form>
-                        <!-- Form When No to be friend -->
-                        <form th:action="@{/notification/unfriend/{id} (id=${newFriend.getFriendshipId()})}" class="unfriendForm" method="post">
-                            <button type="submit" class="unfriendButton">Unfollow</button>
-                        </form>
+                        <div class="form-containers">
+                            <!-- Form When Yes to be friend -->
+                            <form th:action="@{/notification/newFriend/{id} (id=${newFriend.getFriendshipId()})}" class="addNewFriendForm" method="post">
+                                <button type="submit" class="addNewFriendButton">Friend</button>
+                            </form>
+                            <!-- Form When No to be friend -->
+                            <form th:action="@{/notification/unfriend/{id} (id=${newFriend.getFriendshipId()})}" class="unfriendForm" method="post">
+                                <button type="submit" class="unfriendButton">Unfriend</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-
-
+            </div>
         </div>
     </div>
 </main>
