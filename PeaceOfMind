@@ -96,11 +96,8 @@ Thursday, Dec 7 - Friday Dec 8
        [+] On Single Book Page, when there is no review, make sure to hide the no reviews when writing a review.
         [X] Decided to keep the message and just give it margin bottom to give it some space.
        [X] Single book page, Same genre book, dont show the one on the page
-
         [X] Single Book Page, Adjust height for books book cover.
-
-    WORKING:
-        [ ] Create a add a friend function.
+        [X] Create a add a friend function.
             [X] Create a database scheme
             [X] Create Entity for best friends
             [X] Create a controller for when you click the add friend
@@ -111,16 +108,18 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Create a page that will show all notifications.
             [X] Notification will have two options click to be friends or not.
             [X] When Button are clicked, a sout will be shown
-            [ ] Grab id, and find friendship_id then change status
-            [ ] once approved, status and date changes
+            [X] Grab id, and find friendship_id then change status
+            [X] Changed the friendship_id to friendshipId
+            [X] On both buttons are function, if you add push add it adds the friendship, unfriend it unfriend the relation
+
+    WORKING:
+        [ ] Showcase the friends on their profile.
 
     TODO:
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.
         [ ] Navigation, When searching for title, searching database first, then searches the api.
         [ ] Navigation, what to do with duplication of books.
         [ ] Navigation, Some searches will show up null and will delay the output search
-
-
 
     Ideas:
        [ ] Figure out the email situation
