@@ -68,7 +68,7 @@
                 <!--  -->
                 <div class="border border-3 border-success">
                     <!-- Each Notification -->
-                    <div class="bg-light border border-4 border-danger" th:each="newFriend:${allFriends}">
+                    <div class="bg-light border border-4 border-danger" th:each="newFriend:${allFriends}" th:if="${newFriend.getStatus() == 'pending'}">
                         <!-- The User that tried adding you -->
                         <h4 th:text="${newFriend.getFriend_id().getUsername()}"></h4>
                         <!-- The Status -->
