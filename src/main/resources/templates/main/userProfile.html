@@ -174,10 +174,13 @@
                       <h2>Bookworms</h2>
                   </div>
                   <div>
-                      <section th:each="friends:${allFriends}">
+                      <section th:each="friends:${allFriends}" th:if="${friends.getFriend().getUsername() != user.getUsername()}">
                           <h4 th:text="${friends.getFriend().getUsername()}">Testing Heading</h4>
                           <p th:text="${friends.getStatus()}">Testing Status</p>
-
+                      </section>
+                      <section th:each="friends:${allFriends}" th:if="${friends.getFriend().getUsername() == user.getUsername()}">
+                          <h4 th:text="${friends.getUser().getUsername()}">Testing Heading</h4>
+                          <p th:text="${friends.getStatus()}">Testing Status</p>
                       </section>
                   </div>
               </div>
