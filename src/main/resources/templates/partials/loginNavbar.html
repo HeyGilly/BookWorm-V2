@@ -16,10 +16,14 @@
                     <!-- Cancel Button -->
                     <img th:src="@{/img/search-result-cancel.png}" alt="Cancel Search" id="search-result-cancel-button">
                 </section>
+                <!-- Profile Account -->
+                <a th:href="@{/in/3}">
+                    <img th:src="@{/img/account.png}" alt="Profile" class="navbar-notification-icon me-3">
+                </a>
                 <!-- Notification Icon -->
                 <a th:href="@{/notification}">
                     <img th:if="${hasNotifications}" th:src="@{/img/alertNotification.png}" alt="Notifications" class="navbar-notification-icon me-3">
-                    <img th:if="${!hasNotifications}" th:src="@{/img/notification.png}" alt="No_Notifications" class="navbar-notification-icon">
+                    <img th:if="${!hasNotifications}" th:src="@{/img/notification.png}" alt="No_Notifications" class="navbar-notification-icon me-3">
                 </a>
                 <!-- Logout Button-->
                 <a th:href="@{/logout}" class=" btn btn-outline-danger w-25" id="logout-button" >logout</a>
