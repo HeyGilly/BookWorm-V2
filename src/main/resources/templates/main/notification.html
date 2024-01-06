@@ -69,11 +69,11 @@
                 <div class="mainNotificationSection">
                     <!-- Each Notification -->
                     <div class="body-notification bg-light" th:each="newFriend:${allFriends}" th:if="${newFriend.getStatus() == 'pending'}">
-                        <a th:href="@{/in/{id} (id=${newFriend.getFriend_id().getId()})}" class="anchor-new-friend">
+                        <a th:href="@{/in/{id} (id=${newFriend.getFriend().getId()})}" class="anchor-new-friend">
                             <!-- Profile Image -->
-                            <img th:src="${newFriend.getFriend_id().getProfilePicturePath()}" th:alt="${newFriend.getFriend_id().getUsername()}" class="friend-profile-picture">
+                            <img th:src="${newFriend.getFriend().getProfilePicturePath()}" th:alt="${newFriend.getFriend().getUsername()}" class="friend-profile-picture">
                             <!-- The User that tried adding you -->
-                            <h4 th:text="${newFriend.getFriend_id().getUsername()}"></h4>
+                            <h4 th:text="${newFriend.getFriend().getUsername()}"></h4>
                         </a>
                         <div class="form-containers">
                             <!-- Form When Yes to be friend -->
