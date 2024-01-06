@@ -116,6 +116,10 @@ Thursday, Dec 7 - Friday Dec 8
         [ ] Showcase the friends on their profile.
             [X] Changed the entity to go from friend_id to friend
             [X] Go to controller and in your post you have to change a setter
+            [X] Create a query in your repo
+            [X] inside UserProfile, pass the list
+            [X] Userprofile, showcase all friends.
+
 
     TODO:
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.

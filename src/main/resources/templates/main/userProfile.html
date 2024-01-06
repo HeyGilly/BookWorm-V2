@@ -168,6 +168,20 @@
           <!===== Right Side, User Reviews =====>
           <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-8">
 
+              <div>
+                  <!--  Title - (Friends, How many of us have them?) -->
+                  <div class="section-title">
+                      <h2>Bookworms</h2>
+                  </div>
+                  <div>
+                      <section th:each="friends:${allFriends}">
+                          <h4 th:text="${friends.getFriend().getUsername()}">Testing Heading</h4>
+                          <p th:text="${friends.getStatus()}">Testing Status</p>
+
+                      </section>
+                  </div>
+              </div>
+
           <!-- Favorite Book Container -->
             <div>
                 <!-- Container Title - (Favorite Book) -->

@@ -13,4 +13,5 @@ public interface BestFriendRepository extends JpaRepository<BestFriends,Long> {
     List<BestFriends> findAllByUser(User user);
     BestFriends findByFriendshipId(Long friendshipId);
 
+    List<BestFriends> findBestFriendsByFriend_IdOrUser_Id(long friend, long user);
 }

@@ -30,9 +30,11 @@ public class main_controller {
 
     //-- Favorite Book Data
     public final FavoriteBookRepository favoriteBookRepository;
+    private final BestFriendRepository bestFriendRepository;
 
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository,
+                           BestFriendRepository bestFriendRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
@@ -40,6 +42,7 @@ public class main_controller {
         this.genreRepository = genreRepository;
         this.favoriteGenreRepository = favoriteGenreRepository;
         this.favoriteBookRepository = favoriteBookRepository;
+        this.bestFriendRepository = bestFriendRepository;
     }
 
     //-- getter
@@ -174,6 +177,8 @@ public class main_controller {
 
         model.addAttribute("ListOfGenre", genreRepository.findAll());
 
+        //-- Showing all friends
+        model.addAttribute("allFriends", bestFriendRepository.findBestFriendsByFriend_IdOrUser_Id(currentUser.getId(), currentUser.getId()));
 
         return "main/userProfile";
     }
