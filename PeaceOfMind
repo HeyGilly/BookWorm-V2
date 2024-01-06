@@ -114,6 +114,8 @@ Thursday, Dec 7 - Friday Dec 8
 
     WORKING:
         [ ] Showcase the friends on their profile.
+            [X] Changed the entity to go from friend_id to friend
+            [X] Go to controller and in your post you have to change a setter
 
     TODO:
         [ ] Rating Database, Gather all users rating to the book and then take the original rating and then average then save.

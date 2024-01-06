@@ -17,7 +17,7 @@ public class BestFriends {
     private User user;
     @ManyToOne
     @JoinColumn(name = "FRIEND_ID")
-    private User friend_id;
+    private User friend;
     @Column(name = "STATUS")
     private String status;
     @Temporal(TemporalType.TIMESTAMP)
@@ -30,10 +30,10 @@ public class BestFriends {
     public BestFriends() {
     }
 
-    public BestFriends(long friendshipId, User user, User friend_id, String status, Date createdAt, Date updatedAt) {
+    public BestFriends(long friendshipId, User user, User friend, String status, Date createdAt, Date updatedAt) {
         this.friendshipId = friendshipId;
         this.user = user;
-        this.friend_id = friend_id;
+        this.friend = friend;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -55,12 +55,12 @@ public class BestFriends {
         this.user = user;
     }
 
-    public User getFriend_id() {
-        return friend_id;
+    public User getFriend() {
+        return friend;
     }
 
-    public void setFriend_id(User friend_id) {
-        this.friend_id = friend_id;
+    public void setFriend(User friend) {
+        this.friend = friend;
     }
 
     public String getStatus() {
