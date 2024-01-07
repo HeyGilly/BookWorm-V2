@@ -1,7 +1,9 @@
 package com.bookworm.bookwormv2.controllers;
 
+import com.bookworm.bookwormv2.dto.FriendDTO;
 import com.bookworm.bookwormv2.models.*;
 import com.bookworm.bookwormv2.repository.*;
+import com.bookworm.bookwormv2.service.BestFriendService;
 import com.bookworm.bookwormv2.service.FileService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,9 +34,13 @@ public class main_controller {
     public final FavoriteBookRepository favoriteBookRepository;
     private final BestFriendRepository bestFriendRepository;
 
+    //-- BestFriend Service
+    private BestFriendService bestFriendService;
+
     //-- Constructor
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository,
-                           BestFriendRepository bestFriendRepository) {
+
+
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository, BestFriendRepository bestFriendRepository, BestFriendService bestFriendService) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
@@ -43,6 +49,7 @@ public class main_controller {
         this.favoriteGenreRepository = favoriteGenreRepository;
         this.favoriteBookRepository = favoriteBookRepository;
         this.bestFriendRepository = bestFriendRepository;
+        this.bestFriendService = bestFriendService;
     }
 
     //-- getter
@@ -178,7 +185,8 @@ public class main_controller {
         model.addAttribute("ListOfGenre", genreRepository.findAll());
 
         //-- Showing all friends
-        model.addAttribute("allFriends", bestFriendRepository.findBestFriendsByFriend_IdOrUser_Id(currentUser.getId(), currentUser.getId()));
+        List<FriendDTO> friends = bestFriendService.getFriendsForUser(currentUser.getId());
+        model.addAttribute("allFriends", friends);
 
         return "main/userProfile";
     }

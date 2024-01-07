@@ -174,13 +174,10 @@
                       <h2>Bookworms</h2>
                   </div>
                   <div>
-                      <section th:each="friends : ${allFriends}" th:if="${friends.getStatus() == 'granted'}">
-                          <div th:with="isCurrentUser=${friends.getFriend().getUsername() == user.getUsername()},displayUser=${isCurrentUser ? friends.getUser() : friends.getFriend()}">
-                              <h4 th:text="${displayUser.getUsername()}">Testing Heading</h4>
-                              <p th:text="${friends.getStatus()}">Testing Status</p>
-                          </div>
+                      <section th:each="friend : ${allFriends}" th:if="${friend.status == 'granted'}">
+                          <h4 th:text="${friend.friendUsername}">Friend's Username</h4>
+                          <p th:text="${friend.status}">Friend Status</p>
                       </section>
-
                   </div>
               </div>
 
