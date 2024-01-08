@@ -103,4 +103,18 @@ public class Bookshelf {
     public void setFavoriteBooks(List<FavoriteBook> favoriteBooks) {
         this.favoriteBooks = favoriteBooks;
     }
+
+    public void calculateAverageRating() {
+        if (reviews == null || reviews.isEmpty()) {
+            this.rating = 0;
+            return;
+        }
+
+        double total = 0;
+        for (Reviews review : reviews) {
+            total += review.getRating();
+        }
+        this.rating = total / reviews.size();
+    }
+
 }

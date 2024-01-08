@@ -139,24 +139,18 @@ public class main_controller {
 
     @PostMapping("/single/{id}")
     public String submitReview(@PathVariable("id") Long id, @ModelAttribute("Reviews") Reviews reviews) {
-        // process the reviews object
-        System.out.println(id);
-        System.out.println("Book ID: "+reviews.getId());
-        System.out.println("Reviews Body: "+reviews.getBody());
-        System.out.println("Reviews Title: "+reviews.getTitle());
-        System.out.println("Reviews ID: "+reviews.getId());
-        System.out.println(" Bookshelf: "+reviews.getBookshelf());
-        System.out.println("Rating: "+reviews.getRating());
-        System.out.println("User: "+reviews.getUser());
-
         Bookshelf bookshelf = bookshelfRepo.findById(id).orElseThrow(/* some exception */);
 
+        //-- Review Setup
         reviews.setUser(userRepository.findUserById(11));
-
         reviews.setBookshelf(bookshelf);
-//        reviews.setUser(reviews.getUser());
+        //-- reviews.setUser(reviews.getUser());
         System.out.println("After Setting: "+reviews.getBookshelf());
         reviewRepository.save(reviews);
+
+        //-- Update Rating on Bookshelf
+        bookshelf.calculateAverageRating();
+        bookshelfRepo.save(bookshelf);
 
         return "redirect:/single/"+id;
     }
@@ -238,6 +232,7 @@ public class main_controller {
             user.setUsername(userModel.getUsername());
             user.setBio(userModel.getBio());
             userRepository.save(user);
+
 
             return "redirect:/in/"+user.getId();
         } catch (IOException e) {
