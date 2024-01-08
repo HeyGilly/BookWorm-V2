@@ -309,6 +309,58 @@ main .row #left-side-user-info-container{
     overflow-y: scroll;
     scroll-behavior: smooth;
 }
+
+
+/*===== Best Friend Container =====*/
+#right-side-user-reviews-container #bestFriendContainer{
+    height: auto;
+    width: 100%;
+    display: flex;
+    /*flex direction, wrap*/
+    flex-flow: row nowrap;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    gap: 0 1em;
+    padding: 12px 0 12px 12px;
+    margin-bottom: 42px;
+}
+/*===== Each Best Friend  =====*/
+#right-side-user-reviews-container #bestFriendContainer .eachBF{
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0, rgba(255, 255, 255, 0.8) -6px -2px 16px 0;
+    border-radius: 15px;
+    background-color: #37517e;
+    width: 210px;
+    min-width: 210px;
+    height: 100%;
+    transition: transform 0.8s, box-shadow 1s;
+}
+/*===== Each Best Friend HOVER =====*/
+#right-side-user-reviews-container #bestFriendContainer .eachBF:Hover{
+    transform: scale(0.98);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+/*===== Each Best Friend - anchor =====*/
+#right-side-user-reviews-container #bestFriendContainer .eachBF a{
+    text-decoration: none;
+}
+/*===== Each Best Friend - Profile Image =====*/
+#right-side-user-reviews-container #bestFriendContainer .eachBF img{
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+/*===== Each Best Friend - Username  =====*/
+#right-side-user-reviews-container #bestFriendContainer .eachBF h4 {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 400;
+    padding-top: 12px;
+}
+
+
 #WholeFavoriteBookContainer{
     display: flex;
     overflow: scroll;
@@ -433,10 +485,28 @@ main .row #left-side-user-info-container{
 
 /*}*/
 
-/*!*=== Screen smaller then 768px ===*!*/
-/*@media (max-width: 768px){*/
-
-/*}*/
+/*=== Screen smaller then 768px ===*/
+@media (max-width: 768px){
+    /*===== Each Best Friend  =====*/
+    #right-side-user-reviews-container #bestFriendContainer .eachBF{
+        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0, rgba(255, 255, 255, 0.8) -6px -2px 16px 0;
+        border-radius: 15px;
+        border: 3px solid mediumpurple;
+        background-color: #37517e;
+        min-width: 210px;
+        height: 100%;
+        transition: transform 0.8s, box-shadow 1s;
+    }
+    /*===== Each Best Friend - Username  =====*/
+    #right-side-user-reviews-container #bestFriendContainer .eachBF h4 {
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-align: center;
+        font-weight: 400;
+        padding-top: 12px;
+    }
+}
 
 /*=== Screen smaller then 575px ===*/
 @media (max-width: 575px){
@@ -452,6 +522,14 @@ main .row #left-side-user-info-container{
         position: absolute;
         top: 0;
         right: 5px;
+    }
+    /*===== Each Best Friend - Username  =====*/
+    #right-side-user-reviews-container #bestFriendContainer .eachBF h4 {
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+        font-weight: 400;
+        padding-top: 12px;
     }
 
 }

@@ -119,6 +119,8 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Create a query in your repo
             [X] inside UserProfile, pass the list
             [X] Userprofile, showcase all friends.
+            [X] Magic Work with DTO
+            [X] Style bestFriends
 
 
     TODO:
@@ -128,7 +130,9 @@ Thursday, Dec 7 - Friday Dec 8
         [ ] Navigation, Some searches will show up null and will delay the output search
 
     Ideas:
-       [ ] Figure out the email situation
-       [ ] Possible establish email
+        [ ] With DTO, work with Input Validation
+        [ ] With DTO, how it work? how to add it to this?
+        [ ] Figure out the email situation
+        [ ] Possible establish email
         [ ] Make a page about all the books in the database and then separate by genre
         [ ] on profile page, if user are already friend, button should be changed.

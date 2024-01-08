@@ -173,10 +173,12 @@
                   <div class="section-title">
                       <h2>Bookworms</h2>
                   </div>
-                  <div>
-                      <section th:each="friend : ${allFriends}" th:if="${friend.status == 'granted'}">
-                          <h4 th:text="${friend.friendUsername}">Friend's Username</h4>
-                          <p th:text="${friend.status}">Friend Status</p>
+                  <div class="" id="bestFriendContainer">
+                      <section th:each="friend : ${allFriends}" th:if="${friend.status == 'granted'}" class="eachBF">
+                          <a th:href="${friend.getUserId()}" th:title="${friend.getFriendUsername()}">
+                            <img th:src="${friend.getProfilePicture()}" th:alt="${friend.getFriendUsername()}">
+                            <h4 th:text="${friend.friendUsername}">Friend's Username</h4>
+                          </a>
                       </section>
                   </div>
               </div>
