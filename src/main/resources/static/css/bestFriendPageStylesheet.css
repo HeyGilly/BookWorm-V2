@@ -1,0 +1,82 @@
+/*===== Best Friend Container =====*/
+#right-side-user-reviews-container #bestFriendPageContainer{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 12px 1em;
+}
+/*===== Each Best Friend  =====*/
+#right-side-user-reviews-container #bestFriendPageContainer .eachBF{
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0, rgba(255, 255, 255, 0.8) -6px -2px 16px 0;
+    border-radius: 15px;
+    background-color: #37517e;
+    width: 210px;
+    min-width: 210px;
+    height: 100%;
+    transition: transform 0.8s, box-shadow 1s;
+}
+/*===== Each Best Friend HOVER =====*/
+#right-side-user-reviews-container #bestFriendPageContainer .eachBF:Hover{
+    transform: scale(0.98);
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+/*===== Each Best Friend - anchor =====*/
+#right-side-user-reviews-container #bestFriendPageContainer .eachBF a{
+    text-decoration: none;
+}
+/*===== Each Best Friend - Profile Image =====*/
+#right-side-user-reviews-container #bestFriendPageContainer .eachBF img{
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+/*===== Each Best Friend - Username  =====*/
+#right-side-user-reviews-container #bestFriendPageContainer .eachBF h4 {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-weight: 400;
+    padding-top: 12px;
+}
+
+
+/*====== Screen smaller then 991px ======*/
+@media (max-width: 991px){
+    /*===== Best Friend Container =====*/
+    #right-side-user-reviews-container #bestFriendPageContainer{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 12px 1em;
+        justify-content: space-around;
+    }
+}
+
+/*=== Screen smaller then 768px ===*/
+@media (max-width: 767px){
+
+}
+
+/*=== Screen smaller then 575px ===*/
+@media (max-width: 465px){
+
+    /*===== Each Best Friend  =====*/
+    #right-side-user-reviews-container #bestFriendPageContainer .eachBF{
+        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0, rgba(255, 255, 255, 0.8) -6px -2px 16px 0;
+        border-radius: 15px;
+        background-color: #37517e;
+        width: 110px;
+        min-width: 110px;
+        height: 100%;
+        transition: transform 0.8s, box-shadow 1s;
+    }
+    /*===== Each Best Friend - Profile Image =====*/
+    #right-side-user-reviews-container #bestFriendPageContainer .eachBF img{
+        width: 100%;
+        height: 110px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+    }
+}

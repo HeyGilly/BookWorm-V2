@@ -111,7 +111,6 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Grab id, and find friendship_id then change status
             [X] Changed the friendship_id to friendshipId
             [X] On both buttons are function, if you add push add it adds the friendship, unfriend it unfriend the relation
-
         [X] Showcase the friends on their profile.
             [X] Changed the entity to go from friend_id to friend
             [X] Go to controller and in your post you have to change a setter
@@ -121,10 +120,12 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Magic Work with DTO
             [X] Style bestFriends
 
-    WORKING:
-        [ ] On Single Book Page, In Writing a review, I want update the book review after every change
+        [X] On Single Book Page, In Writing a review, I want update the book review after every change
             [X] Single Book page, Add the method created in the entity to average rating after.
             [X] Profile Page, Add the method created in the entity to average rating after.
+
+    WORKING:
+        [X] Create a page that shows all friends
 
     TODO:
         [ ] Navigation, When searching for title, searching database first, then searches the api.

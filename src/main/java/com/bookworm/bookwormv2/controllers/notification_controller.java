@@ -45,7 +45,7 @@ public class notification_controller {
         BestFriends currentFriendship = BestFriendRepository.findByFriendshipId(id);
 
         if (currentFriendship != null) {
-            currentFriendship.setStatus("accepted");
+            currentFriendship.setStatus("granted");
             currentFriendship.setUpdatedAt(new Date());
             BestFriendRepository.save(currentFriendship);
             System.out.println("Friendship found and processed.");

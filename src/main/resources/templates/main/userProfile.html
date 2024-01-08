@@ -171,7 +171,9 @@
               <div>
                   <!--  Title - (Friends, How many of us have them?) -->
                   <div class="section-title">
-                      <h2>Bookworms</h2>
+                      <a th:href="@{/in/{userId}/friends(userId = ${user.getId()})}">
+                          <h2>Bookworms</h2>  
+                      </a>
                   </div>
                   <div class="" id="bestFriendContainer">
                       <section th:each="friend : ${allFriends}" th:if="${friend.status == 'granted'}" class="eachBF">
