@@ -68,7 +68,7 @@
                 </div>
                 <div class="" id="bestFriendPageContainer">
                     <section th:each="friend : ${allFriends}" th:if="${friend.status == 'granted'}" class="eachBF">
-                        <a th:href="${friend.getUserId()}" th:title="${friend.getFriendUsername()}">
+                        <a th:href="@{/in/{id}(id = ${friend.getUserId()})}" th:title="${friend.getFriendUsername()}" >
                             <img th:src="${friend.getProfilePicture()}" th:alt="${friend.getFriendUsername()}">
                             <h4 th:text="${friend.friendUsername}">Friend's Username</h4>
                         </a>

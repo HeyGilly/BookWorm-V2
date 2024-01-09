@@ -124,8 +124,10 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Profile Page, Add the method created in the entity to average rating after.
         [X] Create a page that shows all friends
 
+        [X] Navigation, Search the database before the API
+
     WORKING:
-        [ ] Navigation, Search the database before the API
+        [X   ] In the BestFriends Page, When clicking on a friend, the pathway is incorrect.
 
     TODO:
         [ ] Navigation, Search through our database before the api,

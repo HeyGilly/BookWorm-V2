@@ -79,7 +79,7 @@
                 <!-- This is going to be the container for the scroll -->
                 <div id="WholeSameGenreBookContainer">
                     <section class="favorite-book-container" th:each="favBook:${bookGenre}" th:if="${favBook != singleBookInfo}">
-                        <a th:href="@{/single/{id}(id = ${favBook.getId()})}">
+                        <a th:href="@{/single/{id}(id = ${favBook.getId()})}" th:title="${favBook.getTitle()}">
                             <img th:src="${favBook.getCover_page()}" th:alt="${favBook.getTitle()}" class="same-genre-book-cover">
                             <p>
                                 <span class="book-title" th:text="${favBook.getTitle()}">Title of Book</span><br/>
