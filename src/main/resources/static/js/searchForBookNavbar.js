@@ -194,8 +194,8 @@
             }).join('');
 
             //-- Adding a new button for continuing the search
-            const continueSearchButton = `<div class="continue-search-button">
-                                            <button type="button" class="btn">
+            const continueSearchButton = `<div id="continue-search-button-container">
+                                            <button id="continue-search-button" type="button" class="btn">
                                                 Continue Search
                                             </button>
                                           </div>`;

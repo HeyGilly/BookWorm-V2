@@ -23,8 +23,10 @@
     color: white;
 }
 
-/*== Get Started Button & Login Button ===*/
-.navbar-collapse .navbar-nav .nav-get-started-btn, .navbar-collapse .navbar-nav .nav-log-in{
+/*== Get Started Button & Login Button & Continue to search Button ===*/
+.navbar-collapse .navbar-nav .nav-get-started-btn,
+.navbar-collapse .navbar-nav .nav-log-in,
+#continue-search-button{
     background-color: #13aa52;
     border: 1px solid #13aa52;
     border-radius: 4px;
@@ -45,7 +47,9 @@
     text-decoration: none;
 }
 /*== Get Started Button & Login Button Hover ===*/
-.navbar-collapse .navbar-nav .nav-get-started-btn:hover, .navbar-collapse .navbar-nav .nav-log-in:hover{
+.navbar-collapse .navbar-nav .nav-get-started-btn:hover,
+.navbar-collapse .navbar-nav .nav-log-in:hover,
+#continue-search-button:hover{
     background-color: #0e8641;
     border: 1px solid #0e8641;
     transform: translateY(-2px);
@@ -63,6 +67,19 @@
     background-color: #37517e;
     border: 1px solid #37517e;
 }
+
+/*== Continue to search Button ===*/
+#continue-search-button {
+    background-color: #5b8ed5;
+    border: 1px solid #5b8ed5;
+}
+/*== Continue to search Button - HOVER ===*/
+#continue-search-button:HOVER {
+    background-color: #37517e;
+    border: 1px solid #37517e;
+}
+
+
 
 @media (max-width: 991px){
     /*== Get Started Button & Login Button ===*/

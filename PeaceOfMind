@@ -128,7 +128,8 @@ Thursday, Dec 7 - Friday Dec 8
 
     WORKING:
         [X] Navigation, Create a button for when the user doesn't see it in our database they can continue searching.
-          [ ] Style the button
+          [X} Style the button
+          [ ] make it functional
 
 
     TODO:
