@@ -119,18 +119,21 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Userprofile, showcase all friends.
             [X] Magic Work with DTO
             [X] Style bestFriends
-
         [X] On Single Book Page, In Writing a review, I want update the book review after every change
             [X] Single Book page, Add the method created in the entity to average rating after.
             [X] Profile Page, Add the method created in the entity to average rating after.
-
-    WORKING:
         [X] Create a page that shows all friends
 
+    WORKING:
+        [ ] Navigation, Search the database before the API
+
     TODO:
-        [ ] Navigation, When searching for title, searching database first, then searches the api.
-        [ ] Navigation, what to do with duplication of books.
-        [ ] Navigation, Some searches will show up null and will delay the output search
+        [ ] Navigation, Search through our database before the api,
+            [ ] Delete Books
+            [ ] Gather some Books
+            [ ] Search through Database then API
+        [ ] Navigation, find out about duplications
+        [ ] Navigation, Some searches will show up null
 
     Ideas:
         [ ] With DTO, work with Input Validation
