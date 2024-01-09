@@ -172,7 +172,7 @@
             searchBookResultsContainer.innerHTML = `<div class='prompt'>Try a different term</div>`;
         } else {
             console.log("No Error");
-            searchBookResultsContainer.innerHTML = data.map((item) => {
+            const bookEntries = data.map((item) => {
                 // Replace 'authorProperty' and 'titleProperty' with actual property names from your data
                 const author = item.author ? item.author : "Author not available";
                 const title = item.title ? item.title : "Title not available";
@@ -192,6 +192,16 @@
                             </form>
                     </div>`
             }).join('');
+
+            //-- Adding a new button for continuing the search
+            const continueSearchButton = `<div class="continue-search-button">
+                                            <button type="button" class="btn">
+                                                Continue Search
+                                            </button>
+                                          </div>`;
+
+            //-- Combining the book entries and the new button
+            searchBookResultsContainer.innerHTML = bookEntries + continueSearchButton;
         }
 
     }
