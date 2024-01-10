@@ -204,6 +204,15 @@
             searchBookResultsContainer.innerHTML = bookEntries + continueSearchButton;
         }
 
+        //-- Continue Search Button
+        let continueSearchButton = document.getElementById("continue-search-button");
+        //-- Everytime continue search button clicked
+        continueSearchButton.addEventListener("click", async (e) => {
+            e.preventDefault()
+            //-- If no results from database, then search the external API
+            let apiData = await gatherBooks(`${searchBookInput.value}&maxResults=15`);
+            await dataCheck(apiData);
+        })
     }
 
 

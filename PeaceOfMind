@@ -126,10 +126,11 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Navigation, Search the database before the API
         [X] In the BestFriends Page, When clicking on a friend, the pathway is incorrect.
 
-    WORKING:
         [X] Navigation, Create a button for when the user doesn't see it in our database they can continue searching.
           [X} Style the button
-          [ ] make it functional
+          [X] make it functional
+
+    WORKING:
 
 
     TODO:
