@@ -131,15 +131,14 @@ Thursday, Dec 7 - Friday Dec 8
           [X] make it functional
 
     WORKING:
-
+        [ ] Navigation, Search through our database before the api,
+            [X] Delete favoriteBooks
+            [X] Delete BookShelf
+            [X] Delete reviews
+            [ ] Gather some Books
 
     TODO:
-        [ ] Navigation, Search through our database before the api,
-            [ ] Delete Books
-            [ ] Gather some Books
-            [ ] Search through Database then API
-        [ ] Navigation, find out about duplications
-        [ ] Navigation, Some searches will show up null
+        [ ] Navigation,
 
     Ideas:
         [ ] With DTO, work with Input Validation
