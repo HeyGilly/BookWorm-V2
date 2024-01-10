@@ -115,21 +115,25 @@
             console.log("No Error Move ON");
             searchBookResultsContainer.innerHTML = data.items.map( (({ volumeInfo }) => {
                 console.log(volumeInfo);
-                console.log("displaying all the search book container");
-                console.log(volumeInfo.title);
-                console.log(volumeInfo.industryIdentifiers[0].identifier);
-                console.log(volumeInfo.imageLinks.thumbnail);
-                console.log(volumeInfo.description);
-                console.log(volumeInfo.pageCount);
-                console.log(volumeInfo.publishedDate);
-                console.log(volumeInfo.infoLink);
                 //If rating is not entered then return 1
                 const ratingValue = parseFloat(volumeInfo.averageRating) || 1;
                 //-- We pick the first author
                 const bookAuthors = volumeInfo.authors[0] || "";
                 //-- Genre category cant be null
                 const genreValue =  volumeInfo.categories || "not placed";
-                const bookCover =  volumeInfo.imageLinks.thumbnail;
+
+                console.log("----ImageLinks: "+volumeInfo.imageLinks);
+                let bookCover = volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : 'img/noImage.jpeg';
+                console.log("----Book Cover: "+bookCover);
+
+                console.log("displaying all the search book container");
+                console.log(volumeInfo.title);
+                console.log(volumeInfo.industryIdentifiers[0].identifier);
+                console.log(bookCover);
+                console.log(volumeInfo.description);
+                console.log(volumeInfo.pageCount);
+                console.log(volumeInfo.publishedDate);
+                console.log(volumeInfo.infoLink);
 
                 return `<div class="nav-bar-search-form-container">
                             <form method="POST" action="/api/book"   th:action="@{/api/book}">

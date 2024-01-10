@@ -125,14 +125,15 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Create a page that shows all friends
         [X] Navigation, Search the database before the API
         [X] In the BestFriends Page, When clicking on a friend, the pathway is incorrect.
-
         [X] Navigation, Create a button for when the user doesn't see it in our database they can continue searching.
           [X} Style the button
           [X] make it functional
 
-    WORKING:
         [X] User Profile, Change order of reviews, New review on top.
         [X] Single Book Profile, Change order of reviews, New review on top.
+
+    WORKING:
+        [ ] When searching through api, add a photo when there is no book cover
 
         [ ] Navigation, Search through our database before the api,
             [X] Delete favoriteBooks
