@@ -131,14 +131,18 @@ Thursday, Dec 7 - Friday Dec 8
           [X] make it functional
 
     WORKING:
+        [X] User Profile, Change order of reviews, New review on top.
+        [X] Single Book Profile, Change order of reviews, New review on top.
+
         [ ] Navigation, Search through our database before the api,
             [X] Delete favoriteBooks
             [X] Delete BookShelf
             [X] Delete reviews
-            [ ] Gather some Books
 
     TODO:
-        [ ] Navigation,
+        [ ] Navigation, Gather some Books - Ongoing
+        [ ] User Review Database add a date to it. createdAt, editedAt, liked
+        [ ] Maybe limit the characters for reviews.
 
     Ideas:
         [ ] With DTO, work with Input Validation

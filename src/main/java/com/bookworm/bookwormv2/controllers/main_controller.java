@@ -111,7 +111,8 @@ public class main_controller {
         model.addAttribute("bookGenre", bookshelfRepo.findAllByGenre(genre));
 
         long book_id = bookshelfRepo.findByIsbn(BookByISBN).getId();
-        model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_Id(book_id));
+        List<Reviews> allReviewFromBook = reviewRepository.findReviewByBookshelf_IdSorted(book_id);
+        model.addAttribute("bookReview", allReviewFromBook);
 
         //-- For when reviews are written
         model.addAttribute("Reviews", new Reviews());
@@ -168,7 +169,7 @@ public class main_controller {
         List<FavoriteBook> favoriteBooks = favoriteBookRepository.findAllByUserId(currentUser);
         model.addAttribute("favoriteBooks", favoriteBooks);
         //-- find reviews of user
-        model.addAttribute("usersReview", reviewRepository.findReviewByUserId(currentUser.getId()));
+        model.addAttribute("usersReview", reviewRepository.findReviewByUserIdSorted(currentUser.getId()));
         //-- For the form to edit the review
         model.addAttribute("editReviewByNew", new Reviews());
 

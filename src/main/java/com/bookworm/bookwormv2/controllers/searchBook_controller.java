@@ -64,7 +64,7 @@ public class searchBook_controller {
 //
             //-- Find the book id, then find all reviews associated with the book id.
             book_id = bookshelfRepository.findByIsbn(existingBook.getIsbn()).getId();
-            model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_Id(book_id));
+            model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_IdSorted(book_id));
 
         } else {
             System.out.println("Book before saved!");
@@ -80,7 +80,7 @@ public class searchBook_controller {
 //
             //-- Find the book id, then find all reviews associated with the book id.
             book_id = bookshelfRepository.findByIsbn(bookshelf.getIsbn()).getId();
-            model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_Id(book_id));
+            model.addAttribute("bookReview", reviewRepository.findReviewByBookshelf_IdSorted(book_id));
         }
 
         return "redirect:/single/"+book_id;
