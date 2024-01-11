@@ -115,45 +115,57 @@
             console.log("No Error Move ON");
             searchBookResultsContainer.innerHTML = data.items.map( (({ volumeInfo }) => {
                 console.log(volumeInfo);
-                //If rating is not entered then return 1
-                const ratingValue = parseFloat(volumeInfo.averageRating) || 1;
+                //-- Check if there is a title
+                const title =  volumeInfo.categories || "not placed";
                 //-- We pick the first author
                 const bookAuthors = volumeInfo.authors ? volumeInfo.authors[0] : null;
+                //If rating is not entered then return 1
+                const ratingValue = parseFloat(volumeInfo.averageRating) || 1;
                 //-- Genre category cant be null
-                const genreValue =  volumeInfo.categories || "not placed";
+                const genreValue =  volumeInfo.categories || null;
                 //-- If there is book cover or not.
-                let bookCover = volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : 'img/noImage.jpeg';
+                const bookCover = volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : 'img/noImage.jpeg';
+                //-- Description
+                const description = volumeInfo.description|| null;
+                //-- Page Count
+                const pageCount = volumeInfo.pageCount || 0;
+                //-- Published Date
+                const publishedDate = volumeInfo.publishedDate || null;
+                //-- If there is book cover or not.
+                const googlePlay = volumeInfo.infoLink || null;
                 //-- if there is ISBN or not
-                let ISBN = volumeInfo.industryIdentifiers ? volumeInfo.industryIdentifiers[0].identifier : null;
+                const ISBN = volumeInfo.industryIdentifiers ? volumeInfo.industryIdentifiers[0].identifier : null;
 
 
                 console.log("displaying all the search book container");
-                console.log(volumeInfo.title);
+                console.log(title);
                 console.log(bookAuthors);
-                console.log(ISBN);
+                console.log(ratingValue);
+                console.log(genreValue);
                 console.log(bookCover);
-                console.log(volumeInfo.description);
-                console.log(volumeInfo.pageCount);
-                console.log(volumeInfo.publishedDate);
-                console.log(volumeInfo.infoLink);
+                console.log(description);
+                console.log(pageCount);
+                console.log(publishedDate);
+                console.log(googlePlay);
+                console.log(ISBN);
 
                 return `<div class="nav-bar-search-form-container">
                             <form method="POST" action="/api/book"   th:action="@{/api/book}">
-                               <input type="hidden" name="title" value="${volumeInfo.title}" />
+                               <input type="hidden" name="title" value="${title}" />
                                <input type="hidden" name="isbn" value="${ISBN}" />
                                <input type="hidden" name="author" value="${bookAuthors}" />
                                <input type="hidden" name="cover_page" value="${bookCover}" />
                                <input type="hidden" name="rating" value="${ratingValue}" />
-                               <input type="hidden" name="description" value="${volumeInfo.description}"/>
+                               <input type="hidden" name="description" value="${description}"/>
                                <input type="hidden" name="genre" value="${genreValue}" />
-                               <input type="hidden" name="page_count" value="${volumeInfo.pageCount}" />
-                               <input type="hidden" name="date_published" value="${volumeInfo.publishedDate}" />
-                               <input type="hidden" name="google_play" value="${volumeInfo.infoLink}" />
+                               <input type="hidden" name="page_count" value="${pageCount}" />
+                               <input type="hidden" name="date_published" value="${publishedDate}" />
+                               <input type="hidden" name="google_play" value="${googlePlay}" />
                                <button type="submit" class="btn">
-                                    <img class="search-book-results-book-cover" src="${bookCover}" th:alt="${volumeInfo.title}">
+                                    <img class="search-book-results-book-cover" src="${bookCover}" alt="${title}">
                                     <div class="nav-search-book-info-container">
                                         <h4 class="nav-search-book-result-title">
-                                            <div class="nav-search-book-results">${volumeInfo.title}</div>
+                                            <div class="nav-search-book-results">${title}</div>
                                         </h4>
                                         <p class="nav-search-bar-results-authors">${bookAuthors}</p>
                                     </div>
@@ -179,15 +191,14 @@
         } else {
             console.log("No Error");
             const bookEntries = data.map((item) => {
-                // Replace 'authorProperty' and 'titleProperty' with actual property names from your data
                 const author = item.author ? item.author : "Author not available";
                 const title = item.title ? item.title : "Title not available";
-                const bookCover = item.cover_page ? item.cover_page : "";
+                const bookCover = item.cover_page ? item.cover_page : 'img/noImage.jpeg';
 
                 return `<div class="nav-bar-search-form-container">
-                            <form>
-                               <button type="submit" class="btn">
-                                    <img class="search-book-results-book-cover" src="${bookCover}" th:alt="${title}">
+                            <a href="/single/${item.id}" title="${title}">
+                               <button class="btn">
+                                    <img class="search-book-results-book-cover" src="${bookCover}" alt="${title}">
                                     <div class="nav-search-book-info-container">
                                         <h4 class="nav-search-book-result-title">
                                             <div class="nav-search-book-results">${title}</div>
@@ -195,9 +206,10 @@
                                         <p class="nav-search-bar-results-authors">${author}</p>
                                     </div>
                                </button>
-                            </form>
+                            </a>
                     </div>`
-            }).join('');
+                 }).join('');
+
 
             //-- Adding a new button for continuing the search
             const continueSearchButton = `<div id="continue-search-button-container">
