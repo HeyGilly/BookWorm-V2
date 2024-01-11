@@ -130,12 +130,13 @@ Thursday, Dec 7 - Friday Dec 8
           [X] make it functional
         [X] User Profile, Change order of reviews, New review on top.
         [X] Single Book Profile, Change order of reviews, New review on top.
-
         [X] When searching through api, add a photo when there is no book cover
         [X] Search through API, add statement if no ISBN
+        [X]  Search through API, add statement if no author
+        [X] Navigation, When a book from out database anchor does not take you to the correct url
+            [X] Need to restyle and turn the form into an anchor.
 
     WORKING:
-        [ ]  Search through API, add statement if no author
 
 
         [ ] Navigation, Search through our database before the api,

@@ -28,3 +28,67 @@
 .search-book-author{
     font-size: 10px;
 }
+
+
+
+
+
+
+/*===== Our Database search =====*/
+
+nav #book-search-results {
+    width: 100%;
+    height: 100%;
+    padding: 60px 120px;
+    margin:0;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    gap: 0 12px;
+}
+/*== Search book Div form Container  ==*/
+.navbar #book-search-results .nav-bar-search-form-container {
+    box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, rgba(9, 30, 66, 0.08) 0 0 0 1px;
+    margin: 0;
+    background-color: rgba(161, 156, 156, 0.1);
+    height: fit-content;
+}
+
+/*== Book Search Result form ==*/
+.navbar #book-search-results .nav-bar-search-form-container a {
+    text-decoration: none;
+}
+
+/*== Book Search Result display button ==*/
+.navbar #book-search-results .nav-bar-search-form-container a button {
+    display: flex;
+    width: 420px;
+}
+.navbar #book-search-results .nav-bar-search-form-container a button:hover{
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+
+/*== Search Book Result Book Cover ==*/
+#book-search-results .nav-bar-search-form-container a button .search-book-results-book-cover {
+    height: 220px;
+    width: 140px;
+}
+
+/*== Search Book Result Book Title ==*/
+#book-search-results .nav-bar-search-form-container a button .nav-search-book-info-container h4 {
+    font-size: 24px;
+    font-weight: 600;
+    text-wrap: balance;
+    padding: 0 12px;
+    text-align: left;
+    margin-top: 24px;
+}
+
+/*== Search Book Result Book Authors ==*/
+#book-search-results .nav-bar-search-form-container a button .nav-search-book-info-container .nav-search-bar-results-authors {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+    padding: 0 12px;
+}
+/*== Search Book Result Book Description ==*/
+#book-search-results .nav-bar-search-form-container a button .nav-search-book-info-container .nav-search-bar-results-authors {}
