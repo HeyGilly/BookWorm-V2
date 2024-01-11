@@ -118,17 +118,19 @@
                 //If rating is not entered then return 1
                 const ratingValue = parseFloat(volumeInfo.averageRating) || 1;
                 //-- We pick the first author
-                const bookAuthors = volumeInfo.authors[0] || "";
+                const bookAuthors = volumeInfo.authors ? volumeInfo.authors[0] : null;
                 //-- Genre category cant be null
                 const genreValue =  volumeInfo.categories || "not placed";
-
-                console.log("----ImageLinks: "+volumeInfo.imageLinks);
+                //-- If there is book cover or not.
                 let bookCover = volumeInfo.imageLinks ? volumeInfo.imageLinks.thumbnail : 'img/noImage.jpeg';
-                console.log("----Book Cover: "+bookCover);
+                //-- if there is ISBN or not
+                let ISBN = volumeInfo.industryIdentifiers ? volumeInfo.industryIdentifiers[0].identifier : null;
+
 
                 console.log("displaying all the search book container");
                 console.log(volumeInfo.title);
-                console.log(volumeInfo.industryIdentifiers[0].identifier);
+                console.log(bookAuthors);
+                console.log(ISBN);
                 console.log(bookCover);
                 console.log(volumeInfo.description);
                 console.log(volumeInfo.pageCount);
@@ -138,7 +140,7 @@
                 return `<div class="nav-bar-search-form-container">
                             <form method="POST" action="/api/book"   th:action="@{/api/book}">
                                <input type="hidden" name="title" value="${volumeInfo.title}" />
-                               <input type="hidden" name="isbn" value="${volumeInfo.industryIdentifiers[0].identifier}" />
+                               <input type="hidden" name="isbn" value="${ISBN}" />
                                <input type="hidden" name="author" value="${bookAuthors}" />
                                <input type="hidden" name="cover_page" value="${bookCover}" />
                                <input type="hidden" name="rating" value="${ratingValue}" />

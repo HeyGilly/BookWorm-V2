@@ -128,12 +128,15 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Navigation, Create a button for when the user doesn't see it in our database they can continue searching.
           [X} Style the button
           [X] make it functional
-
         [X] User Profile, Change order of reviews, New review on top.
         [X] Single Book Profile, Change order of reviews, New review on top.
 
+        [X] When searching through api, add a photo when there is no book cover
+        [X] Search through API, add statement if no ISBN
+
     WORKING:
-        [ ] When searching through api, add a photo when there is no book cover
+        [ ]  Search through API, add statement if no author
+
 
         [ ] Navigation, Search through our database before the api,
             [X] Delete favoriteBooks
