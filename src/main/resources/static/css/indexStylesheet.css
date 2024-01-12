@@ -1,0 +1,244 @@
+@import "/static/css/resetCSS.css";
+/*Essentials*/
+@import "essentialsStylesheet.css";
+/*All Buttons*/
+@import "buttonStylesheet.css";
+/*NavBar & Footer*/
+@import "navbarFooterStylesheet.css";
+
+
+/*========== Index Page ==========*/
+main{
+    /*---------- Hero Introduction ----------*/
+    #hero-introduction{
+        background: #37517e;
+        /*Hero Introduction - Container*/
+        .container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 70vh;
+            max-height: 620px;
+            /*Section One*/
+            #section-one{
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                /*Heading One*/
+                & h1 {
+                    font-size: 48px;
+                }
+                /*Heading Two*/
+                & h2 {
+                    font-size: 24px;
+                    color: rgba(255, 255, 255, 0.6);
+                }
+                /*Aside*/
+                & aside{
+                    margin-top: 24px;
+                    /*Get Started Button*/
+                    .get-started-button{
+                        margin-right: 24px;
+                    }
+                }
+            }
+            /*Section Two*/
+            #section-two{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                /*Bookworm Logo*/
+                #bookwormLogo{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    /*---------- Services Section ----------*/
+    #service{
+        margin-top: -60px;
+        .container-lg{
+            /*Icon Container*/
+            #icon-section-container{
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                column-gap: 24px;
+                /*Each Icon Section*/
+                .icon-container{
+                    background: #fff;
+                    border-radius: 50px 25px;
+                    border: 5px solid #b9babb;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+                    padding: 25px 16px;
+                    z-index: 100;
+                    transition: all ease-in-out 0.4s;
+                    : hover{
+                        transform: translateY(-10px);
+                    }
+                    /*Each Title*/
+                    & h4{
+                        color: #37517e;
+                    }
+                    /*Each Paragraph*/
+                    & p{}
+                    /*Icon Container*/
+                    .icon{
+                        /*The Search, conversation ,plusHeart icons*/
+                        .icon-logo{
+                            color: #47b2e4;
+                            font-size: 36px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*---------- Books Available Section ----------*/
+    #currentBooksAvailable{
+        margin-top: 42px;
+        /*Container for header and Paragraph*/
+        .main-title{
+            /*Section Title*/
+            & h2{
+                position: relative;
+                padding-bottom: 12px;
+                color: #37517e;
+                text-align: center;
+                /*Main Title Style*/
+                &::before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 120px;
+                    height: 1px;
+                    background: #ddd;
+                    bottom: 1px;
+                    left: calc(50% - 60px);
+                }
+                /*Main Title Style*/
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 40px;
+                    height: 3px;
+                    background: #47b2e4;
+                    bottom: 0;
+                    left: calc(50% - 20px);
+                }
+            }
+        }
+        /*Book Information Container*/
+        #wholeBookContainer{
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            /* Each Book Container*/
+            .book-container{
+                background: #fff;
+                box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                border-radius: 25px;
+                margin: 12px 12px 42px 12px;
+                transition: transform 0.8s, box-shadow 1s;
+                /*Hover*/
+                &:hover {
+                    transform: scale(0.98);
+                    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                }
+                /*anchor*/
+                & a{
+                    text-decoration: none;
+                    color: #1e1e1e;
+                    /*Book Cover*/
+                    .book-cover{
+                        width: 200px;
+                        height: 220px;
+                        border-radius: 25px 25px 0 0;
+                    }
+                    /*Book Paragraph*/
+                    & p {
+                        padding-left: 12px;
+                        /*Each Book Title*/
+                        .book-title{
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+/*======= Screen smaller then 991px =======*/
+@media (max-width: 991px){
+    /*========== Index Page ==========*/
+
+}
+
+/*====== Screen smaller then 768px ======*/
+@media (max-width: 767px) {
+
+    main {
+        /*-------- Hero Section --------*/
+        #hero-introduction {
+            /*Container*/
+            .container {
+                display: grid;
+                grid-template-columns: 1fr;
+                height: auto;
+                padding-bottom: 42px;
+                /*Section One*/
+                #section-one {
+                    order: 2;
+                    text-align: center;
+                }
+                /*Section Two*/
+                #section-two {
+                    order: 1;
+                    /*Bookworm Logo*/
+                    #bookwormLogo {
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        /*-------- Services Section --------*/
+        #service {
+            margin-top: 24px;
+            .container-lg {
+                /*Icon Section*/
+                #icon-section-container {
+                    display: grid;
+                    grid-template-columns: auto;
+                    column-gap: 0;
+                    row-gap: 24px;
+                }
+            }
+        }
+    }
+}
+
+/*=== Screen smaller then 575px ===*/
+@media (max-width: 575px){
+    /*-------- Heading One adn Two --------*/
+    main{
+        #hero-introduction{
+            .container{
+                #section-one{
+                    > h1{
+                        font-size: 32px;
+                    }
+                    > h2{
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+

@@ -1,0 +1,46 @@
+/*
+Hero Introduction
+    Get Started Button
+    Login Button
+*/
+#hero-introduction .container #section-one aside .get-started-button,
+#hero-introduction .container #section-one aside .login-button{
+    background-color: #13aa52;
+    border: 1px solid #13aa52;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    /*font-size: 16px;*/
+    outline: none;
+    padding: 10px 25px;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+}
+/*
+Hero Introduction - Hover
+    Get Started Button
+    Login Button
+*/
+#hero-introduction .container #section-one aside .get-started-button:hover,
+#hero-introduction .container #section-one aside .login-button:hover{
+    background-color: #0e8641;
+    border: 1px solid #0e8641;
+    transform: translateY(-2px);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
+}
+/*Login Button Color Change*/
+#hero-introduction .container #section-one aside .login-button {
+    background-color: #5b8ed5;
+    border: 1px solid #5b8ed5;
+}
+#hero-introduction .container #section-one aside .login-button:hover {
+    background-color: rgba(100, 149, 237, 0.49);
+    border: 1px solid rgba(100, 149, 237, 0.49);
+}
