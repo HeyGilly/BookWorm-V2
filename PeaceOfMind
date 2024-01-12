@@ -140,7 +140,6 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Delete BookShelf
             [X] Delete reviews
 
-    WORKING:
         [X] Add a Liked Reviews,
             [X] Create a schema for the liked reviews.
             [X] Inside of Reviews class, add a likedCount, total people that like it
@@ -150,6 +149,12 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Singe Book, Add two form buttons for like or not.
             [X] Liked Controller, for the two forms and also to add/minus the likedCount.
             [X] Single Book Controller, build a loop that shows fi the user commented or not.
+
+    WORKING:
+        [X] Add the liked Review button On the user profile.
+            [X] Add two forms to user Profile.
+            [X] User profile controller, added the for loop for likes.
+            [X] Styled The Buttons properly
 
     TODO:
         [ ] Navigation, Gather some Books - Ongoing

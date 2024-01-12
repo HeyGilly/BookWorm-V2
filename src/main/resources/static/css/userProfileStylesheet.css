@@ -434,18 +434,21 @@ main .row #left-side-user-info-container{
 }
 
 /*-- User Review 2nd Section container --*/
-#WholeUserReviewsContainer #UserReviewContainer .user-review-container section:nth-child(2){
+#WholeUserReviewsContainer #UserReviewContainer .user-review-container .review-user-wrote-container{
    padding: 12px 24px;
 }
 
+#WholeUserReviewsContainer #UserReviewContainer .user-review-container .review-user-wrote-container #likeCounterForm{
+
+}
 /*-- Review User Title --*/
-#UserReviewContainer .user-review-container section:nth-child(2) .review-user-title{
+#UserReviewContainer .user-review-container .review-user-wrote-container .review-user-title{
     font-weight: 600;
     font-size: 18px;
 }
 
 /*-- Review Edit Button --*/
-#UserReviewContainer .user-review-container section:nth-child(2) .user-review-edit-button{
+#UserReviewContainer .user-review-container .review-user-wrote-container .user-review-edit-button{
     height: 30px;
     width: auto;
 }
@@ -460,7 +463,7 @@ main .row #left-side-user-info-container{
     width: 28px;
 }
 /*-- Review Book Rating --*/
-#UserReviewContainer .user-review-container section:nth-child(2) span .user-review-book-rating{
+#UserReviewContainer .user-review-container .review-user-wrote-container span .user-review-book-rating{
     height: 20px;
     width: auto;
     margin-bottom: 12px;

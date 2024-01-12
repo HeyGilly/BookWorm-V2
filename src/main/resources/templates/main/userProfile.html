@@ -215,7 +215,7 @@
                     <h2>Reviews</h2>
                 </div>
                 <div id="UserReviewContainer">
-                    <div class="user-review-container" th:each="review:${usersReview}" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}">
+                    <div class="user-review-container" th:each="review, index : ${usersReview}" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}">
                         <!-- Book Cover -->
                         <section>
                             <a th:href="@{/single/{id}(id = ${review.getBookshelf().getId()})}" >
@@ -229,6 +229,20 @@
                             <span  class="review-user-title" th:text="${review.title}">Review Title</span>
                             <!-- Review Edit Button -->
                             <img th:src="@{/img/edit-button-01.png}" class="user-review-edit-button" alt="Edit Button"><br/>
+                            <!-- Likes Button -->
+                            <!-- Liked Count -->
+                            <div id="likeCounterForm">
+                                <form th:if="${userLikes[index.index] == false}" id="likedReviewForm" th:action="@{/likedReview/{reviewId}(reviewId=${review.id})}" method="post">
+                                    <button class="badge bg-secondary ms-auto" id="likedReviewButton" th:data-review-id="${review.getId()}" type="submit">
+                                        <span th:text="${review.getLikedCount()}"></span> Likes
+                                    </button>
+                                </form>
+                                <form th:if="${userLikes[index.index] == true}" id="unLikedReviewForm" th:action="@{/unlikedReview/{reviewId}(reviewId=${review.id})}" method="post">
+                                    <button class="badge bg-danger ms-auto" id="unLikedReviewButton" th:data-review-id="${review.getId()}" type="submit">
+                                        <span th:text="${review.getLikedCount()}"></span> Likes
+                                    </button>
+                                </form>
+                            </div>
                             <!-- Review Rating -->
                             <span th:switch="${review.rating}" class="">
                                 <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.rating}" class="user-review-book-rating">

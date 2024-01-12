@@ -195,6 +195,15 @@ public class main_controller {
         List<FriendDTO> friends = bestFriendService.getFriendsForUser(currentUser.getId());
         model.addAttribute("allFriends", friends);
 
+        //-- For Users to like Reviews
+        List<Boolean> userLikes = new ArrayList<>();
+        for (Reviews singleReview : reviewRepository.findReviewByUserIdSorted(currentUser.getId())) {
+            LikedReview userLikedReview = likedRepository.findByUserAndReview(currentUser, singleReview);
+            // Add true if user liked the review, false otherwise
+            userLikes.add(userLikedReview != null);
+        }
+        model.addAttribute("userLikes", userLikes);
+
         return "main/userProfile";
     }
 
