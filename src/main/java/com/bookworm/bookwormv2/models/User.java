@@ -56,12 +56,15 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<BestFriends> friendships;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<LikedReview> likedReviews;
+
     //--Empty Constructor
     public User() {
     }
 
     //-- Whole Constructor
-    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, MultipartFile profilePictureFile, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres, List<FavoriteBook> favoriteBookList, String resetToken, Set<BestFriends> friendships) {
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, MultipartFile profilePictureFile, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres, List<FavoriteBook> favoriteBookList, String resetToken, Set<BestFriends> friendships, List<LikedReview> likedReviews) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -76,6 +79,7 @@ public class User {
         this.favoriteBookList = favoriteBookList;
         this.resetToken = resetToken;
         this.friendships = friendships;
+        this.likedReviews = likedReviews;
     }
 
     public Long getId() {
@@ -163,5 +167,13 @@ public class User {
 
     public void setFriendships(Set<BestFriends> friendships) {
         this.friendships = friendships;
+    }
+
+    public List<LikedReview> getLikedReviews() {
+        return likedReviews;
+    }
+
+    public void setLikedReviews(List<LikedReview> likedReviews) {
+        this.likedReviews = likedReviews;
     }
 }

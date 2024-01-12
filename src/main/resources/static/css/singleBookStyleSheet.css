@@ -240,18 +240,24 @@
     max-width: 640px;
     background-color: rgba(32, 157, 216, 0.15);
     display: grid;
+    position: relative;
     grid-template-columns: 30% 70%;
     padding: 10px;
     margin: 24px auto;
     border-radius: 15px;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
+.review-container #likeCounterForm{
+    position: absolute;
+    top : 10px;
+    right: 10px;
+}
 /*== Username and user IMG Container ==*/
-.review-container section:first-child{
-    padding-top: 12px;
+.review-container .review-profilePic-username-container{
+        padding-top: 12px;
     text-align: center;
 }
-.review-container section a{
+.review-container .review-profilePic-username-container a{
     text-decoration: none;
     color:#1e1e1e;
     text-transform: capitalize;
@@ -274,25 +280,25 @@
     border: 5px solid #fff;
 }
 
-.review-container section:first-child h5{
+.review-container .review-profilePic-username-container h5{
     letter-spacing: 1px;
     transition: all 0.8s ease-in-out;
 }
-.review-container section:first-child h5:hover{
+.review-container .review-profilePic-username-container h5:hover{
     transform: scale(1.08);
 }
 
 /*== Review Title ==*/
-.review-container section:nth-child(2) h5{
+.review-container .review-rating-body-container h5{
     font-weight: 700;
 }
 /*== Review Book Rating Images ==*/
-.review-container section:nth-child(2) span .review-book-rating{
+.review-container .review-rating-body-container span .review-book-rating{
     height: 25px;
     width: auto;
 }
 /*== Review Body ==*/
-.review-container section:nth-child(2) p{
+.review-container .review-rating-body-container p{
     margin-top: 12px;
     letter-spacing: normal;
     font-weight: 300;

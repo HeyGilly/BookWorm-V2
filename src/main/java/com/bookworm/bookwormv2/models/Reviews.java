@@ -2,6 +2,8 @@ package com.bookworm.bookwormv2.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "USER_REVIEWS")
 public class Reviews {
@@ -28,15 +30,23 @@ public class Reviews {
     @JoinColumn(name = "USER_ID")
     private User user;
 
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL)
+    private List<LikedReview> likedReviews;
+
+    @Column(name = "LIKED_COUNT")
+    private long likedCount;
+
     public Reviews() {}
 
-    public Reviews(long id, int rating, String title, String body, Bookshelf bookshelf, User user) {
+    public Reviews(long id, int rating, String title, String body, Bookshelf bookshelf, User user, List<LikedReview> likedReviews, long likedCount) {
         this.id = id;
         this.rating = rating;
         this.title = title;
         Body = body;
         this.bookshelf = bookshelf;
         this.user = user;
+        this.likedReviews = likedReviews;
+        this.likedCount = likedCount;
     }
 
     public long getId() {return id;}
@@ -56,4 +66,29 @@ public class Reviews {
 
     public User getUser() {return user;}
     public void setUser(User user) {this.user = user;}
+
+    public List<LikedReview> getLikedReviews() {
+        return likedReviews;
+    }
+
+    public void setLikedReviews(List<LikedReview> likedReviews) {
+        this.likedReviews = likedReviews;
+    }
+
+    public long getLikedCount() {
+        return likedCount;
+    }
+
+    public void setLikedCount(long likedCount) {
+        this.likedCount = likedCount;
+    }
+
+    public long addLikeCount(){
+       return this.likedCount += 1L;
+    }
+
+    public long minusLikeCount(){
+        return this.likedCount -= 1L;
+    }
+
 }

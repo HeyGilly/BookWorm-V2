@@ -149,17 +149,30 @@
                 </form>
             </div>
             <div class="container-fluid whole-review-container">
-                <div class="review-container" th:each="review:${bookReview}">
-                    <!===== Book Review Username and Profile IMG =====>
-                    <section class="">
+                <div class="review-container" th:each="review, index : ${bookReview}">
+                    <!-- Liked Count -->
+                    <div id="likeCounterForm">
+                        <form th:if="${userLikes[index.index] == false}" id="likedReviewForm" th:action="@{/likedReview/{reviewId}(reviewId=${review.id})}" method="post">
+                            <button class="badge bg-secondary" id="likedReviewButton" th:data-review-id="${review.getId()}" type="submit">
+                                <span th:text="${review.getLikedCount()}"></span> Likes
+                            </button>
+                        </form>
+                        <form th:if="${userLikes[index.index] == true}" id="unLikedReviewForm" th:action="@{/unlikedReview/{reviewId}(reviewId=${review.id})}" method="post">
+                            <button class="badge bg-danger" id="unLikedReviewButton" th:data-review-id="${review.getId()}" type="submit">
+                                <span th:text="${review.getLikedCount()}"></span> Likes
+                            </button>
+                        </form>
+                    </div>
+                    <!---- Book Review Username and Profile IMG ---->
+                    <section class="review-profilePic-username-container">
                         <a th:href="@{/in/{userId}(userId = ${review.user.id})}" >
                             <img class="review-user-profile-img" th:src="${review.user.getProfilePicturePath()}" th:if="${review.user.getProfilePicturePath() != ''}" th:alt="${review.user.username}" />
                             <img class="review-user-profile-img" th:src="@{/img/noProfileImage.png}" th:if="${review.user.profilePicturePath == ''}" alt="No Image Provided" />
                             <h5 th:text="${review.user.username}">Username</h5>
                         </a>
                     </section>
-                    <!===== Book Review Title Rating & Body =====>
-                    <section class="">
+                    <!----- Book Review Title Rating & Body ----->
+                    <section class="review-rating-body-container">
                         <h5 th:text="${review.title}">Review Title</h5>
                         <span th:switch="${review.rating}" class="">
                             <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${singleBookInfo.getRating()}" class="review-book-rating">
@@ -220,6 +233,38 @@
     rangeInput.addEventListener('input', function() {
         valueDisplay.textContent = this.value;
     });
+
+
+//----- To update without refreshing the page.
+    document.addEventListener("DOMContentLoaded", function () {
+        const likeButton = document.getElementById("likeButton");
+
+        likeButton.addEventListener("click", function () {
+            const reviewId = likeButton.getAttribute("data-review-id");
+
+            fetch(`/likedReview/${reviewId}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    // Optionally, you can handle the response here if needed
+                    return response.json(); // assuming your controller returns JSON data
+                })
+                .then((data) => {
+                    // Optionally, you can update the UI here if needed
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error("There was a problem with the fetch operation:", error);
+                });
+        });
+    });
+
 
 </script>
 

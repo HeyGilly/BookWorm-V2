@@ -37,10 +37,11 @@ public class main_controller {
     //-- BestFriend Service
     private BestFriendService bestFriendService;
 
+    //-- Liked Repo
+    private final LikedRepository likedRepository;
+
     //-- Constructor
-
-
-    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository, BestFriendRepository bestFriendRepository, BestFriendService bestFriendService) {
+    public main_controller(BookshelfRepository bookshelfRepo, ReviewRepository reviewRepository, UserRepository userRepository, FileService fileServiceRepository, GenreRepository genreRepository, FavoriteGenreRepository favoriteGenreRepository, FavoriteBookRepository favoriteBookRepository, BestFriendRepository bestFriendRepository, BestFriendService bestFriendService, LikedRepository likedRepository) {
         this.bookshelfRepo = bookshelfRepo;
         this.reviewRepository = reviewRepository;
         this.userRepository = userRepository;
@@ -50,6 +51,7 @@ public class main_controller {
         this.favoriteBookRepository = favoriteBookRepository;
         this.bestFriendRepository = bestFriendRepository;
         this.bestFriendService = bestFriendService;
+        this.likedRepository = likedRepository;
     }
 
     //-- getter
@@ -133,6 +135,16 @@ public class main_controller {
         }
 
         model.addAttribute("faved", isFavorite);
+
+        //-- For Users to like Reviews
+        List<Boolean> userLikes = new ArrayList<>();
+        for (Reviews singleReview : allReviewFromBook) {
+            LikedReview userLikedReview = likedRepository.findByUserAndReview(currentUser, singleReview);
+            // Add true if user liked the review, false otherwise
+            userLikes.add(userLikedReview != null);
+        }
+        model.addAttribute("userLikes", userLikes);
+
 
         return "main/SingleBookPreview";
     }

@@ -135,14 +135,21 @@ Thursday, Dec 7 - Friday Dec 8
         [X]  Search through API, add statement if no author
         [X] Navigation, When a book from out database anchor does not take you to the correct url
             [X] Need to restyle and turn the form into an anchor.
-
-    WORKING:
-
-
-        [ ] Navigation, Search through our database before the api,
+        [X] Navigation, Search through our database before the api,
             [X] Delete favoriteBooks
             [X] Delete BookShelf
             [X] Delete reviews
+
+    WORKING:
+        [X] Add a Liked Reviews,
+            [X] Create a schema for the liked reviews.
+            [X] Inside of Reviews class, add a likedCount, total people that like it
+            [X] Create a LikedReview, Tabs on what users liked what reviews
+            [X] Inside of Review class, add a one-to-Many to likedReview
+            [X] Inside of User class, add a one-to-Many to likedReview
+            [X] Singe Book, Add two form buttons for like or not.
+            [X] Liked Controller, for the two forms and also to add/minus the likedCount.
+            [X] Single Book Controller, build a loop that shows fi the user commented or not.
 
     TODO:
         [ ] Navigation, Gather some Books - Ongoing
