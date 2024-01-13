@@ -154,11 +154,11 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Styled The Buttons properly
         [X] Refactored the style to the Index
             [X] In Morning, May need to be over looked at
-
         [X] Navbar - Logged Out refactored stylesheet
 
-    WORKING:
+         [X] Footer - Refactor
 
+    WORKING:
 
         [ ] Refactor pages
             [X] About the project
@@ -169,6 +169,7 @@ Thursday, Dec 7 - Friday Dec 8
             [ ] Profile Page
             [ ] Single Book Page
             [ ] Pending Friends
+            [X] Footer
 
     TODO:
         [ ] Navigation, Gather some Books - Ongoing
