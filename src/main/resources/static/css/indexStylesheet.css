@@ -20,20 +20,45 @@ main{
             grid-template-columns: 1fr 1fr;
             height: 70vh;
             max-height: 620px;
+            @media (max-width:767px) {
+                &{
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    height: auto;
+                    padding-bottom: 42px;
+                }
+            }
             /*Section One*/
             #section-one{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                @media (max-width:767px) {
+                    &{
+                        order: 2;
+                        text-align: center;
+                    }
+                }
+
                 /*Heading One*/
                 & h1 {
                     font-size: 48px;
                     color: #fff;
+                    @media (max-width:575px) {
+                        &{
+                            font-size: 32px;
+                        }
+                    }
                 }
                 /*Heading Two*/
                 & h2 {
                     font-size: 24px;
                     color: rgba(255, 255, 255, 0.6);
+                    @media (max-width:575px) {
+                        &{
+                            font-size: 20px;
+                        }
+                    }
                 }
                 /*Aside*/
                 & aside{
@@ -49,6 +74,11 @@ main{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                @media (max-width:767px) {
+                    &{
+                        order: 1;
+                    }
+                }
                 /*Bookworm Logo*/
                 #bookwormLogo{
                     width: 100%;
@@ -60,12 +90,24 @@ main{
     /*---------- Services Section ----------*/
     #service{
         margin-top: -60px;
+        @media (max-width:767px) {
+            &{
+                margin-top: 24px;
+            }
+        }
         .container-lg{
             /*Icon Container*/
             #icon-section-container{
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 column-gap: 24px;
+                @media (max-width:767px) {
+                    &{
+                        grid-template-columns: auto;
+                        column-gap: 0;
+                        row-gap: 24px;
+                    }
+                }
                 /*Each Icon Section*/
                 .icon-container{
                     background: #fff;
@@ -172,74 +214,3 @@ main{
     }
 }
 
-
-
-/*======= Screen smaller then 991px =======*/
-@media (max-width: 991px){
-    /*========== Index Page ==========*/
-
-}
-
-/*====== Screen smaller then 768px ======*/
-@media (max-width: 767px) {
-
-    main {
-        /*-------- Hero Section --------*/
-        #hero-introduction {
-            /*Container*/
-            .container {
-                display: grid;
-                grid-template-columns: 1fr;
-                height: auto;
-                padding-bottom: 42px;
-                /*Section One*/
-                #section-one {
-                    order: 2;
-                    text-align: center;
-                }
-                /*Section Two*/
-                #section-two {
-                    order: 1;
-                    /*Bookworm Logo*/
-                    #bookwormLogo {
-                        width: auto;
-                        height: 100%;
-                    }
-                }
-            }
-        }
-        /*-------- Services Section --------*/
-        #service {
-            margin-top: 24px;
-            .container-lg {
-                /*Icon Section*/
-                #icon-section-container {
-                    display: grid;
-                    grid-template-columns: auto;
-                    column-gap: 0;
-                    row-gap: 24px;
-                }
-            }
-        }
-    }
-}
-
-/*=== Screen smaller then 575px ===*/
-@media (max-width: 575px){
-    /*-------- Heading One adn Two --------*/
-    main{
-        #hero-introduction{
-            .container{
-                #section-one{
-                    > h1{
-                        font-size: 32px;
-                    }
-                    > h2{
-                        font-size: 20px;
-                    }
-                }
-            }
-        }
-    }
-
-}
