@@ -5,6 +5,8 @@
 @import "buttonStylesheet.css";
 /*NavBar & Footer*/
 @import "navbarFooterStylesheet.css";
+/*About Page*/
+@import "aboutStylesheet.css";
 
 
 /*========== Index Page ==========*/
@@ -20,13 +22,13 @@ main{
             max-height: 620px;
             /*Section One*/
             #section-one{
-                color: #fff;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 /*Heading One*/
                 & h1 {
                     font-size: 48px;
+                    color: #fff;
                 }
                 /*Heading Two*/
                 & h2 {
@@ -241,4 +243,3 @@ main{
     }
 
 }
-
