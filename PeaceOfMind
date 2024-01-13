@@ -152,16 +152,18 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Add two forms to user Profile.
             [X] User profile controller, added the for loop for likes.
             [X] Styled The Buttons properly
-
         [X] Refactored the style to the Index
             [X] In Morning, May need to be over looked at
+
+        [X] Navbar - Logged Out refactored stylesheet
+
     WORKING:
 
 
         [ ] Refactor pages
             [X] About the project
             [ ] Log In
-            [ ] Log Out
+            [X] Log Out
             [ ] welcome page
             [ ] Logged Out Navbar
             [ ] Profile Page

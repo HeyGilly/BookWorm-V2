@@ -8,9 +8,8 @@
 <!-- Navigation -->
 <nav th:replace="partials/navbar.html :: Navbar"></nav>
 
-<!-- Hero Section -->
+<!-- Main Section -->
 <main>
-
     <!------ Hero Introduction ------>
     <div id="hero-introduction">
         <div class="container">
@@ -54,7 +53,6 @@
             </div>
         </div>
     </div>
-
     <!----- Current Books Available ------>
     <div id="currentBooksAvailable" class="container-fluid container-lg">
         <!-- title -->
@@ -66,7 +64,7 @@
         <div id="wholeBookContainer">
             <section class="book-container" th:each="favBook:${bookshelf}">
                 <!-- anchor -->
-                <a th:href="@{/single/{id}(id = ${favBook.getId()})}" th:name="${favBook.getTitle()}">
+                <a th:href="@{/single/{id}(id = ${favBook.getId()})}" th:title="${favBook.getTitle()}">
                     <!-- Book Cover -->
                     <img th:src="${favBook.getCover_page()}" th:alt="${favBook.getTitle()}" class="book-cover">
                     <p>
@@ -81,7 +79,6 @@
             </section>
         </div>
     </div>
-
 </main>
 
 <!-- Footer -->
