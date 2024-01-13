@@ -73,7 +73,7 @@ main{
                     padding: 25px 16px;
                     z-index: 100;
                     transition: all ease-in-out 0.4s;
-                    : hover{
+                    &:hover{
                         transform: translateY(-10px);
                     }
                     /*Each Title*/
