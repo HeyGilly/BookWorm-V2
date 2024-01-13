@@ -9,26 +9,30 @@
 @import "aboutStylesheet.css";
 
 
-/*========== Index Page ==========*/
+
+/*===== Index Page =====*/
 main{
-    /*---------- Hero Introduction ----------*/
+
+    /*----- Hero Introduction -----*/
     #hero-introduction{
         background: #37517e;
-        /*Hero Introduction - Container*/
+        height: 70vh;
+        max-height: 620px;
+        @media (max-width:767px) {
+            &{
+                height: 100%;
+            }
+        }
         .container{
             display: grid;
             grid-template-columns: 1fr 1fr;
-            height: 70vh;
-            max-height: 620px;
+            height: 100%;
             @media (max-width:767px) {
                 &{
-                    display: grid;
                     grid-template-columns: 1fr;
-                    height: auto;
-                    padding-bottom: 42px;
                 }
             }
-            /*Section One*/
+            /*- Section One -*/
             #section-one{
                 display: flex;
                 flex-direction: column;
@@ -39,31 +43,29 @@ main{
                         text-align: center;
                     }
                 }
-
                 /*Heading One*/
-                & h1 {
+                & h1{
                     font-size: 48px;
                     color: #fff;
-                    @media (max-width:575px) {
+                    @media (max-width:767px) {
                         &{
                             font-size: 32px;
                         }
                     }
                 }
                 /*Heading Two*/
-                & h2 {
+                & h2{
                     font-size: 24px;
                     color: rgba(255, 255, 255, 0.6);
-                    @media (max-width:575px) {
+                    @media (max-width:767px) {
                         &{
                             font-size: 20px;
                         }
                     }
                 }
-                /*Aside*/
+                /*Section for sing up and login buttons*/
                 & aside{
-                    margin-top: 24px;
-                    /*Get Started Button*/
+                    margin: 24px 0;
                     .get-started-button{
                         margin-right: 24px;
                     }
@@ -74,11 +76,6 @@ main{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                @media (max-width:767px) {
-                    &{
-                        order: 1;
-                    }
-                }
                 /*Bookworm Logo*/
                 #bookwormLogo{
                     width: 100%;
@@ -87,19 +84,21 @@ main{
             }
         }
     }
+
     /*---------- Services Section ----------*/
     #service{
-        margin-top: -60px;
+        margin-top: -45px;
+        margin-bottom: 45px;
         @media (max-width:767px) {
             &{
-                margin-top: 24px;
+                margin-top: 45px;
             }
         }
         .container-lg{
             /*Icon Container*/
             #icon-section-container{
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns:  1fr 1fr 1fr;
                 column-gap: 24px;
                 @media (max-width:767px) {
                     &{
@@ -111,21 +110,19 @@ main{
                 /*Each Icon Section*/
                 .icon-container{
                     background: #fff;
+                    border: 3px solid #dfdfe0;
                     border-radius: 50px 25px;
-                    border: 5px solid #b9babb;
-                    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
                     padding: 25px 16px;
                     z-index: 100;
+                    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
                     transition: all ease-in-out 0.4s;
                     &:hover{
                         transform: translateY(-10px);
                     }
                     /*Each Title*/
-                    & h4{
-                        color: #37517e;
+                    > h4{
+                      color: #37517e;
                     }
-                    /*Each Paragraph*/
-                    & p{}
                     /*Icon Container*/
                     .icon{
                         /*The Search, conversation ,plusHeart icons*/
@@ -138,18 +135,16 @@ main{
             }
         }
     }
+
     /*---------- Books Available Section ----------*/
     #currentBooksAvailable{
-        margin-top: 42px;
         /*Container for header and Paragraph*/
         .main-title{
-            /*Section Title*/
-            & h2{
+            > h2{
                 position: relative;
-                padding-bottom: 12px;
                 color: #37517e;
                 text-align: center;
-                /*Main Title Style*/
+                padding-bottom: 18px;
                 &::before {
                     content: "";
                     position: absolute;
@@ -160,7 +155,6 @@ main{
                     bottom: 1px;
                     left: calc(50% - 60px);
                 }
-                /*Main Title Style*/
                 &::after {
                     content: "";
                     position: absolute;
@@ -173,24 +167,24 @@ main{
                 }
             }
         }
-        /*Book Information Container*/
+        /*Book Section*/
         #wholeBookContainer{
             display: flex;
             overflow-x: scroll;
             scroll-behavior: smooth;
+            column-gap: 21px;
+            padding-bottom: 42px;
             /* Each Book Container*/
             .book-container{
                 background: #fff;
                 box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
                 border-radius: 25px;
-                margin: 12px 12px 42px 12px;
                 transition: transform 0.8s, box-shadow 1s;
                 /*Hover*/
                 &:hover {
                     transform: scale(0.98);
                     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
                 }
-                /*anchor*/
                 & a{
                     text-decoration: none;
                     color: #1e1e1e;
@@ -200,7 +194,6 @@ main{
                         height: 220px;
                         border-radius: 25px 25px 0 0;
                     }
-                    /*Book Paragraph*/
                     & p {
                         padding-left: 12px;
                         /*Each Book Title*/
@@ -211,6 +204,11 @@ main{
                 }
             }
         }
-    }
-}
 
+
+
+    }
+
+
+
+}

@@ -62,17 +62,17 @@
         </div>
         <!-- Books Section -->
         <div id="wholeBookContainer">
-            <section class="book-container" th:each="favBook:${bookshelf}">
+            <section class="book-container" th:each="book:${bookshelf}">
                 <!-- anchor -->
-                <a th:href="@{/single/{id}(id = ${favBook.getId()})}" th:title="${favBook.getTitle()}">
+                <a th:href="@{/single/{id}(id = ${book.getId()})}" th:title="${book.getTitle()}">
                     <!-- Book Cover -->
-                    <img th:src="${favBook.getCover_page()}" th:alt="${favBook.getTitle()}" class="book-cover">
+                    <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="book-cover">
                     <p>
                         <!-- Book Title -->
-                        <span class="book-title" th:text="${favBook.getTitle()}">Title of Book</span><br/>
+                        <span class="book-title" th:text="${book.getTitle()}">Title of Book</span><br/>
                         <small>
                             <!-- Book Author -->
-                            By <span th:text="${favBook.getAuthor()}"></span>
+                            By <span th:text="${book.getAuthor()}"></span>
                         </small>
                     </p>
                 </a>
