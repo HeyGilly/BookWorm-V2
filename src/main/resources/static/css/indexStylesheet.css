@@ -7,6 +7,8 @@
 @import "navbarFooterStylesheet.css";
 /*About Page*/
 @import "aboutStylesheet.css";
+/*Register & Login Page*/
+@import "signinStylesheet.css";
 
 
 

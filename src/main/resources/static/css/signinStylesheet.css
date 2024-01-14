@@ -1,151 +1,67 @@
 
-/*========== Login Page ===========*/
-/*=== Main Section ===*/
-#login-section{
+#mainRegisterPage{
     background: rgba(154, 182, 222, 0.27);
-    height: 95vh;
-    width: 100%;
-}
-
-/*=== Whole Container ===*/
-#login-section .whole-container{
+    height: 88vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    grid-row: 1 / 2;
+    @media (max-width:767px) {
+        &{
+            height: 100vh;
+        }
+    }
+     /*Register Form*/
+     #registerForm{
+         height: fit-content;
+         width: 90%;
+         max-width: 580px;
+         border: 2px solid lightgrey;
+         background: #fff;
+         box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+         border-radius: 24px;
+         padding: 12px;
+         position: relative;
+         /*Error Message*/
+         .alert.warning{
+             position: absolute;
+             background-color: #dc830e;
+             color: white;
+             opacity: 1;
+             transition: opacity 0.6s;
+             z-index: 100;
+             padding: 0 12px;
+             .close-btn{
+                 cursor: pointer;
+                 font-size: 42px;
+                 float: right;
+                 transition: 0.3s;
+                 &:hover{
+                     color:#1e1e1e;
+                 }
+             }
+             & p{
+               line-height: 1em;
+                 @media (max-width:767px) {
+                     &{
+                         line-height: normal;
+                     }
+                 }
+             }
+         }
+         /*Title*/
+         #formHeader{
+             color: #37517e;
+             text-align: center;
+         }
+         /*Line*/
+         & hr{
+             color: #37517e;
+             width: 80%;
+             border: 1px solid #37517e;
+             margin: 0 auto 24px auto;
+         }
+     }
 }
-
-/*=== Image ===*/
-#login-section .whole-container .row header #login-img{
-    height: 100%;
-    width: 100%;
-}
-
-/*#login-form-submit-btn:hover {*/
-/*    background-color: rgb(63, 78, 107);*/
-/*    border: 1px solid rgb(63, 78, 107);*/
-/*}*/
-
-
-
-/*========== Register Page ===========*/
-/*=== Main Container of Form ===*/
-#register-form-section{
-    background: rgba(154, 182, 222, 0.27);
-    padding: 50px 0;
-}
-
-/*=== Form ===*/
-#register-form{
-    background-color: #fff;
-    width: 90%;
-    margin: 24px auto;
-    max-width: 580px;
-    padding: 25px;
-    border-radius: 24px;
-    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-    position: relative;
-}
-
-/*=== Submit Button ===*/
-#register-form-submit-btn, #login-form-submit-btn{
-    background-color: #4880d3;
-    border: 1px solid #4880d3;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-    box-sizing: border-box;
-    color: #1e1e1e;
-    cursor: pointer;
-    width: 220px;
-    height: 50px;
-    font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    outline: none;
-    padding: 10px 25px;
-    text-align: center;
-    transform: translateY(0);
-    transition: transform 150ms, box-shadow 150ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    text-decoration: none;
-    margin: 24px 0 0 0;
-}
-/*=== Submit Button Hover===*/
-#register-form-submit-btn:hover, #login-form-submit-btn:hover {
-    background-color: rgb(63, 78, 107);
-    border: 1px solid rgb(63, 78, 107);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
-}
-
-/*!*!*=== Submit Button ===*!*!*/
-/*#login-form-submit-btn {*/
-/*    background-color: #3c9428;*/
-/*    border: 1px solid #3c9428;*/
-/*    color: #fff;*/
-/*}*/
-/*#login-form-submit-btn:hover {*/
-/*    background-color: rgba(60, 148, 40, 0.45);*/
-/*    border: 1px solid rgba(60, 148, 40, 0.45);*/
-/*    color:#1e1e1e;*/
-/*}*/
-
-/*=== Error Message Container ===*/
-.alert.warning {
-    position: absolute;
-    top: 120px;
-    right: 10%;
-    padding: 20px;
-    background-color: #ff9800;
-    color: white;
-    opacity: 1;
-    transition: opacity 0.6s;
-    margin-bottom: 15px;
-    width: 360px;
-    z-index: 100;
-}
-
-.close-btn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 42px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.close-btn:hover {
-    color: black;
-}
-
-/*====== Forgot Password =====*/
-html, body{height: 100%}
-
-#forgotPasswordMain{
-    background: rgba(154, 182, 222, 0.27);
-    height: 90%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#forgotPasswordForm{
-    max-width: 580px;
-    width: 90%;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 24px;
-    box-shadow: rgba(07, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
-}
-
-
 
 
 

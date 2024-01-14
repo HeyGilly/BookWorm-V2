@@ -5,88 +5,73 @@
 <body>
 
 
-<!===== Navbar =====>
+<!---------- Navbar ---------->
 <nav th:replace="partials/navbar.html :: Navbar"></nav>
 
 
-<main id="register-form-section">
-    <div>
-
+<main id="mainRegisterPage">
+    <!---------- Registration Form ---------->
+    <form id="registerForm" th:action="@{/sign-up}" th:object="${user}" enctype="multipart/form-data" method="post" autocomplete="off">
         <!-- Error Message Container  -->
         <div class="alert warning" th:if="${not #lists.isEmpty(errorMessages)}">
-            <span class="close-btn">&times;</span>
-            <strong>Warning!</strong>
-            <span th:each="error: ${errorMessages}"><br><small th:text="${error}">Indicates a warning that might need attention.</small></span>
+            <span class="close-btn">&times;</span><br>
+            <h3>Warning!</h3>
+            <p th:each="error: ${errorMessages}" th:text="${error}"></p>
         </div>
-
-        <!-- Register Form -->
-        <form id="register-form" th:action="@{/sign-up}" th:object="${user}" enctype="multipart/form-data" method="post"  autocomplete="off">
-            <h3 class="text-center fw-bold fs-1">Create a new account</h3>
-            <hr>
-            <!-- First And Last Name Container-->
-            <div class="row g-1 mb-3">
-                <div class="col-md-6">
-                    <label for="first_name" class="form-label">First Name:</label>
-                    <input th:field="*{first_name}" type="text" class="form-control" id="first_name" aria-describedby="firstNameHelp">
-                </div>
-                <div class="col-md-6">
-                    <label for="last_name" class="form-label">Last Name:</label>
-                    <input th:field="*{last_name}" type="text" class="form-control" id="last_name" aria-describedby="lastNameHelp">
-                </div>
+        <!-- Title -->
+        <h3 id="formHeader">Create an account</h3>
+        <hr />
+        <!-- First and Last Name --->
+        <div class="row g-1 mb-3">
+            <div class="col-md-6">
+                <label for="first_name" class="form-label">First Name:</label>
+                <input th:field="*{first_name}" type="text" class="form-control" id="first_name">
             </div>
-            <!-- username Container-->
-            <div class="mb-3">
-                <label for="username" class="form-label">Username:</label>
-                <input th:field="*{username}" type="text" class="form-control" id="username" aria-describedby="usernameHelp">
+            <div class="col-md-6">
+                <label for="last_name" class="form-label">Last Name:</label>
+                <input th:field="*{last_name}" type="text" class="form-control" id="last_name">
             </div>
-            <!-- Email Container -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Email Address:</label>
-                <input th:field="*{email}"  type="email" class="form-control" id="email" aria-describedby="emailHelp">
+        </div>
+        <!-- Username -->
+        <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input th:field="*{username}" type="text" class="form-control" id="username">
+        </div>
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address:</label>
+            <input th:field="*{email}"  type="email" class="form-control" id="email">
+        </div>
+        <!-- Password -->
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input th:field="*{password}" type="password" class="form-control" id="password" aria-describedby="passwordHelp" maxlength="20" minlength="8">
+            <div id="passwordHelp" class="form-text">
+                Your password must be
+                <span id="length-password">8-20 characters long</span>,
+                <span id="upper-lower-password">2 Uppercase & 2 Lowercase</span>,
+                <span id="min-numbers-password">2 Numbers</span>,
+                <span id="min-special-password">2 Special Characters</span>
             </div>
-            <!-- Password Container -->
-            <div class="mb-3">
-                <label for="password" class="form-label">Password:</label>
-                <input th:field="*{password}" type="password" class="form-control" id="password" aria-describedby="passwordHelp" maxlength="20" minlength="8">
-                <div id="passwordHelp" class="form-text">
-                    Your password must be
-                    <span id="length-password">8-20 characters long</span>,
-                    <span id="upper-lower-password">2 Uppercase & 2 Lowercase</span>,
-                    <span id="min-numbers-password">2 Numbers</span>,
-                    <span id="min-special-password">2 Special Characters</span>
-                </div>
-            </div>
-            <!-- Verify Password Container -->
-            <div class="mb-3">
-                <label for="password-verify" class="form-label" id="verify-password-title">Verify Password:</label>
-                <input type="password" class="form-control" disabled id="password-verify" placeholder="password">
-            </div>
-            <!-- Profile Image Upload -->
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Profile Image</label>
-                <input class="form-control" type="file" id="formFile" th:field="*{profilePictureFile}" name="profilePictureFile">
-            </div>
-            <!-- Submit Button -->
-            <button type="submit" value="Submit" id="register-form-submit-btn" class="btn disabled">Submit</button>
-        </form>
-    </div>
+        </div>
+        <!-- Verify Password Container -->
+        <div class="mb-3">
+            <label for="password-verify" class="form-label" id="verify-password-title">Verify Password:</label>
+            <input type="password" class="form-control" disabled id="password-verify" placeholder="password">
+        </div>
+        <!-- Profile Image Upload -->
+        <div class="mb-3">
+            <label for="formFile" class="form-label">Profile Image</label>
+            <input class="form-control" type="file" id="formFile" th:field="*{profilePictureFile}" name="profilePictureFile">
+        </div>
+        <!-- Submit Button -->
+        <button type="submit" value="Submit" id="register-submit-btn" class="btn disabled">Submit</button>
+    </form>
 </main>
 
-<!=== Footer ===>
+<!---------- Footer ---------->
 <footer th:replace="partials/footer.html :: Footer"></footer>
-
+<!---------- JS - PP ---------->
 <script th:src="@{js/passwordProtector.js}" ></script>
-<script>
-    var close = document.getElementsByClassName("close-btn");
-    var i;
-
-    for (i = 0; i < close.length; i++) {
-        close[i].onclick = function(){
-            var div = this.parentElement;
-            div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
-        }
-    }
-</script>
 </body>
 </html>

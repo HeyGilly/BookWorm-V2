@@ -10,13 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
 //=== Password & Verify Password
 const password = document.getElementById("password");
 const passwordVerify = document.getElementById("password-verify");
-
 //== Submit Button
-const submitButton = document.getElementById("register-form-submit-btn");
+const submitButton = document.getElementById("register-submit-btn");
 
 
 //== Changes when there is an input in the password field
@@ -88,7 +86,9 @@ password.addEventListener('input', function () {
     passwordVerify.disabled = !openVerify;
 });
 
-//== Changes when there is an input in the verify password field
+
+
+//========== Changes when there is an input in the verify password field
 passwordVerify.addEventListener('input', function () {
     //== Verify Password Value
     const passwordVerifyValue = passwordVerify.value;
@@ -103,3 +103,15 @@ passwordVerify.addEventListener('input', function () {
         submitButton.classList.add("disabled");
     }
 });
+
+//========== The Close Button, For when the controller send the error message
+const close = document.getElementsByClassName("close-btn");
+let i;
+
+for (i = 0; i < close.length; i++) {
+    close[i].onclick = function(){
+        const div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function(){ div.style.display = "none"; }, 600);
+    }
+}
