@@ -10,27 +10,25 @@
 /*Register & Login Page*/
 @import "signinStylesheet.css";
 
-
-
-/*===== Index Page =====*/
-main{
-
+/*======= Index Page =======*/
+#mainIndexPage {
     /*----- Hero Introduction -----*/
-    #hero-introduction{
+    background: rgba(154, 182, 222, 0.27);
+    #hero-introduction {
         background: #37517e;
         height: 70vh;
         max-height: 620px;
-        @media (max-width:767px) {
-            &{
+        @media (max-width: 767px) {
+            & {
                 height: 100%;
             }
         }
-        .container{
+        .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             height: 100%;
-            @media (max-width:767px) {
-                &{
+            @media (max-width: 767px) {
+                & {
                     grid-template-columns: 1fr;
                 }
             }
@@ -72,28 +70,33 @@ main{
                         margin-right: 24px;
                     }
                 }
-            }
+        }
             /*Section Two*/
             #section-two{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
                 /*Bookworm Logo*/
                 #bookwormLogo{
                     width: 100%;
                     height: auto;
+                    @media (max-width:767px) {
+                        &{
+                            width: 75%;
+                        }
+                    }
                 }
             }
         }
     }
-
     /*---------- Services Section ----------*/
     #service{
-        margin-top: -45px;
-        margin-bottom: 45px;
+        margin-top: -42px;
+        margin-bottom: 42px;
         @media (max-width:767px) {
             &{
-                margin-top: 45px;
+                margin-top: 42px;
             }
         }
         .container-lg{
@@ -123,7 +126,7 @@ main{
                     }
                     /*Each Title*/
                     > h4{
-                      color: #37517e;
+                        color: #37517e;
                     }
                     /*Icon Container*/
                     .icon{
@@ -206,11 +209,6 @@ main{
                 }
             }
         }
-
-
-
     }
-
-
-
 }
+
