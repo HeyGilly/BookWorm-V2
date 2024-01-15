@@ -10,11 +10,13 @@ Hero Introduction
 /*Index*/
 /*Navbar*/
 /*Register Page - Submit Button*/
+/*Login Page - Submit Button*/
 main #hero-introduction .container #section-one aside .get-started-button,
 main #hero-introduction .container #section-one aside .login-button,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-get-started-btn,
-#mainRegisterPage #registerForm #register-submit-btn{
+#mainRegisterPage #registerForm #register-submit-btn,
+#main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn{
     background-color: #13aa52;
     border: 1px solid #13aa52;
     border-radius: 4px;
@@ -47,11 +49,14 @@ Hero Introduction
 /*Index*/
 /*Navbar*/
 /*Register Page - Submit Button*/
+/*Login Page - Submit Button*/
 main #hero-introduction .container #section-one aside .get-started-button:hover,
 main #hero-introduction .container #section-one aside .login-button:hover,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in:hover,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-get-started-btn:hover,
-#mainRegisterPage #registerForm #register-submit-btn:hover{
+#mainRegisterPage #registerForm #register-submit-btn:hover,
+#main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn:hover{
+
     background-color: #0e8641;
     border: 1px solid #0e8641;
     transform: translateY(-2px);
@@ -69,8 +74,8 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 /*Register Page - Submit Button*/
 main #hero-introduction .container #section-one aside .login-button,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in,
-#mainRegisterPage #registerForm #register-submit-btn{
-
+#mainRegisterPage #registerForm #register-submit-btn,
+#main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn{
     background-color: #5b8ed5;
     border: 1px solid #5b8ed5;
 }
@@ -81,7 +86,8 @@ main #hero-introduction .container #section-one aside .login-button,
 /*Register Page - Submit Button*/
 main #hero-introduction .container #section-one aside .login-button:hover,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in:hover,
-#mainRegisterPage #registerForm #register-submit-btn:hover{
+#mainRegisterPage #registerForm #register-submit-btn:hover,
+#main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn:hover{
     background-color: rgba(100, 149, 237, 0.49);
     border: 1px solid rgba(100, 149, 237, 0.49);
 }

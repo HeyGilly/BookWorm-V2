@@ -66,3 +66,86 @@
 
 
 
+
+/*-------------- Login Page -------------*/
+#main-login{
+    background: rgba(154, 182, 222, 0.27);
+    .container{
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #loginCard{
+            border: 2px solid lightgrey;
+            background: #fff;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+            border-radius: 24px;
+            max-width: 767px;
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            @media (max-width:767px) {
+                &{
+                    grid-template-columns: 1fr;
+                }
+            }
+            /*Section One - IMG Container*/
+            #login-section-one{
+                /*Image*/
+                #login-img{
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 22px 0 0 22px;
+                }
+            }
+            /*Section Two - Login Form*/
+            #login-section-two{
+                @media (max-width:767px) {
+                    &{
+                        grid-template-columns: 1fr;
+                    }
+                }
+                /*Login Form*/
+                #login-form{
+                    margin: 0 12px;
+                    /*Icon and Header*/
+                    > header{
+                        display: flex;
+                        align-items: center;
+                        padding-top: 42px;
+                        @media (max-width:767px) {
+                            &{
+                                padding-top: 21px;
+                            }
+                        }
+                        /*Bookworm Logo*/
+                        > img{
+                            height: 120px;
+                        }
+                        /*Header*/
+                        > h3 {
+                            color: #37517e;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

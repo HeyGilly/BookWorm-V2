@@ -155,18 +155,21 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Refactored the style to the Index
             [X] In Morning, May need to be over looked at
         [X] Navbar - Logged Out refactored stylesheet
-
          [X] Footer - Refactor
 
-    WORKING:
         [X] Register Page, Refactored the page.
+
+    WORKING:
+        [X] Login Page, Refactored.
 
         [ ] Refactor pages
             [X] About the project
-            [ ] Log In
-            [X] Log Out
+            [ ] Navbar - Log In
+            [X] Navbar - Log Out
+            [X] Login Page
+            [X] Register Page
+            [X] Forgot Password Page
             [ ] welcome page
-            [ ] Logged Out Navbar
             [ ] Profile Page
             [ ] Single Book Page
             [ ] Pending Friends
