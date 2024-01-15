@@ -157,11 +157,12 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Navbar - Logged Out refactored stylesheet
          [X] Footer - Refactor
         [X] Register Page, Refactored the page.
-
         [X] Login Page, Refactored.
 
+        [X] Forgot Password Page
+
     WORKING:
-        [ ] Forgot Password Page
+        [X] welcome Page, refactored
 
         [ ] Refactor pages
             [X] About the project
@@ -171,7 +172,7 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Forgot Password Page
             [X] Navbar - Log Out
             [ ] Navbar - Log In
-            [ ] welcome page
+            [~] welcome page
             [ ] Profile Page
             [ ] Single Book Page
             [ ] Pending Friends

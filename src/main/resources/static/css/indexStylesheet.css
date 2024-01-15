@@ -9,6 +9,9 @@
 @import "aboutStylesheet.css";
 /*Register & Login Page*/
 @import "signinStylesheet.css";
+/*Welcome Page*/
+@import "welcomeStylesheet.css";
+
 
 /*======= Index Page =======*/
 #mainIndexPage {
@@ -143,6 +146,7 @@
 
     /*---------- Books Available Section ----------*/
     #currentBooksAvailable{
+        padding: 42px 0;
         /*Container for header and Paragraph*/
         .main-title{
             > h2{
@@ -156,7 +160,7 @@
                     display: block;
                     width: 120px;
                     height: 1px;
-                    background: #ddd;
+                    background: #fff;
                     bottom: 1px;
                     left: calc(50% - 60px);
                 }
@@ -178,7 +182,8 @@
             overflow-x: scroll;
             scroll-behavior: smooth;
             column-gap: 21px;
-            padding-bottom: 42px;
+            padding: 42px 0;
+            scrollbar-color: #007 rgba(154, 182, 222, 0.27);
             /* Each Book Container*/
             .book-container{
                 background: #fff;
@@ -195,7 +200,7 @@
                     color: #1e1e1e;
                     /*Book Cover*/
                     .book-cover{
-                        width: 200px;
+                        width: 190px;
                         height: 220px;
                         border-radius: 25px 25px 0 0;
                     }

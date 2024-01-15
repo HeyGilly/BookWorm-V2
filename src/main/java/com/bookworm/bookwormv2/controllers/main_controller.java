@@ -54,17 +54,8 @@ public class main_controller {
         this.likedRepository = likedRepository;
     }
 
-    //-- getter
-    public BookshelfRepository getBookshelfRepo() {
-        return bookshelfRepo;
-    }
-
-
-    //-- This function is going to help us so we dont have to repeat what we want as in the books by genre and the list of genres.
+    //-- This function is going to help us, so we don't have to repeat what we want as in the books by genre and the list of genres.
     private void addExistingDataToModel(Model model) {
-        //-- find By Thriller Genre
-        model.addAttribute("ThrillerBooks", bookshelfRepo.findAllByGenre("thriller"));
-        model.addAttribute("FictionBooks", bookshelfRepo.findAllByGenre("fiction"));
         //-- Retrieves all books from database, using the bookshelf Repo
         List<Bookshelf> allBooks = bookshelfRepo.findAll();
         //-- Creates an empty list to store the unique genres
@@ -92,7 +83,10 @@ public class main_controller {
 
     @GetMapping("/welcome")
     public String home(Model model){
-        // Add the existing data to the model
+        //-- find By Thriller Genre
+        model.addAttribute("ThrillerBooks", bookshelfRepo.findAllByGenre("thriller"));
+        model.addAttribute("FictionBooks", bookshelfRepo.findAllByGenre("fiction"));
+        //-- Genre
         addExistingDataToModel(model);
         return "main/introduction-page";
     }

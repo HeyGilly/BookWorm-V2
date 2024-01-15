@@ -1,106 +1,101 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
-<!=== Head in Thymeleaf - Fragments ===>
 <head th:replace="partials/head.html :: head ('Main Page')" ></head>
 <body>
 
 
 
-<!===== Navbar =====>
+<!----- Navbar ----->
 <nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
-<!===== Hero Section =====>
-<main id="hero-main-page" class="container-fluid d-flex align-items-center">
-    <div class="container">
-        <div class="row">
-            <section class="pt-4 pt-lg-0">
-                <h1>Welcome bookworm!</h1>
-                <h2>Search through all out books and lets start sharing.</h2>
+<main id="main-welcome-page">
+    <!--- Hero --->
+    <header class="header">
+        <h1 class="container">Welcome bookworm!</h1>
+        <h2 class="container">Search through all out books and lets start sharing.</h2>
+    </header>
+    <!-- Thriller Books Section -->
+    <div id="firstBookList">
+        <div class="container-lg container-fluid">
+            <!--- Section Title ---->
+            <div id="title-welcome">
+                <h2 id="title-thriller">Thriller</h2>
+            </div>
+            <!--- Books Container ---->
+            <div id="firstBookContainer">
+                <section class="book-container" th:each="book:${ThrillerBooks}">
+                    <!-- anchor -->
+                    <a th:href="@{/single/{id}(id = ${book.getId()})}" th:title="${book.getTitle()}">
+                        <!-- Book Cover -->
+                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="book-cover">
+                        <p>
+                            <!-- Book Title -->
+                            <span class="book-title" th:text="${book.getTitle()}">Title of Book</span><br/>
+                            <small>
+                                <!-- Book Author -->
+                                By <span th:text="${book.getAuthor()}"></span>
+                            </small>
+                        </p>
+                    </a>
+                </section>
+                <section th:if="${#lists.isEmpty(ThrillerBooks)}" class="mx-auto mb-5">
+                    <h5 class="text-center">No Thriller Books Available.</h5>
+                </section>
+            </div>
+        </div>
+    </div>
+    <!-- Selection of All Genres -->
+    <div id="genreList">
+        <div class="container-lg container-fluid">
+            <!-- Title -->
+            <section id="genre-title">
+                <h2>By Genre</h2>
             </section>
+            <!--Genre list-->
+            <section id="genres">
+                <!--Each Genre-->
+                <section th:each="genre:${AllGenres}">
+                    <aside class="genre-card">
+                        <h4 th:text="${genre}">Thriller</h4>
+                    </aside>
+                </section>
+            </section>
+        </div>
+    </div>
+    <!-- Fiction Book Section -->
+    <div id="secondBookList">
+        <div class="container-lg container-fluid">
+            <!--- Section Title ---->
+            <div id="title-fiction-welcome">
+                <h2 id="title-fiction">Fiction</h2>
+            </div>
+            <!--- Books Container ---->
+            <div id="secondBookContainer">
+                <section class="book-container" th:each="book:${FictionBooks}">
+                    <!-- anchor -->
+                    <a th:href="@{/single/{id}(id = ${book.getId()})}" th:title="${book.getTitle()}">
+                        <!-- Book Cover -->
+                        <img th:src="${book.getCover_page()}" th:alt="${book.getTitle()}" class="book-cover">
+                        <p>
+                            <!-- Book Title -->
+                            <span class="book-title" th:text="${book.getTitle()}">Title of Book</span><br/>
+                            <small>
+                                <!-- Book Author -->
+                                By <span th:text="${book.getAuthor()}"></span>
+                            </small>
+                        </p>
+                    </a>
+                </section>
+                <section th:if="${#lists.isEmpty(FictionBooks)}" class="mx-auto mb-5">
+                    <h5 class="text-center">No Fiction Books Available.</h5>
+                </section>
+            </div>
         </div>
     </div>
 </main>
 
 
-
-
-<!===== Thriller Books =====>
-<!--- Thriller Books Container ---->
-<div>
-    <div>
-        <!-- Same Genre Book Title -->
-        <div class="section-title pt-5">
-            <h2>Thriller</h2>
-        </div>
-        <!-- This is going to be the container for the scroll -->
-        <div id="WholeThrillerBooksContainer" class="container-lg container-fluid">
-            <section class="thriller-book-container" th:each="favBook:${ThrillerBooks}">
-                <a th:href="@{/single/{id}(id = ${favBook.getId()})}">
-                    <img th:src="${favBook.getCover_page()}" th:alt="${favBook.getTitle()}" class="thriller-book-cover">
-                    <p>
-                        <span class="book-title" th:text="${favBook.getTitle()}">Title of Book</span><br/>
-                        <small>By </small>
-                        <small th:text="${favBook.getAuthor()}">Author</small>
-                    </p>
-                </a>
-            </section>
-            <section th:if="${#lists.isEmpty(ThrillerBooks)}" class="mx-auto mb-5">
-                <h5 class="text-center">No Thriller Books Available.</h5>
-            </section>
-        </div>
-
-    </div>
-</div>
-
-
-
-
-<!==== Genre Section =====>
-<div id="main-page-genre">
-    <section class="container-fluid">
-        <h3>Search through genres</h3>
-        <div class="genre-card-container">
-            <section th:each="genre:${AllGenres}">
-                <aside class="genre-card">
-                    <h4 th:text="${genre}">Thriller</h4>
-                </aside>
-            </section>
-        </div>
-
-    </section>
-</div>
-
-
-
-
-<!===== Fiction Books =====>
-<!--- Fiction Books Container ---->
-<div>
-    <div>
-        <!-- Same Genre Book Title -->
-        <div class="section-title pt-5">
-            <h2>Fiction</h2>
-        </div>
-        <!-- This is going to be the container for the scroll -->
-        <div id="WholeFictionBooksContainer" class="container-lg container-fluid">
-            <section class="fiction-book-container" th:each="favBook:${FictionBooks}">
-                <a th:href="@{/single/{id}(id = ${favBook.getId()})}">
-                    <img th:src="${favBook.getCover_page()}" th:alt="${favBook.getTitle()}" class="fiction-book-cover">
-                    <p>
-                        <span class="book-title" th:text="${favBook.getTitle()}">Title of Book</span><br/>
-                        <small>By </small>
-                        <small th:text="${favBook.getAuthor()}">Author</small>
-                    </p>
-                </a>
-            </section>
-            <section th:if="${#lists.isEmpty(ThrillerBooks)}" class="mx-auto mb-5">
-                <h5 class="text-center">No Thriller Books Available.</h5>
-            </section>
-        </div>
-    </div>
-</div>
-
-<!=== Footer ===>
+<!----- Footer ----->
 <footer th:replace="partials/footer.html :: Footer"></footer>
 <!=== Javascript ===>
 <script th:src="@{/js/searchForBookNavbar.js}"></script>

@@ -1,0 +1,268 @@
+/*--------- Welcome Page ---------*/
+#main-welcome-page{
+    background: rgba(154, 182, 222, 0.27);
+    /*Header*/
+    .header{
+        background: #37517e;
+        width: 100%;
+        height: 40vh;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        @media (max-width:991px) {
+            &{
+                text-align: center;
+                align-items: center;
+            }
+        }
+        /*Heading One*/
+        > h1{
+            font-size: 48px;
+            color: #fff;
+            @media (max-width:767px) {
+                &{
+                    font-size: 32px;
+                }
+            }
+        }
+        /*Heading Two*/
+        > h2{
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.6);
+            @media (max-width:767px) {
+                &{
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    /*Thriller Book List*/
+    #firstBookList {
+        padding: 42px 0;
+        .container-lg {
+            /*Title Section*/
+            #title-welcome {
+                text-align: center;
+                /*Title*/
+                & h2 {
+                    padding-bottom: 12px;
+                    position: relative;
+                    color: #37517e;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        width: 120px;
+                        height: 1px;
+                        background: #fff;
+                        bottom: 1px;
+                        left: calc(50% - 60px);
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        width: 40px;
+                        height: 3px;
+                        background: #47b2e4;
+                        bottom: 0;
+                        left: calc(50% - 20px);
+                    }
+                }
+            }
+            /*Book List*/
+            #firstBookContainer {
+                display: flex;
+                overflow-x: scroll;
+                scroll-behavior: smooth;
+                column-gap: 21px;
+                padding: 42px 0;
+                scrollbar-color: #007 rgba(154, 182, 222, 0.27);
+                /* Each Book Container*/
+                .book-container{
+                    background: #fff;
+                    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                    border-radius: 25px;
+                    transition: transform 0.8s, box-shadow 1s;
+                    /*Hover*/
+                    &:hover {
+                        transform: scale(0.98);
+                        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                    }
+                    & a{
+                        text-decoration: none;
+                        color: #1e1e1e;
+                        /*Book Cover*/
+                        .book-cover{
+                            width: 190px;
+                            height: 220px;
+                            border-radius: 25px 25px 0 0;
+                        }
+                        & p {
+                            padding-left: 12px;
+                            padding-bottom: 0;
+                            /*Each Book Title*/
+                            .book-title{
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*Genre List Section*/
+    #genreList{
+        padding: 24px 0;
+        background: #37517e;
+        .container-lg{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            @media (max-width:767px) {
+                &{
+                    grid-template-columns: 1fr;
+                }
+            }
+            #genre-title{
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color:#fff;
+                @media (max-width:767px) {
+                    &{
+                        margin-bottom: 12px;
+                    }
+                }
+                > h2{
+                  text-align: center;
+                }
+            }
+            #genres{
+                display: flex;
+                overflow-x: scroll;
+                scroll-behavior: smooth;
+                column-gap: 12px;
+                scrollbar-color: #007 rgba(154, 182, 222, 0.27);
+                .genre-card{
+                    border: 1px solid #9f9f9f;
+                    border-radius: 25px;
+                    background: #fff;
+                    width: 180px;
+                    height: 180px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 24px;
+                    transition: transform 0.8s, box-shadow 1s;
+                    /*Hover*/
+                    &:hover {
+                        transform: scale(0.98);
+                        border: 2px solid #37517e;
+                        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                    }
+                    & h4{
+                        text-align: center;
+                        color: #37517e;
+                        font-size: 21px;
+                        font-weight: 400;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+        }
+    }
+    /*Fiction Book List*/
+    #secondBookList {
+        padding: 42px 0;
+        .container-lg {
+            /*Title Section*/
+            #title-fiction-welcome {
+                text-align: center;
+                /*Title*/
+                & h2 {
+                    padding-bottom: 12px;
+                    position: relative;
+                    color: #37517e;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        width: 120px;
+                        height: 1px;
+                        background: #fff;
+                        bottom: 1px;
+                        left: calc(50% - 60px);
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        display: block;
+                        width: 40px;
+                        height: 3px;
+                        background: #47b2e4;
+                        bottom: 0;
+                        left: calc(50% - 20px);
+                    }
+                }
+            }
+            /*Book List*/
+            #secondBookContainer {
+                display: flex;
+                overflow-x: scroll;
+                scroll-behavior: smooth;
+                column-gap: 21px;
+                padding: 42px 0;
+                scrollbar-color: #007 rgba(154, 182, 222, 0.27);
+                /* Each Book Container*/
+                .book-container{
+                    background: #fff;
+                    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                    border-radius: 25px;
+                    transition: transform 0.8s, box-shadow 1s;
+                    /*Hover*/
+                    &:hover {
+                        transform: scale(0.98);
+                        box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                    }
+                    & a{
+                        text-decoration: none;
+                        color: #1e1e1e;
+                        /*Book Cover*/
+                        .book-cover{
+                            width: 190px;
+                            height: 220px;
+                            border-radius: 25px 25px 0 0;
+                        }
+                        & p {
+                            padding-left: 12px;
+                            padding-bottom: 0;
+                            /*Each Book Title*/
+                            .book-title{
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
