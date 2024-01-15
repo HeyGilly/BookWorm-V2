@@ -156,24 +156,25 @@ Thursday, Dec 7 - Friday Dec 8
             [X] In Morning, May need to be over looked at
         [X] Navbar - Logged Out refactored stylesheet
          [X] Footer - Refactor
-
         [X] Register Page, Refactored the page.
 
-    WORKING:
         [X] Login Page, Refactored.
+
+    WORKING:
+        [ ] Forgot Password Page
 
         [ ] Refactor pages
             [X] About the project
-            [ ] Navbar - Log In
-            [X] Navbar - Log Out
+            [X] Footer
             [X] Login Page
             [X] Register Page
             [X] Forgot Password Page
+            [X] Navbar - Log Out
+            [ ] Navbar - Log In
             [ ] welcome page
             [ ] Profile Page
             [ ] Single Book Page
             [ ] Pending Friends
-            [X] Footer
 
     TODO:
         [ ] Navigation, Gather some Books - Ongoing

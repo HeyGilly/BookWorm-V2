@@ -130,7 +130,6 @@
                 }
             }
         }
-
     }
 }
 
@@ -138,10 +137,19 @@
 
 
 
+/*-------------- Forgot Password Page -------------*/
+#forgotPasswordMain{
+    background: rgba(154, 182, 222, 0.27);
+    .container{
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        #forgotPasswordForm{
 
-
-
-
+        }
+    }
+}
 
 
 

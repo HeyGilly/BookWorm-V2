@@ -1,5 +1,5 @@
 /*========== Reset CSS ==========*/
-
+html, body{height: 100%}
 /* Box sizing rules */
 *,
 *::before,
