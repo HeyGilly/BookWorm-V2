@@ -18,7 +18,14 @@ main #hero-introduction .container #section-one aside .login-button,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-get-started-btn,
 #mainRegisterPage #registerForm #register-submit-btn,
 #main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn,
-#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn{
+#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn,
+#main-book-page #leftSide-book-page form .liked-book-btn,
+#main-book-page #leftSide-book-page #unFavForm .unliked-book-btn,
+#main-book-page #leftSide-book-page #write-review-button,
+#main-book-page #leftSide-book-page .purchase-book-btn,
+#writeAReviewContainer #writing-review-form .btn-primary,
+#writeAReviewContainer #writing-review-form .btn-secondary
+{
     background-color: #13aa52;
     border: 1px solid #13aa52;
     border-radius: 4px;
@@ -59,7 +66,14 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-get-started-btn:hover,
 #mainRegisterPage #registerForm #register-submit-btn:hover,
 #main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn:hover,
-#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn:hover{
+#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn:hover,
+#main-book-page #leftSide-book-page form .liked-book-btn:hover,
+#main-book-page #leftSide-book-page #unFavForm .unliked-book-btn:hover,
+#main-book-page #leftSide-book-page #write-review-button:hover,
+#main-book-page #leftSide-book-page .purchase-book-btn:hover,
+#writeAReviewContainer #writing-review-form .btn-primary:hover,
+#writeAReviewContainer #writing-review-form .btn-secondary:hover
+{
     background-color: #0e8641;
     border: 1px solid #0e8641;
     transform: translateY(-2px);
@@ -80,7 +94,11 @@ main #hero-introduction .container #section-one aside .login-button,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in,
 #mainRegisterPage #registerForm #register-submit-btn,
 #main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn,
-#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn{
+#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn,
+#main-book-page #leftSide-book-page form .unliked-book-btn,
+#writeAReviewContainer #writing-review-form .btn-primary
+{
+
     background-color: #5b8ed5;
     border: 1px solid #5b8ed5;
 }
@@ -94,7 +112,10 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in:hover,
 #mainRegisterPage #registerForm #register-submit-btn:hover,
 #main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn:hover,
-#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn:hover{
+#forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn:hover,
+#main-book-page #leftSide-book-page form .unliked-book-btn:hover,
+#writeAReviewContainer #writing-review-form .btn-primary:hover
+{
     background-color: rgba(100, 149, 237, 0.49);
     border: 1px solid rgba(100, 149, 237, 0.49);
 }
@@ -106,6 +127,66 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in{
     margin-right: 12px;
     margin-left: 12px;
+}
+
+/*-------------- liked Button --------------*/
+
+
+/*--------- liked Button ---------*/
+#main-book-page #leftSide-book-page form .liked-book-btn{
+    background-color: #f12323;
+    border: 1px solid #f12323;
+    width: 200px;
+    margin-top: 12px;
+
+}
+#main-book-page #leftSide-book-page form .liked-book-btn:hover{
+    background-color: #7c0c0c;
+    border: 1px solid #7c0c0c;
+}
+
+/*--------- Unliked Button ---------*/
+#main-book-page #leftSide-book-page #unFavForm .unliked-book-btn{
+    background-color: #b9babb;
+    border: 1px solid #b9babb;
+    width: 200px;
+    margin-top: 12px;
+}
+
+#main-book-page #leftSide-book-page #unFavForm .unliked-book-btn:hover{
+    background-color: #2f2f2f;
+    border: 1px solid #2f2f2f
+}
+
+/*--------- Write Review Button ---------*/
+#main-book-page #leftSide-book-page #write-review-button{
+    background-color: #f19823;
+    border: 1px solid #f19823;
+    width: 200px;
+    margin-top: 12px;
+
+}
+#main-book-page #leftSide-book-page #write-review-button:hover{
+    background-color: #855311;
+    border: 1px solid #855311
+}
+/*--------- GooglePlay Button ---------*/
+#main-book-page #leftSide-book-page .purchase-book-btn{
+    width: 200px;
+    margin-top: 12px;
+}
+#main-book-page #leftSide-book-page .purchase-book-btn:hover{
+
+}
+/*--------- Book-Page - Writing Review Cancel Button ---------*/
+#writeAReviewContainer #writing-review-form .btn-secondary{
+    background-color: #b9babb;
+    border: 1px solid #b9babb;
+}
+/*--------- Book-Page - Writing Review Cancel Button : HOVER---------*/
+#writeAReviewContainer #writing-review-form .btn-secondary:hover{
+    background-color: #2f2f2f;
+    border: 1px solid #2f2f2f
 }
 
 

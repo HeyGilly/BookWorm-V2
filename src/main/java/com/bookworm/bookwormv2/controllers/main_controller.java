@@ -77,10 +77,7 @@ public class main_controller {
         // Pass the unique genres to the Thymeleaf template
         model.addAttribute("AllGenres", uniqueGenres);
     }
-
-
-
-
+    //-- Welcome Pages
     @GetMapping("/welcome")
     public String home(Model model){
         //-- find By Thriller Genre
@@ -103,8 +100,9 @@ public class main_controller {
 
         model.addAttribute("ISBNbook", BookByISBN);
         model.addAttribute("singleBookInfo", bookshelfRepo.findByIsbn(BookByISBN));
+        //-- Find all books in our database based on main book genre
         String genre = bookshelfRepo.findByIsbn(BookByISBN).getGenre();
-        model.addAttribute("bookGenre", bookshelfRepo.findAllByGenre(genre));
+        model.addAttribute("booksOfSameGenre", bookshelfRepo.findAllByGenre(genre));
 
         long book_id = bookshelfRepo.findByIsbn(BookByISBN).getId();
         List<Reviews> allReviewFromBook = reviewRepository.findReviewByBookshelf_IdSorted(book_id);

@@ -158,23 +158,24 @@ Thursday, Dec 7 - Friday Dec 8
          [X] Footer - Refactor
         [X] Register Page, Refactored the page.
         [X] Login Page, Refactored.
-
         [X] Forgot Password Page
 
-    WORKING:
         [X] welcome Page, refactored
+
+    WORKING:
+        [X] Single Book page
 
         [ ] Refactor pages
             [X] About the project
             [X] Footer
             [X] Login Page
             [X] Register Page
+            [X] welcome page
+            [X] Single Book Page
             [X] Forgot Password Page
             [X] Navbar - Log Out
             [ ] Navbar - Log In
-            [~] welcome page
             [ ] Profile Page
-            [ ] Single Book Page
             [ ] Pending Friends
 
     TODO:
