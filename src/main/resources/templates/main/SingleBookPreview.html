@@ -87,7 +87,7 @@
                         </div>
                         <!--- Books Container ---->
                         <div id="sameGenreContainer">
-                            <section class="book-container" th:each="book:${booksOfSameGenre}">
+                            <section class="book-container" th:each="book:${booksOfSameGenre}" th:if="${book.getIsbn() != singleBookInfo.getIsbn()}">
                                 <!-- anchor -->
                                 <a th:href="@{/single/{id}(id = ${book.getId()})}" th:title="${book.getTitle()}">
                                     <!-- Book Cover -->
