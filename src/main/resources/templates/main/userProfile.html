@@ -1,325 +1,378 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
 <!=== Head in Thymeleaf - Fragments ===>
-<head th:replace="partials/head.html :: head ('uesr Profile')" ></head>
+<head th:replace="partials/head.html :: head ('Profile')" ></head>
 <body>
 
-<!===== Navbar =====>
+<!-- Navbar -->
 <nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
 
-<main class="container-fluid">
-    <div class="row">
-        <!===== Left Side, User Profile Image and Details =====>
-        <div id="left-side-user-info-container" class="col-12 col-sm-4 col-md-4">
-            <!-- Not sure what this div is for? -->
-            <div id="user-profile-info">
-                <!-- image section container -->
-                <section class="user-profile-container" id="user-profile-container">
-                    <!-- Image if there is no pathway -->
-                    <img
-                        class="user-profile-picture"
-                        th:src="@{/img/noProfileImage.png}"
-                        th:if="${user.profilePicturePath == null}"
-                        alt="No Image Provided">
-                    <!-- Profile Picture -->
-                    <img
-                        class="user-profile-picture"
-                        th:src="${user.getProfilePicturePath()}"
-                        th:if="${user.profilePicturePath != ''}"
-                        th:alt="${user.getUsername()}">
-                </section>
-                <section class="user-information-container" id="user-information-container">
-                    <!-- Add a Friend Button -->
-                    <form th:action="@{/addFriend/{id}/in/11 (id=${user.getId()})}" method="post">
-                        <button class="friend-button" th:if="${hideForNow != 'show'}">Add Friend</button>
-                    </form>
-                    <!-- Unfriend Button -->
-                    <form>
-                        <button class="unfriend-button" th:if="${hideForNow != 'show'}">Unfriend</button>
-                    </form>
-                    <!-- Setting Button -->
-                    <button class="setting-button" id="setting-button" th:if="${hideForNow != 'hide'}">Setting</button>
-                    <!-- User Greeting -->
-                    <h2>
-                        Hello <span th:text="${user.getUsername()}">USERNAME</span>,
-                    </h2>
-                    <!-- User Bio -->
-                    <p
+
+<main id="main-profile">
+    <!-- Left Side - Book Information -->
+    <div id="leftSide-user-profile">
+        <!---------- User Profile Image Container ------------>
+        <section id="user-photoImage">
+            <!-- Image if there is no pathway -->
+            <img
+                    class="user-profile-picture"
+                    th:src="@{/img/noProfileImage.png}"
+                    th:if="${user.profilePicturePath == null}"
+                    alt="No Image Provided">
+            <!-- Profile Picture -->
+            <img
+                    class="user-profile-picture"
+                    th:src="${user.getProfilePicturePath()}"
+                    th:if="${user.profilePicturePath != ''}"
+                    th:alt="${user.getUsername()}">
+        </section>
+        <!---------- User Information Container ------------>
+        <section id="user-information">
+            <!-- Add Friend / UnFriend Button / Setting Button -->
+            <!--Add-->
+            <form id="friendForm" th:action="@{/addFriend/{id}/in/11 (id=${user.getId()})}" method="post">
+                <button class="friend-button" th:if="${hideForNow != 'hide'}">Add Friend</button>
+            </form>
+            <!--Unfriend-->
+            <form id="unfriendForm">
+                <button class="unfriend-button" th:if="${hideForNow != 'hide'}">Unfriend</button>
+            </form>
+            <!--Setting-->
+            <button class="setting-button" id="setting-button" th:if="${hideForNow != 'show'}">Setting</button>
+            <!-- User Greeting -->
+            <h2>
+                Hello <span th:text="${user.getUsername()}">USERNAME</span>,
+            </h2>
+            <!-- User Bio -->
+            <p
                     class="user-bio"
                     th:unless="${user.getBio() == ''}"
                     th:text="${user.getBio() != null ? user.getBio() : 'No Bio yet'}">
-                        Fake Bio
-                    </p>
-                    <!-- Favorite Genre -->
-                    <div th:if="${user.getFavoriteGenres().size() > 0}">
-                        <p class="fav-genre-profile">Favorite Genre:</p>
-                        <aside id="userFavoriteGenreContainer">
-                            <form class="favoriteGenreDeleteForm" th:each="favGenre : ${user.getFavoriteGenres()}" th:action="@{/favoriteGenre/delete/{id}(id = ${favGenre.getId()})}" method="POST">
-                                <button type="submit" class="btn btn-danger delete-fav-genre-button">X</button>
-                                <p th:text="${favGenre.genre.name}"></p>
-                            </form>
-                        </aside>
-                        <!-- If user tries to get more than 5 genres then this message will appear -->
-                        <small th:text="${hitMaxFavGenre}">Default Warning Message</small>
-                    </div>
-                    <div th:if="${user.getFavoriteGenres().size() == 0}">
-                        <h5>No favorite genre</h5>
-                    </div>
-                </section>
-                <section class="user-setting-container" id="setting-form-container">
-                    <form th:action="@{/in/{id} (id=${user.getId()})}"
-                          th:object="${user}"
-                          method="post"
-                          enctype="multipart/form-data">
-                        <!-- Form Title -->
-                        <h3>Settings</h3>
-                        <!-- Hidden User Id Input -->
-                        <input type="hidden" th:field="*{id}" th:value="${user.id}">
-                        <!-- Profile Picture -->
-                        <div class="mb-3">
-                            <label for="setting-profile-picture" class="form-label">Profile Picture:</label>
-                            <input class="form-control" type="file" id="setting-profile-picture" th:field="*{profilePictureFile}">
-                        </div>
-                        <!-- First Name -->
-                        <div class="mb-3">
-                            <label for="setting-first-name" class="form-label">First Name:</label>
-                            <input type="text"
-                                   title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 30 characters"
-                                   class="form-control"
-                                   th:field="*{first_name}"
-                                   th:value="${first_name}"
-                                   id="setting-first-name"
-                                   pattern="[a-zA-Z]{3,30}">
-                        </div>
-                        <!-- Last Name -->
-                        <div class="mb-3">
-                            <label for="setting-last-name" class="form-label">Last Name:</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="setting-last-name"
-                                   th:field="*{last_name}"
-                                   th:value="${last_name}"
-                                   minlength="3"
-                                   maxlength="30"
-                                   title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 30 characters"
-                                   pattern="[a-zA-Z]{3,30}">
-                        </div>
-                        <!-- Username -->
-                        <div class="mb-3">
-                            <label for="setting-username" class="form-label">Username:</label>
-                            <input type="text"
-                                   class="form-control"
-                                   id="setting-username"
-                                   th:value="${username}"
-                                   th:field="*{username}">
-                        </div>
-                        <!-- Email -->
-                        <div class="mb-3">
-                            <label for="settingsEmail" class="form-label">Email address</label>
-                            <input type="email"
-                                   class="form-control"
-                                   id="settingsEmail"
-                                   minlength="6"
-                                   maxlength="254"
-                                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                                   th:value="${email}"
-                                   th:field="*{email}"
-                                   title="Please provide a valid email">
-                        </div>
-                        <!-- Bio-->
-                        <div class="mb-3">
-                            <label for="setting-bio" class="form-label">Bio:</label>
-                            <textarea
-                                    class="form-control"
-                                    id="setting-bio"
-                                    rows="3"
-                                    style="resize: none;"
-                                    th:field="*{bio}"
-                                    th:value="${bio}">
-                            </textarea>
-                        </div>
-                        <!-- Favorite Genre -->
-                        <div class="mb-3">
-                            <label for="setting-favorite-genre" class="form-label">Favorite genre: (Choose up to 5, One at a time)</label>
-                            <select class="form-select" aria-label="Default select example" id="setting-favorite-genre" name="favoriteGenres">
-                                <option th:value="${0}" selected>Open this select menu</option>
-                                <th:block th:each="genre : ${ListOfGenre}">
-                                    <option th:value="${genre.id}" th:text="${genre.name}">Genre Name</option>
-                                </th:block>
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <small>If you would like to
-                                <a th:href="@{/forgot_password}" target="_blank" th:alt="forgot_password" class="btn text-warning p-0 m-0">
-                                    change your password
-                                </a>
-                            </small>
-                        </div>
-
-                        <!-- Submit and Cancel Buttons -->
-                        <button type="submit" id="submitEditProfileButton">Submit</button>
-                        <button type="reset" id="cancelEditProfileButton">Cancel</button>
+                Fake Bio
+            </p>
+            <!-- Favorite Genre -->
+            <div id="favoriteGenreListed" th:if="${user.getFavoriteGenres().size() > 0}">
+                <h4 class="fav-genre-profile">Favorite Genre:</h4>
+                <aside id="userFavoriteGenreContainer">
+                    <form class="favoriteGenreDeleteForm" th:each="favGenre : ${user.getFavoriteGenres()}" th:action="@{/favoriteGenre/delete/{id}(id = ${favGenre.getId()})}" method="POST">
+                        <button type="submit" class="btn btn-danger delete-fav-genre-button">X</button>
+                        <p th:text="${favGenre.genre.name}"></p>
                     </form>
-                </section>
+                </aside>
+                <!-- If user tries to get more than 5 genres then this message will appear -->
+                <small th:text="${hitMaxFavGenre}">Default Warning Message</small>
             </div>
-        </div>
-
-          <!===== Right Side, User Reviews =====>
-          <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-8">
-
-              <div>
-                  <!--  Title - (Friends, How many of us have them?) -->
-                  <div class="section-title">
-                      <a th:href="@{/in/{userId}/friends(userId = ${user.getId()})}">
-                          <h2>Bookworms</h2>  
-                      </a>
-                  </div>
-                  <div class="" id="bestFriendContainer">
-                      <section th:each="friend : ${allFriends}" th:if="${friend.status == 'granted'}" class="eachBF">
-                          <a th:href="@{/in/{id}(id = ${friend.getUserId()})}" th:title="${friend.getFriendUsername()}">
-                            <img th:src="${friend.getProfilePicture()}" th:alt="${friend.getFriendUsername()}">
-                            <h4 th:text="${friend.friendUsername}">Friend's Username</h4>
-                          </a>
-                      </section>
-                  </div>
-              </div>
-
-          <!-- Favorite Book Container -->
-            <div>
-                <!-- Container Title - (Favorite Book) -->
-                <div class="section-title">
-                    <h2>Favorite Books</h2>
+            <!-- Favorite Genre Empty -->
+            <div th:if="${user.getFavoriteGenres().size() == 0}">
+                <h5>No favorite genre</h5>
+            </div>
+        </section>
+        <!---------- Setting Form Container ------------>
+        <section id="setting-form-container">
+            <!-- Settings Form -->
+            <form th:action="@{/in/{id} (id=${user.getId()})}"
+                  th:object="${user}"
+                  method="post"
+                  enctype="multipart/form-data">
+                <!-- Title  -->
+                <h3>Settings</h3>
+                <!-- Hidden profile User Id Input -->
+                <input type="hidden" th:field="*{id}" th:value="${user.id}">
+                <!-- Profile Picture -->
+                <div class="mb-3">
+                    <label for="setting-profile-picture" class="form-label">Profile Picture:</label>
+                    <input class="form-control" type="file" id="setting-profile-picture" th:field="*{profilePictureFile}">
                 </div>
-                <!-- This is going to be the container for the scroll -->
-                <div id="WholeFavoriteBookContainer">
-                    <section class="favorite-book-container" th:each="favBook:${favoriteBooks}">
-                        <a th:href="@{/single/{id}(id = ${favBook.getBookId().getId()})}">
-                            <img th:src="${favBook.getBookId().getCover_page()}" th:alt="${favBook.getBookId().getTitle()}" class="favorite-book-cover">
-                            <p>
-                                <span class="book-title" th:text="${favBook.getBookId().getTitle()}">Title of Book</span><br/>
-                                <small>By </small>
-                                <small th:text="${favBook.getBookId().getAuthor()}">Author</small>
-                            </p>
+                <!-- First Name -->
+                <div class="mb-3">
+                    <label for="setting-first-name" class="form-label">First Name:</label>
+                    <input type="text"
+                           title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 25 characters"
+                           class="form-control"
+                           th:field="*{first_name}"
+                           th:value="${first_name}"
+                           id="setting-first-name"
+                           pattern="[a-zA-Z]{3,25}">
+                </div>
+                <!-- Last Name -->
+                <div class="mb-3">
+                    <label for="setting-last-name" class="form-label">Last Name:</label>
+                    <input type="text"
+                           class="form-control"
+                           id="setting-last-name"
+                           th:field="*{last_name}"
+                           th:value="${last_name}"
+                           minlength="3"
+                           maxlength="30"
+                           title="Uppercase & Lowercase letters only, no punctuation, numbers, or special characters and between 3 and 30 characters"
+                           pattern="[a-zA-Z]{3,30}">
+                </div>
+                <!-- Username -->
+                <div class="mb-3">
+                    <label for="setting-username" class="form-label">Username:</label>
+                    <input type="text"
+                           class="form-control"
+                           id="setting-username"
+                           th:value="${username}"
+                           th:field="*{username}">
+                </div>
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="settingsEmail" class="form-label">Email address</label>
+                    <input type="email"
+                           class="form-control"
+                           id="settingsEmail"
+                           minlength="6"
+                           maxlength="254"
+                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                           th:value="${email}"
+                           th:field="*{email}"
+                           title="Please provide a valid email">
+                </div>
+                <!-- Bio-->
+                <div class="mb-3">
+                    <label for="setting-bio" class="form-label">Bio:</label>
+                    <textarea
+                            class="form-control"
+                            id="setting-bio"
+                            rows="3"
+                            style="resize: none;"
+                            th:field="*{bio}"
+                            th:value="${bio}">
+                        </textarea>
+                </div>
+                <!-- Favorite Genre -->
+                <div class="mb-3">
+                    <label for="setting-favorite-genre" class="form-label">Favorite genre: (Choose up to 5, One at a time)</label>
+                    <select class="form-select" aria-label="Default select example" id="setting-favorite-genre" name="favoriteGenres">
+                        <option th:value="${0}" selected>Open this select menu</option>
+                        <th:block th:each="genre : ${ListOfGenre}">
+                            <option th:value="${genre.id}" th:text="${genre.name}">Genre Name</option>
+                        </th:block>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <small>If you would like to
+                        <a th:href="@{/forgot_password}" target="_blank" th:alt="forgot_password" class="btn text-warning p-0 m-0">
+                            change your password
+                        </a>
+                    </small>
+                </div>
+
+                <!-- Submit and Cancel Buttons -->
+                <button type="submit" id="submitEditProfileButton">Submit</button>
+                <button type="reset" id="cancelEditProfileButton">Cancel</button>
+
+
+            </form>
+        </section>
+    </div>
+    <!-- Right Side -->
+    <div id="rightSide-user-profile">
+        <div class="container-lg container-fluid">
+
+            <!------- Friends, How many of us have them? ------->
+            <div id="bestFriendsContainer" class="container-fluid">
+                <!-- Title -->
+                <div class="bf-title-container">
+                    <a th:href="@{/in/{userId}/friends(userId = ${user.getId()})}" id="bf-main-title-anchor">
+                        <h2 id="bf-title">Bookworms</h2>
+                    </a>
+                </div>
+                <!-- Friends Body -->
+                <div id="bf-container">
+                    <!-- each Friend -->
+                    <section th:each="friend : ${allFriends}" th:if="${friend.status == 'granted'}" class="eachBF">
+                        <!-- Anchor -->
+                        <a class="bf-everyAnchor" th:href="@{/in/{id}(id = ${friend.getUserId()})}" th:title="${friend.getFriendUsername()}">
+                            <!-- Img of each friend -->
+                            <img th:src="${friend.getProfilePicture()}" class="bf-everFriendImg" th:alt="${friend.getFriendUsername()}">
+                            <!-- Username of friend -->
+                            <h4 th:text="${friend.friendUsername}" class="bf-everFriendUsername">Friend's Username</h4>
                         </a>
                     </section>
-                    <section th:if="${#lists.isEmpty(favoriteBooks)}" class="mx-auto mb-5">
-                        <h5>No Favorite Book currently saved.</h5>
-                    </section>
                 </div>
             </div>
-            <!-- Recent Reviews -->
-            <div id="WholeUserReviewsContainer">
-                <!-- Recent Review Title -->
-                <div class="section-title">
-                    <h2>Reviews</h2>
-                </div>
-                <div id="UserReviewContainer">
-                    <div class="user-review-container" th:each="review, index : ${usersReview}" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}">
-                        <!-- Book Cover -->
-                        <section>
-                            <a th:href="@{/single/{id}(id = ${review.getBookshelf().getId()})}" >
-                                <img class="user-review-book-cover" th:src="@{/img/noImage.jpeg}" th:if="${review.getBookshelf().getCover_page() == ''}" alt="No Image Provided" />
-                                <img class="user-review-book-cover" th:src="${review.getBookshelf().getCover_page()}" th:if="${review.getBookshelf().getCover_page() != ''}" th:alt="${review.getBookshelf().getTitle()}" />
+
+            <!---------- Users Favorite Books ---------->
+            <div id="favoriteBookList">
+                <div class="container-lg container-fluid">
+                    <!--- Section Title ---->
+                    <div id="title-favoriteBooks-section">
+                        <h2 id="title-favoriteBook">Favorite Books</h2>
+                    </div>
+                    <!--- Books Container ---->
+                    <div id="favoriteBookContainer">
+                        <section class="book-container" th:each="book:${favoriteBooks}" >
+                            <!-- anchor -->
+                            <a th:href="@{/single/{id}(id = ${book.getBookId().getId()})}" th:title="${book.getBookId().getTitle()}">
+                                <!-- Book Cover -->
+                                <img th:src="${book.getBookId().getCover_page()}" th:alt="${book.getBookId().getTitle()}" class="book-cover">
+                                <p>
+                                    <!-- Book Title -->
+                                    <span class="book-title" th:text="${book.getBookId().getTitle()}">Title of Book</span><br/>
+                                    <small>
+                                        <!-- Book Author -->
+                                        By <span th:text="${book.getBookId().getAuthor()}"></span>
+                                    </small>
+                                </p>
                             </a>
                         </section>
-                        <!-- User Review -->
-                        <section class="review-user-wrote-container">
-                            <!-- Review Title -->
-                            <span  class="review-user-title" th:text="${review.title}">Review Title</span>
-                            <!-- Review Edit Button -->
-                            <img th:src="@{/img/edit-button-01.png}" class="user-review-edit-button" alt="Edit Button"><br/>
-                            <!-- Likes Button -->
-                            <!-- Liked Count -->
-                            <div id="likeCounterForm">
-                                <form th:if="${userLikes[index.index] == false}" id="likedReviewForm" th:action="@{/likedReview/{reviewId}(reviewId=${review.id})}" method="post">
-                                    <button class="badge bg-secondary ms-auto" id="likedReviewButton" th:data-review-id="${review.getId()}" type="submit">
-                                        <span th:text="${review.getLikedCount()}"></span> Likes
-                                    </button>
-                                </form>
-                                <form th:if="${userLikes[index.index] == true}" id="unLikedReviewForm" th:action="@{/unlikedReview/{reviewId}(reviewId=${review.id})}" method="post">
-                                    <button class="badge bg-danger ms-auto" id="unLikedReviewButton" th:data-review-id="${review.getId()}" type="submit">
-                                        <span th:text="${review.getLikedCount()}"></span> Likes
-                                    </button>
-                                </form>
-                            </div>
-                            <!-- Review Rating -->
-                            <span th:switch="${review.rating}" class="">
-                                <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                                <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                                <img th:case="'2'" th:src="@{/img/ratings/twoStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                                <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                                <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                                <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${review.rating}" class="user-review-book-rating">
-                            </span>
-                            <!-- Review Body -->
-                            <p th:text="${review.body}">Review Body</p>
+                        <section th:if="${#lists.isEmpty(favoriteBooks)}" class="mx-auto mb-5">
+                            <h5 class="text-center">No Favorite Books Available.</h5>
                         </section>
-                    <!-- Edit Form -->
-                        <aside class="edit-review-form-container">
-                            <!-- Delete Review -->
-                            <button class="btn btn-danger edit-review-delete-button">
-                                <img th:src="@{/img/trash.png}" alt="trash-icon">
-                            </button>
-                            <!-- Delete Verification Modal -->
-                            <div id="modalDeleteReview" class="modal-container">
-                                <h3>Are you sure you would like to delete this review?</h3>
-                                <!-- Delete Review Verify -->
-                                <form th:action="@{/review/delete/{id}(id = ${review.getId()})}" method="POST">
-                                    <button type="submit" class="main-review-delete-button" >Delete</button>
-                                    <button type="reset" class="cancel-delete-button">Cancel</button>
-                                </form>
-                            </div>
-
-`
-                            <!-- Edit Review -->
-                            <form th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}" class="edit-review-form">
-                                <!-- Rating -->
-                                <div class="">
-                                    <label>
-                                        <select class="form-select"  th:field="*{rating}">
-                                            <option th:value="${review.getRating()}">Rating:</option>
-                                            <option value="1">One Stars</option>
-                                            <option value="2">Two Stars</option>
-                                            <option value="3">Three Stars</option>
-                                            <option value="4">Four Stars</option>
-                                            <option value="5">Five Stars</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <!-- Title -->
-                                <div class="">
-                                    <label for="editReviewTitle"></label>
-                                    <input type="text" class="form-control editReviewTitle" th:value="${review.getTitle()}" th:placeholder="${review.getTitle()}" th:field="*{title}" id="editReviewTitle">
-                                </div>
-                                <!-- Body -->
-                                <div class="">
-                                    <label for="editReviewBody"></label>
-                                    <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="4" style="resize:none;"></textarea>
-                                </div>
-                                <!-- Submit and Cancel Button -->
-                                <button type="submit" class="btn btn-primary submitButton">Submit</button>
-                                <button type="button" class="btn btn-secondary edit-review-cancel-button">Cancel</button>
-                            </form>
-                        </aside>
-                    </div>
-                    <div th:unless="${usersReview != null and not #lists.isEmpty(usersReview)}">
-                        No Recent Reviews
                     </div>
                 </div>
             </div>
-          </div>
+
+            <!---------- Users Recent Reviews ---------->
+            <div id="userReviewsContainer">
+                <div class="container-lg container-fluid">
+                    <!--- Section Title ---->
+                    <div id="title-userReviews-section">
+                        <h2 id="title-userReviews">Recent Reviews</h2>
+                    </div>
+                    <!--- each Review by User ---->
+                    <!-- Current Reviews -->
+                    <div class="userReviewSection">
+                        <!-- Check whether any reviews -->
+                        <div class="container-fluid" th:each="review, index : ${usersReview}" th:if="${usersReview != null and not #lists.isEmpty(usersReview)}">
+                             <!-- Linked Count -->
+                            <div id="likeCounterForm">
+                                <!-- Liked Button for Reviews -->
+                                <form th:if="${userLikes[index.index] == false}" id="likedReviewForm" th:action="@{/likedReview/{reviewId}(reviewId=${review.id})}" method="post">
+                                    <button class="badge bg-secondary" id="likedReviewButton" th:data-review-id="${review.getId()}" type="submit">
+                                        <span th:text="${review.getLikedCount()}"></span> Likes
+                                    </button>
+                                </form>
+                                <!-- Liked Button for Reviews -->
+                                <form th:if="${userLikes[index.index] == true}" id="unLikedReviewForm" th:action="@{/unlikedReview/{reviewId}(reviewId=${review.id})}" method="post">
+                                    <button class="badge bg-danger" id="unLikedReviewButton" th:data-review-id="${review.getId()}" type="submit">
+                                        <span th:text="${review.getLikedCount()}"></span> Likes
+                                    </button>
+                                </form>
+                            </div>
+                            <!---- Book Review Username and Profile IMG ---->
+                            <section id="bookCover-title-section">
+                                <a th:href="@{/single/{userId}(userId = ${review.bookshelf.id})}" class="userReview-anchor">
+                                    <!-- User Profile Img -->
+                                    <img class="userReview-book-cover" th:src="${review.bookshelf.cover_page}" th:if="${review.bookshelf.cover_page != ''}" th:alt="${review.bookshelf.title}" />
+                                    <!-- user Profile Img No Img -->
+                                    <img class="userReview-book-cover" th:src="@{/img/noProfileImage.png}" th:if="${review.user.profilePicturePath == ''}" alt="No Image Provided" />
+                                    <!-- Username -->
+                                    <h5 th:text="${review.bookshelf.title}">Username</h5>
+                                </a>
+                            </section>
+                            <!----- Book Review Title Rating & Body ----->
+                            <section class="review-rating-body-container">
+                                <h5 th:text="${review.title}">Review Title</h5>
+                                <span th:switch="${review.getRating()}" class="">
+                                    <img th:case="'0'" th:src="@{/img/ratings/noStar.png}" th:alt="${review.getRating()}" class="review-book-rating">
+                                    <img th:case="'1'" th:src="@{/img/ratings/oneStar.png}" th:alt="${review.getRating()}" class="review-book-rating">
+                                    <img th:case="'2'" th:src="@{/img/ratings/twoStars.png}" th:alt="${review.getRating()}" class="review-book-rating">
+                                    <img th:case="'3'" th:src="@{/img/ratings/threeStars.png}" th:alt="${review.getRating()}" class="review-book-rating">
+                                    <img th:case="'4'" th:src="@{/img/ratings/fourStars.png}" th:alt="${review.getRating()}" class="review-book-rating">
+                                    <img th:case="'5'" th:src="@{/img/ratings/fiveStars.png}" th:alt="${review.getRating()}" class="review-book-rating">
+                                </span>
+                                <p th:text="${review.body}">Review Body</p>
+                                <!-- Edit Review Buttons -->
+                                <img th:src="@{/img/edit-button-01.png}" alt="Edit Review" class="btn settings-btn edit-review-btn user-review-edit-button">
+
+                            </section>
+                            <!----- Form to edit review ------->
+                            <aside class="edit-review-form-container">
+                                <!-- Delete Review Button -->
+                                <button class="btn btn-danger edit-review-delete-button">
+                                    <img th:src="@{/img/trash.png}" alt="trash-icon" class="trashcanIcon">
+                                </button>
+                                <!-- Delete Verification Modal -->
+                                <div id="modalDeleteReview" class="modal-container">
+                                    <h3>Are you sure you would like to delete this review?</h3>
+                                    <!-- Delete Review Verify -->
+                                    <form th:action="@{/review/delete/{id}(id = ${review.getId()})}" method="POST">
+                                        <button type="submit" class="main-review-delete-button" >Delete</button>
+                                        <button type="reset" class="cancel-delete-button">Cancel</button>
+                                    </form>
+                                </div>
+                                <!-- Edit Review -->
+                                <form th:action="@{/review/{id}(id = ${review.getId()})}" method="POST" th:object="${editReviewByNew}" class="edit-review-form">
+                                    <!-- Rating -->
+                                    <div class="">
+                                        <label>
+                                            <select class="form-select"  th:field="*{rating}">
+                                                <option th:value="${review.getRating()}">Rating:</option>
+                                                <option value="1">One Stars</option>
+                                                <option value="2">Two Stars</option>
+                                                <option value="3">Three Stars</option>
+                                                <option value="4">Four Stars</option>
+                                                <option value="5">Five Stars</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                    <!-- Title -->
+                                    <div class="">
+                                        <label for="editReviewTitle"></label>
+                                        <input type="text" class="form-control editReviewTitle" th:value="${review.getTitle()}" th:placeholder="${review.getTitle()}" th:field="*{title}" id="editReviewTitle">
+                                    </div>
+                                    <!-- Body -->
+                                    <div class="mb-3">
+                                        <label for="editReviewBody"></label>
+                                        <textarea class="form-control" id="editReviewBody" th:value="${review.getBody()}" th:placeholder="${review.getBody()}" th:field="*{body}" rows="4" style="resize:none;"></textarea>
+                                    </div>
+                                    <!-- Submit and Cancel Button -->
+                                    <button type="submit" class="btn btn-primary submitButton">Submit</button>
+                                    <button type="button" class="btn btn-secondary edit-review-cancel-button">Cancel</button>
+                                </form>
+                            </aside>
+                        </div>
+                        <!--If No Reviews for a  Book-->
+                        <section th:unless="${usersReview != null and not #lists.isEmpty(usersReview)}" class="mx-auto mb-5">
+                            <h5 class="text-center">No Recent Reviews</h5>
+                        </section>
+                    </div>
+                    <!-- Edit Form | Delete Review Button | Verification -->
+
+                </div>
+            </div>
+
+        </div>
     </div>
 </main>
 
 
 
 
-<!=== Footer ===>
-<footer th:replace="partials/footer.html :: Footer"></footer>
-<script th:src="@{/js/userProfile.js}"></script>
+
+
+
+
+
+
+
+<!----- Footer ----->
+<footer id="footer" class="container-fluid footer-fixed">
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Fake Copyright <strong><span>Bookworm V.2</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Production by <a href="https://www.linkedin.com/in/heygilly/">HeyGilly</a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<!-- Navbar Search -->
 <script th:src="@{/js/searchForBookNavbar.js}"></script>
+<!-- User Profile -->
+<script th:src="@{/js/profile.js}"></script>
+<!-- Edit Review  -->
 <script th:src="@{/js/edit-reviews.js}"></script>
+<!--  Bootstrap 5.2  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 </html>

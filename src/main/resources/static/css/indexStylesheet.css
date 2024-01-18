@@ -12,9 +12,10 @@
 /*Welcome Page*/
 @import "welcomeStylesheet.css";
 /*Book Page*/
-@import "welcomeStylesheet.css";
-/*Book Page*/
 @import "bookPageStylesheet.css";
+/*User Profile Page*/
+@import "profileStylesheet.css";
+
 
 
 /*======= Index Page =======*/

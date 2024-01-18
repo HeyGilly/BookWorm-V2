@@ -24,7 +24,16 @@ main #hero-introduction .container #section-one aside .login-button,
 #main-book-page #leftSide-book-page #write-review-button,
 #main-book-page #leftSide-book-page .purchase-book-btn,
 #writeAReviewContainer #writing-review-form .btn-primary,
-#writeAReviewContainer #writing-review-form .btn-secondary
+#writeAReviewContainer #writing-review-form .btn-secondary,
+#main-profile #leftSide-user-profile #user-information #friendForm .friend-button,
+#main-profile #leftSide-user-profile #user-information #unfriendForm .unfriend-button,
+#main-profile #leftSide-user-profile #user-information .setting-button,
+#main-profile #leftSide-user-profile #setting-form-container  #submitEditProfileButton,
+#main-profile #leftSide-user-profile #setting-form-container  #cancelEditProfileButton,
+.edit-review-form-container .edit-review-form .submitButton,
+.edit-review-form-container .edit-review-form .edit-review-cancel-button,
+#modalDeleteReview form .main-review-delete-button,
+#modalDeleteReview form .cancel-delete-button
 {
     background-color: #13aa52;
     border: 1px solid #13aa52;
@@ -72,7 +81,16 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #main-book-page #leftSide-book-page #write-review-button:hover,
 #main-book-page #leftSide-book-page .purchase-book-btn:hover,
 #writeAReviewContainer #writing-review-form .btn-primary:hover,
-#writeAReviewContainer #writing-review-form .btn-secondary:hover
+#writeAReviewContainer #writing-review-form .btn-secondary:hover,
+#main-profile #leftSide-user-profile #user-information #friendForm .friend-button:hover,
+#main-profile #leftSide-user-profile #user-information #unfriendForm .unfriend-button:hover,
+#main-profile #leftSide-user-profile #user-information .setting-button:hover,
+#main-profile #leftSide-user-profile #setting-form-container  #submitEditProfileButton:hover,
+#main-profile #leftSide-user-profile #setting-form-container  #cancelEditProfileButton:hover,
+.edit-review-form-container .edit-review-form .submitButton:hover,
+.edit-review-form-container .edit-review-form .edit-review-cancel-button:hover,
+#modalDeleteReview form .main-review-delete-button:hover,
+#modalDeleteReview form .cancel-delete-button:hover
 {
     background-color: #0e8641;
     border: 1px solid #0e8641;
@@ -96,7 +114,9 @@ main #hero-introduction .container #section-one aside .login-button,
 #main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn,
 #forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn,
 #main-book-page #leftSide-book-page form .unliked-book-btn,
-#writeAReviewContainer #writing-review-form .btn-primary
+#writeAReviewContainer #writing-review-form .btn-primary,
+#main-profile #leftSide-user-profile #setting-form-container  #submitEditProfileButton,
+.edit-review-form-container .edit-review-form .submitButton
 {
 
     background-color: #5b8ed5;
@@ -114,7 +134,9 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #main-login .container #loginCard #login-section-two #login-form #login-form-submit-btn:hover,
 #forgotPasswordMain .container #forgotPasswordForm #forgotPassword-submit-btn:hover,
 #main-book-page #leftSide-book-page form .unliked-book-btn:hover,
-#writeAReviewContainer #writing-review-form .btn-primary:hover
+#writeAReviewContainer #writing-review-form .btn-primary:hover,
+#main-profile #leftSide-user-profile #setting-form-container  #submitEditProfileButton:hover,
+.edit-review-form-container .edit-review-form .submitButton:hover
 {
     background-color: rgba(100, 149, 237, 0.49);
     border: 1px solid rgba(100, 149, 237, 0.49);
@@ -122,15 +144,21 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 
 
 
-/*--------- Navigation ---------*/
+/**
+    Navigation
+
+ */
 /*Login Button*/
 #loggedOutNavbar .container #navbarNavAltMarkup .navbar-nav .nav-log-in{
     margin-right: 12px;
     margin-left: 12px;
 }
 
-/*-------------- liked Button --------------*/
 
+/**
+   Book Profile
+
+ */
 
 /*--------- liked Button ---------*/
 #main-book-page #leftSide-book-page form .liked-book-btn{
@@ -179,19 +207,80 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 
 }
 /*--------- Book-Page - Writing Review Cancel Button ---------*/
-#writeAReviewContainer #writing-review-form .btn-secondary{
+/*--------- Book-Page - Settings Form Cancel Button ---------*/
+/*--------- Profile - Modal Container ---------*/
+#writeAReviewContainer #writing-review-form .btn-secondary,
+#main-profile #leftSide-user-profile #setting-form-container  #cancelEditProfileButton,
+.edit-review-form-container .edit-review-form .edit-review-cancel-button,
+#modalDeleteReview form .cancel-delete-button
+{
     background-color: #b9babb;
     border: 1px solid #b9babb;
 }
 /*--------- Book-Page - Writing Review Cancel Button : HOVER---------*/
-#writeAReviewContainer #writing-review-form .btn-secondary:hover{
+#writeAReviewContainer #writing-review-form .btn-secondary:hover,
+#main-profile #leftSide-user-profile #setting-form-container  #cancelEditProfileButton:hover,
+.edit-review-form-container .edit-review-form .edit-review-cancel-button:hover,
+#modalDeleteReview form .cancel-delete-button:hover
+{
     background-color: #2f2f2f;
     border: 1px solid #2f2f2f
+}
+
+/**
+    PROFILE PAGE
+
+ */
+
+/*--------- Profile-Page - Friend Button ---------*/
+#main-profile #leftSide-user-profile #user-information #friendForm .friend-button{
+    width: 200px;
+    background-color: #5b8ed5;
+    border: 1px solid #5b8ed5;
+}
+/*--------- Profile-Page - Friend Button : HOVER ---------*/
+#main-profile #leftSide-user-profile #user-information #friendForm .friend-button:hover{
+    background-color: rgba(100, 149, 237, 0.49);
+    border: 1px solid rgba(100, 149, 237, 0.49);
+}
+/*--------- Profile-Page - Unfriend Button ---------*/
+#main-profile #leftSide-user-profile #user-information #unfriendForm .unfriend-button{
+    width: 200px;
+}
+/*--------- Profile-Page - Unfriend Button : HOVER ---------*/
+#main-profile #leftSide-user-profile #user-information #unfriendForm .unfriend-button:hover{
+
+}
+/*--------- Profile-Page - Setting Button ---------*/
+#main-profile #leftSide-user-profile #user-information .setting-button{
+    background-color: #b9babb;
+    border: 1px solid #b9babb;
+    width: 200px;
+}
+/*--------- Profile-Page - Setting Button HOVER ---------*/
+#main-profile #leftSide-user-profile #user-information .setting-button:hover{
+    background-color: #2f2f2f;
+    border: 1px solid #2f2f2f
+}
+
+/*--------- Profile-Page - Modal Container ---------*/
+#modalDeleteReview form .main-review-delete-button{
+    background-color: #f12323;
+    border: 1px solid #f12323;
+}
+/*--------- Profile-Page - Hover ---------*/
+#modalDeleteReview form .main-review-delete-button:hover{
+    background-color: #7c0c0c;
+    border: 1px solid #7c0c0c;
 }
 
 
 
 
+/**
+    Media Queries
+
+ */
 /*---------- Screens smaller than 991px ----------*/
 @media (max-width: 991px){
     /*About Bookworm*/

@@ -1,0 +1,540 @@
+/**
+*
+    User Profile Page
+*/
+
+#main-profile{
+    background: rgba(154, 182, 222, 0.27);
+    /*<!---------- Left Side - Book Information  ---------->*/
+    #leftSide-user-profile{
+        background-color: #37517e;
+        padding-top: 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        height: 100%;
+        width: 25%;
+        overflow: hidden;
+        @media (max-width:991px) {
+            &{
+                width: 33%;
+            }
+        }
+        @media (max-width:767px) {
+            &{
+                position: relative;
+                width: 100%;
+                height: fit-content;
+                padding-bottom: 42px;
+            }
+        }
+        /*Profile Image Container*/
+        #user-photoImage{
+            /*--- User Profile Picture ---*/
+            .user-profile-picture{
+                height: 380px;
+                width: 260px;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+        }
+        /*User information Container*/
+        #user-information{
+            margin-top: 24px;
+            padding: 0 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            /*Add Friend Form Button*/
+            #friendForm{
+                display: flex;
+                justify-content: center;
+            }
+            /*unFriend Form Button*/
+            #unfriendForm{
+                display: flex;
+                justify-content: center;
+            }
+            /*Settings Button*/
+            .setting-button{
+                margin: 0 auto;
+            }
+            & h2{
+                margin-top: 12px;
+                color: #fff;
+                > span{
+
+                }
+            }
+            & p{
+                color: #fff;
+            }
+            #favoriteGenreListed{
+                .fav-genre-profile{
+                    line-height: normal;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 21px;
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                    padding:0;
+                }
+                /*User's Fav Genre Container*/
+                #userFavoriteGenreContainer{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    /*Start of the delete Form*/
+                    .favoriteGenreDeleteForm{
+                        position: relative;
+                        /*Delete Button*/
+                        .delete-fav-genre-button{
+                            position: absolute;
+                            top: -10px;
+                            right: -10px;
+                            font-size: 12px;
+                            padding: 0 5px;
+                        }
+                        /*Each Liked Genre*/
+                        & p{
+                            border: none;
+                            background-color: white;
+                            width: fit-content;
+                            color: #1e1e1e;
+                            padding: 5px 8px;
+                            margin-left: 12px;
+                            border-radius: 3px;
+                        }
+
+                    }
+                }
+            }
+        }
+        /*Settings Form Container*/
+        #setting-form-container{
+            /*Settings Form*/
+            > form{
+                color: #fff;
+                /*Settings Form Title*/
+                > h3{
+                    text-align: center;
+                    padding-top: 16px;
+                }
+            }
+        }
+
+    } /*<!-- End of Left -->*/
+    /*<!---------- Right Side - Friends, Fav Books, Reviews  ---------->*/
+    #rightSide-user-profile {
+        width: 100%;
+        height: fit-content;
+        padding-left: 25%;
+        padding-bottom: 62px;
+        @media (max-width: 991px) {
+            & {
+                padding-left: 33%;
+            }
+        }
+        @media (max-width: 767px) {
+            & {
+                padding-left: 0;
+            }
+        }
+        .container-lg {
+            width: 100%;
+            height: fit-content;
+            /*Best Friend Main Title*/
+            #bestFriendsContainer {
+                padding-top: 42px;
+                /*Main Title Container*/
+
+                .bf-title-container {
+                    /*Anchor*/
+
+                    #bf-main-title-anchor {
+                        /*Main Title - Bookworms*/
+
+                        #bf-title {
+                            text-align: center;
+                            padding-bottom: 12px;
+                            position: relative;
+                            color: #37517e;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                display: block;
+                                width: 120px;
+                                height: 1px;
+                                background: #fff;
+                                bottom: 1px;
+                                left: calc(50% - 60px);
+                            }
+
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                display: block;
+                                width: 40px;
+                                height: 3px;
+                                background: #47b2e4;
+                                bottom: 0;
+                                left: calc(50% - 20px);
+                            }
+                        }
+                    }
+                }
+
+                /*Best Friend List Container*/
+
+                #bf-container {
+                    padding: 24px 0 42px 0;
+                    margin-bottom: 24px;
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    overflow-x: scroll;
+                    scroll-behavior: smooth;
+                    gap: 0 1em;
+                    scrollbar-color: #007 rgba(154, 182, 222, 0.27);
+                    /*Each Friend*/
+
+                    .eachBF {
+                        background: black;
+                        border-radius: 15px;
+                        box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                        transition: all 0.8s ease-in-out;
+
+                        &:hover {
+                            background: transparent;
+                            /*HOVER: anchor*/
+
+                            .bf-everyAnchor {
+                                /*Hover - Every friend img*/
+
+                                .bf-everFriendImg {
+                                    opacity: 1;
+                                    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                                    transform: scale(0.98);
+                                }
+
+                                /*Hover - Every friend username*/
+
+                                .bf-everFriendUsername {
+                                    opacity: 0;
+                                }
+                            }
+                        }
+
+                        /*Each anchor*/
+
+                        .bf-everyAnchor {
+                            position: relative;
+                            /*each image*/
+
+                            .bf-everFriendImg {
+                                height: 240px;
+                                width: 240px;
+                                object-fit: cover;
+                                opacity: 0.3;
+                                border-radius: 15px;
+                                box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                            }
+
+                            /*Each Username*/
+
+                            .bf-everFriendUsername {
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                opacity: 1;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+
+            /*Favorite Books*/
+            #favoriteBookList {
+                .container-lg {
+                    /*Title Section*/
+
+                    #title-favoriteBooks-section {
+                        /*Title*/
+
+                        #title-favoriteBook {
+                            text-align: center;
+                            padding-bottom: 12px;
+                            position: relative;
+                            color: #37517e;
+
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                display: block;
+                                width: 120px;
+                                height: 1px;
+                                background: #fff;
+                                bottom: 1px;
+                                left: calc(50% - 60px);
+                            }
+
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                display: block;
+                                width: 40px;
+                                height: 3px;
+                                background: #47b2e4;
+                                bottom: 0;
+                                left: calc(50% - 20px);
+                            }
+                        }
+                    }
+
+                    /*Favorite Book Section*/
+
+                    #favoriteBookContainer {
+                        display: flex;
+                        overflow-x: scroll;
+                        scroll-behavior: smooth;
+                        column-gap: 21px;
+                        padding: 42px 0;
+                        scrollbar-color: #007 rgba(154, 182, 222, 0.27);
+
+                        .book-container {
+                            background: #fff;
+                            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                            border-radius: 25px;
+                            min-width: 190px;
+                            width: 190px;
+                            height: auto;
+                            transition: transform 0.8s, box-shadow 1s;
+                            /*Hover*/
+
+                            &:hover {
+                                transform: scale(0.98);
+                                box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+                            }
+
+                            & a {
+                                text-decoration: none;
+                                color: #1e1e1e;
+                                /*Book Cover*/
+
+                                .book-cover {
+                                    height: 220px;
+                                    width: 100%;
+                                    border-radius: 25px 25px 0 0;
+                                }
+
+                                & p {
+                                    padding-left: 12px;
+                                    padding-bottom: 0;
+                                    width: 100%;
+                                    /*Each Book Title*/
+
+                                    .book-title {
+                                        font-weight: 600;
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            /*User Reviews*/
+            #userReviewsContainer {
+                .container-lg {
+                    /*Title Section*/
+                    #title-userReviews-section{
+                        margin-top: 42px;
+                        /*Title*/
+                        #title-userReviews {
+                            text-align: center;
+                            padding-bottom: 12px;
+                            position: relative;
+                            color: #37517e;
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                display: block;
+                                width: 120px;
+                                height: 1px;
+                                background: #fff;
+                                bottom: 1px;
+                                left: calc(50% - 60px);
+                            }
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                display: block;
+                                width: 40px;
+                                height: 3px;
+                                background: #47b2e4;
+                                bottom: 0;
+                                left: calc(50% - 20px);
+                            }
+                        }
+                    }
+                    .userReviewSection {
+                        margin-top: 42px;
+                        margin-bottom: 140px;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(440px,1fr));
+                        gap: 24px;
+                        @media (max-width: 575px) {
+                            & {
+                                grid-template-columns: 1fr;
+                            }
+                        }
+                        .container-fluid {
+                            background-color: rgba(32, 157, 216, 0.15);
+                            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                            position: relative;
+                            display: grid;
+                            grid-template-columns: 25% 75%;
+                            border-radius: 15px;
+                            padding: 12px 8px;
+                            @media (max-width: 575px) {
+                                & {
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                            }
+                            /*Liked Counter Form*/
+                            #likeCounterForm {
+                                position: absolute;
+                                top : 10px;
+                                right: 10px;
+                            }
+                            /*Book Cover and Title*/
+                            #bookCover-title-section {
+                                margin: 0 auto;
+                                text-align: center;
+                                /*Anchor*/
+                                .userReview-anchor {
+                                    text-decoration: none;
+                                    /*Book Cover*/
+                                    .userReview-book-cover {
+                                        height: 160px;
+                                        width: 100px;
+                                        margin: 0 auto;
+                                        text-align: center;
+                                        border-radius: 12px;
+                                        object-fit: cover;
+                                        transition: all .35s ease-in-out;
+                                        @media (max-width: 575px) {
+                                            & {
+                                               margin: 24px auto 12px auto;
+                                            }
+                                        }
+                                        &:Hover {
+                                            transform: scale(1.08);
+                                            border: 1px solid #fff;
+                                            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+                                        }
+                                    }
+                                    /* Book Title */
+                                    > h5 {
+                                        color: #37517e;
+                                        font-size: 16px;
+                                        text-align: center;
+                                        transition: transform 0.80s ease-in-out;
+                                        &:Hover {
+                                            transform: scale(1.1);
+                                            }
+                                        }
+                                    }
+                                }
+                            /*Book Review Title Rating & Body*/
+                            .review-rating-body-container {
+                                /*Review Title*/
+                                > h5 {}
+                                /*Review Rating Section*/
+                                > span {
+                                    /*Review Rating*/
+                                    .review-book-rating {
+                                        height: 25px;
+                                        width: auto;
+                                        margin-bottom: 12px;
+                                        }
+                                }
+                                /*Review Body*/
+                                > p {
+
+                                }
+                                /*Settings Button*/
+                                .settings-btn{
+                                    position: absolute;
+                                    bottom: 10px;
+                                    right: 10px;
+                                    width: 60px;
+                                    height: auto;
+                                    @media (max-width: 575px) {
+                                        & {
+                                            position: absolute;
+                                            top: 10px;
+                                            left: 10px;
+                                        }
+                                    }
+                                }
+
+                            }
+                            /*.Form to Edit Review*/
+                            .edit-review-form-container{
+                                position: relative;
+                                display: none;
+                                /*Trash Button*/
+                                .edit-review-delete-button{
+                                    position: absolute;
+                                    bottom: -10px;
+                                    right: 10px;
+                                    @media (max-width: 575px) {
+                                        & {
+                                            position: absolute;
+                                            top: 10px;
+                                            bottom: revert;
+                                        }
+                                    }
+                                    /*Image*/
+                                    .trashcanIcon{
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                }
+                                /**/
+                                .modal-container{
+                                    display: none;
+                                    > h3{
+                                        padding-top: 42px;
+                                    }
+                                    > form{
+                                        .main-review-delete-button{}
+                                        .cancel-delete-button{}
+                                    }
+                                }
+                            }
+
+
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+
+
+

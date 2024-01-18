@@ -93,7 +93,7 @@ public class main_controller {
     public String singleBook(Model model, @PathVariable("id") long bookId){
 
         //-- find user
-        User currentUser =  userRepository.findUserById(11);
+        User currentUser =  userRepository.findUserById(3);
         model.addAttribute("user", currentUser);
 
         long BookByISBN = bookshelfRepo.findById(bookId).get().getIsbn();
@@ -128,9 +128,10 @@ public class main_controller {
 
         model.addAttribute("faved", isFavorite);
 
+
         //-- For Users to like Reviews
         List<Boolean> userLikes = new ArrayList<>();
-        for (Reviews singleReview : allReviewFromBook) {
+        for (Reviews singleReview : reviewRepository.findReviewByUserIdSorted(currentUser.getId())) {
             LikedReview userLikedReview = likedRepository.findByUserAndReview(currentUser, singleReview);
             // Add true if user liked the review, false otherwise
             userLikes.add(userLikedReview != null);
@@ -237,9 +238,9 @@ public class main_controller {
                 // Set the file path in the user object
                 user.setProfilePicturePath("img/profilePicture/" + filePath);
             }
-            if (!userModel.getPassword().isEmpty()){
-                user.setPassword(userModel.getPassword());
-            }
+//            if (!userModel.getPassword().isEmpty()){
+//                user.setPassword(userModel.getPassword());
+//            }
             user.setFirst_name(userModel.getFirst_name());
             user.setLast_name(userModel.getLast_name());
             user.setEmail(userModel.getEmail());
