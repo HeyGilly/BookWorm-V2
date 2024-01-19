@@ -164,10 +164,7 @@ Thursday, Dec 7 - Friday Dec 8
 
         [X] Profile Page, Refactor
 
-    WORKING:
-        [ ] Refactor Notification page.
-
-        [ ] Refactor pages
+        [X] Refactor pages
             [X] Pending Friends
             [X] Profile Page
             [X] About the project
@@ -180,12 +177,14 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Navbar - Log Out
             [X] Navbar - Log In
 
+
+    WORKING:
+
             [ ] Create a all books page.
                 Then we will do a filer of genre
 
         [ ] Take a look at the like button on both book and user profile.
         [ ] SingUp, add the username has to be unique.
-        [ ] Book Profile, Once write a review clicked it moves to location mobile.
         [ ] Profile, Like Button make a hover
 
         [ ] Security
