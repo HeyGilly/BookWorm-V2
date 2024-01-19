@@ -33,7 +33,9 @@ main #hero-introduction .container #section-one aside .login-button,
 .edit-review-form-container .edit-review-form .submitButton,
 .edit-review-form-container .edit-review-form .edit-review-cancel-button,
 #modalDeleteReview form .main-review-delete-button,
-#modalDeleteReview form .cancel-delete-button
+#modalDeleteReview form .cancel-delete-button,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .addNewFriendForm .addNewFriendButton,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .unfriendForm .unfriendButton
 {
     background-color: #13aa52;
     border: 1px solid #13aa52;
@@ -90,7 +92,9 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 .edit-review-form-container .edit-review-form .submitButton:hover,
 .edit-review-form-container .edit-review-form .edit-review-cancel-button:hover,
 #modalDeleteReview form .main-review-delete-button:hover,
-#modalDeleteReview form .cancel-delete-button:hover
+#modalDeleteReview form .cancel-delete-button:hover,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .addNewFriendForm .addNewFriendButton:hover,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .unfriendForm .unfriendButton:hover
 {
     background-color: #0e8641;
     border: 1px solid #0e8641;
@@ -116,7 +120,8 @@ main #hero-introduction .container #section-one aside .login-button,
 #main-book-page #leftSide-book-page form .unliked-book-btn,
 #writeAReviewContainer #writing-review-form .btn-primary,
 #main-profile #leftSide-user-profile #setting-form-container  #submitEditProfileButton,
-.edit-review-form-container .edit-review-form .submitButton
+.edit-review-form-container .edit-review-form .submitButton,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .addNewFriendForm .addNewFriendButton
 {
 
     background-color: #5b8ed5;
@@ -136,7 +141,8 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #main-book-page #leftSide-book-page form .unliked-book-btn:hover,
 #writeAReviewContainer #writing-review-form .btn-primary:hover,
 #main-profile #leftSide-user-profile #setting-form-container  #submitEditProfileButton:hover,
-.edit-review-form-container .edit-review-form .submitButton:hover
+.edit-review-form-container .edit-review-form .submitButton:hover,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .addNewFriendForm .addNewFriendButton:hover
 {
     background-color: rgba(100, 149, 237, 0.49);
     border: 1px solid rgba(100, 149, 237, 0.49);
@@ -212,7 +218,8 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #writeAReviewContainer #writing-review-form .btn-secondary,
 #main-profile #leftSide-user-profile #setting-form-container  #cancelEditProfileButton,
 .edit-review-form-container .edit-review-form .edit-review-cancel-button,
-#modalDeleteReview form .cancel-delete-button
+#modalDeleteReview form .cancel-delete-button,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .unfriendForm .unfriendButton
 {
     background-color: #b9babb;
     border: 1px solid #b9babb;
@@ -221,7 +228,8 @@ main #hero-introduction .container #section-one aside .login-button:hover,
 #writeAReviewContainer #writing-review-form .btn-secondary:hover,
 #main-profile #leftSide-user-profile #setting-form-container  #cancelEditProfileButton:hover,
 .edit-review-form-container .edit-review-form .edit-review-cancel-button:hover,
-#modalDeleteReview form .cancel-delete-button:hover
+#modalDeleteReview form .cancel-delete-button:hover,
+#rightSide-notifications #notificationContainer .container-lg #body-notification-section .eachNotification .form-containers .unfriendForm .unfriendButton:hover
 {
     background-color: #2f2f2f;
     border: 1px solid #2f2f2f

@@ -189,7 +189,6 @@
                 }
 
                 /*Best Friend List Container*/
-
                 #bf-container {
                     padding: 24px 0 42px 0;
                     margin-bottom: 24px;
@@ -201,28 +200,22 @@
                     gap: 0 1em;
                     scrollbar-color: #007 rgba(154, 182, 222, 0.27);
                     /*Each Friend*/
-
                     .eachBF {
                         background: black;
                         border-radius: 15px;
                         box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
                         transition: all 0.8s ease-in-out;
-
                         &:hover {
                             background: transparent;
                             /*HOVER: anchor*/
-
                             .bf-everyAnchor {
                                 /*Hover - Every friend img*/
-
                                 .bf-everFriendImg {
                                     opacity: 1;
                                     box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
                                     transform: scale(0.98);
                                 }
-
                                 /*Hover - Every friend username*/
-
                                 .bf-everFriendUsername {
                                     opacity: 0;
                                 }

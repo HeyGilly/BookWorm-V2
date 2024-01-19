@@ -160,13 +160,15 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Login Page, Refactored.
         [X] Forgot Password Page
         [X] welcome Page, refactored
-
         [X] Single Book page
 
+        [X] Profile Page, Refactor
+
     WORKING:
-        [ ] Profile Page, Refactor
+        [ ] Refactor Notification page.
 
         [ ] Refactor pages
+            [X] Pending Friends
             [X] Profile Page
             [X] About the project
             [X] Footer
@@ -177,7 +179,14 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Forgot Password Page
             [X] Navbar - Log Out
             [ ] Navbar - Log In
-            [ ] Pending Friends
+
+            [ ] Create a all books page.
+                Then we will do a filer of genre
+
+        [ ] Take a look at the like button on both book and user profile.
+        [ ] SingUp, add the username has to be unique.
+        [ ] Book Profile, Once write a review clicked it moves to location mobile.
+        [ ] Profile, Like Button make a hover
 
         [ ] Security
             [ ] Controllers refactoring

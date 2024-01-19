@@ -1,81 +1,223 @@
-
-/*======= Notification =======*/
-.mainNotificationSection{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: auto;
-    grid-gap: 20px 1em;
-    margin: 0 20px;
-}
-/*=== Notification Body ===*/
-.mainNotificationSection .body-notification{
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
-    border-radius: 15px;
-    background-color: rgba(32, 157, 216, 0.15);
-}
-
-/*=== Friend Profile Picture ===*/
-.mainNotificationSection .body-notification .friend-profile-picture {
+/**
+*
+    Notification Page
+*/
+html,body{height: 100%;}
+#main-notifications{
+    height: 100%;
     width: 100%;
-    height: 320px;
-    object-fit: cover;
-    object-position: center top;
-    border-radius: 15px 15px 0 0;
-}
-/*=== Friend anchor ===*/
-.mainNotificationSection .body-notification a {
-    text-decoration: none;
-}
-/*=== Friend Username ===*/
-.mainNotificationSection .body-notification h4 {
-    font-weight: 600;
-    text-align: center;
-    margin-top: 24px;
-    color: #1e1e1e;
-}
-/*=== Friend Username ===*/
-.mainNotificationSection .body-notification .form-containers{
-    display: flex;
-    justify-content: space-evenly;
-    margin-bottom: 24px;
-}
-
-.addNewFriendForm .addNewFriendButton{
-    background-color: rgba(100, 149, 237, 0.49);
-    border: 1px solid rgba(100, 149, 237, 0.49);
-}
-.unfriendForm .unfriendButton:hover{
-    background-color: rgb(169, 169, 169);
-    border: 1px solid rgb(169, 169, 169);
-}
-
-.addNewFriendForm .addNewFriendButton:hover{
-    background-color: rgba(100, 149, 237, 1);
-    border: 1px solid rgba(100, 149, 237, 1);
-}
-
-/*=== Screen smaller then 991px ===*/
-@media (max-width: 991px){
-    /*======= Notification =======*/
-    .mainNotificationSection{
-        grid-template-columns: repeat(2, 1fr);
+    background: rgba(154, 182, 222, 0.27);
+    /*background: transparent;*/
+    @media (max-width:767px) {
+        &{
+            /*background: rgba(154, 182, 222, 0.27);;*/
+            background: transparent;
+        }
     }
-}
-
-/*=== Screen smaller then 767px ===*/
-@media (max-width: 767px){
-}
-
-/*=== Screen smaller then 575px ===*/
-@media (max-width: 575px){
-    /*======= Notification =======*/
-    .mainNotificationSection{
-        grid-template-columns: repeat(1, 1fr);
-    }
-    /*=== Friend Profile Picture ===*/
-    .mainNotificationSection .body-notification .friend-profile-picture {
+    /*----------Left side -----------*/
+    #leftSide-notifications{
+        background-color: #37517e;
+        padding-top: 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        height: 100%;
+        width: 25%;
+        overflow: hidden;
+        @media (max-width:991px) {
+            &{
+                width: 33%;
+            }
+        }
+        @media (max-width:767px) {
+            &{
+                position: relative;
+                width: 100%;
+                height: fit-content;
+                padding-bottom: 42px;
+            }
+        }
+        /*Profile Image Container*/
+        #user-photoImage{
+            /*--- User Profile Picture ---*/
+            .user-profile-picture{
+                height: 380px;
+                width: 260px;
+                border-radius: 20px;
+                object-fit: cover;
+            }
+        }
+        /*User information Container*/
+        #user-information{
+            margin-top: 24px;
+            padding: 0 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            & h2{
+                margin-top: 12px;
+                color: #fff;
+            }
+        }
+    }/* <---- End of Left Side */
+    /*----------Right side -----------*/
+    #rightSide-notifications{
         width: 100%;
-        height: auto;
-        max-height: 420px;
+        height: fit-content;
+        padding-left: 25%;
+        padding-bottom: 120px;
+                background: transparent;
+        @media (max-width: 991px) {
+            & {
+                padding-left: 33%;
+            }
+        }
+        @media (max-width: 767px) {
+            & {
+                padding-left: 0;
+                background: rgba(154, 182, 222, 0.27);
+
+            }
+        }
+        #notificationContainer{
+            padding-top: 42px;
+
+            .container-lg{
+                display: flex;
+                flex-direction:  column;
+                justify-content: center;
+                align-items: center;
+                /*Title Section*/
+                #title-notification-section{
+                    margin-bottom: 120px;
+                    /*Title*/
+                    #title-notification{
+                        text-align: center;
+                        padding-bottom: 12px;
+                        position: relative;
+                        color: #37517e;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            width: 120px;
+                            height: 1px;
+                            background: #fff;
+                            bottom: 1px;
+                            left: calc(50% - 60px);
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            width: 40px;
+                            height: 3px;
+                            background: #47b2e4;
+                            bottom: 0;
+                            left: calc(50% - 20px);
+                        }
+                    }
+                }
+                /*Body Section*/
+                #body-notification-section{
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    gap: 120px 24px;
+                    @media (max-width: 991px) {
+                        & {
+                            gap: 100px 3px;
+                            width: 98%;
+                        }
+                    }
+
+                    /*Each notification*/
+                    .eachNotification{
+                        background: #fff;
+                        height: auto;
+                        width: 30%;
+                        border: #c6d0d9 5px solid;
+                        border-radius: 8px;
+                        position: relative;
+                        padding-top: 42px;
+                        @media (max-width: 991px) {
+                            & {
+                                width: 240px;
+                            }
+                        }
+                        @media (max-width: 575px) {
+                            & {
+                                width: 75%;
+                                margin: 0 auto;
+                            }
+                        }
+                        /*Anchor*/
+                        .anchor-new-friend{
+                            text-decoration: none;
+                            /*Friend Img*/
+                            .friend-profile-picture{
+                                height: 120px;
+                                width: 120px;
+                                border-radius: 50px;
+                                object-fit: cover;
+                                position: absolute;
+                                top: -20px;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                border: #c6d0d9 5px solid;
+                            }
+                            /* Friend Username */
+                            .friend-username{
+                                color: #37517e;
+                                padding: 12px 0;
+                                text-align: center;
+                            }
+                        }
+                        /*Form Containers*/
+                        .form-containers{
+                            display: flex;
+                            justify-content: space-evenly;
+                            padding-bottom: 12px;
+                            /*Friend Form*/
+                            .addNewFriendForm{
+                                .addNewFriendButton{
+
+                                }
+                            }
+                            /*Unfriend Form*/
+                            .unfriendForm{
+                                .unfriendButton{
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
+
+
+
+
+.footer-fixed-notifications{
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    @media (max-width:767px) {
+        &{
+
+        }
+    }
+}
+
+
+
+
+
+

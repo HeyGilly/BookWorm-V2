@@ -1,79 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" >
-<!=== Head in Thymeleaf - Fragments ===>
+<!----- Head in Thymeleaf - Fragments ----->
 <head th:replace="partials/head.html :: head ('Notifications')" ></head>
 <body>
 
-<!===== Navbar =====>
+<!------ Navbar ------>
 <nav th:replace="partials/loginNavbar :: LoggedIn-Navbar"></nav>
 
 
-<main class="container-fluid">
-    <div class="row">
-        <!------- Left Side - User Information ------->
-        <div id="left-side-user-info-container" class="col-12 col-sm-4 col-md-4">
-            <!-- Not sure what this div is for? -->
-            <div id="user-profile-info">
-                <!-- image section -->
-                <section class="user-profile-container" id="user-profile-container">
-                    <!-- Image if there is no pathway -->
-                    <img
-                            class="user-profile-picture"
-                            th:src="@{/img/noProfileImage.png}"
-                            th:if="${user.profilePicturePath == null}"
-                            alt="No Image Provided">
-                    <!-- Profile Picture -->
-                    <img
-                            class="user-profile-picture"
-                            th:src="${user.getProfilePicturePath()}"
-                            th:if="${user.profilePicturePath != ''}"
-                            th:alt="${user.getUsername()}">
-                </section>
-                <section class="user-information-container" id="user-information-container">
-
-                    <!-- User Greeting -->
-                    <h2>
-                        Hello <span th:text="${user.getUsername()}">USERNAME</span>,
-                    </h2>
-                    <!-- User Bio -->
-                    <p
-                            class="user-bio"
-                            th:unless="${user.getBio() == ''}"
-                            th:text="${user.getBio() != null ? user.getBio() : 'No Bio yet'}">
-                        Fake Bio
-                    </p>
-                    <!-- Favorite Genre -->
-                    <div th:if="${user.getFavoriteGenres().size() > 0}">
-                        <p class="fav-genre-profile">Favorite Genre:</p>
-                        <aside id="userFavoriteGenreContainer">
-                            <section class="favoriteGenreDeleteForm" th:each="favGenre : ${user.getFavoriteGenres()}" >
-                                <p th:text="${favGenre.genre.name}"></p>
-                            </section>
-                        </aside>
-                    </div>
-
-                </section>
-            </div>
-        </div>
-
-        <!===== Right Side =====>
-        <div id="right-side-user-reviews-container" class="col-12 col-sm-8 col-md-8">
-
-            <!-- Latest News-->
-            <div>
-                <!-- Title -->
-                <div class="section-title">
-                    <h2>Pending Friends</h2>
+<main id="main-notifications">
+    <!---------- Left Side ------------>
+    <div id="leftSide-notifications">
+        <!---------- User Profile Image Container ------------>
+        <section id="user-photoImage">
+            <!-- Image if there is no pathway -->
+            <img
+                    class="user-profile-picture"
+                    th:src="@{/img/noProfileImage.png}"
+                    th:if="${user.profilePicturePath == null}"
+                    alt="No Image Provided">
+            <!-- Profile Picture -->
+            <img
+                    class="user-profile-picture"
+                    th:src="${user.getProfilePicturePath()}"
+                    th:if="${user.profilePicturePath != ''}"
+                    th:alt="${user.getUsername()}">
+        </section>
+        <!---------- User Information Container ------------>
+        <section id="user-information">
+            <!-- User Greeting -->
+            <h2>
+                Notifications for <span th:text="${user.getUsername()}">USERNAME</span>
+            </h2>
+        </section>
+    </div>
+    <!---------- Right Side ------------>
+    <div id="rightSide-notifications">
+        <!---------- Pending Friends Section ------------>
+        <div id="notificationContainer">
+            <div class="container-lg container-fluid">
+                <!--- Section Title ---->
+                <div id="title-notification-section">
+                    <h2 id="title-notification">Notifications</h2>
                 </div>
-                <!--  -->
-                <div class="mainNotificationSection">
-                    <!-- Each Notification -->
-                    <div class="body-notification bg-light" th:each="newFriend:${allFriends}" th:if="${newFriend.getStatus() == 'pending'}">
+                <!-- Section Body -->
+                <div id="body-notification-section">
+                    <!-- Each Notification : Only showing pending status-->
+                    <div class="eachNotification" th:each="newFriend:${allFriends}" th:if="${newFriend.getStatus() == 'pending'}">
                         <a th:href="@{/in/{id} (id=${newFriend.getFriend().getId()})}" class="anchor-new-friend">
                             <!-- Profile Image -->
                             <img th:src="${newFriend.getFriend().getProfilePicturePath()}" th:alt="${newFriend.getFriend().getUsername()}" class="friend-profile-picture">
                             <!-- The User that tried adding you -->
-                            <h4 th:text="${newFriend.getFriend().getUsername()}"></h4>
+                            <h4 class="friend-username" th:text="${newFriend.getFriend().getUsername()}"></h4>
                         </a>
                         <div class="form-containers">
                             <!-- Form When Yes to be friend -->
@@ -89,6 +67,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </main>
 
@@ -96,9 +75,19 @@
 
 
 
+<!------ Footer ----->
+<footer id="footer" class="container-fluid footer-fixed-notifications">
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Fake Copyright <strong><span>Bookworm V.2</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Production by <a href="https://www.linkedin.com/in/heygilly/">HeyGilly</a>
+        </div>
+    </div>
+</footer>
 
-<!=== Footer ===>
-<footer th:replace="partials/footer.html :: Footer"></footer>
+<!----- Navbar ----->
 <script th:src="@{/js/searchForBookNavbar.js}"></script>
 </body>
 </html>
