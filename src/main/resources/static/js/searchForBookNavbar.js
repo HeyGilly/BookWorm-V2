@@ -29,7 +29,6 @@
 
         //-- When user press enter
         if (e.keyCode === 13){
-            console.log("Enter Pressed")
             showSearchBook()
         }
     })
@@ -40,11 +39,8 @@
 
     //-- Everytime called it fetches the api with book title input
     const  gatherBooks = async (bookTitle) =>{
-        console.log("Gathering Information! for: "+bookTitle);
         let googleAPIURL = `https://www.googleapis.com/books/v1/volumes?q=${bookTitle}&printType=books`
-        console.log("Google APU URL: "+googleAPIURL);
         let gatheringData = await fetch(googleAPIURL);
-        console.log("FETCHED");
         let turningDataIntoJSON = await gatheringData.json();
         return turningDataIntoJSON;
     }
@@ -54,7 +50,6 @@
         try {
             //-- URL for database
             let databaseSearchURL = `/book/search?title=${encodeURIComponent(bookTitle)}`;
-            console.log("Database URL: "+databaseSearchURL);
             //-- Calls the Database
             let response = await fetch(databaseSearchURL);
             //-- Checks for Error with data
@@ -65,7 +60,6 @@
             //-- Go Back to Step 1
             // It is an object, so you have to call like this.
             // console.log("Response to Json: ", data);
-            console.log("Response to Json: "+ JSON.stringify(data, null, 2));
             return data;
         } catch (error) {
             console.error('Error searching database:', error);
@@ -79,11 +73,9 @@
         if (searchBookInput.value !== "") {
             //-- Display Whole search Book Container to show results
             searchBookResultsContainer.style.display = "flex";
-            console.log("Box Displayed");
             //-- Step 2. Take the input value and run searchDatabases;
             //-- Returns the results from URL
             let databaseData = await searchDatabase(searchBookInput.value);
-            console.log("Database Data: ", databaseData);
             //-- Check if database search returned results
             if (databaseData && databaseData.length > 0) {
                 //--(Step 3, if in our database)  Use database data into the buttons.
@@ -101,10 +93,6 @@
 
     //// === If you have to call the API, instead of database.
     const dataCheck = async (data) => {
-        console.log("Check for Error");
-        console.log(data);
-        console.log("Data Error: " + data.error);
-        console.log("Data Total Items: " + data.totalItems);
         if (data.error) {
             searchBookResultsContainer.innerHTML = `<div>Network Problem</div>`
         } else if (data.totalItems === 0) {
@@ -112,11 +100,9 @@
         } else if (data.totalItems === undefined) {
             searchBookResultsContainer.innerHTML = `<div class='prompt'>Network problem!</div>`;
         } else {
-            console.log("No Error Move ON");
             searchBookResultsContainer.innerHTML = data.items.map( (({ volumeInfo }) => {
-                console.log(volumeInfo);
                 //-- Check if there is a title
-                const title =  volumeInfo.categories || "not placed";
+                const title =  volumeInfo.title;
                 //-- We pick the first author
                 const bookAuthors = volumeInfo.authors ? volumeInfo.authors[0] : null;
                 //If rating is not entered then return 1
@@ -136,21 +122,8 @@
                 //-- if there is ISBN or not
                 const ISBN = volumeInfo.industryIdentifiers ? volumeInfo.industryIdentifiers[0].identifier : null;
 
-
-                console.log("displaying all the search book container");
-                console.log(title);
-                console.log(bookAuthors);
-                console.log(ratingValue);
-                console.log(genreValue);
-                console.log(bookCover);
-                console.log(description);
-                console.log(pageCount);
-                console.log(publishedDate);
-                console.log(googlePlay);
-                console.log(ISBN);
-
                 return `<div class="nav-bar-search-form-container">
-                            <form method="POST" action="/api/book"   th:action="@{/api/book}">
+                            <form class="form-addingBookData" method="POST" action="/api/book" th:action="@{/api/book}">
                                <input type="hidden" name="title" value="${title}" />
                                <input type="hidden" name="isbn" value="${ISBN}" />
                                <input type="hidden" name="author" value="${bookAuthors}" />
@@ -162,13 +135,18 @@
                                <input type="hidden" name="date_published" value="${publishedDate}" />
                                <input type="hidden" name="google_play" value="${googlePlay}" />
                                <button type="submit" class="btn">
-                                    <img class="search-book-results-book-cover" src="${bookCover}" alt="${title}">
-                                    <div class="nav-search-book-info-container">
-                                        <h4 class="nav-search-book-result-title">
-                                            <div class="nav-search-book-results">${title}</div>
-                                        </h4>
-                                        <p class="nav-search-bar-results-authors">${bookAuthors}</p>
-                                    </div>
+                                     <section class="book-container">
+                                        <!-- Book Cover -->
+                                        <img src="${bookCover}" alt="${title}" class="book-cover">
+                                        <p>
+                                            <!-- Book Title -->
+                                            <span class="book-title">${title}</span><br/>
+                                            <small>
+                                                <!-- Book Author -->
+                                                By <span>${bookAuthors}</span>
+                                            </small>
+                                        </p>
+                                    </section>
                                </button>
                             </form>
                     </div>`
@@ -178,33 +156,31 @@
 
     //// === If there is data inside the database.
     const dataCheckForDatabase = async (data) => {
-        console.log("Check for Error");
-        console.log(data);
-        console.log("Data Size: " + data.length);
-        console.log("Data Error: " + data.error);
-        console.log("Data Total Items: " + data.totalItems);
-
         if (data.error) {
             searchBookResultsContainer.innerHTML = `<div>Network Problem</div>`
         } else if (data.length === 0) {
             searchBookResultsContainer.innerHTML = `<div class='prompt'>Try a different term</div>`;
         } else {
-            console.log("No Error");
             const bookEntries = data.map((item) => {
                 const author = item.author ? item.author : "Author not available";
                 const title = item.title ? item.title : "Title not available";
                 const bookCover = item.cover_page ? item.cover_page : 'img/noImage.jpeg';
 
-                return `<div class="nav-bar-search-form-container">
-                            <a href="/single/${item.id}" title="${title}">
+                return `<div class="nav-bar-search-database-container">
+                            <a href="/single/${item.id}" title="${title}" class="search-database-anchor">
                                <button class="btn">
-                                    <img class="search-book-results-book-cover" src="${bookCover}" alt="${title}">
-                                    <div class="nav-search-book-info-container">
-                                        <h4 class="nav-search-book-result-title">
-                                            <div class="nav-search-book-results">${title}</div>
-                                        </h4>
-                                        <p class="nav-search-bar-results-authors">${author}</p>
-                                    </div>
+                                    <section class="book-container">
+                                        <!-- Book Cover -->
+                                        <img src="${bookCover}" alt="${title}" class="book-cover">
+                                        <p>
+                                            <!-- Book Title -->
+                                            <span class="book-title">${title}</span><br/>
+                                            <small>
+                                                <!-- Book Author -->
+                                                By <span>${author}</span>
+                                            </small>
+                                        </p>
+                                    </section>
                                </button>
                             </a>
                     </div>`
@@ -214,7 +190,7 @@
             //-- Adding a new button for continuing the search
             const continueSearchButton = `<div id="continue-search-button-container">
                                             <button id="continue-search-button" type="button" class="btn">
-                                                Continue Search
+                                                <strong>Continue Search</strong>
                                             </button>
                                           </div>`;
 

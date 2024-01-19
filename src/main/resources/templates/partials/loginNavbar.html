@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" th:fragment="LoggedIn-Navbar">
     <div class="container">
         <!-- nav Brand -->
-        <span class="navbar-brand"><a class="navbar-brand" th:href="@{/welcome}">Bookworm</a></span>
+        <span class="navbar-brand-span"><a class="navbar-brand" th:href="@{/welcome}">Bookworm</a></span>
         <!-- Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,11 +17,11 @@
                     <img th:src="@{/img/search-result-cancel.png}" alt="Cancel Search" id="search-result-cancel-button">
                 </section>
                 <!-- Profile Account -->
-                <a th:href="@{/in/3}">
+                <a th:href="@{/in/3}" id="profileAccount-anchor">
                     <img th:src="@{/img/account.png}" alt="Profile" class="navbar-notification-icon me-3">
                 </a>
                 <!-- Notification Icon -->
-                <a th:href="@{/notification}">
+                <a th:href="@{/notification}" id="navbar-notification-anchor">
                     <img th:if="${hasNotifications}" th:src="@{/img/alertNotification.png}" alt="Notifications" class="navbar-notification-icon me-3">
                     <img th:if="${!hasNotifications}" th:src="@{/img/notification.png}" alt="No_Notifications" class="navbar-notification-icon me-3">
                 </a>
@@ -31,5 +31,5 @@
         </div>
     </div>
     <!-- The Search Book Results Container -->
-    <div id="book-search-results" class="container-fluid"></div>
+    <div id="book-search-results" class="container-lg container-fluid"></div>
 </nav>

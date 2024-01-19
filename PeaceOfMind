@@ -178,7 +178,7 @@ Thursday, Dec 7 - Friday Dec 8
             [X] Single Book Page
             [X] Forgot Password Page
             [X] Navbar - Log Out
-            [ ] Navbar - Log In
+            [X] Navbar - Log In
 
             [ ] Create a all books page.
                 Then we will do a filer of genre
@@ -192,9 +192,7 @@ Thursday, Dec 7 - Friday Dec 8
             [ ] Controllers refactoring
 
     TODO:
-        [ ] Navigation, Gather some Books - Ongoing
         [ ] User Review Database add a date to it. createdAt, editedAt, liked
-        [ ] Maybe limit the characters for reviews.
 
     Ideas:
         [ ] With DTO, work with Input Validation
