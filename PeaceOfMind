@@ -165,35 +165,42 @@ Thursday, Dec 7 - Friday Dec 8
         [X] Profile Page, Refactor
 
         [X] Refactor pages
-            [X] Pending Friends
-            [X] Profile Page
-            [X] About the project
-            [X] Footer
-            [X] Login Page
-            [X] Register Page
-            [X] welcome page
-            [X] Single Book Page
-            [X] Forgot Password Page
-            [X] Navbar - Log Out
-            [X] Navbar - Log In
+             [X] Pending Friends
+                        [X] Profile Page
+                        [X] About the project
+                        [X] Footer
+                        [X] Login Page
+                        [X] Register Page
+                        [X] welcome page
+                        [X] Single Book Page
+                        [X] Forgot Password Page
+                        [X] Navbar - Log Out
+                        [X] Navbar - Log In
 
 
-    WORKING:
 
-            [ ] Create a all books page.
-                Then we will do a filer of genre
+                WORKING:
+                   [ ] Working with Security
+                        [ ] Add dependencies
+                        [ ] Create Security Config
+                        [ ] Added a error message and log out message in login page.
+                        [ ] Complete Logout form button in navbar
 
-        [ ] Take a look at the like button on both book and user profile.
-        [ ] SingUp, add the username has to be unique.
-        [ ] Profile, Like Button make a hover
 
-        [ ] Security
-            [ ] Controllers refactoring
 
-    TODO:
-        [ ] User Review Database add a date to it. createdAt, editedAt, liked
+                    [ ] Create a all books page.
+                        Then we will do a filer of genre
+                    [ ] Take a look at the like button on both book and user profile.
+                    [ ] SingUp, add the username has to be unique.
+                    [ ] Profile, Like Button make a hover
 
-    Ideas:
-        [ ] With DTO, work with Input Validation
-        [ ] With DTO, how it work? how to add it to this?
-        [ ] Make a page about all the books in the database and then separate by genre
+                    [ ] Security
+                        [ ] Controllers refactoring
+
+                TODO:
+                    [ ] User Review Database add a date to it. createdAt, editedAt, liked
+
+                Ideas:
+                    [ ] With DTO, work with Input Validation
+                    [ ] With DTO, how it work? how to add it to this?
+                    [ ] Make a page about all the books in the database and then separate by genre
