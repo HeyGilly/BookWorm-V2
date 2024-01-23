@@ -31,6 +31,8 @@ public class User {
     private String password;
     @Column(name="BIO")
     private String bio;
+    @Column(name="ROLE")
+    private String role;
 
     //== This is used to handle the file upload.
     //== When Using Transient, meaning that you are usually saving the image to a file system, or a cloud storage.
@@ -64,7 +66,7 @@ public class User {
     }
 
     //-- Whole Constructor
-    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, MultipartFile profilePictureFile, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres, List<FavoriteBook> favoriteBookList, String resetToken, Set<BestFriends> friendships, List<LikedReview> likedReviews) {
+    public User(long id, String first_name, String last_name, String username, String email, String password, String bio, String role, MultipartFile profilePictureFile, String profilePicturePath, List<Reviews> reviewsList, List<FavoriteGenre> favoriteGenres, List<FavoriteBook> favoriteBookList, String resetToken, Set<BestFriends> friendships, List<LikedReview> likedReviews) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -72,6 +74,7 @@ public class User {
         this.email = email;
         this.password = password;
         this.bio = bio;
+        this.role = role;
         this.profilePictureFile = profilePictureFile;
         this.profilePicturePath = profilePicturePath;
         this.reviewsList = reviewsList;
@@ -82,16 +85,18 @@ public class User {
         this.likedReviews = likedReviews;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
-    public void setId(Long id) {
+
+    public void setId(long id) {
         this.id = id;
     }
 
     public String getFirst_name() {
         return first_name;
     }
+
     public void setFirst_name(String first_name) {
         this.first_name = first_name;
     }
@@ -99,6 +104,7 @@ public class User {
     public String getLast_name() {
         return last_name;
     }
+
     public void setLast_name(String last_name) {
         this.last_name = last_name;
     }
@@ -106,6 +112,7 @@ public class User {
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -113,11 +120,15 @@ public class User {
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {this.email = email;}
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getPassword() {
         return password;
     }
+
     public void setPassword(String password) {
         this.password = password;
     }
@@ -125,16 +136,31 @@ public class User {
     public String getBio() {
         return bio;
     }
+
     public void setBio(String bio) {
         this.bio = bio;
     }
 
-    public MultipartFile getProfilePictureFile() {return profilePictureFile;}
-    public void setProfilePictureFile(MultipartFile profilePictureFile) {this.profilePictureFile = profilePictureFile;}
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public MultipartFile getProfilePictureFile() {
+        return profilePictureFile;
+    }
+
+    public void setProfilePictureFile(MultipartFile profilePictureFile) {
+        this.profilePictureFile = profilePictureFile;
+    }
 
     public String getProfilePicturePath() {
         return profilePicturePath;
     }
+
     public void setProfilePicturePath(String profilePicturePath) {
         this.profilePicturePath = profilePicturePath;
     }
@@ -142,6 +168,7 @@ public class User {
     public List<Reviews> getReviewsList() {
         return reviewsList;
     }
+
     public void setReviewsList(List<Reviews> reviewsList) {
         this.reviewsList = reviewsList;
     }
@@ -149,8 +176,17 @@ public class User {
     public List<FavoriteGenre> getFavoriteGenres() {
         return favoriteGenres;
     }
+
     public void setFavoriteGenres(List<FavoriteGenre> favoriteGenres) {
         this.favoriteGenres = favoriteGenres;
+    }
+
+    public List<FavoriteBook> getFavoriteBookList() {
+        return favoriteBookList;
+    }
+
+    public void setFavoriteBookList(List<FavoriteBook> favoriteBookList) {
+        this.favoriteBookList = favoriteBookList;
     }
 
     public String getResetToken() {
